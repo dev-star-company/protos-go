@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package exchange_proto;
+
+option go_package = "./generated_protos/exchange_proto";
+
+service ExchangeService {
+  rpc Create(CreateExchangeRequest) returns (CreateExchangeResponse);
+  rpc Get(GetExchangeRequest) returns (GetExchangeResponse);
+  rpc Update(UpdateExchangeRequest) returns (UpdateExchangeResponse);
+  rpc Delete(DeleteExchangeRequest) returns (DeleteExchangeResponse);
+  rpc List(ListExchangeRequest) returns (ListExchangeResponse);
+}
+
+message Exchange {
+  uint32 id = 1;
+  string created_at = 2;
+  string updated_at = 3;
+  optional string deleted_at = 4;
+  uint32 created_by = 5;
+  uint32 updated_by = 6;
+  optional uint32 deleted_by = 7;
+  double value = 8;
+  uint32 currency_id = 9;
+}
+
+message CreateExchangeRequest {
+  uint32 requester_id = 1;
+  double value = 2;
+  uint32 currency_id = 3;
+}
+
+message CreateExchangeResponse {
+  uint32 requester_id = 1;
+  double value = 2;
+  uint32 currency_id = 3;
+  string created_at = 4;
+  string updated_at = 5;
+  string deleted_at = 6;
+  uint32 created_by = 7;
+  uint32 updated_by = 8;
+  uint32 deleted_by = 9;
+}
+
+message GetExchangeRequest {
+  uint32 id = 1;
+}
+
+message GetExchangeResponse {
+  uint32 requester_id = 1;
+  double value = 2;
+  uint32 currency_id = 3;
+  string created_at = 4;
+  string updated_at = 5;
+  string deleted_at = 6;
+  uint32 created_by = 7;
+  uint32 updated_by = 8;
+  uint32 deleted_by = 9;
+}
+
+message UpdateExchangeRequest {
+  uint32 id = 1;
+  uint32 requester_id = 2;
+  optional double value = 3;
+  optional uint32 currency_id = 4;
+}
+
+message UpdateExchangeResponse {
+  uint32 requester_id = 1;
+  double value = 2;
+  uint32 currency_id = 3;
+}
+
+message DeleteExchangeRequest {
+  uint32 id = 1;
+  uint32 requester_id = 2;
+}
+
+message DeleteExchangeResponse {
+  string message = 1;
+}
+
+message ListExchangeRequest {
+  optional uint32 limit = 1;
+  optional uint32 offset = 2;
+  optional bool include_deleted = 3;
+  optional double value = 4;
+  optional uint32 currency_id = 5;
+  optional OrderBy orderby = 6;
+}
+
+message OrderBy {
+  optional string id = 1;
+  optional string created_at = 2;
+}
+
+message ListExchangeResponse {
+  repeated Exchange rows = 1;
+  uint32 count = 2;
+}

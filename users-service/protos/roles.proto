@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+package roles_proto;
+
+option go_package = "./generated_protos/roles_proto";
+
+service RolesService {
+    rpc Create (CreateRequest) returns (CreateResponse);
+    rpc Get (GetRequest) returns (GetResponse);
+    rpc List (ListRequest) returns (ListResponse);
+    rpc Update (UpdateRequest) returns (UpdateResponse);
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    rpc AddPermission (AddPermissionRequest) returns (AddPermissionResponse);
+    rpc RemovePermission (RemovePermissionRequest) returns (RemovePermissionResponse);
+    rpc GetPermissions (GetPermissionsRequest) returns (GetPermissionsResponse);
+}
+
+message Permission {
+    uint32 id = 1;
+    string name = 2;
+    string description = 3;
+    string created_at = 4;
+    string updated_at = 5;
+    optional string deleted_at = 6;
+    uint32 created_by = 7;
+    uint32 updated_by = 8;
+    optional uint32 deleted_by = 9;
+    bool is_active = 10;
+    string permission = 11;
+}
+
+message Role {
+    uint32 id = 1;
+    string name = 2;
+    string description = 3;
+    string created_at = 4;
+    string updated_at = 5;
+    optional string deleted_at = 6;
+    uint32 created_by = 7;
+    uint32 updated_by = 8;
+    optional uint32 deleted_by = 9;
+    bool is_active = 10;
+}
+
+message CreateRequest {
+    string name = 1;
+    uint32 requesterId = 2;
+    string description = 3;
+}
+
+message CreateResponse {
+    Role role = 1;
+}
+
+message GetRequest {
+    uint32 id = 1;
+}
+
+message GetResponse {
+    Role role = 1;
+}
+
+message ListRequest {
+    uint32 limit = 1;
+    uint32 offset = 2;
+    optional bool include_deleted = 3;
+}
+
+message ListResponse {
+    repeated Role rows = 1;
+    uint32 count = 2;
+}
+
+message UpdateRequest {
+    uint32 id = 1;
+    optional string name = 2;
+    optional string description = 3;
+    uint32 requesterId = 4;
+}
+
+message UpdateResponse {
+    Role role = 1;
+}
+
+message DeleteRequest {
+    uint32 id = 1;
+    uint32 requesterId = 2;
+}
+
+message DeleteResponse {}
+
+message AddPermissionRequest {
+    uint32 role_id = 1;
+    uint32 permission_id = 2;
+    uint32 requesterId = 3;
+}
+
+message AddPermissionResponse {
+    Role role = 1;
+}
+
+message RemovePermissionRequest {
+    uint32 role_id = 1;
+    uint32 permission_id = 2;
+    uint32 requesterId = 3;
+}
+
+message RemovePermissionResponse {
+    Role role = 1;
+}
+
+message GetPermissionsRequest {
+    uint32 role_id = 1;
+    uint32 limit = 2;
+    uint32 offset = 3;
+}
+
+message GetPermissionsResponse {
+    repeated Permission rows = 1;
+    uint32 count = 2;
+}

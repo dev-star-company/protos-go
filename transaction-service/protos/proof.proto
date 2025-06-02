@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+package proof_proto;
+
+option go_package = "./generated_protos/proof_proto";
+
+service ProofService {
+  rpc Create(CreateProofRequest) returns (CreateProofResponse);
+  rpc Get(GetProofRequest) returns (GetProofResponse);
+  rpc Update(UpdateProofRequest) returns (UpdateProofResponse);
+  rpc Delete(DeleteProofRequest) returns (DeleteProofResponse);
+  rpc List(ListProofRequest) returns (ListProofResponse);
+}
+
+message Proof {
+  uint32 id = 1;
+  string created_at = 2;
+  string updated_at = 3;
+  optional string deleted_at = 4;
+  uint32 created_by = 5;
+  uint32 updated_by = 6;
+  optional uint32 deleted_by = 7;
+  uint32 transaction_id = 8;
+  string sender = 9;
+  optional string observation = 10;
+}
+
+message CreateProofRequest {
+  uint32 requester_id = 1;
+  uint32 transaction_id = 2;
+  string sender = 3;
+  optional string observation = 4;
+}
+
+message CreateProofResponse {
+  uint32 requester_id = 1;
+  uint32 transaction_id = 2;
+  string sender = 3;
+  string observation = 4;
+  string created_at = 5;
+  string updated_at = 6;
+  string deleted_at = 7;
+  uint32 created_by = 8;
+  uint32 updated_by = 9;
+  uint32 deleted_by = 10;
+}
+
+message GetProofRequest {
+  uint32 id = 1;
+}
+
+message GetProofResponse {
+  uint32 requester_id = 1;
+  uint32 transaction_id = 2;
+  string sender = 3;
+  string observation = 4;
+  string created_at = 5;
+  string updated_at = 6;
+  string deleted_at = 7;
+  uint32 created_by = 8;
+  uint32 updated_by = 9;
+  uint32 deleted_by = 10;
+}
+
+message UpdateProofRequest {
+  uint32 id = 1;
+  uint32 requester_id = 2;
+  optional uint32 transaction_id = 3;
+  optional string sender = 4;
+  optional string observation = 5;
+}
+
+message UpdateProofResponse {
+  uint32 requester_id = 1;
+  uint32 transaction_id = 2;
+  string sender = 3;
+  string observation = 4;
+}
+
+message DeleteProofRequest {
+  uint32 id = 1;
+  uint32 requester_id = 2;
+}
+
+message DeleteProofResponse {
+  string message = 1;
+}
+
+message ListProofRequest {
+  optional uint32 limit = 1;
+  optional uint32 offset = 2;
+  optional bool include_deleted = 3;
+  optional uint32 transaction_id = 4;
+  optional string sender = 5;
+  optional string observation = 6;
+  optional OrderBy orderby = 7;
+}
+
+message OrderBy {
+  optional string id = 1;
+  optional string created_at = 2;
+}
+
+message ListProofResponse {
+  repeated Proof rows = 1;
+  uint32 count = 2;
+}

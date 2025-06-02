@@ -1,0 +1,123 @@
+syntax = "proto3";
+
+package currency_proto;
+
+option go_package = "./generated_protos/currency_proto";
+
+service CurrencyService {
+  rpc Create(CreateCurrencyRequest) returns (CreateCurrencyResponse);
+  rpc Get(GetCurrencyRequest) returns (GetCurrencyResponse);
+  rpc Update(UpdateCurrencyRequest) returns (UpdateCurrencyResponse);
+  rpc Delete(DeleteCurrencyRequest) returns (DeleteCurrencyResponse);
+  rpc List(ListCurrencyRequest) returns (ListCurrencyResponse);
+}
+
+message Currency {
+  uint32 id = 1;
+  string created_at = 2;
+  string updated_at = 3;
+  optional string deleted_at = 4;
+  uint32 created_by = 5;
+  uint32 updated_by = 6;
+  optional uint32 deleted_by = 7;
+  string name = 8;
+  string symbol = 9;
+  string abbreviation = 10;
+  int32 decimals = 11;
+  uint32 currency_type_id = 12;
+  uint32 requester_id = 13;
+}
+
+message CreateCurrencyRequest {
+  uint32 requester_id = 1;
+  string name = 2;
+  string symbol = 3;
+  string abbreviation = 4;
+  int32 decimals = 5;
+  uint32 currency_type_id = 6;
+}
+
+message CreateCurrencyResponse {
+  uint32 requester_id = 1;
+  string name = 2;
+  string symbol = 3;
+  string abbreviation = 4;
+  int32 decimals = 5;
+  uint32 currency_type_id = 6;
+  string created_at = 7;
+  string updated_at = 8;
+  string deleted_at = 9;
+  uint32 created_by = 10;
+  uint32 updated_by = 11;
+  uint32 deleted_by = 12;
+}
+
+message GetCurrencyRequest {
+  uint32 id = 1;
+}
+
+message GetCurrencyResponse {
+  uint32 requester_id = 1;
+  string name = 2;
+  string symbol = 3;
+  string abbreviation = 4;
+  int32 decimals = 5;
+  uint32 currency_type_id = 6;
+  string created_at = 7;
+  string updated_at = 8;
+  string deleted_at = 9;
+  uint32 created_by = 10;
+  uint32 updated_by = 11;
+  uint32 deleted_by = 12;
+}
+
+message UpdateCurrencyRequest {
+  uint32 id = 1;
+  uint32 requester_id = 2;
+  optional string name = 3;
+  optional string symbol = 4;
+  optional string abbreviation = 5;
+  optional int32 decimals = 6;
+  optional uint32 currency_type_id = 7;
+}
+
+message UpdateCurrencyResponse {
+  uint32 requester_id = 1;
+  string name = 2;
+  string symbol = 3;
+  string abbreviation = 4;
+  int32 decimals = 5;
+  uint32 currency_type_id = 6;
+}
+
+message DeleteCurrencyRequest {
+  uint32 id = 1;
+  uint32 requester_id = 2;
+}
+
+message DeleteCurrencyResponse {
+  string message = 1;
+}
+
+message ListCurrencyRequest {
+  optional uint32 limit = 1;
+  optional uint32 offset = 2;
+  optional bool include_deleted = 3;
+  optional string name = 4;
+  optional string symbol = 5;
+  optional string abbreviation = 6;
+  optional int32 decimals = 7;
+  optional uint32 currency_type_id = 8;
+  optional OrderBy orderby = 9;
+}
+
+message OrderBy {
+  optional string name = 1;
+  optional string id = 2;
+  optional string created_at = 3;
+}
+
+message ListCurrencyResponse {
+  repeated Currency rows = 1;
+  uint32 count = 2;
+}

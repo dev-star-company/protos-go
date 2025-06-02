@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package account_type_proto;
+
+option go_package = "./generated_protos/account_type_proto";
+
+service AccountTypeService {
+    rpc Create(CreateAccountTypeRequest) returns (CreateAccountTypeResponse);
+    rpc Get(GetAccountTypeRequest) returns (GetAccountTypeResponse);
+    rpc List(ListAccountTypeRequest) returns (ListAccountTypeResponse);
+    rpc Update(UpdateAccountTypeRequest) returns (UpdateAccountTypeResponse);
+    rpc Delete(DeleteAccountTypeRequest) returns (DeleteAccountTypeResponse);
+  }  
+
+message AccountType {
+  uint32 id = 1;
+  string name = 2;
+  uint32 created_by = 3;
+  uint32 updated_by = 4;
+  string created_at = 5;
+  string updated_at = 6;
+  optional string deleted_at = 7;
+  optional uint32 deleted_by = 8;
+  uint32 requesterId = 9;
+}
+
+message CreateAccountTypeRequest {
+  uint32 requesterId = 1;
+  string name = 2;
+}
+
+message CreateAccountTypeResponse {
+  uint32 requesterId = 1;
+  string name = 2;
+  uint32 created_by = 3;
+  uint32 updated_by = 4;
+  string created_at = 5;
+  string updated_at = 6;
+  string deleted_at = 7;
+  uint32 deleted_by = 8;
+}
+
+message GetAccountTypeRequest {
+  uint32 id = 1;
+}
+
+message GetAccountTypeResponse {
+  string name = 1;
+  uint32 created_by = 2;
+  uint32 updated_by = 3;
+  string created_at = 4;
+  string updated_at = 5;
+  string deleted_at = 6;
+  uint32 deleted_by = 7;
+}
+
+message OrderBy {
+  optional string name = 1;
+  optional string id = 2;
+  optional string created_at = 3;
+}
+
+message ListAccountTypeRequest {
+  optional string name = 1;
+  optional uint32 limit = 2;
+  optional uint32 offset = 3;
+  optional bool include_deleted = 4;
+  optional OrderBy orderby = 5;
+}
+
+message ListAccountTypeResponse {
+  repeated AccountType rows = 1;
+  uint32 count = 2;
+}
+
+message UpdateAccountTypeRequest {
+  uint32 id = 1;
+  optional string name = 2;
+  uint32 requester_id = 3;
+}
+
+message UpdateAccountTypeResponse {
+  string name = 1;
+}
+
+message DeleteAccountTypeRequest {
+  uint32 id = 1;
+  uint32 requester_id = 2;
+}
+
+message DeleteAccountTypeResponse {
+  string message = 1;
+}
