@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package first_login_proto;
 
-option go_package = "./generated_protos/first_login_proto";
+option go_package = "./first_login_proto";
 
 service FirstLoginService {
     rpc Create (CreateRequest) returns (CreateResponse);

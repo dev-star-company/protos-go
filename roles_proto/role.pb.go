@@ -821,7 +821,7 @@ const file_protos_role_proto_rawDesc = "" +
 	"\x03Get\x12\x17.roles_proto.GetRequest\x1a\x18.roles_proto.GetResponse\x12;\n" +
 	"\x04List\x12\x18.roles_proto.ListRequest\x1a\x19.roles_proto.ListResponse\x12A\n" +
 	"\x06Update\x12\x1a.roles_proto.UpdateRequest\x1a\x1b.roles_proto.UpdateResponse\x12A\n" +
-	"\x06Delete\x12\x1a.roles_proto.DeleteRequest\x1a\x1b.roles_proto.DeleteResponseB Z\x1e./generated_protos/roles_protob\x06proto3"
+	"\x06Delete\x12\x1a.roles_proto.DeleteRequest\x1a\x1b.roles_proto.DeleteResponseB\x0fZ\r./roles_protob\x06proto3"
 
 var (
 	file_protos_role_proto_rawDescOnce sync.Once

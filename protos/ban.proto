@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ban_proto;
 
-option go_package = "./generated_protos/ban_proto";
+option go_package = "./ban_proto";
 
 service BanService {
     rpc Create (CreateRequest) returns (CreateResponse);

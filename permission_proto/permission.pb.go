@@ -1062,7 +1062,7 @@ const file_protos_permission_proto_rawDesc = "" +
 	"\x06Delete\x12\x1f.permission_proto.DeleteRequest\x1a .permission_proto.DeleteResponse\x12E\n" +
 	"\x04List\x12\x1d.permission_proto.ListRequest\x1a\x1e.permission_proto.ListResponse\x12K\n" +
 	"\x06Update\x12\x1f.permission_proto.UpdateRequest\x1a .permission_proto.UpdateResponse\x12B\n" +
-	"\x03Get\x12\x1c.permission_proto.GetRequest\x1a\x1d.permission_proto.GetResponseB%Z#./generated_protos/permission_protob\x06proto3"
+	"\x03Get\x12\x1c.permission_proto.GetRequest\x1a\x1d.permission_proto.GetResponseB\x14Z\x12./permission_protob\x06proto3"
 
 var (
 	file_protos_permission_proto_rawDescOnce sync.Once

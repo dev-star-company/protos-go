@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package permission_proto;
 
-option go_package = "./generated_protos/permission_proto";
+option go_package = "./permission_proto";
 
 service PermissionService {
     rpc Create (CreateRequest) returns (CreateResponse);

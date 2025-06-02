@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package roles_proto;
 
-option go_package = "./generated_protos/roles_proto";
+option go_package = "./roles_proto";
 
 service RolesService {
     rpc Create (CreateRequest) returns (CreateResponse);

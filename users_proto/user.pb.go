@@ -1417,7 +1417,7 @@ const file_protos_user_proto_rawDesc = "" +
 	"\x04List\x12\x18.users_proto.ListRequest\x1a\x19.users_proto.ListResponse\x12A\n" +
 	"\x06Update\x12\x1a.users_proto.UpdateRequest\x1a\x1b.users_proto.UpdateResponse\x12A\n" +
 	"\x06Delete\x12\x1a.users_proto.DeleteRequest\x1a\x1b.users_proto.DeleteResponse\x12Y\n" +
-	"\x0eVerifyPassword\x12\".users_proto.VerifyPasswordRequest\x1a#.users_proto.VerifyPasswordResponseB Z\x1e./generated_protos/users_protob\x06proto3"
+	"\x0eVerifyPassword\x12\".users_proto.VerifyPasswordRequest\x1a#.users_proto.VerifyPasswordResponseB\x0fZ\r./users_protob\x06proto3"
 
 var (
 	file_protos_user_proto_rawDescOnce sync.Once
