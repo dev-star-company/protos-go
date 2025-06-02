@@ -1,0 +1,7 @@
+Proto buffers to star companies projects
+
+protoc --go_out=. --go-grpc_out=. protos/*
+
+Be sure to install the protoc-gen-go and protoc-gen-go-grpc plugins
+  go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+  go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
