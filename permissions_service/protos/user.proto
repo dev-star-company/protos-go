@@ -142,4 +142,5 @@ message VerifyPasswordResponse {
   optional uint32 remaining_retries = 2;
   optional string error = 3;
   optional string suspended_until = 4;
+  optional User user = 5;
 }

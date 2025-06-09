@@ -1199,6 +1199,7 @@ type VerifyPasswordResponse struct {
 	RemainingRetries *uint32                `protobuf:"varint,2,opt,name=remaining_retries,json=remainingRetries,proto3,oneof" json:"remaining_retries,omitempty"`
 	Error            *string                `protobuf:"bytes,3,opt,name=error,proto3,oneof" json:"error,omitempty"`
 	SuspendedUntil   *string                `protobuf:"bytes,4,opt,name=suspended_until,json=suspendedUntil,proto3,oneof" json:"suspended_until,omitempty"`
+	User             *User                  `protobuf:"bytes,5,opt,name=user,proto3,oneof" json:"user,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -1259,6 +1260,13 @@ func (x *VerifyPasswordResponse) GetSuspendedUntil() string {
 		return *x.SuspendedUntil
 	}
 	return ""
+}
+
+func (x *VerifyPasswordResponse) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
 }
 
 var File_protos_user_proto protoreflect.FileDescriptor
@@ -1412,15 +1420,17 @@ const file_protos_user_proto_rawDesc = "" +
 	"\x05phone\x18\x05 \x01(\tH\x02R\x05phone\x88\x01\x01B\x05\n" +
 	"\x03_idB\b\n" +
 	"\x06_emailB\b\n" +
-	"\x06_phone\"\xe1\x01\n" +
+	"\x06_phone\"\x96\x02\n" +
 	"\x16VerifyPasswordResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x120\n" +
 	"\x11remaining_retries\x18\x02 \x01(\rH\x00R\x10remainingRetries\x88\x01\x01\x12\x19\n" +
 	"\x05error\x18\x03 \x01(\tH\x01R\x05error\x88\x01\x01\x12,\n" +
-	"\x0fsuspended_until\x18\x04 \x01(\tH\x02R\x0esuspendedUntil\x88\x01\x01B\x14\n" +
+	"\x0fsuspended_until\x18\x04 \x01(\tH\x02R\x0esuspendedUntil\x88\x01\x01\x12*\n" +
+	"\x04user\x18\x05 \x01(\v2\x11.users_proto.UserH\x03R\x04user\x88\x01\x01B\x14\n" +
 	"\x12_remaining_retriesB\b\n" +
 	"\x06_errorB\x12\n" +
-	"\x10_suspended_until2\xa9\x03\n" +
+	"\x10_suspended_untilB\a\n" +
+	"\x05_user2\xa9\x03\n" +
 	"\fUsersService\x12A\n" +
 	"\x06Create\x12\x1a.users_proto.CreateRequest\x1a\x1b.users_proto.CreateResponse\x128\n" +
 	"\x03Get\x12\x17.users_proto.GetRequest\x1a\x18.users_proto.GetResponse\x12;\n" +
@@ -1468,23 +1478,24 @@ var file_protos_user_proto_depIdxs = []int32{
 	3,  // 4: users_proto.GetResponse.user:type_name -> users_proto.User
 	3,  // 5: users_proto.ListResponse.rows:type_name -> users_proto.User
 	3,  // 6: users_proto.UpdateResponse.user:type_name -> users_proto.User
-	4,  // 7: users_proto.UsersService.Create:input_type -> users_proto.CreateRequest
-	6,  // 8: users_proto.UsersService.Get:input_type -> users_proto.GetRequest
-	8,  // 9: users_proto.UsersService.List:input_type -> users_proto.ListRequest
-	10, // 10: users_proto.UsersService.Update:input_type -> users_proto.UpdateRequest
-	12, // 11: users_proto.UsersService.Delete:input_type -> users_proto.DeleteRequest
-	14, // 12: users_proto.UsersService.VerifyPassword:input_type -> users_proto.VerifyPasswordRequest
-	5,  // 13: users_proto.UsersService.Create:output_type -> users_proto.CreateResponse
-	7,  // 14: users_proto.UsersService.Get:output_type -> users_proto.GetResponse
-	9,  // 15: users_proto.UsersService.List:output_type -> users_proto.ListResponse
-	11, // 16: users_proto.UsersService.Update:output_type -> users_proto.UpdateResponse
-	13, // 17: users_proto.UsersService.Delete:output_type -> users_proto.DeleteResponse
-	15, // 18: users_proto.UsersService.VerifyPassword:output_type -> users_proto.VerifyPasswordResponse
-	13, // [13:19] is the sub-list for method output_type
-	7,  // [7:13] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	3,  // 7: users_proto.VerifyPasswordResponse.user:type_name -> users_proto.User
+	4,  // 8: users_proto.UsersService.Create:input_type -> users_proto.CreateRequest
+	6,  // 9: users_proto.UsersService.Get:input_type -> users_proto.GetRequest
+	8,  // 10: users_proto.UsersService.List:input_type -> users_proto.ListRequest
+	10, // 11: users_proto.UsersService.Update:input_type -> users_proto.UpdateRequest
+	12, // 12: users_proto.UsersService.Delete:input_type -> users_proto.DeleteRequest
+	14, // 13: users_proto.UsersService.VerifyPassword:input_type -> users_proto.VerifyPasswordRequest
+	5,  // 14: users_proto.UsersService.Create:output_type -> users_proto.CreateResponse
+	7,  // 15: users_proto.UsersService.Get:output_type -> users_proto.GetResponse
+	9,  // 16: users_proto.UsersService.List:output_type -> users_proto.ListResponse
+	11, // 17: users_proto.UsersService.Update:output_type -> users_proto.UpdateResponse
+	13, // 18: users_proto.UsersService.Delete:output_type -> users_proto.DeleteResponse
+	15, // 19: users_proto.UsersService.VerifyPassword:output_type -> users_proto.VerifyPasswordResponse
+	14, // [14:20] is the sub-list for method output_type
+	8,  // [8:14] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_protos_user_proto_init() }
