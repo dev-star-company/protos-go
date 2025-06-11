@@ -19,101 +19,101 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UsersService_Verify_FullMethodName = "/password_proto.UsersService/Verify"
+	PasswordService_Verify_FullMethodName = "/password_proto.PasswordService/Verify"
 )
 
-// UsersServiceClient is the client API for UsersService service.
+// PasswordServiceClient is the client API for PasswordService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UsersServiceClient interface {
+type PasswordServiceClient interface {
 	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error)
 }
 
-type usersServiceClient struct {
+type passwordServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUsersServiceClient(cc grpc.ClientConnInterface) UsersServiceClient {
-	return &usersServiceClient{cc}
+func NewPasswordServiceClient(cc grpc.ClientConnInterface) PasswordServiceClient {
+	return &passwordServiceClient{cc}
 }
 
-func (c *usersServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error) {
+func (c *passwordServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(VerifyResponse)
-	err := c.cc.Invoke(ctx, UsersService_Verify_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, PasswordService_Verify_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UsersServiceServer is the server API for UsersService service.
-// All implementations must embed UnimplementedUsersServiceServer
+// PasswordServiceServer is the server API for PasswordService service.
+// All implementations must embed UnimplementedPasswordServiceServer
 // for forward compatibility.
-type UsersServiceServer interface {
+type PasswordServiceServer interface {
 	Verify(context.Context, *VerifyRequest) (*VerifyResponse, error)
-	mustEmbedUnimplementedUsersServiceServer()
+	mustEmbedUnimplementedPasswordServiceServer()
 }
 
-// UnimplementedUsersServiceServer must be embedded to have
+// UnimplementedPasswordServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUsersServiceServer struct{}
+type UnimplementedPasswordServiceServer struct{}
 
-func (UnimplementedUsersServiceServer) Verify(context.Context, *VerifyRequest) (*VerifyResponse, error) {
+func (UnimplementedPasswordServiceServer) Verify(context.Context, *VerifyRequest) (*VerifyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Verify not implemented")
 }
-func (UnimplementedUsersServiceServer) mustEmbedUnimplementedUsersServiceServer() {}
-func (UnimplementedUsersServiceServer) testEmbeddedByValue()                      {}
+func (UnimplementedPasswordServiceServer) mustEmbedUnimplementedPasswordServiceServer() {}
+func (UnimplementedPasswordServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeUsersServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UsersServiceServer will
+// UnsafePasswordServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PasswordServiceServer will
 // result in compilation errors.
-type UnsafeUsersServiceServer interface {
-	mustEmbedUnimplementedUsersServiceServer()
+type UnsafePasswordServiceServer interface {
+	mustEmbedUnimplementedPasswordServiceServer()
 }
 
-func RegisterUsersServiceServer(s grpc.ServiceRegistrar, srv UsersServiceServer) {
-	// If the following call pancis, it indicates UnimplementedUsersServiceServer was
+func RegisterPasswordServiceServer(s grpc.ServiceRegistrar, srv PasswordServiceServer) {
+	// If the following call pancis, it indicates UnimplementedPasswordServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UsersService_ServiceDesc, srv)
+	s.RegisterService(&PasswordService_ServiceDesc, srv)
 }
 
-func _UsersService_Verify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _PasswordService_Verify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(VerifyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsersServiceServer).Verify(ctx, in)
+		return srv.(PasswordServiceServer).Verify(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsersService_Verify_FullMethodName,
+		FullMethod: PasswordService_Verify_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServiceServer).Verify(ctx, req.(*VerifyRequest))
+		return srv.(PasswordServiceServer).Verify(ctx, req.(*VerifyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UsersService_ServiceDesc is the grpc.ServiceDesc for UsersService service.
+// PasswordService_ServiceDesc is the grpc.ServiceDesc for PasswordService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UsersService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "password_proto.UsersService",
-	HandlerType: (*UsersServiceServer)(nil),
+var PasswordService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "password_proto.PasswordService",
+	HandlerType: (*PasswordServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Verify",
-			Handler:    _UsersService_Verify_Handler,
+			Handler:    _PasswordService_Verify_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

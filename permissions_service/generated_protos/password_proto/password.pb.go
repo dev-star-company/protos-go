@@ -739,8 +739,8 @@ const file_protos_password_proto_rawDesc = "" +
 	"\x12_remaining_retriesB\b\n" +
 	"\x06_errorB\x12\n" +
 	"\x10_suspended_untilB\a\n" +
-	"\x05_user2W\n" +
-	"\fUsersService\x12G\n" +
+	"\x05_user2Z\n" +
+	"\x0fPasswordService\x12G\n" +
 	"\x06Verify\x12\x1d.password_proto.VerifyRequest\x1a\x1e.password_proto.VerifyResponseB#Z!./generated_protos/password_protob\x06proto3"
 
 var (
@@ -769,8 +769,8 @@ var file_protos_password_proto_depIdxs = []int32{
 	2, // 1: password_proto.User.passwords:type_name -> password_proto.Password
 	0, // 2: password_proto.User.phones:type_name -> password_proto.Phone
 	3, // 3: password_proto.VerifyResponse.user:type_name -> password_proto.User
-	4, // 4: password_proto.UsersService.Verify:input_type -> password_proto.VerifyRequest
-	5, // 5: password_proto.UsersService.Verify:output_type -> password_proto.VerifyResponse
+	4, // 4: password_proto.PasswordService.Verify:input_type -> password_proto.VerifyRequest
+	5, // 5: password_proto.PasswordService.Verify:output_type -> password_proto.VerifyResponse
 	5, // [5:6] is the sub-list for method output_type
 	4, // [4:5] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
