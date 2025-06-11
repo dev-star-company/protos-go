@@ -594,6 +594,7 @@ type ListRequest struct {
 	Limit          uint32                 `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
 	Offset         uint32                 `protobuf:"varint,6,opt,name=offset,proto3" json:"offset,omitempty"`
 	IncludeDeleted *bool                  `protobuf:"varint,7,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
+	Phone          *string                `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -675,6 +676,13 @@ func (x *ListRequest) GetIncludeDeleted() bool {
 		return *x.IncludeDeleted
 	}
 	return false
+}
+
+func (x *ListRequest) GetPhone() string {
+	if x != nil && x.Phone != nil {
+		return *x.Phone
+	}
+	return ""
 }
 
 type ListResponse struct {
@@ -1037,7 +1045,7 @@ const file_protos_users_proto_rawDesc = "" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"4\n" +
 	"\vGetResponse\x12%\n" +
-	"\x04user\x18\x01 \x01(\v2\x11.users_proto.UserR\x04user\"\x8b\x02\n" +
+	"\x04user\x18\x01 \x01(\v2\x11.users_proto.UserR\x04user\"\xb0\x02\n" +
 	"\vListRequest\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x19\n" +
 	"\x05email\x18\x02 \x01(\tH\x01R\x05email\x88\x01\x01\x12\x17\n" +
@@ -1045,13 +1053,15 @@ const file_protos_users_proto_rawDesc = "" +
 	"\asurname\x18\x04 \x01(\tH\x03R\asurname\x88\x01\x01\x12\x14\n" +
 	"\x05limit\x18\x05 \x01(\rR\x05limit\x12\x16\n" +
 	"\x06offset\x18\x06 \x01(\rR\x06offset\x12,\n" +
-	"\x0finclude_deleted\x18\a \x01(\bH\x04R\x0eincludeDeleted\x88\x01\x01B\x05\n" +
+	"\x0finclude_deleted\x18\a \x01(\bH\x04R\x0eincludeDeleted\x88\x01\x01\x12\x19\n" +
+	"\x05phone\x18\b \x01(\tH\x05R\x05phone\x88\x01\x01B\x05\n" +
 	"\x03_idB\b\n" +
 	"\x06_emailB\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
 	"\b_surnameB\x12\n" +
-	"\x10_include_deleted\"K\n" +
+	"\x10_include_deletedB\b\n" +
+	"\x06_phone\"K\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12%\n" +
 	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\xcb\x02\n" +
