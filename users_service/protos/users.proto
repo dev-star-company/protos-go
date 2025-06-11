@@ -10,8 +10,6 @@ service UsersService {
   rpc List (ListRequest) returns (ListResponse);
   rpc Update (UpdateRequest) returns (UpdateResponse);
   rpc Delete (DeleteRequest) returns (DeleteResponse);
-
-  rpc VerifyPassword (VerifyPasswordRequest) returns (VerifyPasswordResponse);
 }
 
 message Phone {
@@ -38,17 +36,6 @@ message Email {
   bool main = 9;
 }
 
-message Password {
-  uint32 id = 1;
-  string password = 2;
-  string created_at = 3;
-  string updated_at = 4;
-  optional string deleted_at = 5;
-  uint32 created_by = 6;
-  uint32 updated_by = 7;
-  optional uint32 deleted_by = 8;
-}
-
 message User {
   uint32 id = 1;
   string name = 2;
@@ -60,7 +47,6 @@ message User {
   uint32 created_by = 8;
   uint32 updated_by = 9;
   optional uint32 deleted_by = 10;
-  repeated Password passwords = 11;
   repeated Phone phones = 12;
 }
 
@@ -122,18 +108,3 @@ message DeleteRequest {
 }
 
 message DeleteResponse {}
-
-message VerifyPasswordRequest {
-  optional uint32 id = 1;
-  string password = 2;
-  int32 requester_id = 3;
-  optional string email = 4;
-  optional string phone = 5;
-}
-
-message VerifyPasswordResponse {
-  bool success = 1;
-  optional uint32 remaining_retries = 2;
-  optional string error = 3;
-  optional string suspended_until = 4;
-}

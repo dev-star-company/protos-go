@@ -19,12 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UsersService_Create_FullMethodName         = "/users_proto.UsersService/Create"
-	UsersService_Get_FullMethodName            = "/users_proto.UsersService/Get"
-	UsersService_List_FullMethodName           = "/users_proto.UsersService/List"
-	UsersService_Update_FullMethodName         = "/users_proto.UsersService/Update"
-	UsersService_Delete_FullMethodName         = "/users_proto.UsersService/Delete"
-	UsersService_VerifyPassword_FullMethodName = "/users_proto.UsersService/VerifyPassword"
+	UsersService_Create_FullMethodName = "/users_proto.UsersService/Create"
+	UsersService_Get_FullMethodName    = "/users_proto.UsersService/Get"
+	UsersService_List_FullMethodName   = "/users_proto.UsersService/List"
+	UsersService_Update_FullMethodName = "/users_proto.UsersService/Update"
+	UsersService_Delete_FullMethodName = "/users_proto.UsersService/Delete"
 )
 
 // UsersServiceClient is the client API for UsersService service.
@@ -36,7 +35,6 @@ type UsersServiceClient interface {
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
-	VerifyPassword(ctx context.Context, in *VerifyPasswordRequest, opts ...grpc.CallOption) (*VerifyPasswordResponse, error)
 }
 
 type usersServiceClient struct {
@@ -97,16 +95,6 @@ func (c *usersServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts
 	return out, nil
 }
 
-func (c *usersServiceClient) VerifyPassword(ctx context.Context, in *VerifyPasswordRequest, opts ...grpc.CallOption) (*VerifyPasswordResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(VerifyPasswordResponse)
-	err := c.cc.Invoke(ctx, UsersService_VerifyPassword_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // UsersServiceServer is the server API for UsersService service.
 // All implementations must embed UnimplementedUsersServiceServer
 // for forward compatibility.
@@ -116,7 +104,6 @@ type UsersServiceServer interface {
 	List(context.Context, *ListRequest) (*ListResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
-	VerifyPassword(context.Context, *VerifyPasswordRequest) (*VerifyPasswordResponse, error)
 	mustEmbedUnimplementedUsersServiceServer()
 }
 
@@ -141,9 +128,6 @@ func (UnimplementedUsersServiceServer) Update(context.Context, *UpdateRequest) (
 }
 func (UnimplementedUsersServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
-}
-func (UnimplementedUsersServiceServer) VerifyPassword(context.Context, *VerifyPasswordRequest) (*VerifyPasswordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method VerifyPassword not implemented")
 }
 func (UnimplementedUsersServiceServer) mustEmbedUnimplementedUsersServiceServer() {}
 func (UnimplementedUsersServiceServer) testEmbeddedByValue()                      {}
@@ -256,24 +240,6 @@ func _UsersService_Delete_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsersService_VerifyPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VerifyPasswordRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsersServiceServer).VerifyPassword(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsersService_VerifyPassword_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServiceServer).VerifyPassword(ctx, req.(*VerifyPasswordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // UsersService_ServiceDesc is the grpc.ServiceDesc for UsersService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -300,10 +266,6 @@ var UsersService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Delete",
 			Handler:    _UsersService_Delete_Handler,
-		},
-		{
-			MethodName: "VerifyPassword",
-			Handler:    _UsersService_VerifyPassword_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
