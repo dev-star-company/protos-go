@@ -80,6 +80,7 @@ message ListRequest {
   uint32 limit = 5;
   uint32 offset = 6;
   optional bool include_deleted = 7;
+  optional string phone = 8;
 }
 
 message ListResponse {
