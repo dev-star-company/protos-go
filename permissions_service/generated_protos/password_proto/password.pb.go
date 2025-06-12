@@ -565,7 +565,6 @@ type VerifyResponse struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	Success          bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
 	RemainingRetries *uint32                `protobuf:"varint,2,opt,name=remaining_retries,json=remainingRetries,proto3,oneof" json:"remaining_retries,omitempty"`
-	Error            *string                `protobuf:"bytes,3,opt,name=error,proto3,oneof" json:"error,omitempty"`
 	SuspendedUntil   *string                `protobuf:"bytes,4,opt,name=suspended_until,json=suspendedUntil,proto3,oneof" json:"suspended_until,omitempty"`
 	User             *User                  `protobuf:"bytes,5,opt,name=user,proto3,oneof" json:"user,omitempty"`
 	unknownFields    protoimpl.UnknownFields
@@ -614,13 +613,6 @@ func (x *VerifyResponse) GetRemainingRetries() uint32 {
 		return *x.RemainingRetries
 	}
 	return 0
-}
-
-func (x *VerifyResponse) GetError() string {
-	if x != nil && x.Error != nil {
-		return *x.Error
-	}
-	return ""
 }
 
 func (x *VerifyResponse) GetSuspendedUntil() string {
@@ -729,15 +721,13 @@ const file_protos_password_proto_rawDesc = "" +
 	"\x05phone\x18\x05 \x01(\tH\x02R\x05phone\x88\x01\x01B\x05\n" +
 	"\x03_idB\b\n" +
 	"\x06_emailB\b\n" +
-	"\x06_phone\"\x91\x02\n" +
+	"\x06_phone\"\xec\x01\n" +
 	"\x0eVerifyResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x120\n" +
-	"\x11remaining_retries\x18\x02 \x01(\rH\x00R\x10remainingRetries\x88\x01\x01\x12\x19\n" +
-	"\x05error\x18\x03 \x01(\tH\x01R\x05error\x88\x01\x01\x12,\n" +
-	"\x0fsuspended_until\x18\x04 \x01(\tH\x02R\x0esuspendedUntil\x88\x01\x01\x12-\n" +
-	"\x04user\x18\x05 \x01(\v2\x14.password_proto.UserH\x03R\x04user\x88\x01\x01B\x14\n" +
-	"\x12_remaining_retriesB\b\n" +
-	"\x06_errorB\x12\n" +
+	"\x11remaining_retries\x18\x02 \x01(\rH\x00R\x10remainingRetries\x88\x01\x01\x12,\n" +
+	"\x0fsuspended_until\x18\x04 \x01(\tH\x01R\x0esuspendedUntil\x88\x01\x01\x12-\n" +
+	"\x04user\x18\x05 \x01(\v2\x14.password_proto.UserH\x02R\x04user\x88\x01\x01B\x14\n" +
+	"\x12_remaining_retriesB\x12\n" +
 	"\x10_suspended_untilB\a\n" +
 	"\x05_user2Z\n" +
 	"\x0fPasswordService\x12G\n" +
