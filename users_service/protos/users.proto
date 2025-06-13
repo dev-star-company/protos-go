@@ -50,6 +50,13 @@ message User {
   repeated Phone phones = 12;
 }
 
+message Relations {
+  bool emails = 1;
+  bool phones = 2;
+  bool passwords = 3;
+  bool roles = 4;
+}
+
 message CreateRequest {
   uint32 requesterId = 1;
   string name = 2;
@@ -81,6 +88,7 @@ message ListRequest {
   uint32 offset = 6;
   optional bool include_deleted = 7;
   optional string phone = 8;
+  optional Relations relations = 9;
 }
 
 message ListResponse {
