@@ -35,7 +35,6 @@ type Permission struct {
 	Description   string                 `protobuf:"bytes,10,opt,name=description,proto3" json:"description,omitempty"`
 	InternalName  string                 `protobuf:"bytes,11,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
 	ServiceId     uint32                 `protobuf:"varint,12,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,13,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -150,13 +149,6 @@ func (x *Permission) GetInternalName() string {
 func (x *Permission) GetServiceId() uint32 {
 	if x != nil {
 		return x.ServiceId
-	}
-	return 0
-}
-
-func (x *Permission) GetRequesterId() uint32 {
-	if x != nil {
-		return x.RequesterId
 	}
 	return 0
 }
@@ -945,7 +937,7 @@ var File_protos_permission_proto protoreflect.FileDescriptor
 
 const file_protos_permission_proto_rawDesc = "" +
 	"\n" +
-	"\x17protos/permission.proto\x12\x10permission_proto\"\xb8\x03\n" +
+	"\x17protos/permission.proto\x12\x10permission_proto\"\x95\x03\n" +
 	"\n" +
 	"Permission\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
@@ -967,8 +959,7 @@ const file_protos_permission_proto_rawDesc = "" +
 	" \x01(\tR\vdescription\x12#\n" +
 	"\rinternal_name\x18\v \x01(\tR\finternalName\x12\x1d\n" +
 	"\n" +
-	"service_id\x18\f \x01(\rR\tserviceId\x12!\n" +
-	"\frequester_id\x18\r \x01(\rR\vrequesterIdB\r\n" +
+	"service_id\x18\f \x01(\rR\tserviceIdB\r\n" +
 	"\v_deleted_atB\r\n" +
 	"\v_deleted_by\"\xc8\x01\n" +
 	"\rCreateRequest\x12\x12\n" +

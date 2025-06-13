@@ -25,7 +25,6 @@ message Permission {
     string description = 10;
     string internal_name = 11;
     uint32 service_id = 12;
-    uint32 requester_id = 13;
 }
 
 message CreateRequest {
