@@ -10,6 +10,7 @@ service UsersService {
   rpc List (ListRequest) returns (ListResponse);
   rpc Update (UpdateRequest) returns (UpdateResponse);
   rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc FindByEmailOrPhone(FindByEmailOrPhoneRequest) returns (FindByEmailOrPhoneResponse);
 }
 
 message Phone {
@@ -109,3 +110,12 @@ message DeleteRequest {
 }
 
 message DeleteResponse {}
+
+message FindByEmailOrPhoneRequest {
+  string email = 1;
+  string phone = 2;
+}
+
+message FindByEmailOrPhoneResponse {
+  User user = 1;
+}
