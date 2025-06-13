@@ -21,7 +21,6 @@ message Ban {
     uint32 updated_by = 6;
     optional uint32 deleted_by = 7;
     uint32 user_id = 8;
-    uint32 requester_id = 9;
     string expires_at = 10;
 }
 

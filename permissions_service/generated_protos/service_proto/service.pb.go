@@ -31,7 +31,6 @@ type Service struct {
 	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Name          string                 `protobuf:"bytes,8,opt,name=name,proto3" json:"name,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,9,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -120,13 +119,6 @@ func (x *Service) GetName() string {
 		return x.Name
 	}
 	return ""
-}
-
-func (x *Service) GetRequesterId() uint32 {
-	if x != nil {
-		return x.RequesterId
-	}
-	return 0
 }
 
 type CreateRequest struct {
@@ -737,7 +729,7 @@ var File_protos_service_proto protoreflect.FileDescriptor
 
 const file_protos_service_proto_rawDesc = "" +
 	"\n" +
-	"\x14protos/service.proto\x12\rservice_proto\"\xb2\x02\n" +
+	"\x14protos/service.proto\x12\rservice_proto\"\x8f\x02\n" +
 	"\aService\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\n" +
@@ -752,8 +744,7 @@ const file_protos_service_proto_rawDesc = "" +
 	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
 	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
-	"\x04name\x18\b \x01(\tR\x04name\x12!\n" +
-	"\frequester_id\x18\t \x01(\rR\vrequesterIdB\r\n" +
+	"\x04name\x18\b \x01(\tR\x04nameB\r\n" +
 	"\v_deleted_atB\r\n" +
 	"\v_deleted_by\"E\n" +
 	"\rCreateRequest\x12\x12\n" +

@@ -31,7 +31,6 @@ type LoginAttempts struct {
 	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	UserId        uint32                 `protobuf:"varint,8,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,9,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	Successful    bool                   `protobuf:"varint,10,opt,name=successful,proto3" json:"successful,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -119,13 +118,6 @@ func (x *LoginAttempts) GetDeletedBy() uint32 {
 func (x *LoginAttempts) GetUserId() uint32 {
 	if x != nil {
 		return x.UserId
-	}
-	return 0
-}
-
-func (x *LoginAttempts) GetRequesterId() uint32 {
-	if x != nil {
-		return x.RequesterId
 	}
 	return 0
 }
@@ -793,7 +785,7 @@ var File_protos_login_attempts_proto protoreflect.FileDescriptor
 
 const file_protos_login_attempts_proto_rawDesc = "" +
 	"\n" +
-	"\x1bprotos/login_attempts.proto\x12\x14login_attempts_proto\"\xdd\x02\n" +
+	"\x1bprotos/login_attempts.proto\x12\x14login_attempts_proto\"\xba\x02\n" +
 	"\rLoginAttempts\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\n" +
@@ -808,8 +800,7 @@ const file_protos_login_attempts_proto_rawDesc = "" +
 	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
 	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x17\n" +
-	"\auser_id\x18\b \x01(\rR\x06userId\x12!\n" +
-	"\frequester_id\x18\t \x01(\rR\vrequesterId\x12\x1e\n" +
+	"\auser_id\x18\b \x01(\rR\x06userId\x12\x1e\n" +
 	"\n" +
 	"successful\x18\n" +
 	" \x01(\bR\n" +
