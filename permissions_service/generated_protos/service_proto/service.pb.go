@@ -31,6 +31,9 @@ type Service struct {
 	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Name          string                 `protobuf:"bytes,8,opt,name=name,proto3" json:"name,omitempty"`
+	IsActive      bool                   `protobuf:"varint,9,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	Description   string                 `protobuf:"bytes,10,opt,name=description,proto3" json:"description,omitempty"`
+	InternalName  string                 `protobuf:"bytes,11,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -117,6 +120,27 @@ func (x *Service) GetDeletedBy() uint32 {
 func (x *Service) GetName() string {
 	if x != nil {
 		return x.Name
+	}
+	return ""
+}
+
+func (x *Service) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *Service) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *Service) GetInternalName() string {
+	if x != nil {
+		return x.InternalName
 	}
 	return ""
 }
@@ -440,6 +464,8 @@ type ListRequest struct {
 	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	Name           *string                `protobuf:"bytes,4,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Orderby        *OrderBy               `protobuf:"bytes,5,opt,name=orderby,proto3,oneof" json:"orderby,omitempty"`
+	Description    *string                `protobuf:"bytes,6,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	InternalName   *string                `protobuf:"bytes,7,opt,name=internal_name,json=internalName,proto3,oneof" json:"internal_name,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -507,6 +533,20 @@ func (x *ListRequest) GetOrderby() *OrderBy {
 		return x.Orderby
 	}
 	return nil
+}
+
+func (x *ListRequest) GetDescription() string {
+	if x != nil && x.Description != nil {
+		return *x.Description
+	}
+	return ""
+}
+
+func (x *ListRequest) GetInternalName() string {
+	if x != nil && x.InternalName != nil {
+		return *x.InternalName
+	}
+	return ""
 }
 
 type OrderBy struct {
@@ -729,7 +769,7 @@ var File_protos_service_proto protoreflect.FileDescriptor
 
 const file_protos_service_proto_rawDesc = "" +
 	"\n" +
-	"\x14protos/service.proto\x12\rservice_proto\"\x8f\x02\n" +
+	"\x14protos/service.proto\x12\rservice_proto\"\xf3\x02\n" +
 	"\aService\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\n" +
@@ -744,7 +784,11 @@ const file_protos_service_proto_rawDesc = "" +
 	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
 	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
-	"\x04name\x18\b \x01(\tR\x04nameB\r\n" +
+	"\x04name\x18\b \x01(\tR\x04name\x12\x1b\n" +
+	"\tis_active\x18\t \x01(\bR\bisActive\x12 \n" +
+	"\vdescription\x18\n" +
+	" \x01(\tR\vdescription\x12#\n" +
+	"\rinternal_name\x18\v \x01(\tR\finternalNameB\r\n" +
 	"\v_deleted_atB\r\n" +
 	"\v_deleted_by\"E\n" +
 	"\rCreateRequest\x12\x12\n" +
@@ -765,19 +809,23 @@ const file_protos_service_proto_rawDesc = "" +
 	"\x06offset\x18\x04 \x01(\rR\x06offset\"C\n" +
 	"\vGetResponse\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vrequesterId\x18\x02 \x01(\rR\vrequesterId\"\x81\x02\n" +
+	"\vrequesterId\x18\x02 \x01(\rR\vrequesterId\"\xf4\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
 	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12\x17\n" +
 	"\x04name\x18\x04 \x01(\tH\x03R\x04name\x88\x01\x01\x125\n" +
-	"\aorderby\x18\x05 \x01(\v2\x16.service_proto.OrderByH\x04R\aorderby\x88\x01\x01B\b\n" +
+	"\aorderby\x18\x05 \x01(\v2\x16.service_proto.OrderByH\x04R\aorderby\x88\x01\x01\x12%\n" +
+	"\vdescription\x18\x06 \x01(\tH\x05R\vdescription\x88\x01\x01\x12(\n" +
+	"\rinternal_name\x18\a \x01(\tH\x06R\finternalName\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\x12\n" +
 	"\x10_include_deletedB\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
-	"\b_orderby\"X\n" +
+	"\b_orderbyB\x0e\n" +
+	"\f_descriptionB\x10\n" +
+	"\x0e_internal_name\"X\n" +
 	"\aOrderBy\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
 	"\n" +
