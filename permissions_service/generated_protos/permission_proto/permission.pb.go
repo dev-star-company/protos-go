@@ -24,17 +24,17 @@ const (
 type Permission struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,5,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
-	IsActive      bool                   `protobuf:"varint,8,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,3,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deletedAt,proto3,oneof" json:"deletedAt,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,5,opt,name=createdBy,proto3" json:"createdBy,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updatedBy,proto3" json:"updatedBy,omitempty"`
+	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deletedBy,proto3,oneof" json:"deletedBy,omitempty"`
+	IsActive      bool                   `protobuf:"varint,8,opt,name=isActive,proto3" json:"isActive,omitempty"`
 	Name          string                 `protobuf:"bytes,9,opt,name=name,proto3" json:"name,omitempty"`
 	Description   string                 `protobuf:"bytes,10,opt,name=description,proto3" json:"description,omitempty"`
-	InternalName  string                 `protobuf:"bytes,11,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
-	ServiceId     uint32                 `protobuf:"varint,12,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
+	InternalName  string                 `protobuf:"bytes,11,opt,name=internalName,proto3" json:"internalName,omitempty"`
+	ServiceID     uint32                 `protobuf:"varint,12,opt,name=serviceID,proto3" json:"serviceID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -146,9 +146,9 @@ func (x *Permission) GetInternalName() string {
 	return ""
 }
 
-func (x *Permission) GetServiceId() uint32 {
+func (x *Permission) GetServiceID() uint32 {
 	if x != nil {
-		return x.ServiceId
+		return x.ServiceID
 	}
 	return 0
 }
@@ -157,10 +157,10 @@ type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Description   string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	InternalName  string                 `protobuf:"bytes,3,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
-	ServiceId     uint32                 `protobuf:"varint,4,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
-	IsActive      bool                   `protobuf:"varint,5,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,6,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	InternalName  string                 `protobuf:"bytes,3,opt,name=internalName,proto3" json:"internalName,omitempty"`
+	ServiceID     uint32                 `protobuf:"varint,4,opt,name=serviceID,proto3" json:"serviceID,omitempty"`
+	IsActive      bool                   `protobuf:"varint,5,opt,name=isActive,proto3" json:"isActive,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,6,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -216,9 +216,9 @@ func (x *CreateRequest) GetInternalName() string {
 	return ""
 }
 
-func (x *CreateRequest) GetServiceId() uint32 {
+func (x *CreateRequest) GetServiceID() uint32 {
 	if x != nil {
-		return x.ServiceId
+		return x.ServiceID
 	}
 	return 0
 }
@@ -230,21 +230,21 @@ func (x *CreateRequest) GetIsActive() bool {
 	return false
 }
 
-func (x *CreateRequest) GetRequesterId() uint32 {
+func (x *CreateRequest) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	IsActive      bool                   `protobuf:"varint,1,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	IsActive      bool                   `protobuf:"varint,1,opt,name=isActive,proto3" json:"isActive,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	InternalName  string                 `protobuf:"bytes,4,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
-	ServiceId     uint32                 `protobuf:"varint,5,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,6,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	InternalName  string                 `protobuf:"bytes,4,opt,name=internalName,proto3" json:"internalName,omitempty"`
+	ServiceID     uint32                 `protobuf:"varint,5,opt,name=serviceID,proto3" json:"serviceID,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,6,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -307,16 +307,16 @@ func (x *CreateResponse) GetInternalName() string {
 	return ""
 }
 
-func (x *CreateResponse) GetServiceId() uint32 {
+func (x *CreateResponse) GetServiceID() uint32 {
 	if x != nil {
-		return x.ServiceId
+		return x.ServiceID
 	}
 	return 0
 }
 
-func (x *CreateResponse) GetRequesterId() uint32 {
+func (x *CreateResponse) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
@@ -324,7 +324,7 @@ func (x *CreateResponse) GetRequesterId() uint32 {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -366,9 +366,9 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterId() uint32 {
+func (x *DeleteRequest) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
@@ -412,7 +412,7 @@ func (*DeleteResponse) Descriptor() ([]byte, []int) {
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	Limit         uint32                 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
 	Offset        uint32                 `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -456,9 +456,9 @@ func (x *GetRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *GetRequest) GetRequesterId() uint32 {
+func (x *GetRequest) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
@@ -479,11 +479,11 @@ func (x *GetRequest) GetOffset() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	IsActive      bool                   `protobuf:"varint,1,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	IsActive      bool                   `protobuf:"varint,1,opt,name=isActive,proto3" json:"isActive,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	InternalName  string                 `protobuf:"bytes,4,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
-	ServiceId     uint32                 `protobuf:"varint,5,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
+	InternalName  string                 `protobuf:"bytes,4,opt,name=internalName,proto3" json:"internalName,omitempty"`
+	ServiceID     uint32                 `protobuf:"varint,5,opt,name=serviceID,proto3" json:"serviceID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -546,9 +546,9 @@ func (x *GetResponse) GetInternalName() string {
 	return ""
 }
 
-func (x *GetResponse) GetServiceId() uint32 {
+func (x *GetResponse) GetServiceID() uint32 {
 	if x != nil {
-		return x.ServiceId
+		return x.ServiceID
 	}
 	return 0
 }
@@ -557,13 +557,13 @@ type ListRequest struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Limit          *uint32                `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
-	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
-	Orderby        *OrderBy               `protobuf:"bytes,4,opt,name=orderby,proto3,oneof" json:"orderby,omitempty"`
+	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=includeDeleted,proto3,oneof" json:"includeDeleted,omitempty"`
+	OrderBy        *OrderBy               `protobuf:"bytes,4,opt,name=orderBy,proto3,oneof" json:"orderBy,omitempty"`
 	Name           *string                `protobuf:"bytes,5,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Description    *string                `protobuf:"bytes,6,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	InternalName   *string                `protobuf:"bytes,7,opt,name=internal_name,json=internalName,proto3,oneof" json:"internal_name,omitempty"`
-	ServiceId      *uint32                `protobuf:"varint,8,opt,name=service_id,json=serviceId,proto3,oneof" json:"service_id,omitempty"`
-	IsActive       *bool                  `protobuf:"varint,9,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
+	InternalName   *string                `protobuf:"bytes,7,opt,name=internalName,proto3,oneof" json:"internalName,omitempty"`
+	ServiceID      *uint32                `protobuf:"varint,8,opt,name=serviceID,proto3,oneof" json:"serviceID,omitempty"`
+	IsActive       *bool                  `protobuf:"varint,9,opt,name=isActive,proto3,oneof" json:"isActive,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -619,9 +619,9 @@ func (x *ListRequest) GetIncludeDeleted() bool {
 	return false
 }
 
-func (x *ListRequest) GetOrderby() *OrderBy {
+func (x *ListRequest) GetOrderBy() *OrderBy {
 	if x != nil {
-		return x.Orderby
+		return x.OrderBy
 	}
 	return nil
 }
@@ -647,9 +647,9 @@ func (x *ListRequest) GetInternalName() string {
 	return ""
 }
 
-func (x *ListRequest) GetServiceId() uint32 {
-	if x != nil && x.ServiceId != nil {
-		return *x.ServiceId
+func (x *ListRequest) GetServiceID() uint32 {
+	if x != nil && x.ServiceID != nil {
+		return *x.ServiceID
 	}
 	return 0
 }
@@ -664,7 +664,7 @@ func (x *ListRequest) GetIsActive() bool {
 type OrderBy struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            *string                `protobuf:"bytes,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
-	CreatedAt     *string                `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
+	CreatedAt     *string                `protobuf:"bytes,2,opt,name=createdAt,proto3,oneof" json:"createdAt,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -770,10 +770,10 @@ type UpdateRequest struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Description   *string                `protobuf:"bytes,3,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	InternalName  *string                `protobuf:"bytes,4,opt,name=internal_name,json=internalName,proto3,oneof" json:"internal_name,omitempty"`
-	ServiceId     *uint32                `protobuf:"varint,5,opt,name=service_id,json=serviceId,proto3,oneof" json:"service_id,omitempty"`
-	IsActive      *bool                  `protobuf:"varint,6,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,7,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	InternalName  *string                `protobuf:"bytes,4,opt,name=internalName,proto3,oneof" json:"internalName,omitempty"`
+	ServiceID     *uint32                `protobuf:"varint,5,opt,name=serviceID,proto3,oneof" json:"serviceID,omitempty"`
+	IsActive      *bool                  `protobuf:"varint,6,opt,name=isActive,proto3,oneof" json:"isActive,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,7,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -836,9 +836,9 @@ func (x *UpdateRequest) GetInternalName() string {
 	return ""
 }
 
-func (x *UpdateRequest) GetServiceId() uint32 {
-	if x != nil && x.ServiceId != nil {
-		return *x.ServiceId
+func (x *UpdateRequest) GetServiceID() uint32 {
+	if x != nil && x.ServiceID != nil {
+		return *x.ServiceID
 	}
 	return 0
 }
@@ -850,20 +850,20 @@ func (x *UpdateRequest) GetIsActive() bool {
 	return false
 }
 
-func (x *UpdateRequest) GetRequesterId() uint32 {
+func (x *UpdateRequest) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	IsActive      bool                   `protobuf:"varint,1,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	IsActive      bool                   `protobuf:"varint,1,opt,name=isActive,proto3" json:"isActive,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	InternalName  string                 `protobuf:"bytes,4,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
-	ServiceId     uint32                 `protobuf:"varint,5,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
+	InternalName  string                 `protobuf:"bytes,4,opt,name=internalName,proto3" json:"internalName,omitempty"`
+	ServiceID     uint32                 `protobuf:"varint,5,opt,name=serviceID,proto3" json:"serviceID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -926,9 +926,9 @@ func (x *UpdateResponse) GetInternalName() string {
 	return ""
 }
 
-func (x *UpdateResponse) GetServiceId() uint32 {
+func (x *UpdateResponse) GetServiceID() uint32 {
 	if x != nil {
-		return x.ServiceId
+		return x.ServiceID
 	}
 	return 0
 }
@@ -937,118 +937,107 @@ var File_protos_permission_proto protoreflect.FileDescriptor
 
 const file_protos_permission_proto_rawDesc = "" +
 	"\n" +
-	"\x17protos/permission.proto\x12\x10permission_proto\"\x95\x03\n" +
+	"\x17protos/permission.proto\x12\x10permission_proto\"\x8a\x03\n" +
 	"\n" +
 	"Permission\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
-	"\n" +
-	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\"\n" +
-	"\n" +
-	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
-	"\n" +
-	"created_by\x18\x05 \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
-	"\n" +
-	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x1b\n" +
-	"\tis_active\x18\b \x01(\bR\bisActive\x12\x12\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
+	"\tcreatedAt\x18\x02 \x01(\tR\tcreatedAt\x12\x1c\n" +
+	"\tupdatedAt\x18\x03 \x01(\tR\tupdatedAt\x12!\n" +
+	"\tdeletedAt\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1c\n" +
+	"\tcreatedBy\x18\x05 \x01(\rR\tcreatedBy\x12\x1c\n" +
+	"\tupdatedBy\x18\x06 \x01(\rR\tupdatedBy\x12!\n" +
+	"\tdeletedBy\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x1a\n" +
+	"\bisActive\x18\b \x01(\bR\bisActive\x12\x12\n" +
 	"\x04name\x18\t \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\n" +
-	" \x01(\tR\vdescription\x12#\n" +
-	"\rinternal_name\x18\v \x01(\tR\finternalName\x12\x1d\n" +
+	" \x01(\tR\vdescription\x12\"\n" +
+	"\finternalName\x18\v \x01(\tR\finternalName\x12\x1c\n" +
+	"\tserviceID\x18\f \x01(\rR\tserviceIDB\f\n" +
 	"\n" +
-	"service_id\x18\f \x01(\rR\tserviceIdB\r\n" +
-	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\xc8\x01\n" +
+	"_deletedAtB\f\n" +
+	"\n" +
+	"_deletedBy\"\xc5\x01\n" +
 	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x02 \x01(\tR\vdescription\x12#\n" +
-	"\rinternal_name\x18\x03 \x01(\tR\finternalName\x12\x1d\n" +
-	"\n" +
-	"service_id\x18\x04 \x01(\rR\tserviceId\x12\x1b\n" +
-	"\tis_active\x18\x05 \x01(\bR\bisActive\x12 \n" +
-	"\vrequesterId\x18\x06 \x01(\rR\vrequesterId\"\xc9\x01\n" +
-	"\x0eCreateResponse\x12\x1b\n" +
-	"\tis_active\x18\x01 \x01(\bR\bisActive\x12\x12\n" +
+	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\"\n" +
+	"\finternalName\x18\x03 \x01(\tR\finternalName\x12\x1c\n" +
+	"\tserviceID\x18\x04 \x01(\rR\tserviceID\x12\x1a\n" +
+	"\bisActive\x18\x05 \x01(\bR\bisActive\x12 \n" +
+	"\vrequesterID\x18\x06 \x01(\rR\vrequesterID\"\xc6\x01\n" +
+	"\x0eCreateResponse\x12\x1a\n" +
+	"\bisActive\x18\x01 \x01(\bR\bisActive\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x03 \x01(\tR\vdescription\x12#\n" +
-	"\rinternal_name\x18\x04 \x01(\tR\finternalName\x12\x1d\n" +
-	"\n" +
-	"service_id\x18\x05 \x01(\rR\tserviceId\x12 \n" +
-	"\vrequesterId\x18\x06 \x01(\rR\vrequesterId\"A\n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\"\n" +
+	"\finternalName\x18\x04 \x01(\tR\finternalName\x12\x1c\n" +
+	"\tserviceID\x18\x05 \x01(\rR\tserviceID\x12 \n" +
+	"\vrequesterID\x18\x06 \x01(\rR\vrequesterID\"A\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12 \n" +
-	"\vrequesterId\x18\x02 \x01(\rR\vrequesterId\"\x10\n" +
-	"\x0eDeleteResponse\"m\n" +
+	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\"\x10\n" +
+	"\x0eDeleteResponse\"l\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12 \n" +
+	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\x12\x14\n" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
-	"\x06offset\x18\x04 \x01(\rR\x06offset\"\xa4\x01\n" +
-	"\vGetResponse\x12\x1b\n" +
-	"\tis_active\x18\x01 \x01(\bR\bisActive\x12\x12\n" +
+	"\x06offset\x18\x04 \x01(\rR\x06offset\"\xa1\x01\n" +
+	"\vGetResponse\x12\x1a\n" +
+	"\bisActive\x18\x01 \x01(\bR\bisActive\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x03 \x01(\tR\vdescription\x12#\n" +
-	"\rinternal_name\x18\x04 \x01(\tR\finternalName\x12\x1d\n" +
-	"\n" +
-	"service_id\x18\x05 \x01(\rR\tserviceId\"\xda\x03\n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\"\n" +
+	"\finternalName\x18\x04 \x01(\tR\finternalName\x12\x1c\n" +
+	"\tserviceID\x18\x05 \x01(\rR\tserviceID\"\xd2\x03\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
-	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
-	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x128\n" +
-	"\aorderby\x18\x04 \x01(\v2\x19.permission_proto.OrderByH\x03R\aorderby\x88\x01\x01\x12\x17\n" +
+	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12+\n" +
+	"\x0eincludeDeleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x128\n" +
+	"\aorderBy\x18\x04 \x01(\v2\x19.permission_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12\x17\n" +
 	"\x04name\x18\x05 \x01(\tH\x04R\x04name\x88\x01\x01\x12%\n" +
-	"\vdescription\x18\x06 \x01(\tH\x05R\vdescription\x88\x01\x01\x12(\n" +
-	"\rinternal_name\x18\a \x01(\tH\x06R\finternalName\x88\x01\x01\x12\"\n" +
-	"\n" +
-	"service_id\x18\b \x01(\rH\aR\tserviceId\x88\x01\x01\x12 \n" +
-	"\tis_active\x18\t \x01(\bH\bR\bisActive\x88\x01\x01B\b\n" +
+	"\vdescription\x18\x06 \x01(\tH\x05R\vdescription\x88\x01\x01\x12'\n" +
+	"\finternalName\x18\a \x01(\tH\x06R\finternalName\x88\x01\x01\x12!\n" +
+	"\tserviceID\x18\b \x01(\rH\aR\tserviceID\x88\x01\x01\x12\x1f\n" +
+	"\bisActive\x18\t \x01(\bH\bR\bisActive\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
-	"\a_offsetB\x12\n" +
-	"\x10_include_deletedB\n" +
+	"\a_offsetB\x11\n" +
+	"\x0f_includeDeletedB\n" +
 	"\n" +
-	"\b_orderbyB\a\n" +
+	"\b_orderByB\a\n" +
 	"\x05_nameB\x0e\n" +
-	"\f_descriptionB\x10\n" +
-	"\x0e_internal_nameB\r\n" +
-	"\v_service_idB\f\n" +
+	"\f_descriptionB\x0f\n" +
+	"\r_internalNameB\f\n" +
 	"\n" +
-	"_is_active\"X\n" +
+	"_serviceIDB\v\n" +
+	"\t_isActive\"V\n" +
 	"\aOrderBy\x12\x13\n" +
-	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
+	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12!\n" +
+	"\tcreatedAt\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
+	"\x03_idB\f\n" +
 	"\n" +
-	"created_at\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
-	"\x03_idB\r\n" +
-	"\v_created_at\"V\n" +
+	"_createdAt\"V\n" +
 	"\fListResponse\x120\n" +
 	"\x04rows\x18\x01 \x03(\v2\x1c.permission_proto.PermissionR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"\xb9\x02\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count\"\xb3\x02\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12%\n" +
-	"\vdescription\x18\x03 \x01(\tH\x01R\vdescription\x88\x01\x01\x12(\n" +
-	"\rinternal_name\x18\x04 \x01(\tH\x02R\finternalName\x88\x01\x01\x12\"\n" +
-	"\n" +
-	"service_id\x18\x05 \x01(\rH\x03R\tserviceId\x88\x01\x01\x12 \n" +
-	"\tis_active\x18\x06 \x01(\bH\x04R\bisActive\x88\x01\x01\x12 \n" +
-	"\vrequesterId\x18\a \x01(\rR\vrequesterIdB\a\n" +
+	"\vdescription\x18\x03 \x01(\tH\x01R\vdescription\x88\x01\x01\x12'\n" +
+	"\finternalName\x18\x04 \x01(\tH\x02R\finternalName\x88\x01\x01\x12!\n" +
+	"\tserviceID\x18\x05 \x01(\rH\x03R\tserviceID\x88\x01\x01\x12\x1f\n" +
+	"\bisActive\x18\x06 \x01(\bH\x04R\bisActive\x88\x01\x01\x12 \n" +
+	"\vrequesterID\x18\a \x01(\rR\vrequesterIDB\a\n" +
 	"\x05_nameB\x0e\n" +
-	"\f_descriptionB\x10\n" +
-	"\x0e_internal_nameB\r\n" +
-	"\v_service_idB\f\n" +
+	"\f_descriptionB\x0f\n" +
+	"\r_internalNameB\f\n" +
 	"\n" +
-	"_is_active\"\xa7\x01\n" +
-	"\x0eUpdateResponse\x12\x1b\n" +
-	"\tis_active\x18\x01 \x01(\bR\bisActive\x12\x12\n" +
+	"_serviceIDB\v\n" +
+	"\t_isActive\"\xa4\x01\n" +
+	"\x0eUpdateResponse\x12\x1a\n" +
+	"\bisActive\x18\x01 \x01(\bR\bisActive\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x03 \x01(\tR\vdescription\x12#\n" +
-	"\rinternal_name\x18\x04 \x01(\tR\finternalName\x12\x1d\n" +
-	"\n" +
-	"service_id\x18\x05 \x01(\rR\tserviceId2\x85\x03\n" +
-	"\x11PermissionService\x12K\n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\"\n" +
+	"\finternalName\x18\x04 \x01(\tR\finternalName\x12\x1c\n" +
+	"\tserviceID\x18\x05 \x01(\rR\tserviceID2\xfb\x02\n" +
+	"\aService\x12K\n" +
 	"\x06Create\x12\x1f.permission_proto.CreateRequest\x1a .permission_proto.CreateResponse\x12K\n" +
 	"\x06Delete\x12\x1f.permission_proto.DeleteRequest\x1a .permission_proto.DeleteResponse\x12E\n" +
 	"\x04List\x12\x1d.permission_proto.ListRequest\x1a\x1e.permission_proto.ListResponse\x12K\n" +
@@ -1083,18 +1072,18 @@ var file_protos_permission_proto_goTypes = []any{
 	(*UpdateResponse)(nil), // 11: permission_proto.UpdateResponse
 }
 var file_protos_permission_proto_depIdxs = []int32{
-	8,  // 0: permission_proto.ListRequest.orderby:type_name -> permission_proto.OrderBy
+	8,  // 0: permission_proto.ListRequest.orderBy:type_name -> permission_proto.OrderBy
 	0,  // 1: permission_proto.ListResponse.rows:type_name -> permission_proto.Permission
-	1,  // 2: permission_proto.PermissionService.Create:input_type -> permission_proto.CreateRequest
-	3,  // 3: permission_proto.PermissionService.Delete:input_type -> permission_proto.DeleteRequest
-	7,  // 4: permission_proto.PermissionService.List:input_type -> permission_proto.ListRequest
-	10, // 5: permission_proto.PermissionService.Update:input_type -> permission_proto.UpdateRequest
-	5,  // 6: permission_proto.PermissionService.Get:input_type -> permission_proto.GetRequest
-	2,  // 7: permission_proto.PermissionService.Create:output_type -> permission_proto.CreateResponse
-	4,  // 8: permission_proto.PermissionService.Delete:output_type -> permission_proto.DeleteResponse
-	9,  // 9: permission_proto.PermissionService.List:output_type -> permission_proto.ListResponse
-	11, // 10: permission_proto.PermissionService.Update:output_type -> permission_proto.UpdateResponse
-	6,  // 11: permission_proto.PermissionService.Get:output_type -> permission_proto.GetResponse
+	1,  // 2: permission_proto.Service.Create:input_type -> permission_proto.CreateRequest
+	3,  // 3: permission_proto.Service.Delete:input_type -> permission_proto.DeleteRequest
+	7,  // 4: permission_proto.Service.List:input_type -> permission_proto.ListRequest
+	10, // 5: permission_proto.Service.Update:input_type -> permission_proto.UpdateRequest
+	5,  // 6: permission_proto.Service.Get:input_type -> permission_proto.GetRequest
+	2,  // 7: permission_proto.Service.Create:output_type -> permission_proto.CreateResponse
+	4,  // 8: permission_proto.Service.Delete:output_type -> permission_proto.DeleteResponse
+	9,  // 9: permission_proto.Service.List:output_type -> permission_proto.ListResponse
+	11, // 10: permission_proto.Service.Update:output_type -> permission_proto.UpdateResponse
+	6,  // 11: permission_proto.Service.Get:output_type -> permission_proto.GetResponse
 	7,  // [7:12] is the sub-list for method output_type
 	2,  // [2:7] is the sub-list for method input_type
 	2,  // [2:2] is the sub-list for extension type_name

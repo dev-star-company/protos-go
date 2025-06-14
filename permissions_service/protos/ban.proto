@@ -4,7 +4,7 @@ package ban_proto;
 
 option go_package = "./generated_protos/ban_proto";
 
-service BanService {
+service Service {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
     rpc List (ListRequest) returns (ListResponse);
@@ -14,62 +14,61 @@ service BanService {
 
 message Ban {
     uint32 id = 1;
-    string created_at = 2;
-    string updated_at = 3;
-    optional string deleted_at = 4;
-    uint32 created_by = 5;
-    uint32 updated_by = 6;
-    optional uint32 deleted_by = 7;
-    uint32 user_id = 8;
-    string expires_at = 10;
+    string createdAt = 2;
+    string updatedAt = 3;
+    optional string deletedAt = 4;
+    uint32 createdBy = 5;
+    uint32 updatedBy = 6;
+    optional uint32 deletedBy = 7;
+    uint32 userID = 8;
+    string expiresAt = 10;
 }
 
 message CreateRequest {
-    uint32 user_id = 1;
-    string expires_at = 2;
-    uint32 requesterId = 3;
+    uint32 userID = 1;
+    string expiresAt = 2;
+    uint32 requesterID = 3;
 }
 
 message CreateResponse {
-    uint32 user_id = 1;
-    string expires_at = 2;
-    uint32 requesterId = 3;
+    uint32 userID = 1;
+    string expiresAt = 2;
+    uint32 requesterID = 3;
 }
 
 message DeleteRequest {
     uint32 id = 1;
-    uint32 requester_id = 2;
+    uint32 requesterID = 2;
 }
 
 message DeleteResponse {}
 
 message GetRequest {
     uint32 id = 1;
-    uint32 requester_id = 2;
+    uint32 requesterID = 2;
     uint32 limit = 3;
     uint32 offset = 4;
 }
 
 message GetResponse {
-    uint32 user_id = 1;
-    string expires_at = 2;
-    uint32 requesterId = 3;
+    uint32 userID = 1;
+    string expiresAt = 2;
+    uint32 requesterID = 3;
 }
 
 message ListRequest {
     optional uint32 limit = 1;
     optional uint32 offset = 2;
-    optional bool include_deleted = 3;
-    optional OrderBy orderby = 4;
-    optional uint32 user_id = 5;
-    optional string expires_at = 6;
+    optional bool includeDeleted = 3;
+    optional OrderBy orderBy = 4;
+    optional uint32 userID = 5;
+    optional string expiresAt = 6;
 }
 
 message OrderBy {
     optional string id = 1;
-    optional string created_at = 2;
+    optional string createdAt = 2;
 }
-
 
 message ListResponse {
     repeated Ban rows = 1;
@@ -78,13 +77,13 @@ message ListResponse {
 
 message UpdateRequest {
     uint32 id = 1;
-    optional uint32 user_id = 2;
-    optional string expires_at = 3;
-    uint32 requesterId = 4;
+    optional uint32 userID = 2;
+    optional string expiresAt = 3;
+    uint32 requesterID = 4;
 }
 
 message UpdateResponse {
-    uint32 user_id = 1;
-    string expires_at = 2;
-    uint32 requesterId = 3;
+    uint32 userID = 1;
+    string expiresAt = 2;
+    uint32 requesterID = 3;
 }

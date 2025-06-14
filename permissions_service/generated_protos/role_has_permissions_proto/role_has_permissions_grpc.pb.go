@@ -19,17 +19,17 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	RoleHasPermissionsService_Create_FullMethodName = "/role_has_permissions_proto.RoleHasPermissionsService/Create"
-	RoleHasPermissionsService_Delete_FullMethodName = "/role_has_permissions_proto.RoleHasPermissionsService/Delete"
-	RoleHasPermissionsService_List_FullMethodName   = "/role_has_permissions_proto.RoleHasPermissionsService/List"
-	RoleHasPermissionsService_Update_FullMethodName = "/role_has_permissions_proto.RoleHasPermissionsService/Update"
-	RoleHasPermissionsService_Get_FullMethodName    = "/role_has_permissions_proto.RoleHasPermissionsService/Get"
+	Service_Create_FullMethodName = "/role_has_permissions_proto.Service/Create"
+	Service_Delete_FullMethodName = "/role_has_permissions_proto.Service/Delete"
+	Service_List_FullMethodName   = "/role_has_permissions_proto.Service/List"
+	Service_Update_FullMethodName = "/role_has_permissions_proto.Service/Update"
+	Service_Get_FullMethodName    = "/role_has_permissions_proto.Service/Get"
 )
 
-// RoleHasPermissionsServiceClient is the client API for RoleHasPermissionsService service.
+// ServiceClient is the client API for Service service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RoleHasPermissionsServiceClient interface {
+type ServiceClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
@@ -37,236 +37,235 @@ type RoleHasPermissionsServiceClient interface {
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 }
 
-type roleHasPermissionsServiceClient struct {
+type serviceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewRoleHasPermissionsServiceClient(cc grpc.ClientConnInterface) RoleHasPermissionsServiceClient {
-	return &roleHasPermissionsServiceClient{cc}
+func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
+	return &serviceClient{cc}
 }
 
-func (c *roleHasPermissionsServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+func (c *serviceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateResponse)
-	err := c.cc.Invoke(ctx, RoleHasPermissionsService_Create_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_Create_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *roleHasPermissionsServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+func (c *serviceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DeleteResponse)
-	err := c.cc.Invoke(ctx, RoleHasPermissionsService_Delete_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_Delete_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *roleHasPermissionsServiceClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error) {
+func (c *serviceClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListResponse)
-	err := c.cc.Invoke(ctx, RoleHasPermissionsService_List_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_List_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *roleHasPermissionsServiceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
+func (c *serviceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateResponse)
-	err := c.cc.Invoke(ctx, RoleHasPermissionsService_Update_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_Update_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *roleHasPermissionsServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+func (c *serviceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, RoleHasPermissionsService_Get_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RoleHasPermissionsServiceServer is the server API for RoleHasPermissionsService service.
-// All implementations must embed UnimplementedRoleHasPermissionsServiceServer
+// ServiceServer is the server API for Service service.
+// All implementations must embed UnimplementedServiceServer
 // for forward compatibility.
-type RoleHasPermissionsServiceServer interface {
+type ServiceServer interface {
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	List(context.Context, *ListRequest) (*ListResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedRoleHasPermissionsServiceServer()
+	mustEmbedUnimplementedServiceServer()
 }
 
-// UnimplementedRoleHasPermissionsServiceServer must be embedded to have
+// UnimplementedServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedRoleHasPermissionsServiceServer struct{}
+type UnimplementedServiceServer struct{}
 
-func (UnimplementedRoleHasPermissionsServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+func (UnimplementedServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedRoleHasPermissionsServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
+func (UnimplementedServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
-func (UnimplementedRoleHasPermissionsServiceServer) List(context.Context, *ListRequest) (*ListResponse, error) {
+func (UnimplementedServiceServer) List(context.Context, *ListRequest) (*ListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (UnimplementedRoleHasPermissionsServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
+func (UnimplementedServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedRoleHasPermissionsServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+func (UnimplementedServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedRoleHasPermissionsServiceServer) mustEmbedUnimplementedRoleHasPermissionsServiceServer() {
-}
-func (UnimplementedRoleHasPermissionsServiceServer) testEmbeddedByValue() {}
+func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
+func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
 
-// UnsafeRoleHasPermissionsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RoleHasPermissionsServiceServer will
+// UnsafeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceServer will
 // result in compilation errors.
-type UnsafeRoleHasPermissionsServiceServer interface {
-	mustEmbedUnimplementedRoleHasPermissionsServiceServer()
+type UnsafeServiceServer interface {
+	mustEmbedUnimplementedServiceServer()
 }
 
-func RegisterRoleHasPermissionsServiceServer(s grpc.ServiceRegistrar, srv RoleHasPermissionsServiceServer) {
-	// If the following call pancis, it indicates UnimplementedRoleHasPermissionsServiceServer was
+func RegisterServiceServer(s grpc.ServiceRegistrar, srv ServiceServer) {
+	// If the following call pancis, it indicates UnimplementedServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&RoleHasPermissionsService_ServiceDesc, srv)
+	s.RegisterService(&Service_ServiceDesc, srv)
 }
 
-func _RoleHasPermissionsService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoleHasPermissionsServiceServer).Create(ctx, in)
+		return srv.(ServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RoleHasPermissionsService_Create_FullMethodName,
+		FullMethod: Service_Create_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleHasPermissionsServiceServer).Create(ctx, req.(*CreateRequest))
+		return srv.(ServiceServer).Create(ctx, req.(*CreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RoleHasPermissionsService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoleHasPermissionsServiceServer).Delete(ctx, in)
+		return srv.(ServiceServer).Delete(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RoleHasPermissionsService_Delete_FullMethodName,
+		FullMethod: Service_Delete_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleHasPermissionsServiceServer).Delete(ctx, req.(*DeleteRequest))
+		return srv.(ServiceServer).Delete(ctx, req.(*DeleteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RoleHasPermissionsService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoleHasPermissionsServiceServer).List(ctx, in)
+		return srv.(ServiceServer).List(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RoleHasPermissionsService_List_FullMethodName,
+		FullMethod: Service_List_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleHasPermissionsServiceServer).List(ctx, req.(*ListRequest))
+		return srv.(ServiceServer).List(ctx, req.(*ListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RoleHasPermissionsService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoleHasPermissionsServiceServer).Update(ctx, in)
+		return srv.(ServiceServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RoleHasPermissionsService_Update_FullMethodName,
+		FullMethod: Service_Update_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleHasPermissionsServiceServer).Update(ctx, req.(*UpdateRequest))
+		return srv.(ServiceServer).Update(ctx, req.(*UpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RoleHasPermissionsService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoleHasPermissionsServiceServer).Get(ctx, in)
+		return srv.(ServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RoleHasPermissionsService_Get_FullMethodName,
+		FullMethod: Service_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleHasPermissionsServiceServer).Get(ctx, req.(*GetRequest))
+		return srv.(ServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// RoleHasPermissionsService_ServiceDesc is the grpc.ServiceDesc for RoleHasPermissionsService service.
+// Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var RoleHasPermissionsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "role_has_permissions_proto.RoleHasPermissionsService",
-	HandlerType: (*RoleHasPermissionsServiceServer)(nil),
+var Service_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "role_has_permissions_proto.Service",
+	HandlerType: (*ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Create",
-			Handler:    _RoleHasPermissionsService_Create_Handler,
+			Handler:    _Service_Create_Handler,
 		},
 		{
 			MethodName: "Delete",
-			Handler:    _RoleHasPermissionsService_Delete_Handler,
+			Handler:    _Service_Delete_Handler,
 		},
 		{
 			MethodName: "List",
-			Handler:    _RoleHasPermissionsService_List_Handler,
+			Handler:    _Service_List_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _RoleHasPermissionsService_Update_Handler,
+			Handler:    _Service_Update_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _RoleHasPermissionsService_Get_Handler,
+			Handler:    _Service_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
