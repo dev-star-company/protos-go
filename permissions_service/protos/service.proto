@@ -4,7 +4,7 @@ package service_proto;
 
 option go_package = "./generated_protos/service_proto";
 
-service ServiceService {
+service Service {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
     rpc List (ListRequest) returns (ListResponse);
@@ -12,72 +12,78 @@ service ServiceService {
     rpc Get (GetRequest) returns (GetResponse);
 }
 
-message Service {
+message ServiceDto {
     uint32 id = 1;
-    string created_at = 2;
-    string updated_at = 3;
-    optional string deleted_at = 4;
-    uint32 created_by = 5;
-    uint32 updated_by = 6;
-    optional uint32 deleted_by = 7;
+    string createdAt = 2;
+    string updatedAt = 3;
+    optional string deletedAt = 4;
+    uint32 createdBy = 5;
+    uint32 updatedBy = 6;
+    optional uint32 deletedBy = 7;
     string name = 8;
+    bool isActive = 9;
+    string description = 10;
+    string internalName = 11;
 }
 
 message CreateRequest {
     string name = 1;
-    uint32 requesterId = 2;
+    uint32 requesterID = 2;
+    string description = 3;
+    string internalName = 4;
 }
 
 message CreateResponse {
     string name = 1;
-    uint32 requesterId = 2;
+    uint32 requesterID = 2;
 }
 
 message DeleteRequest {
     uint32 id = 1;
-    uint32 requester_id = 2;
+    uint32 requesterID = 2;
 }
 
 message DeleteResponse {}
 
 message GetRequest {
     uint32 id = 1;
-    uint32 requester_id = 2;
+    uint32 requesterID = 2;
     uint32 limit = 3;
     uint32 offset = 4;
 }
 
 message GetResponse {
     string name = 1;
-    uint32 requesterId = 2;
+    uint32 requesterID = 2;
 }
 
 message ListRequest {
     optional uint32 limit = 1;
     optional uint32 offset = 2;
-    optional bool include_deleted = 3;
+    optional bool includeDeleted = 3;
     optional string name = 4;
-    optional OrderBy orderby = 5;
+    optional OrderBy orderBy = 5;
+    optional string description = 6;
+    optional string internalName = 7;
 }
 
 message OrderBy {
     optional string id = 1;
-    optional string created_at = 2;
+    optional string createdAt = 2;
 }
 
-
 message ListResponse {
-    repeated Service rows = 1;
+    repeated ServiceDto rows = 1;
     uint32 count = 2;
 }
 
 message UpdateRequest {
     uint32 id = 1;
     optional string name = 2;
-    uint32 requesterId = 3;
+    uint32 requesterID = 3;
 }
 
 message UpdateResponse {
     string name = 1;
-    uint32 requesterId = 2;
+    uint32 requesterID = 2;
 }

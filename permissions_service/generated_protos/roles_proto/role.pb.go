@@ -26,13 +26,13 @@ type Role struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,7,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,8,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     *uint32                `protobuf:"varint,9,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
-	IsActive      bool                   `protobuf:"varint,10,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,4,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,5,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,6,opt,name=deletedAt,proto3,oneof" json:"deletedAt,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,7,opt,name=createdBy,proto3" json:"createdBy,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,8,opt,name=updatedBy,proto3" json:"updatedBy,omitempty"`
+	DeletedBy     *uint32                `protobuf:"varint,9,opt,name=deletedBy,proto3,oneof" json:"deletedBy,omitempty"`
+	IsActive      bool                   `protobuf:"varint,10,opt,name=isActive,proto3" json:"isActive,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -140,7 +140,7 @@ func (x *Role) GetIsActive() bool {
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -183,9 +183,9 @@ func (x *CreateRequest) GetName() string {
 	return ""
 }
 
-func (x *CreateRequest) GetRequesterId() uint32 {
+func (x *CreateRequest) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
@@ -244,7 +244,7 @@ func (x *CreateResponse) GetRole() *Role {
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	Limit         uint32                 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
 	Offset        uint32                 `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -288,9 +288,9 @@ func (x *GetRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *GetRequest) GetRequesterId() uint32 {
+func (x *GetRequest) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
@@ -359,8 +359,8 @@ type ListRequest struct {
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	Name           *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Description    *string                `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	IncludeDeleted *bool                  `protobuf:"varint,5,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
-	Orderby        *OrderBy               `protobuf:"bytes,6,opt,name=orderby,proto3,oneof" json:"orderby,omitempty"`
+	IncludeDeleted *bool                  `protobuf:"varint,5,opt,name=includeDeleted,proto3,oneof" json:"includeDeleted,omitempty"`
+	OrderBy        *OrderBy               `protobuf:"bytes,6,opt,name=orderBy,proto3,oneof" json:"orderBy,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -430,9 +430,9 @@ func (x *ListRequest) GetIncludeDeleted() bool {
 	return false
 }
 
-func (x *ListRequest) GetOrderby() *OrderBy {
+func (x *ListRequest) GetOrderBy() *OrderBy {
 	if x != nil {
-		return x.Orderby
+		return x.OrderBy
 	}
 	return nil
 }
@@ -440,7 +440,7 @@ func (x *ListRequest) GetOrderby() *OrderBy {
 type OrderBy struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            *string                `protobuf:"bytes,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
-	CreatedAt     *string                `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
+	CreatedAt     *string                `protobuf:"bytes,2,opt,name=createdAt,proto3,oneof" json:"createdAt,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -546,7 +546,7 @@ type UpdateRequest struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Description   *string                `protobuf:"bytes,3,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,4,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,4,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -602,9 +602,9 @@ func (x *UpdateRequest) GetDescription() string {
 	return ""
 }
 
-func (x *UpdateRequest) GetRequesterId() uint32 {
+func (x *UpdateRequest) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
@@ -656,7 +656,7 @@ func (x *UpdateResponse) GetRole() *Role {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -698,9 +698,9 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterId() uint32 {
+func (x *DeleteRequest) GetRequesterID() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterID
 	}
 	return 0
 }
@@ -745,61 +745,57 @@ var File_protos_role_proto protoreflect.FileDescriptor
 
 const file_protos_role_proto_rawDesc = "" +
 	"\n" +
-	"\x11protos/role.proto\x12\vroles_proto\"\xcb\x02\n" +
+	"\x11protos/role.proto\x12\vroles_proto\"\xc2\x02\n" +
 	"\x04Role\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1d\n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1c\n" +
+	"\tcreatedAt\x18\x04 \x01(\tR\tcreatedAt\x12\x1c\n" +
+	"\tupdatedAt\x18\x05 \x01(\tR\tupdatedAt\x12!\n" +
+	"\tdeletedAt\x18\x06 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1c\n" +
+	"\tcreatedBy\x18\a \x01(\rR\tcreatedBy\x12\x1c\n" +
+	"\tupdatedBy\x18\b \x01(\rR\tupdatedBy\x12!\n" +
+	"\tdeletedBy\x18\t \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x1a\n" +
+	"\bisActive\x18\n" +
+	" \x01(\bR\bisActiveB\f\n" +
 	"\n" +
-	"created_at\x18\x04 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"_deletedAtB\f\n" +
 	"\n" +
-	"updated_at\x18\x05 \x01(\tR\tupdatedAt\x12\"\n" +
-	"\n" +
-	"deleted_at\x18\x06 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
-	"\n" +
-	"created_by\x18\a \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\b \x01(\rR\tupdatedBy\x12\"\n" +
-	"\n" +
-	"deleted_by\x18\t \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x1b\n" +
-	"\tis_active\x18\n" +
-	" \x01(\bR\bisActiveB\r\n" +
-	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"g\n" +
+	"_deletedBy\"g\n" +
 	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vrequesterId\x18\x02 \x01(\rR\vrequesterId\x12 \n" +
+	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\"7\n" +
 	"\x0eCreateResponse\x12%\n" +
-	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"m\n" +
+	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"l\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12 \n" +
+	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\x12\x14\n" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
 	"\x06offset\x18\x04 \x01(\rR\x06offset\"4\n" +
 	"\vGetResponse\x12%\n" +
-	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"\xb6\x02\n" +
+	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"\xb4\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12\x17\n" +
 	"\x04name\x18\x03 \x01(\tH\x02R\x04name\x88\x01\x01\x12%\n" +
-	"\vdescription\x18\x04 \x01(\tH\x03R\vdescription\x88\x01\x01\x12,\n" +
-	"\x0finclude_deleted\x18\x05 \x01(\bH\x04R\x0eincludeDeleted\x88\x01\x01\x123\n" +
-	"\aorderby\x18\x06 \x01(\v2\x14.roles_proto.OrderByH\x05R\aorderby\x88\x01\x01B\b\n" +
+	"\vdescription\x18\x04 \x01(\tH\x03R\vdescription\x88\x01\x01\x12+\n" +
+	"\x0eincludeDeleted\x18\x05 \x01(\bH\x04R\x0eincludeDeleted\x88\x01\x01\x123\n" +
+	"\aorderBy\x18\x06 \x01(\v2\x14.roles_proto.OrderByH\x05R\aorderBy\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\a\n" +
 	"\x05_nameB\x0e\n" +
-	"\f_descriptionB\x12\n" +
-	"\x10_include_deletedB\n" +
+	"\f_descriptionB\x11\n" +
+	"\x0f_includeDeletedB\n" +
 	"\n" +
-	"\b_orderby\"X\n" +
+	"\b_orderBy\"V\n" +
 	"\aOrderBy\x12\x13\n" +
-	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
+	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12!\n" +
+	"\tcreatedAt\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
+	"\x03_idB\f\n" +
 	"\n" +
-	"created_at\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
-	"\x03_idB\r\n" +
-	"\v_created_at\"K\n" +
+	"_createdAt\"K\n" +
 	"\fListResponse\x12%\n" +
 	"\x04rows\x18\x01 \x03(\v2\x11.roles_proto.RoleR\x04rows\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\rR\x05count\"\x9a\x01\n" +
@@ -807,16 +803,16 @@ const file_protos_role_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12%\n" +
 	"\vdescription\x18\x03 \x01(\tH\x01R\vdescription\x88\x01\x01\x12 \n" +
-	"\vrequesterId\x18\x04 \x01(\rR\vrequesterIdB\a\n" +
+	"\vrequesterID\x18\x04 \x01(\rR\vrequesterIDB\a\n" +
 	"\x05_nameB\x0e\n" +
 	"\f_description\"7\n" +
 	"\x0eUpdateResponse\x12%\n" +
 	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"A\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12 \n" +
-	"\vrequesterId\x18\x02 \x01(\rR\vrequesterId\"\x10\n" +
-	"\x0eDeleteResponse2\xce\x02\n" +
-	"\fRolesService\x12A\n" +
+	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\"\x10\n" +
+	"\x0eDeleteResponse2\xc9\x02\n" +
+	"\aService\x12A\n" +
 	"\x06Create\x12\x1a.roles_proto.CreateRequest\x1a\x1b.roles_proto.CreateResponse\x128\n" +
 	"\x03Get\x12\x17.roles_proto.GetRequest\x1a\x18.roles_proto.GetResponse\x12;\n" +
 	"\x04List\x12\x18.roles_proto.ListRequest\x1a\x19.roles_proto.ListResponse\x12A\n" +
@@ -853,19 +849,19 @@ var file_protos_role_proto_goTypes = []any{
 var file_protos_role_proto_depIdxs = []int32{
 	0,  // 0: roles_proto.CreateResponse.role:type_name -> roles_proto.Role
 	0,  // 1: roles_proto.GetResponse.role:type_name -> roles_proto.Role
-	6,  // 2: roles_proto.ListRequest.orderby:type_name -> roles_proto.OrderBy
+	6,  // 2: roles_proto.ListRequest.orderBy:type_name -> roles_proto.OrderBy
 	0,  // 3: roles_proto.ListResponse.rows:type_name -> roles_proto.Role
 	0,  // 4: roles_proto.UpdateResponse.role:type_name -> roles_proto.Role
-	1,  // 5: roles_proto.RolesService.Create:input_type -> roles_proto.CreateRequest
-	3,  // 6: roles_proto.RolesService.Get:input_type -> roles_proto.GetRequest
-	5,  // 7: roles_proto.RolesService.List:input_type -> roles_proto.ListRequest
-	8,  // 8: roles_proto.RolesService.Update:input_type -> roles_proto.UpdateRequest
-	10, // 9: roles_proto.RolesService.Delete:input_type -> roles_proto.DeleteRequest
-	2,  // 10: roles_proto.RolesService.Create:output_type -> roles_proto.CreateResponse
-	4,  // 11: roles_proto.RolesService.Get:output_type -> roles_proto.GetResponse
-	7,  // 12: roles_proto.RolesService.List:output_type -> roles_proto.ListResponse
-	9,  // 13: roles_proto.RolesService.Update:output_type -> roles_proto.UpdateResponse
-	11, // 14: roles_proto.RolesService.Delete:output_type -> roles_proto.DeleteResponse
+	1,  // 5: roles_proto.Service.Create:input_type -> roles_proto.CreateRequest
+	3,  // 6: roles_proto.Service.Get:input_type -> roles_proto.GetRequest
+	5,  // 7: roles_proto.Service.List:input_type -> roles_proto.ListRequest
+	8,  // 8: roles_proto.Service.Update:input_type -> roles_proto.UpdateRequest
+	10, // 9: roles_proto.Service.Delete:input_type -> roles_proto.DeleteRequest
+	2,  // 10: roles_proto.Service.Create:output_type -> roles_proto.CreateResponse
+	4,  // 11: roles_proto.Service.Get:output_type -> roles_proto.GetResponse
+	7,  // 12: roles_proto.Service.List:output_type -> roles_proto.ListResponse
+	9,  // 13: roles_proto.Service.Update:output_type -> roles_proto.UpdateResponse
+	11, // 14: roles_proto.Service.Delete:output_type -> roles_proto.DeleteResponse
 	10, // [10:15] is the sub-list for method output_type
 	5,  // [5:10] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
