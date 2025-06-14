@@ -5,11 +5,11 @@ package account_balance_proto;
 option go_package = "./generated_protos/account_balance_proto";
 
 service AccountBalanceService {
-  rpc Create(CreateAccountBalanceRequest) returns (CreateAccountBalanceResponse);
-  rpc Get(GetAccountBalanceRequest) returns (GetAccountBalanceResponse);
-  rpc Update(UpdateAccountBalanceRequest) returns (UpdateAccountBalanceResponse);
-  rpc Delete(DeleteAccountBalanceRequest) returns (DeleteAccountBalanceResponse);
-  rpc List(ListAccountBalanceRequest) returns (ListAccountBalanceResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc List(ListRequest) returns (ListResponse);
 }
 
 message AccountBalance {
@@ -26,14 +26,14 @@ message AccountBalance {
   double balance = 11;
 }
 
-message CreateAccountBalanceRequest {
+message CreateRequest {
   uint32 requester_id = 1;
   uint32 account_id = 2;
   uint32 currency_id = 3;
   double balance = 4;
 }
 
-message CreateAccountBalanceResponse {
+message CreateResponse {
   uint32 account_id = 1;
   uint32 currency_id = 2;
   double balance = 3;
@@ -45,11 +45,11 @@ message CreateAccountBalanceResponse {
   uint32 deleted_by = 9;
 }
 
-message GetAccountBalanceRequest {
+message GetRequest {
   uint32 id = 1;
 }
 
-message GetAccountBalanceResponse {
+message GetResponse {
   uint32 id = 1;
   uint32 requester_id = 2;
   uint32 account_id = 3;
@@ -64,7 +64,7 @@ message GetAccountBalanceResponse {
 }
 
 
-message ListAccountBalanceRequest {
+message ListRequest {
   optional uint32 limit = 1;
   optional uint32 offset = 2;
   optional bool include_deleted = 3;
@@ -80,12 +80,12 @@ message OrderBy {
 }
   
 
-message ListAccountBalanceResponse {
+message ListResponse {
   uint32 count = 1;
   repeated AccountBalance rows = 2;
 }
 
-message UpdateAccountBalanceRequest {
+message UpdateRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
   optional uint32 account_id = 4;
@@ -93,7 +93,7 @@ message UpdateAccountBalanceRequest {
   optional double balance = 6;
 }
 
-message UpdateAccountBalanceResponse {
+message UpdateResponse {
   uint32 id = 1;
   uint32 requester_id = 2;
   uint32 account_id = 3;
@@ -101,12 +101,12 @@ message UpdateAccountBalanceResponse {
   double balance = 5;
 }
 
-message DeleteAccountBalanceRequest {
+message DeleteRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
 }
 
-message DeleteAccountBalanceResponse {
+message DeleteResponse {
   string message = 1;
 }
 

@@ -5,11 +5,11 @@ package currency_proto;
 option go_package = "./generated_protos/currency_proto";
 
 service CurrencyService {
-  rpc Create(CreateCurrencyRequest) returns (CreateCurrencyResponse);
-  rpc Get(GetCurrencyRequest) returns (GetCurrencyResponse);
-  rpc Update(UpdateCurrencyRequest) returns (UpdateCurrencyResponse);
-  rpc Delete(DeleteCurrencyRequest) returns (DeleteCurrencyResponse);
-  rpc List(ListCurrencyRequest) returns (ListCurrencyResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc List(ListRequest) returns (ListResponse);
 }
 
 message Currency {
@@ -28,7 +28,7 @@ message Currency {
   uint32 requester_id = 13;
 }
 
-message CreateCurrencyRequest {
+message CreateRequest {
   uint32 requester_id = 1;
   string name = 2;
   string symbol = 3;
@@ -37,7 +37,7 @@ message CreateCurrencyRequest {
   uint32 currency_type_id = 6;
 }
 
-message CreateCurrencyResponse {
+message CreateResponse {
   uint32 requester_id = 1;
   string name = 2;
   string symbol = 3;
@@ -52,11 +52,11 @@ message CreateCurrencyResponse {
   uint32 deleted_by = 12;
 }
 
-message GetCurrencyRequest {
+message GetRequest {
   uint32 id = 1;
 }
 
-message GetCurrencyResponse {
+message GetResponse {
   uint32 requester_id = 1;
   string name = 2;
   string symbol = 3;
@@ -71,7 +71,7 @@ message GetCurrencyResponse {
   uint32 deleted_by = 12;
 }
 
-message UpdateCurrencyRequest {
+message UpdateRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
   optional string name = 3;
@@ -81,7 +81,7 @@ message UpdateCurrencyRequest {
   optional uint32 currency_type_id = 7;
 }
 
-message UpdateCurrencyResponse {
+message UpdateResponse {
   uint32 requester_id = 1;
   string name = 2;
   string symbol = 3;
@@ -90,16 +90,16 @@ message UpdateCurrencyResponse {
   uint32 currency_type_id = 6;
 }
 
-message DeleteCurrencyRequest {
+message DeleteRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
 }
 
-message DeleteCurrencyResponse {
+message DeleteResponse {
   string message = 1;
 }
 
-message ListCurrencyRequest {
+message ListRequest {
   optional uint32 limit = 1;
   optional uint32 offset = 2;
   optional bool include_deleted = 3;
@@ -117,7 +117,7 @@ message OrderBy {
   optional string created_at = 3;
 }
 
-message ListCurrencyResponse {
+message ListResponse {
   repeated Currency rows = 1;
   uint32 count = 2;
 }

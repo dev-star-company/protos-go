@@ -5,11 +5,11 @@ package transaction_proto;
 option go_package = "./generated_protos/transaction_proto";
 
 service TransactionService {
-  rpc Create(CreateTransactionRequest) returns (CreateTransactionResponse);
-  rpc Get(GetTransactionRequest) returns (GetTransactionResponse);
-  rpc Update(UpdateTransactionRequest) returns (UpdateTransactionResponse);
-  rpc Delete(DeleteTransactionRequest) returns (DeleteTransactionResponse);
-  rpc List(ListTransactionRequest) returns (ListTransactionResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc List(ListRequest) returns (ListResponse);
 }
 
 message Transaction {
@@ -29,7 +29,7 @@ message Transaction {
   optional string observation = 14;
 }
 
-message CreateTransactionRequest {
+message CreateRequest {
   uint32 requester_id = 1;
   uint32 origin_account_id = 2;
   uint32 destination_account_id = 3;
@@ -41,7 +41,7 @@ message CreateTransactionRequest {
   
 }
 
-message CreateTransactionResponse {
+message CreateResponse {
   uint32 requester_id = 1;
   uint32 origin_account_id = 2;
   uint32 destination_account_id = 3;
@@ -58,11 +58,11 @@ message CreateTransactionResponse {
   uint32 deleted_by = 14;
 }
 
-message GetTransactionRequest {
+message GetRequest {
   uint32 id = 1;
 }
 
-message GetTransactionResponse {
+message GetResponse {
   uint32 requester_id = 1;
   uint32 origin_account_id = 2;
   uint32 destination_account_id = 3;
@@ -79,7 +79,7 @@ message GetTransactionResponse {
   uint32 deleted_by = 14;
 }
 
-message UpdateTransactionRequest {
+message UpdateRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
   optional uint32 origin_account_id = 3;
@@ -91,7 +91,7 @@ message UpdateTransactionRequest {
   optional string observation = 9;
 }
 
-message UpdateTransactionResponse {
+message UpdateResponse {
   uint32 requester_id = 1;
   uint32 origin_account_id = 2;
   uint32 destination_account_id = 3;
@@ -102,16 +102,16 @@ message UpdateTransactionResponse {
   string observation = 8;
 }
 
-message DeleteTransactionRequest {
+message DeleteRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
 }
 
-message DeleteTransactionResponse {
+message DeleteResponse {
   string message = 1;
 }
 
-message ListTransactionRequest {
+message ListRequest {
   optional uint32 limit = 1;
   optional uint32 offset = 2;
   optional bool include_deleted = 3;
@@ -130,7 +130,7 @@ message OrderBy {
   optional string created_at = 2;
 }
 
-message ListTransactionResponse {
+message ListResponse {
   repeated Transaction rows = 1;
   uint32 count = 2;
 }

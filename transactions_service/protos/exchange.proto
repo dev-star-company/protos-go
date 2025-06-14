@@ -5,11 +5,11 @@ package exchange_proto;
 option go_package = "./generated_protos/exchange_proto";
 
 service ExchangeService {
-  rpc Create(CreateExchangeRequest) returns (CreateExchangeResponse);
-  rpc Get(GetExchangeRequest) returns (GetExchangeResponse);
-  rpc Update(UpdateExchangeRequest) returns (UpdateExchangeResponse);
-  rpc Delete(DeleteExchangeRequest) returns (DeleteExchangeResponse);
-  rpc List(ListExchangeRequest) returns (ListExchangeResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc List(ListRequest) returns (ListResponse);
 }
 
 message Exchange {
@@ -24,13 +24,13 @@ message Exchange {
   uint32 currency_id = 9;
 }
 
-message CreateExchangeRequest {
+message CreateRequest {
   uint32 requester_id = 1;
   double value = 2;
   uint32 currency_id = 3;
 }
 
-message CreateExchangeResponse {
+message CreateResponse {
   uint32 requester_id = 1;
   double value = 2;
   uint32 currency_id = 3;
@@ -42,11 +42,11 @@ message CreateExchangeResponse {
   uint32 deleted_by = 9;
 }
 
-message GetExchangeRequest {
+message GetRequest {
   uint32 id = 1;
 }
 
-message GetExchangeResponse {
+message GetResponse {
   uint32 requester_id = 1;
   double value = 2;
   uint32 currency_id = 3;
@@ -58,29 +58,29 @@ message GetExchangeResponse {
   uint32 deleted_by = 9;
 }
 
-message UpdateExchangeRequest {
+message UpdateRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
   optional double value = 3;
   optional uint32 currency_id = 4;
 }
 
-message UpdateExchangeResponse {
+message UpdateResponse {
   uint32 requester_id = 1;
   double value = 2;
   uint32 currency_id = 3;
 }
 
-message DeleteExchangeRequest {
+message DeleteRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
 }
 
-message DeleteExchangeResponse {
+message DeleteResponse {
   string message = 1;
 }
 
-message ListExchangeRequest {
+message ListRequest {
   optional uint32 limit = 1;
   optional uint32 offset = 2;
   optional bool include_deleted = 3;
@@ -94,7 +94,7 @@ message OrderBy {
   optional string created_at = 2;
 }
 
-message ListExchangeResponse {
+message ListResponse {
   repeated Exchange rows = 1;
   uint32 count = 2;
 }

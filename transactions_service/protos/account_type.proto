@@ -5,11 +5,11 @@ package account_type_proto;
 option go_package = "./generated_protos/account_type_proto";
 
 service AccountTypeService {
-    rpc Create(CreateAccountTypeRequest) returns (CreateAccountTypeResponse);
-    rpc Get(GetAccountTypeRequest) returns (GetAccountTypeResponse);
-    rpc List(ListAccountTypeRequest) returns (ListAccountTypeResponse);
-    rpc Update(UpdateAccountTypeRequest) returns (UpdateAccountTypeResponse);
-    rpc Delete(DeleteAccountTypeRequest) returns (DeleteAccountTypeResponse);
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Get(GetRequest) returns (GetResponse);
+    rpc List(ListRequest) returns (ListResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
   }  
 
 message AccountType {
@@ -24,12 +24,12 @@ message AccountType {
   uint32 requesterId = 9;
 }
 
-message CreateAccountTypeRequest {
+message CreateRequest {
   uint32 requesterId = 1;
   string name = 2;
 }
 
-message CreateAccountTypeResponse {
+message CreateResponse {
   uint32 requesterId = 1;
   string name = 2;
   uint32 created_by = 3;
@@ -40,11 +40,11 @@ message CreateAccountTypeResponse {
   uint32 deleted_by = 8;
 }
 
-message GetAccountTypeRequest {
+message GetRequest {
   uint32 id = 1;
 }
 
-message GetAccountTypeResponse {
+message GetResponse {
   string name = 1;
   uint32 created_by = 2;
   uint32 updated_by = 3;
@@ -60,7 +60,7 @@ message OrderBy {
   optional string created_at = 3;
 }
 
-message ListAccountTypeRequest {
+message ListRequest {
   optional string name = 1;
   optional uint32 limit = 2;
   optional uint32 offset = 3;
@@ -68,26 +68,26 @@ message ListAccountTypeRequest {
   optional OrderBy orderby = 5;
 }
 
-message ListAccountTypeResponse {
+message ListResponse {
   repeated AccountType rows = 1;
   uint32 count = 2;
 }
 
-message UpdateAccountTypeRequest {
+message UpdateRequest {
   uint32 id = 1;
   optional string name = 2;
   uint32 requester_id = 3;
 }
 
-message UpdateAccountTypeResponse {
+message UpdateResponse {
   string name = 1;
 }
 
-message DeleteAccountTypeRequest {
+message DeleteRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
 }
 
-message DeleteAccountTypeResponse {
+message DeleteResponse {
   string message = 1;
 }

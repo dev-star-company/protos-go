@@ -5,11 +5,11 @@ package bank_proto;
 option go_package = "./generated_protos/bank_proto";
 
 service BankService {
-  rpc Create(CreateBankRequest) returns (CreateBankResponse);
-  rpc Get(GetBankRequest) returns (GetBankResponse);
-  rpc Update(UpdateBankRequest) returns (UpdateBankResponse);
-  rpc Delete(DeleteBankRequest) returns (DeleteBankResponse);
-  rpc List(ListBankRequest) returns (ListBankResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc List(ListRequest) returns (ListResponse);
 }
 
 message Bank {
@@ -26,13 +26,13 @@ message Bank {
 }
   
 
-message CreateBankRequest {
+message CreateRequest {
   uint32 requester_id = 1;
   string name = 2;
   string bank_number = 3;
 }
 
-message CreateBankResponse {
+message CreateResponse {
   uint32 requester_id = 1;
   string name = 2;
   string bank_number = 3;
@@ -44,11 +44,11 @@ message CreateBankResponse {
   string deleted_at = 9;
 }
 
-message GetBankRequest {
+message GetRequest {
   uint32 id = 1;
 }
 
-message GetBankResponse {
+message GetResponse {
   uint32 requester_id = 1;
   string name = 2;
   string bank_number = 3;
@@ -60,29 +60,29 @@ message GetBankResponse {
   string deleted_at = 9;
 }
 
-message UpdateBankRequest {
+message UpdateRequest {
   int32 id = 1;
   int32 requester_id = 2;
   optional string name = 3;
   optional string bank_number = 4;
 }
 
-message UpdateBankResponse {
+message UpdateResponse {
   uint32 requester_id = 1;
   string name = 2;
   string bank_number = 3;
 }
 
-message DeleteBankRequest {
+message DeleteRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
 }
 
-message DeleteBankResponse {
+message DeleteResponse {
   string message = 1;
 }
 
-message ListBankRequest {
+message ListRequest {
   optional uint32 limit = 1;
   optional uint32 offset = 2;
   optional bool include_deleted = 3;
@@ -97,7 +97,7 @@ message OrderBy {
   optional string created_at = 3;
 }
 
-message ListBankResponse {
+message ListResponse {
   repeated Bank rows = 1;
   uint32 count = 2;
 }

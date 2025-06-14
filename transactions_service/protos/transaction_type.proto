@@ -5,11 +5,11 @@ package transaction_type_proto;
 option go_package = "./generated_protos/transaction_type_proto";
 
 service TransactionTypeService {
-  rpc Create(CreateTransactionTypeRequest) returns (CreateTransactionTypeResponse);
-  rpc Get(GetTransactionTypeRequest) returns (GetTransactionTypeResponse);
-  rpc Update(UpdateTransactionTypeRequest) returns (UpdateTransactionTypeResponse);
-  rpc Delete(DeleteTransactionTypeRequest) returns (DeleteTransactionTypeResponse);
-  rpc List(ListTransactionTypeRequest) returns (ListTransactionTypeResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc List(ListRequest) returns (ListResponse);
 }
 
 message TransactionType {
@@ -23,12 +23,12 @@ message TransactionType {
   string name = 8;
 }
 
-message CreateTransactionTypeRequest {
+message CreateRequest {
   uint32 requester_id = 1;
   string name = 2;
 }
 
-message CreateTransactionTypeResponse {
+message CreateResponse {
   uint32 requester_id = 1;
   string name = 2;
   string created_at = 3;
@@ -39,11 +39,11 @@ message CreateTransactionTypeResponse {
   uint32 deleted_by = 8;
 }
 
-message GetTransactionTypeRequest {
+message GetRequest {
   uint32 id = 1;
 }
 
-message GetTransactionTypeResponse {
+message GetResponse {
   uint32 requester_id = 1;
   string name = 2;
   string created_at = 3;
@@ -54,13 +54,13 @@ message GetTransactionTypeResponse {
   uint32 deleted_by = 8;
 }
 
-message UpdateTransactionTypeRequest {
+message UpdateRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
   optional string name = 3;
 }
 
-message UpdateTransactionTypeResponse {
+message UpdateResponse {
   uint32 requester_id = 1;
   string name = 2;
   string created_at = 3;
@@ -71,16 +71,16 @@ message UpdateTransactionTypeResponse {
   uint32 deleted_by = 8;
 }
 
-message DeleteTransactionTypeRequest {
+message DeleteRequest {
   uint32 id = 1;
   uint32 requester_id = 2;
 }
 
-message DeleteTransactionTypeResponse {
+message DeleteResponse {
   string message = 1;
 }
 
-message ListTransactionTypeRequest {
+message ListRequest {
   optional uint32 limit = 1;
   optional uint32 offset = 2;
   optional bool include_deleted = 3;
@@ -94,7 +94,7 @@ message OrderBy {
   optional string created_at = 3;
 }
 
-message ListTransactionTypeResponse {
+message ListResponse {
   repeated TransactionType rows = 1;
   uint32 count = 2;
 }
