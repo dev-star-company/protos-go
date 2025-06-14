@@ -24,16 +24,16 @@ const (
 type ServiceDto struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,3,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deletedAt,proto3,oneof" json:"deletedAt,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,5,opt,name=createdBy,proto3" json:"createdBy,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updatedBy,proto3" json:"updatedBy,omitempty"`
-	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deletedBy,proto3,oneof" json:"deletedBy,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,5,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
+	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Name          string                 `protobuf:"bytes,8,opt,name=name,proto3" json:"name,omitempty"`
-	IsActive      bool                   `protobuf:"varint,9,opt,name=isActive,proto3" json:"isActive,omitempty"`
+	IsActive      bool                   `protobuf:"varint,9,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
 	Description   string                 `protobuf:"bytes,10,opt,name=description,proto3" json:"description,omitempty"`
-	InternalName  string                 `protobuf:"bytes,11,opt,name=internalName,proto3" json:"internalName,omitempty"`
+	InternalName  string                 `protobuf:"bytes,11,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -148,9 +148,9 @@ func (x *ServiceDto) GetInternalName() string {
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
+	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	InternalName  string                 `protobuf:"bytes,4,opt,name=internalName,proto3" json:"internalName,omitempty"`
+	InternalName  string                 `protobuf:"bytes,4,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -192,9 +192,9 @@ func (x *CreateRequest) GetName() string {
 	return ""
 }
 
-func (x *CreateRequest) GetRequesterID() uint32 {
+func (x *CreateRequest) GetRequesterId() uint32 {
 	if x != nil {
-		return x.RequesterID
+		return x.RequesterId
 	}
 	return 0
 }
@@ -216,7 +216,7 @@ func (x *CreateRequest) GetInternalName() string {
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
+	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -258,9 +258,9 @@ func (x *CreateResponse) GetName() string {
 	return ""
 }
 
-func (x *CreateResponse) GetRequesterID() uint32 {
+func (x *CreateResponse) GetRequesterId() uint32 {
 	if x != nil {
-		return x.RequesterID
+		return x.RequesterId
 	}
 	return 0
 }
@@ -268,7 +268,7 @@ func (x *CreateResponse) GetRequesterID() uint32 {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
+	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -310,9 +310,9 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterID() uint32 {
+func (x *DeleteRequest) GetRequesterId() uint32 {
 	if x != nil {
-		return x.RequesterID
+		return x.RequesterId
 	}
 	return 0
 }
@@ -356,7 +356,7 @@ func (*DeleteResponse) Descriptor() ([]byte, []int) {
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
+	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	Limit         uint32                 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
 	Offset        uint32                 `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -400,9 +400,9 @@ func (x *GetRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *GetRequest) GetRequesterID() uint32 {
+func (x *GetRequest) GetRequesterId() uint32 {
 	if x != nil {
-		return x.RequesterID
+		return x.RequesterId
 	}
 	return 0
 }
@@ -424,7 +424,7 @@ func (x *GetRequest) GetOffset() uint32 {
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
+	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -466,9 +466,9 @@ func (x *GetResponse) GetName() string {
 	return ""
 }
 
-func (x *GetResponse) GetRequesterID() uint32 {
+func (x *GetResponse) GetRequesterId() uint32 {
 	if x != nil {
-		return x.RequesterID
+		return x.RequesterId
 	}
 	return 0
 }
@@ -477,11 +477,11 @@ type ListRequest struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Limit          *uint32                `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
-	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=includeDeleted,proto3,oneof" json:"includeDeleted,omitempty"`
+	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	Name           *string                `protobuf:"bytes,4,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	OrderBy        *OrderBy               `protobuf:"bytes,5,opt,name=orderBy,proto3,oneof" json:"orderBy,omitempty"`
+	OrderBy        *OrderBy               `protobuf:"bytes,5,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
 	Description    *string                `protobuf:"bytes,6,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	InternalName   *string                `protobuf:"bytes,7,opt,name=internalName,proto3,oneof" json:"internalName,omitempty"`
+	InternalName   *string                `protobuf:"bytes,7,opt,name=internal_name,json=internalName,proto3,oneof" json:"internal_name,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -568,7 +568,7 @@ func (x *ListRequest) GetInternalName() string {
 type OrderBy struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            *string                `protobuf:"bytes,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
-	CreatedAt     *string                `protobuf:"bytes,2,opt,name=createdAt,proto3,oneof" json:"createdAt,omitempty"`
+	CreatedAt     *string                `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -673,7 +673,7 @@ type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	RequesterID   uint32                 `protobuf:"varint,3,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
+	RequesterId   uint32                 `protobuf:"varint,3,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -722,9 +722,9 @@ func (x *UpdateRequest) GetName() string {
 	return ""
 }
 
-func (x *UpdateRequest) GetRequesterID() uint32 {
+func (x *UpdateRequest) GetRequesterId() uint32 {
 	if x != nil {
-		return x.RequesterID
+		return x.RequesterId
 	}
 	return 0
 }
@@ -732,7 +732,7 @@ func (x *UpdateRequest) GetRequesterID() uint32 {
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	RequesterID   uint32                 `protobuf:"varint,2,opt,name=requesterID,proto3" json:"requesterID,omitempty"`
+	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -774,9 +774,9 @@ func (x *UpdateResponse) GetName() string {
 	return ""
 }
 
-func (x *UpdateResponse) GetRequesterID() uint32 {
+func (x *UpdateResponse) GetRequesterId() uint32 {
 	if x != nil {
-		return x.RequesterID
+		return x.RequesterId
 	}
 	return 0
 }
@@ -785,79 +785,82 @@ var File_protos_service_proto protoreflect.FileDescriptor
 
 const file_protos_service_proto_rawDesc = "" +
 	"\n" +
-	"\x14protos/service.proto\x12\rservice_proto\"\xec\x02\n" +
+	"\x14protos/service.proto\x12\rservice_proto\"\xf6\x02\n" +
 	"\n" +
 	"ServiceDto\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
-	"\tcreatedAt\x18\x02 \x01(\tR\tcreatedAt\x12\x1c\n" +
-	"\tupdatedAt\x18\x03 \x01(\tR\tupdatedAt\x12!\n" +
-	"\tdeletedAt\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1c\n" +
-	"\tcreatedBy\x18\x05 \x01(\rR\tcreatedBy\x12\x1c\n" +
-	"\tupdatedBy\x18\x06 \x01(\rR\tupdatedBy\x12!\n" +
-	"\tdeletedBy\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
-	"\x04name\x18\b \x01(\tR\x04name\x12\x1a\n" +
-	"\bisActive\x18\t \x01(\bR\bisActive\x12 \n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\"\n" +
+	"\n" +
+	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
+	"\n" +
+	"created_by\x18\x05 \x01(\rR\tcreatedBy\x12\x1d\n" +
+	"\n" +
+	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
+	"\n" +
+	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
+	"\x04name\x18\b \x01(\tR\x04name\x12\x1b\n" +
+	"\tis_active\x18\t \x01(\bR\bisActive\x12 \n" +
 	"\vdescription\x18\n" +
-	" \x01(\tR\vdescription\x12\"\n" +
-	"\finternalName\x18\v \x01(\tR\finternalNameB\f\n" +
-	"\n" +
-	"_deletedAtB\f\n" +
-	"\n" +
-	"_deletedBy\"\x8b\x01\n" +
+	" \x01(\tR\vdescription\x12#\n" +
+	"\rinternal_name\x18\v \x01(\tR\finternalNameB\r\n" +
+	"\v_deleted_atB\r\n" +
+	"\v_deleted_by\"\x8d\x01\n" +
 	"\rCreateRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\x12 \n" +
-	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\"\n" +
-	"\finternalName\x18\x04 \x01(\tR\finternalName\"F\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12!\n" +
+	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12#\n" +
+	"\rinternal_name\x18\x04 \x01(\tR\finternalName\"G\n" +
 	"\x0eCreateResponse\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\"A\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12!\n" +
+	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\"B\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12 \n" +
-	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\"\x10\n" +
-	"\x0eDeleteResponse\"l\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
+	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\"\x10\n" +
+	"\x0eDeleteResponse\"m\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12 \n" +
-	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
+	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12\x14\n" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
-	"\x06offset\x18\x04 \x01(\rR\x06offset\"C\n" +
+	"\x06offset\x18\x04 \x01(\rR\x06offset\"D\n" +
 	"\vGetResponse\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID\"\xf0\x02\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12!\n" +
+	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\"\xf6\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
-	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12+\n" +
-	"\x0eincludeDeleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12\x17\n" +
-	"\x04name\x18\x04 \x01(\tH\x03R\x04name\x88\x01\x01\x125\n" +
-	"\aorderBy\x18\x05 \x01(\v2\x16.service_proto.OrderByH\x04R\aorderBy\x88\x01\x01\x12%\n" +
-	"\vdescription\x18\x06 \x01(\tH\x05R\vdescription\x88\x01\x01\x12'\n" +
-	"\finternalName\x18\a \x01(\tH\x06R\finternalName\x88\x01\x01B\b\n" +
+	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
+	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12\x17\n" +
+	"\x04name\x18\x04 \x01(\tH\x03R\x04name\x88\x01\x01\x126\n" +
+	"\border_by\x18\x05 \x01(\v2\x16.service_proto.OrderByH\x04R\aorderBy\x88\x01\x01\x12%\n" +
+	"\vdescription\x18\x06 \x01(\tH\x05R\vdescription\x88\x01\x01\x12(\n" +
+	"\rinternal_name\x18\a \x01(\tH\x06R\finternalName\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
-	"\a_offsetB\x11\n" +
-	"\x0f_includeDeletedB\a\n" +
-	"\x05_nameB\n" +
-	"\n" +
-	"\b_orderByB\x0e\n" +
-	"\f_descriptionB\x0f\n" +
-	"\r_internalName\"V\n" +
+	"\a_offsetB\x12\n" +
+	"\x10_include_deletedB\a\n" +
+	"\x05_nameB\v\n" +
+	"\t_order_byB\x0e\n" +
+	"\f_descriptionB\x10\n" +
+	"\x0e_internal_name\"X\n" +
 	"\aOrderBy\x12\x13\n" +
-	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12!\n" +
-	"\tcreatedAt\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
-	"\x03_idB\f\n" +
+	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"_createdAt\"S\n" +
+	"created_at\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
+	"\x03_idB\r\n" +
+	"\v_created_at\"S\n" +
 	"\fListResponse\x12-\n" +
 	"\x04rows\x18\x01 \x03(\v2\x19.service_proto.ServiceDtoR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"c\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count\"d\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
-	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12 \n" +
-	"\vrequesterID\x18\x03 \x01(\rR\vrequesterIDB\a\n" +
-	"\x05_name\"F\n" +
+	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12!\n" +
+	"\frequester_id\x18\x03 \x01(\rR\vrequesterIdB\a\n" +
+	"\x05_name\"G\n" +
 	"\x0eUpdateResponse\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vrequesterID\x18\x02 \x01(\rR\vrequesterID2\xdd\x02\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12!\n" +
+	"\frequester_id\x18\x02 \x01(\rR\vrequesterId2\xdd\x02\n" +
 	"\aService\x12E\n" +
 	"\x06Create\x12\x1c.service_proto.CreateRequest\x1a\x1d.service_proto.CreateResponse\x12E\n" +
 	"\x06Delete\x12\x1c.service_proto.DeleteRequest\x1a\x1d.service_proto.DeleteResponse\x12?\n" +
@@ -893,7 +896,7 @@ var file_protos_service_proto_goTypes = []any{
 	(*UpdateResponse)(nil), // 11: service_proto.UpdateResponse
 }
 var file_protos_service_proto_depIdxs = []int32{
-	8,  // 0: service_proto.ListRequest.orderBy:type_name -> service_proto.OrderBy
+	8,  // 0: service_proto.ListRequest.order_by:type_name -> service_proto.OrderBy
 	0,  // 1: service_proto.ListResponse.rows:type_name -> service_proto.ServiceDto
 	1,  // 2: service_proto.Service.Create:input_type -> service_proto.CreateRequest
 	3,  // 3: service_proto.Service.Delete:input_type -> service_proto.DeleteRequest
