@@ -10,6 +10,7 @@ service PromotionsService {
   rpc Update(UpdateRequest) returns (UpdateResponse);
   rpc Delete(DeleteRequest) returns (DeleteResponse);
   rpc List(ListRequest) returns (ListResponse);
+  rpc AddProductsToPromotion(AddProductsToPromotionRequest) returns (AddProductsToPromotionResponse);
 }
 
 message Promotions {
@@ -24,6 +25,20 @@ message Promotions {
   string starting_datetime = 9;
   string ending_datetime = 10;
 
+}
+
+message PromotionProductInput {
+  string product_id = 1;
+  float promotional_price = 2;
+}
+
+message AddProductsToPromotionRequest {
+  string promotion_id = 1;
+  repeated PromotionProductInput products = 2;
+}
+
+message AddProductsToPromotionResponse {
+  string message = 1;
 }
 
 message CreateRequest {
