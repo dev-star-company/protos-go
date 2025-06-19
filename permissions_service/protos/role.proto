@@ -4,7 +4,7 @@ package roles_proto;
 
 option go_package = "./generated_protos/roles_proto";
 
-service Service {
+service RoleService {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Get (GetRequest) returns (GetResponse);
     rpc List (ListRequest) returns (ListResponse);

@@ -4,7 +4,7 @@ package permission_proto;
 
 option go_package = "./generated_protos/permission_proto";
 
-service Service {
+service PermissionService {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
     rpc List (ListRequest) returns (ListResponse);

@@ -4,7 +4,7 @@ package first_login_proto;
 
 option go_package = "./generated_protos/first_login_proto";
 
-service Service {
+service FirstLoginService {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
     rpc List (ListRequest) returns (ListResponse);

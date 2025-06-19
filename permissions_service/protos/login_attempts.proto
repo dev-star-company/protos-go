@@ -4,7 +4,7 @@ package login_attempts_proto;
 
 option go_package = "./generated_protos/login_attempts_proto";
 
-service Service {
+service LoginAttemptsService {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
     rpc List (ListRequest) returns (ListResponse);

@@ -4,7 +4,7 @@ package service_proto;
 
 option go_package = "./generated_protos/service_proto";
 
-service Service {
+service ServiceService {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
     rpc List (ListRequest) returns (ListResponse);

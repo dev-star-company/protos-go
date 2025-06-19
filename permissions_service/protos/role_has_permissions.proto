@@ -4,7 +4,7 @@ package role_has_permissions_proto;
 
 option go_package = "./generated_protos/role_has_permissions_proto";
 
-service Service {
+service RoleHasPermissionService {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
     rpc List (ListRequest) returns (ListResponse);
