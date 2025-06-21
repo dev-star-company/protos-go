@@ -22,6 +22,7 @@ message Phone {
   uint32 updated_by = 7;
   optional uint32 deleted_by = 8;
   bool main = 9;
+  string uuid = 10;
 }
 
 message Email {
@@ -34,6 +35,7 @@ message Email {
   uint32 updated_by = 7;
   optional uint32 deleted_by = 8;
   bool main = 9;
+  string uuid = 10;
 }
 
 message User {
@@ -48,6 +50,7 @@ message User {
   uint32 updated_by = 9;
   optional uint32 deleted_by = 10;
   repeated Phone phones = 12;
+  string uuid = 13;
 }
 
 message Relations {

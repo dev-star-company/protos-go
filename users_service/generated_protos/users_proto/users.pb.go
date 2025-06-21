@@ -32,6 +32,7 @@ type Phone struct {
 	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
+	Uuid          string                 `protobuf:"bytes,10,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -129,6 +130,13 @@ func (x *Phone) GetMain() bool {
 	return false
 }
 
+func (x *Phone) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
 type Email struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -140,6 +148,7 @@ type Email struct {
 	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
+	Uuid          string                 `protobuf:"bytes,10,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -237,6 +246,13 @@ func (x *Email) GetMain() bool {
 	return false
 }
 
+func (x *Email) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
 type User struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -250,6 +266,7 @@ type User struct {
 	UpdatedBy     uint32                 `protobuf:"varint,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,10,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Phones        []*Phone               `protobuf:"bytes,12,rep,name=phones,proto3" json:"phones,omitempty"`
+	Uuid          string                 `protobuf:"bytes,13,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -359,6 +376,13 @@ func (x *User) GetPhones() []*Phone {
 		return x.Phones
 	}
 	return nil
+}
+
+func (x *User) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
 }
 
 type Relations struct {
@@ -1049,7 +1073,7 @@ var File_protos_users_proto protoreflect.FileDescriptor
 
 const file_protos_users_proto_rawDesc = "" +
 	"\n" +
-	"\x12protos/users.proto\x12\vusers_proto\"\xa3\x02\n" +
+	"\x12protos/users.proto\x12\vusers_proto\"\xb7\x02\n" +
 	"\x05Phone\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05phone\x18\x02 \x01(\tR\x05phone\x12\x1d\n" +
@@ -1065,9 +1089,11 @@ const file_protos_users_proto_rawDesc = "" +
 	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
 	"deleted_by\x18\b \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
-	"\x04main\x18\t \x01(\bR\x04mainB\r\n" +
+	"\x04main\x18\t \x01(\bR\x04main\x12\x12\n" +
+	"\x04uuid\x18\n" +
+	" \x01(\tR\x04uuidB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\xa3\x02\n" +
+	"\v_deleted_by\"\xb7\x02\n" +
 	"\x05Email\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1d\n" +
@@ -1083,9 +1109,11 @@ const file_protos_users_proto_rawDesc = "" +
 	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
 	"deleted_by\x18\b \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
-	"\x04main\x18\t \x01(\bR\x04mainB\r\n" +
+	"\x04main\x18\t \x01(\bR\x04main\x12\x12\n" +
+	"\x04uuid\x18\n" +
+	" \x01(\tR\x04uuidB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\xfe\x02\n" +
+	"\v_deleted_by\"\x92\x03\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
@@ -1104,7 +1132,8 @@ const file_protos_users_proto_rawDesc = "" +
 	"\n" +
 	"deleted_by\x18\n" +
 	" \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12*\n" +
-	"\x06phones\x18\f \x03(\v2\x12.users_proto.PhoneR\x06phonesB\r\n" +
+	"\x06phones\x18\f \x03(\v2\x12.users_proto.PhoneR\x06phones\x12\x12\n" +
+	"\x04uuid\x18\r \x01(\tR\x04uuidB\r\n" +
 	"\v_deleted_atB\r\n" +
 	"\v_deleted_by\"o\n" +
 	"\tRelations\x12\x16\n" +
