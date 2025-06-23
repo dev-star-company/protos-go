@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package entity_proto;
+package host_urls_proto;
 
-option go_package = "./generated_protos/entity_proto";
+option go_package = "./generated_protos/host_urls_proto";
 
-service EntityService {
+service HostURLsService {
   rpc Create(CreateRequest) returns (CreateResponse);
   rpc Get(GetRequest) returns (GetResponse);
   rpc Update(UpdateRequest) returns (UpdateResponse);
@@ -12,7 +12,7 @@ service EntityService {
   rpc List(ListRequest) returns (ListResponse);
 }
 
-message Entity {
+message HostURLs {
   uint32 id = 1;
   string created_at = 2;
   string updated_at = 3;
@@ -95,6 +95,6 @@ message OrderBy {
 }
 
 message ListResponse {
-  repeated Entity rows = 1;
+  repeated HostURLs rows = 1;
   uint32 count = 2;
 }

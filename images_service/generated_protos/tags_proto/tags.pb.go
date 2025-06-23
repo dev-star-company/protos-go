@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.31.1
-// source: images_service/protos/images.proto
+// source: images_service/protos/tags.proto
 
-package images_proto
+package tags_proto
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -21,7 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Images struct {
+type Tags struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
@@ -30,28 +30,26 @@ type Images struct {
 	CreatedBy     uint32                 `protobuf:"varint,5,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
 	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
-	MediaTypeId   uint32                 `protobuf:"varint,8,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
-	Name          string                 `protobuf:"bytes,9,opt,name=name,proto3" json:"name,omitempty"`
-	FolderId      uint32                 `protobuf:"varint,10,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
+	Name          string                 `protobuf:"bytes,8,opt,name=name,proto3" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Images) Reset() {
-	*x = Images{}
-	mi := &file_images_service_protos_images_proto_msgTypes[0]
+func (x *Tags) Reset() {
+	*x = Tags{}
+	mi := &file_images_service_protos_tags_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Images) String() string {
+func (x *Tags) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Images) ProtoMessage() {}
+func (*Tags) ProtoMessage() {}
 
-func (x *Images) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[0]
+func (x *Tags) ProtoReflect() protoreflect.Message {
+	mi := &file_images_service_protos_tags_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -62,94 +60,78 @@ func (x *Images) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Images.ProtoReflect.Descriptor instead.
-func (*Images) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{0}
+// Deprecated: Use Tags.ProtoReflect.Descriptor instead.
+func (*Tags) Descriptor() ([]byte, []int) {
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Images) GetId() uint32 {
+func (x *Tags) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *Images) GetCreatedAt() string {
+func (x *Tags) GetCreatedAt() string {
 	if x != nil {
 		return x.CreatedAt
 	}
 	return ""
 }
 
-func (x *Images) GetUpdatedAt() string {
+func (x *Tags) GetUpdatedAt() string {
 	if x != nil {
 		return x.UpdatedAt
 	}
 	return ""
 }
 
-func (x *Images) GetDeletedAt() string {
+func (x *Tags) GetDeletedAt() string {
 	if x != nil && x.DeletedAt != nil {
 		return *x.DeletedAt
 	}
 	return ""
 }
 
-func (x *Images) GetCreatedBy() uint32 {
+func (x *Tags) GetCreatedBy() uint32 {
 	if x != nil {
 		return x.CreatedBy
 	}
 	return 0
 }
 
-func (x *Images) GetUpdatedBy() uint32 {
+func (x *Tags) GetUpdatedBy() uint32 {
 	if x != nil {
 		return x.UpdatedBy
 	}
 	return 0
 }
 
-func (x *Images) GetDeletedBy() uint32 {
+func (x *Tags) GetDeletedBy() uint32 {
 	if x != nil && x.DeletedBy != nil {
 		return *x.DeletedBy
 	}
 	return 0
 }
 
-func (x *Images) GetMediaTypeId() uint32 {
-	if x != nil {
-		return x.MediaTypeId
-	}
-	return 0
-}
-
-func (x *Images) GetName() string {
+func (x *Tags) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *Images) GetFolderId() uint32 {
-	if x != nil {
-		return x.FolderId
-	}
-	return 0
-}
-
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
-	MediaTypeId   uint32                 `protobuf:"varint,2,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
-	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	FolderId      uint32                 `protobuf:"varint,4,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
-	mi := &file_images_service_protos_images_proto_msgTypes[1]
+	mi := &file_images_service_protos_tags_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -161,7 +143,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[1]
+	mi := &file_images_service_protos_tags_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -174,19 +156,12 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{1}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateRequest) GetRequesterId() uint32 {
 	if x != nil {
 		return x.RequesterId
-	}
-	return 0
-}
-
-func (x *CreateRequest) GetMediaTypeId() uint32 {
-	if x != nil {
-		return x.MediaTypeId
 	}
 	return 0
 }
@@ -198,32 +173,23 @@ func (x *CreateRequest) GetName() string {
 	return ""
 }
 
-func (x *CreateRequest) GetFolderId() uint32 {
-	if x != nil {
-		return x.FolderId
-	}
-	return 0
-}
-
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
-	MediaTypeId   uint32                 `protobuf:"varint,2,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
-	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	FolderId      uint32                 `protobuf:"varint,4,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     string                 `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,8,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     uint32                 `protobuf:"varint,10,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt     string                 `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
+	DeletedBy     uint32                 `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateResponse) Reset() {
 	*x = CreateResponse{}
-	mi := &file_images_service_protos_images_proto_msgTypes[2]
+	mi := &file_images_service_protos_tags_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -235,7 +201,7 @@ func (x *CreateResponse) String() string {
 func (*CreateResponse) ProtoMessage() {}
 
 func (x *CreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[2]
+	mi := &file_images_service_protos_tags_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -248,7 +214,7 @@ func (x *CreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{2}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateResponse) GetRequesterId() uint32 {
@@ -258,25 +224,11 @@ func (x *CreateResponse) GetRequesterId() uint32 {
 	return 0
 }
 
-func (x *CreateResponse) GetMediaTypeId() uint32 {
-	if x != nil {
-		return x.MediaTypeId
-	}
-	return 0
-}
-
 func (x *CreateResponse) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
-}
-
-func (x *CreateResponse) GetFolderId() uint32 {
-	if x != nil {
-		return x.FolderId
-	}
-	return 0
 }
 
 func (x *CreateResponse) GetCreatedAt() string {
@@ -330,7 +282,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_images_service_protos_images_proto_msgTypes[3]
+	mi := &file_images_service_protos_tags_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -342,7 +294,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[3]
+	mi := &file_images_service_protos_tags_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -355,7 +307,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{3}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetRequest) GetId() uint32 {
@@ -368,22 +320,20 @@ func (x *GetRequest) GetId() uint32 {
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
-	MediaTypeId   uint32                 `protobuf:"varint,2,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
-	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	FolderId      uint32                 `protobuf:"varint,4,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     string                 `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,8,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     uint32                 `protobuf:"varint,10,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt     string                 `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
+	DeletedBy     uint32                 `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_images_service_protos_images_proto_msgTypes[4]
+	mi := &file_images_service_protos_tags_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -395,7 +345,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[4]
+	mi := &file_images_service_protos_tags_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -408,7 +358,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{4}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetResponse) GetRequesterId() uint32 {
@@ -418,25 +368,11 @@ func (x *GetResponse) GetRequesterId() uint32 {
 	return 0
 }
 
-func (x *GetResponse) GetMediaTypeId() uint32 {
-	if x != nil {
-		return x.MediaTypeId
-	}
-	return 0
-}
-
 func (x *GetResponse) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
-}
-
-func (x *GetResponse) GetFolderId() uint32 {
-	if x != nil {
-		return x.FolderId
-	}
-	return 0
 }
 
 func (x *GetResponse) GetCreatedAt() string {
@@ -485,16 +421,14 @@ type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
-	MediaTypeId   *uint32                `protobuf:"varint,3,opt,name=media_type_id,json=mediaTypeId,proto3,oneof" json:"media_type_id,omitempty"`
-	Name          *string                `protobuf:"bytes,4,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	FolderId      uint32                 `protobuf:"varint,5,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateRequest) Reset() {
 	*x = UpdateRequest{}
-	mi := &file_images_service_protos_images_proto_msgTypes[5]
+	mi := &file_images_service_protos_tags_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -506,7 +440,7 @@ func (x *UpdateRequest) String() string {
 func (*UpdateRequest) ProtoMessage() {}
 
 func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[5]
+	mi := &file_images_service_protos_tags_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -519,7 +453,7 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{5}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateRequest) GetId() uint32 {
@@ -536,13 +470,6 @@ func (x *UpdateRequest) GetRequesterId() uint32 {
 	return 0
 }
 
-func (x *UpdateRequest) GetMediaTypeId() uint32 {
-	if x != nil && x.MediaTypeId != nil {
-		return *x.MediaTypeId
-	}
-	return 0
-}
-
 func (x *UpdateRequest) GetName() string {
 	if x != nil && x.Name != nil {
 		return *x.Name
@@ -550,32 +477,23 @@ func (x *UpdateRequest) GetName() string {
 	return ""
 }
 
-func (x *UpdateRequest) GetFolderId() uint32 {
-	if x != nil {
-		return x.FolderId
-	}
-	return 0
-}
-
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
-	MediaTypeId   uint32                 `protobuf:"varint,2,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
-	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	FolderId      uint32                 `protobuf:"varint,4,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     string                 `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,8,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     uint32                 `protobuf:"varint,10,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt     string                 `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
+	DeletedBy     uint32                 `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateResponse) Reset() {
 	*x = UpdateResponse{}
-	mi := &file_images_service_protos_images_proto_msgTypes[6]
+	mi := &file_images_service_protos_tags_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -587,7 +505,7 @@ func (x *UpdateResponse) String() string {
 func (*UpdateResponse) ProtoMessage() {}
 
 func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[6]
+	mi := &file_images_service_protos_tags_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -600,7 +518,7 @@ func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
 func (*UpdateResponse) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{6}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UpdateResponse) GetRequesterId() uint32 {
@@ -610,25 +528,11 @@ func (x *UpdateResponse) GetRequesterId() uint32 {
 	return 0
 }
 
-func (x *UpdateResponse) GetMediaTypeId() uint32 {
-	if x != nil {
-		return x.MediaTypeId
-	}
-	return 0
-}
-
 func (x *UpdateResponse) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
-}
-
-func (x *UpdateResponse) GetFolderId() uint32 {
-	if x != nil {
-		return x.FolderId
-	}
-	return 0
 }
 
 func (x *UpdateResponse) GetCreatedAt() string {
@@ -683,7 +587,7 @@ type DeleteRequest struct {
 
 func (x *DeleteRequest) Reset() {
 	*x = DeleteRequest{}
-	mi := &file_images_service_protos_images_proto_msgTypes[7]
+	mi := &file_images_service_protos_tags_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -695,7 +599,7 @@ func (x *DeleteRequest) String() string {
 func (*DeleteRequest) ProtoMessage() {}
 
 func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[7]
+	mi := &file_images_service_protos_tags_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -708,7 +612,7 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{7}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DeleteRequest) GetId() uint32 {
@@ -734,7 +638,7 @@ type DeleteResponse struct {
 
 func (x *DeleteResponse) Reset() {
 	*x = DeleteResponse{}
-	mi := &file_images_service_protos_images_proto_msgTypes[8]
+	mi := &file_images_service_protos_tags_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -746,7 +650,7 @@ func (x *DeleteResponse) String() string {
 func (*DeleteResponse) ProtoMessage() {}
 
 func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[8]
+	mi := &file_images_service_protos_tags_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -759,7 +663,7 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{8}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *DeleteResponse) GetMessage() string {
@@ -773,18 +677,16 @@ type ListRequest struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Limit          *uint32                `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
-	MediaTypeId    *uint32                `protobuf:"varint,3,opt,name=media_type_id,json=mediaTypeId,proto3,oneof" json:"media_type_id,omitempty"`
-	Name           *string                `protobuf:"bytes,4,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	FolderId       uint32                 `protobuf:"varint,5,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
-	IncludeDeleted *bool                  `protobuf:"varint,6,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
-	Orderby        *OrderBy               `protobuf:"bytes,7,opt,name=orderby,proto3,oneof" json:"orderby,omitempty"`
+	Name           *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	IncludeDeleted *bool                  `protobuf:"varint,4,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
+	Orderby        *OrderBy               `protobuf:"bytes,5,opt,name=orderby,proto3,oneof" json:"orderby,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
 
 func (x *ListRequest) Reset() {
 	*x = ListRequest{}
-	mi := &file_images_service_protos_images_proto_msgTypes[9]
+	mi := &file_images_service_protos_tags_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -796,7 +698,7 @@ func (x *ListRequest) String() string {
 func (*ListRequest) ProtoMessage() {}
 
 func (x *ListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[9]
+	mi := &file_images_service_protos_tags_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -809,7 +711,7 @@ func (x *ListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
 func (*ListRequest) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{9}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ListRequest) GetLimit() uint32 {
@@ -826,25 +728,11 @@ func (x *ListRequest) GetOffset() uint32 {
 	return 0
 }
 
-func (x *ListRequest) GetMediaTypeId() uint32 {
-	if x != nil && x.MediaTypeId != nil {
-		return *x.MediaTypeId
-	}
-	return 0
-}
-
 func (x *ListRequest) GetName() string {
 	if x != nil && x.Name != nil {
 		return *x.Name
 	}
 	return ""
-}
-
-func (x *ListRequest) GetFolderId() uint32 {
-	if x != nil {
-		return x.FolderId
-	}
-	return 0
 }
 
 func (x *ListRequest) GetIncludeDeleted() bool {
@@ -871,7 +759,7 @@ type OrderBy struct {
 
 func (x *OrderBy) Reset() {
 	*x = OrderBy{}
-	mi := &file_images_service_protos_images_proto_msgTypes[10]
+	mi := &file_images_service_protos_tags_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -883,7 +771,7 @@ func (x *OrderBy) String() string {
 func (*OrderBy) ProtoMessage() {}
 
 func (x *OrderBy) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[10]
+	mi := &file_images_service_protos_tags_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -896,7 +784,7 @@ func (x *OrderBy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrderBy.ProtoReflect.Descriptor instead.
 func (*OrderBy) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{10}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *OrderBy) GetId() string {
@@ -915,7 +803,7 @@ func (x *OrderBy) GetCreatedAt() string {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Rows          []*Images              `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
+	Rows          []*Tags                `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
 	Count         uint32                 `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -923,7 +811,7 @@ type ListResponse struct {
 
 func (x *ListResponse) Reset() {
 	*x = ListResponse{}
-	mi := &file_images_service_protos_images_proto_msgTypes[11]
+	mi := &file_images_service_protos_tags_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -935,7 +823,7 @@ func (x *ListResponse) String() string {
 func (*ListResponse) ProtoMessage() {}
 
 func (x *ListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_images_service_protos_images_proto_msgTypes[11]
+	mi := &file_images_service_protos_tags_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -948,10 +836,10 @@ func (x *ListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
 func (*ListResponse) Descriptor() ([]byte, []int) {
-	return file_images_service_protos_images_proto_rawDescGZIP(), []int{11}
+	return file_images_service_protos_tags_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *ListResponse) GetRows() []*Images {
+func (x *ListResponse) GetRows() []*Tags {
 	if x != nil {
 		return x.Rows
 	}
@@ -965,12 +853,13 @@ func (x *ListResponse) GetCount() uint32 {
 	return 0
 }
 
-var File_images_service_protos_images_proto protoreflect.FileDescriptor
+var File_images_service_protos_tags_proto protoreflect.FileDescriptor
 
-const file_images_service_protos_images_proto_rawDesc = "" +
+const file_images_service_protos_tags_proto_rawDesc = "" +
 	"\n" +
-	"\"images_service/protos/images.proto\x12\fimages_proto\"\xcf\x02\n" +
-	"\x06Images\x12\x0e\n" +
+	" images_service/protos/tags.proto\x12\n" +
+	"tags_proto\"\x8c\x02\n" +
+	"\x04Tags\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
@@ -983,99 +872,79 @@ const file_images_service_protos_images_proto_rawDesc = "" +
 	"\n" +
 	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
-	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\"\n" +
-	"\rmedia_type_id\x18\b \x01(\rR\vmediaTypeId\x12\x12\n" +
-	"\x04name\x18\t \x01(\tR\x04name\x12\x1b\n" +
-	"\tfolder_id\x18\n" +
-	" \x01(\rR\bfolderIdB\r\n" +
+	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
+	"\x04name\x18\b \x01(\tR\x04nameB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\x87\x01\n" +
+	"\v_deleted_by\"F\n" +
 	"\rCreateRequest\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\"\n" +
-	"\rmedia_type_id\x18\x02 \x01(\rR\vmediaTypeId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1b\n" +
-	"\tfolder_id\x18\x04 \x01(\rR\bfolderId\"\xc2\x02\n" +
+	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\x81\x02\n" +
 	"\x0eCreateResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\"\n" +
-	"\rmedia_type_id\x18\x02 \x01(\rR\vmediaTypeId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1b\n" +
-	"\tfolder_id\x18\x04 \x01(\rR\bfolderId\x12\x1d\n" +
+	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x06 \x01(\tR\tupdatedAt\x12\x1d\n" +
+	"updated_at\x18\x04 \x01(\tR\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"deleted_at\x18\a \x01(\tR\tdeletedAt\x12\x1d\n" +
+	"deleted_at\x18\x05 \x01(\tR\tdeletedAt\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\b \x01(\rR\tcreatedBy\x12\x1d\n" +
+	"created_by\x18\x06 \x01(\rR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\x1d\n" +
+	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\x1d\n" +
 	"\n" +
-	"deleted_by\x18\n" +
-	" \x01(\rR\tdeletedBy\"\x1c\n" +
+	"deleted_by\x18\b \x01(\rR\tdeletedBy\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"\xbf\x02\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\xfe\x01\n" +
 	"\vGetResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\"\n" +
-	"\rmedia_type_id\x18\x02 \x01(\rR\vmediaTypeId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1b\n" +
-	"\tfolder_id\x18\x04 \x01(\rR\bfolderId\x12\x1d\n" +
+	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x06 \x01(\tR\tupdatedAt\x12\x1d\n" +
+	"updated_at\x18\x04 \x01(\tR\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"deleted_at\x18\a \x01(\tR\tdeletedAt\x12\x1d\n" +
+	"deleted_at\x18\x05 \x01(\tR\tdeletedAt\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\b \x01(\rR\tcreatedBy\x12\x1d\n" +
+	"created_by\x18\x06 \x01(\rR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\x1d\n" +
+	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\x1d\n" +
 	"\n" +
-	"deleted_by\x18\n" +
-	" \x01(\rR\tdeletedBy\"\xbc\x01\n" +
+	"deleted_by\x18\b \x01(\rR\tdeletedBy\"d\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12'\n" +
-	"\rmedia_type_id\x18\x03 \x01(\rH\x00R\vmediaTypeId\x88\x01\x01\x12\x17\n" +
-	"\x04name\x18\x04 \x01(\tH\x01R\x04name\x88\x01\x01\x12\x1b\n" +
-	"\tfolder_id\x18\x05 \x01(\rR\bfolderIdB\x10\n" +
-	"\x0e_media_type_idB\a\n" +
-	"\x05_name\"\xc2\x02\n" +
+	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12\x17\n" +
+	"\x04name\x18\x03 \x01(\tH\x00R\x04name\x88\x01\x01B\a\n" +
+	"\x05_name\"\x81\x02\n" +
 	"\x0eUpdateResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\"\n" +
-	"\rmedia_type_id\x18\x02 \x01(\rR\vmediaTypeId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1b\n" +
-	"\tfolder_id\x18\x04 \x01(\rR\bfolderId\x12\x1d\n" +
+	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x06 \x01(\tR\tupdatedAt\x12\x1d\n" +
+	"updated_at\x18\x04 \x01(\tR\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"deleted_at\x18\a \x01(\tR\tdeletedAt\x12\x1d\n" +
+	"deleted_at\x18\x05 \x01(\tR\tdeletedAt\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\b \x01(\rR\tcreatedBy\x12\x1d\n" +
+	"created_by\x18\x06 \x01(\rR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\x1d\n" +
+	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\x1d\n" +
 	"\n" +
-	"deleted_by\x18\n" +
-	" \x01(\rR\tdeletedBy\"B\n" +
+	"deleted_by\x18\b \x01(\rR\tdeletedBy\"B\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
 	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\"*\n" +
 	"\x0eDeleteResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"\xd8\x02\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"\xfe\x01\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
-	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12'\n" +
-	"\rmedia_type_id\x18\x03 \x01(\rH\x02R\vmediaTypeId\x88\x01\x01\x12\x17\n" +
-	"\x04name\x18\x04 \x01(\tH\x03R\x04name\x88\x01\x01\x12\x1b\n" +
-	"\tfolder_id\x18\x05 \x01(\rR\bfolderId\x12,\n" +
-	"\x0finclude_deleted\x18\x06 \x01(\bH\x04R\x0eincludeDeleted\x88\x01\x01\x124\n" +
-	"\aorderby\x18\a \x01(\v2\x15.images_proto.OrderByH\x05R\aorderby\x88\x01\x01B\b\n" +
+	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12\x17\n" +
+	"\x04name\x18\x03 \x01(\tH\x02R\x04name\x88\x01\x01\x12,\n" +
+	"\x0finclude_deleted\x18\x04 \x01(\bH\x03R\x0eincludeDeleted\x88\x01\x01\x122\n" +
+	"\aorderby\x18\x05 \x01(\v2\x13.tags_proto.OrderByH\x04R\aorderby\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
-	"\a_offsetB\x10\n" +
-	"\x0e_media_type_idB\a\n" +
+	"\a_offsetB\a\n" +
 	"\x05_nameB\x12\n" +
 	"\x10_include_deletedB\n" +
 	"\n" +
@@ -1085,57 +954,57 @@ const file_images_service_protos_images_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
 	"\x03_idB\r\n" +
-	"\v_created_at\"N\n" +
-	"\fListResponse\x12(\n" +
-	"\x04rows\x18\x01 \x03(\v2\x14.images_proto.ImagesR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count2\xd9\x02\n" +
-	"\rImagesService\x12C\n" +
-	"\x06Create\x12\x1b.images_proto.CreateRequest\x1a\x1c.images_proto.CreateResponse\x12:\n" +
-	"\x03Get\x12\x18.images_proto.GetRequest\x1a\x19.images_proto.GetResponse\x12C\n" +
-	"\x06Update\x12\x1b.images_proto.UpdateRequest\x1a\x1c.images_proto.UpdateResponse\x12C\n" +
-	"\x06Delete\x12\x1b.images_proto.DeleteRequest\x1a\x1c.images_proto.DeleteResponse\x12=\n" +
-	"\x04List\x12\x19.images_proto.ListRequest\x1a\x1a.images_proto.ListResponseB!Z\x1f./generated_protos/images_protob\x06proto3"
+	"\v_created_at\"J\n" +
+	"\fListResponse\x12$\n" +
+	"\x04rows\x18\x01 \x03(\v2\x10.tags_proto.TagsR\x04rows\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count2\xc3\x02\n" +
+	"\vTagsService\x12?\n" +
+	"\x06Create\x12\x19.tags_proto.CreateRequest\x1a\x1a.tags_proto.CreateResponse\x126\n" +
+	"\x03Get\x12\x16.tags_proto.GetRequest\x1a\x17.tags_proto.GetResponse\x12?\n" +
+	"\x06Update\x12\x19.tags_proto.UpdateRequest\x1a\x1a.tags_proto.UpdateResponse\x12?\n" +
+	"\x06Delete\x12\x19.tags_proto.DeleteRequest\x1a\x1a.tags_proto.DeleteResponse\x129\n" +
+	"\x04List\x12\x17.tags_proto.ListRequest\x1a\x18.tags_proto.ListResponseB\x1fZ\x1d./generated_protos/tags_protob\x06proto3"
 
 var (
-	file_images_service_protos_images_proto_rawDescOnce sync.Once
-	file_images_service_protos_images_proto_rawDescData []byte
+	file_images_service_protos_tags_proto_rawDescOnce sync.Once
+	file_images_service_protos_tags_proto_rawDescData []byte
 )
 
-func file_images_service_protos_images_proto_rawDescGZIP() []byte {
-	file_images_service_protos_images_proto_rawDescOnce.Do(func() {
-		file_images_service_protos_images_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_images_service_protos_images_proto_rawDesc), len(file_images_service_protos_images_proto_rawDesc)))
+func file_images_service_protos_tags_proto_rawDescGZIP() []byte {
+	file_images_service_protos_tags_proto_rawDescOnce.Do(func() {
+		file_images_service_protos_tags_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_images_service_protos_tags_proto_rawDesc), len(file_images_service_protos_tags_proto_rawDesc)))
 	})
-	return file_images_service_protos_images_proto_rawDescData
+	return file_images_service_protos_tags_proto_rawDescData
 }
 
-var file_images_service_protos_images_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
-var file_images_service_protos_images_proto_goTypes = []any{
-	(*Images)(nil),         // 0: images_proto.Images
-	(*CreateRequest)(nil),  // 1: images_proto.CreateRequest
-	(*CreateResponse)(nil), // 2: images_proto.CreateResponse
-	(*GetRequest)(nil),     // 3: images_proto.GetRequest
-	(*GetResponse)(nil),    // 4: images_proto.GetResponse
-	(*UpdateRequest)(nil),  // 5: images_proto.UpdateRequest
-	(*UpdateResponse)(nil), // 6: images_proto.UpdateResponse
-	(*DeleteRequest)(nil),  // 7: images_proto.DeleteRequest
-	(*DeleteResponse)(nil), // 8: images_proto.DeleteResponse
-	(*ListRequest)(nil),    // 9: images_proto.ListRequest
-	(*OrderBy)(nil),        // 10: images_proto.OrderBy
-	(*ListResponse)(nil),   // 11: images_proto.ListResponse
+var file_images_service_protos_tags_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_images_service_protos_tags_proto_goTypes = []any{
+	(*Tags)(nil),           // 0: tags_proto.Tags
+	(*CreateRequest)(nil),  // 1: tags_proto.CreateRequest
+	(*CreateResponse)(nil), // 2: tags_proto.CreateResponse
+	(*GetRequest)(nil),     // 3: tags_proto.GetRequest
+	(*GetResponse)(nil),    // 4: tags_proto.GetResponse
+	(*UpdateRequest)(nil),  // 5: tags_proto.UpdateRequest
+	(*UpdateResponse)(nil), // 6: tags_proto.UpdateResponse
+	(*DeleteRequest)(nil),  // 7: tags_proto.DeleteRequest
+	(*DeleteResponse)(nil), // 8: tags_proto.DeleteResponse
+	(*ListRequest)(nil),    // 9: tags_proto.ListRequest
+	(*OrderBy)(nil),        // 10: tags_proto.OrderBy
+	(*ListResponse)(nil),   // 11: tags_proto.ListResponse
 }
-var file_images_service_protos_images_proto_depIdxs = []int32{
-	10, // 0: images_proto.ListRequest.orderby:type_name -> images_proto.OrderBy
-	0,  // 1: images_proto.ListResponse.rows:type_name -> images_proto.Images
-	1,  // 2: images_proto.ImagesService.Create:input_type -> images_proto.CreateRequest
-	3,  // 3: images_proto.ImagesService.Get:input_type -> images_proto.GetRequest
-	5,  // 4: images_proto.ImagesService.Update:input_type -> images_proto.UpdateRequest
-	7,  // 5: images_proto.ImagesService.Delete:input_type -> images_proto.DeleteRequest
-	9,  // 6: images_proto.ImagesService.List:input_type -> images_proto.ListRequest
-	2,  // 7: images_proto.ImagesService.Create:output_type -> images_proto.CreateResponse
-	4,  // 8: images_proto.ImagesService.Get:output_type -> images_proto.GetResponse
-	6,  // 9: images_proto.ImagesService.Update:output_type -> images_proto.UpdateResponse
-	8,  // 10: images_proto.ImagesService.Delete:output_type -> images_proto.DeleteResponse
-	11, // 11: images_proto.ImagesService.List:output_type -> images_proto.ListResponse
+var file_images_service_protos_tags_proto_depIdxs = []int32{
+	10, // 0: tags_proto.ListRequest.orderby:type_name -> tags_proto.OrderBy
+	0,  // 1: tags_proto.ListResponse.rows:type_name -> tags_proto.Tags
+	1,  // 2: tags_proto.TagsService.Create:input_type -> tags_proto.CreateRequest
+	3,  // 3: tags_proto.TagsService.Get:input_type -> tags_proto.GetRequest
+	5,  // 4: tags_proto.TagsService.Update:input_type -> tags_proto.UpdateRequest
+	7,  // 5: tags_proto.TagsService.Delete:input_type -> tags_proto.DeleteRequest
+	9,  // 6: tags_proto.TagsService.List:input_type -> tags_proto.ListRequest
+	2,  // 7: tags_proto.TagsService.Create:output_type -> tags_proto.CreateResponse
+	4,  // 8: tags_proto.TagsService.Get:output_type -> tags_proto.GetResponse
+	6,  // 9: tags_proto.TagsService.Update:output_type -> tags_proto.UpdateResponse
+	8,  // 10: tags_proto.TagsService.Delete:output_type -> tags_proto.DeleteResponse
+	11, // 11: tags_proto.TagsService.List:output_type -> tags_proto.ListResponse
 	7,  // [7:12] is the sub-list for method output_type
 	2,  // [2:7] is the sub-list for method input_type
 	2,  // [2:2] is the sub-list for extension type_name
@@ -1143,30 +1012,30 @@ var file_images_service_protos_images_proto_depIdxs = []int32{
 	0,  // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_images_service_protos_images_proto_init() }
-func file_images_service_protos_images_proto_init() {
-	if File_images_service_protos_images_proto != nil {
+func init() { file_images_service_protos_tags_proto_init() }
+func file_images_service_protos_tags_proto_init() {
+	if File_images_service_protos_tags_proto != nil {
 		return
 	}
-	file_images_service_protos_images_proto_msgTypes[0].OneofWrappers = []any{}
-	file_images_service_protos_images_proto_msgTypes[5].OneofWrappers = []any{}
-	file_images_service_protos_images_proto_msgTypes[9].OneofWrappers = []any{}
-	file_images_service_protos_images_proto_msgTypes[10].OneofWrappers = []any{}
+	file_images_service_protos_tags_proto_msgTypes[0].OneofWrappers = []any{}
+	file_images_service_protos_tags_proto_msgTypes[5].OneofWrappers = []any{}
+	file_images_service_protos_tags_proto_msgTypes[9].OneofWrappers = []any{}
+	file_images_service_protos_tags_proto_msgTypes[10].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_images_service_protos_images_proto_rawDesc), len(file_images_service_protos_images_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_images_service_protos_tags_proto_rawDesc), len(file_images_service_protos_tags_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_images_service_protos_images_proto_goTypes,
-		DependencyIndexes: file_images_service_protos_images_proto_depIdxs,
-		MessageInfos:      file_images_service_protos_images_proto_msgTypes,
+		GoTypes:           file_images_service_protos_tags_proto_goTypes,
+		DependencyIndexes: file_images_service_protos_tags_proto_depIdxs,
+		MessageInfos:      file_images_service_protos_tags_proto_msgTypes,
 	}.Build()
-	File_images_service_protos_images_proto = out.File
-	file_images_service_protos_images_proto_goTypes = nil
-	file_images_service_protos_images_proto_depIdxs = nil
+	File_images_service_protos_tags_proto = out.File
+	file_images_service_protos_tags_proto_goTypes = nil
+	file_images_service_protos_tags_proto_depIdxs = nil
 }
