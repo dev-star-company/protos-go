@@ -25,31 +25,31 @@ message FirstLogin {
 
 message CreateRequest {
     uint32 user_id = 1;
-    string requester_id = 2;
+    string requester_uuid = 2;
 }
 
 message CreateResponse {
     uint32 user_id = 1;
-    string requester_id = 2;
+    string requester_uuid = 2;
 }
 
 message DeleteRequest {
     uint32 id = 1;
-    string requester_id = 2;
+    string requester_uuid = 2;
 }
 
 message DeleteResponse {}
 
 message GetRequest {
     uint32 id = 1;
-    string requester_id = 2;
+    string requester_uuid = 2;
     uint32 limit = 3;
     uint32 offset = 4;
 }
 
 message GetResponse {
     uint32 user_id = 1;
-    string requester_id = 2;
+    string requester_uuid = 2;
 }
 
 message ListRequest {
@@ -73,10 +73,10 @@ message ListResponse {
 message UpdateRequest {
     uint32 id = 1;
     optional uint32 user_id = 2;
-    string requester_id = 3;
+    string requester_uuid = 3;
 }
 
 message UpdateResponse {
     uint32 user_id = 1;
-    string requester_id = 2;
+    string requester_uuid = 2;
 }

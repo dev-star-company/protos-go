@@ -74,7 +74,7 @@ message Password {
 }
 
 message CreateRequest {
-  string requester_id = 1;
+  string requester_uuid = 1;
   string name = 2;
   string surname = 3;
   string email = 4;
@@ -113,7 +113,7 @@ message ListResponse {
 }
 
 message UpdateRequest {
-  string requester_id = 1;
+  string requester_uuid = 1;
   uint32 id = 2;
   optional string name = 3;
   optional string surname = 4;
@@ -128,7 +128,7 @@ message UpdateResponse {
 }
 
 message DeleteRequest {
-  string requester_id = 1;
+  string requester_uuid = 1;
   uint32 id = 2;
 }
 
@@ -137,7 +137,7 @@ message DeleteResponse {}
 message VerifyPasswordRequest {
   optional uint32 id = 1;
   string password = 2;
-  int32 requester_id = 3;
+  int32 requester_uuid = 3;
   optional string email = 4;
   optional string phone = 5;
 }

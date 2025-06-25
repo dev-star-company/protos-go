@@ -133,7 +133,7 @@ type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Successful    bool                   `protobuf:"varint,2,opt,name=successful,proto3" json:"successful,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,3,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -182,9 +182,9 @@ func (x *CreateRequest) GetSuccessful() bool {
 	return false
 }
 
-func (x *CreateRequest) GetRequesterId() string {
+func (x *CreateRequest) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -193,7 +193,7 @@ type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Successful    bool                   `protobuf:"varint,2,opt,name=successful,proto3" json:"successful,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,3,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -242,9 +242,9 @@ func (x *CreateResponse) GetSuccessful() bool {
 	return false
 }
 
-func (x *CreateResponse) GetRequesterId() string {
+func (x *CreateResponse) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -252,7 +252,7 @@ func (x *CreateResponse) GetRequesterId() string {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -294,9 +294,9 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterId() string {
+func (x *DeleteRequest) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -340,7 +340,7 @@ func (*DeleteResponse) Descriptor() ([]byte, []int) {
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Limit         uint32                 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
 	Offset        uint32                 `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -384,9 +384,9 @@ func (x *GetRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *GetRequest) GetRequesterId() string {
+func (x *GetRequest) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -409,7 +409,7 @@ type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Successful    bool                   `protobuf:"varint,2,opt,name=successful,proto3" json:"successful,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,3,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -458,9 +458,9 @@ func (x *GetResponse) GetSuccessful() bool {
 	return false
 }
 
-func (x *GetResponse) GetRequesterId() string {
+func (x *GetResponse) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -658,7 +658,7 @@ type UpdateRequest struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	UserId        *uint32                `protobuf:"varint,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	Successful    *bool                  `protobuf:"varint,3,opt,name=successful,proto3,oneof" json:"successful,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,4,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,4,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -714,9 +714,9 @@ func (x *UpdateRequest) GetSuccessful() bool {
 	return false
 }
 
-func (x *UpdateRequest) GetRequesterId() string {
+func (x *UpdateRequest) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -725,7 +725,7 @@ type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Successful    bool                   `protobuf:"varint,2,opt,name=successful,proto3" json:"successful,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,3,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -774,9 +774,9 @@ func (x *UpdateResponse) GetSuccessful() bool {
 	return false
 }
 
-func (x *UpdateResponse) GetRequesterId() string {
+func (x *UpdateResponse) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -806,35 +806,35 @@ const file_protos_login_attempts_proto_rawDesc = "" +
 	" \x01(\bR\n" +
 	"successfulB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"k\n" +
+	"\v_deleted_by\"o\n" +
 	"\rCreateRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1e\n" +
 	"\n" +
 	"successful\x18\x02 \x01(\bR\n" +
-	"successful\x12!\n" +
-	"\frequester_id\x18\x03 \x01(\tR\vrequesterId\"l\n" +
+	"successful\x12%\n" +
+	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"p\n" +
 	"\x0eCreateResponse\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1e\n" +
 	"\n" +
 	"successful\x18\x02 \x01(\bR\n" +
-	"successful\x12!\n" +
-	"\frequester_id\x18\x03 \x01(\tR\vrequesterId\"B\n" +
+	"successful\x12%\n" +
+	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"F\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\tR\vrequesterId\"\x10\n" +
-	"\x0eDeleteResponse\"m\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\"\x10\n" +
+	"\x0eDeleteResponse\"q\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\tR\vrequesterId\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\x12\x14\n" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
-	"\x06offset\x18\x04 \x01(\rR\x06offset\"i\n" +
+	"\x06offset\x18\x04 \x01(\rR\x06offset\"m\n" +
 	"\vGetResponse\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1e\n" +
 	"\n" +
 	"successful\x18\x02 \x01(\bR\n" +
-	"successful\x12!\n" +
-	"\frequester_id\x18\x03 \x01(\tR\vrequesterId\"\xc6\x02\n" +
+	"successful\x12%\n" +
+	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"\xc6\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
@@ -859,23 +859,23 @@ const file_protos_login_attempts_proto_rawDesc = "" +
 	"\v_created_at\"]\n" +
 	"\fListResponse\x127\n" +
 	"\x04rows\x18\x01 \x03(\v2#.login_attempts_proto.LoginAttemptsR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"\xa0\x01\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count\"\xa4\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
 	"\auser_id\x18\x02 \x01(\rH\x00R\x06userId\x88\x01\x01\x12#\n" +
 	"\n" +
 	"successful\x18\x03 \x01(\bH\x01R\n" +
-	"successful\x88\x01\x01\x12!\n" +
-	"\frequester_id\x18\x04 \x01(\tR\vrequesterIdB\n" +
+	"successful\x88\x01\x01\x12%\n" +
+	"\x0erequester_uuid\x18\x04 \x01(\tR\rrequesterUuidB\n" +
 	"\n" +
 	"\b_user_idB\r\n" +
-	"\v_successful\"l\n" +
+	"\v_successful\"p\n" +
 	"\x0eUpdateResponse\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1e\n" +
 	"\n" +
 	"successful\x18\x02 \x01(\bR\n" +
-	"successful\x12!\n" +
-	"\frequester_id\x18\x03 \x01(\tR\vrequesterId2\xb0\x03\n" +
+	"successful\x12%\n" +
+	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid2\xb0\x03\n" +
 	"\x14LoginAttemptsService\x12S\n" +
 	"\x06Create\x12#.login_attempts_proto.CreateRequest\x1a$.login_attempts_proto.CreateResponse\x12S\n" +
 	"\x06Delete\x12#.login_attempts_proto.DeleteRequest\x1a$.login_attempts_proto.DeleteResponse\x12M\n" +

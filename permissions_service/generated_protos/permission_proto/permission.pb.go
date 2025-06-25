@@ -160,7 +160,7 @@ type CreateRequest struct {
 	InternalName  string                 `protobuf:"bytes,3,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
 	ServiceId     uint32                 `protobuf:"varint,4,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
 	IsActive      bool                   `protobuf:"varint,5,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,6,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,6,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -230,9 +230,9 @@ func (x *CreateRequest) GetIsActive() bool {
 	return false
 }
 
-func (x *CreateRequest) GetRequesterId() string {
+func (x *CreateRequest) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -244,7 +244,7 @@ type CreateResponse struct {
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	InternalName  string                 `protobuf:"bytes,4,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
 	ServiceId     uint32                 `protobuf:"varint,5,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,6,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,6,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -314,9 +314,9 @@ func (x *CreateResponse) GetServiceId() uint32 {
 	return 0
 }
 
-func (x *CreateResponse) GetRequesterId() string {
+func (x *CreateResponse) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -324,7 +324,7 @@ func (x *CreateResponse) GetRequesterId() string {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -366,9 +366,9 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterId() string {
+func (x *DeleteRequest) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -412,7 +412,7 @@ func (*DeleteResponse) Descriptor() ([]byte, []int) {
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Limit         uint32                 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
 	Offset        uint32                 `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -456,9 +456,9 @@ func (x *GetRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *GetRequest) GetRequesterId() string {
+func (x *GetRequest) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -773,7 +773,7 @@ type UpdateRequest struct {
 	InternalName  *string                `protobuf:"bytes,4,opt,name=internal_name,json=internalName,proto3,oneof" json:"internal_name,omitempty"`
 	ServiceId     *uint32                `protobuf:"varint,5,opt,name=service_id,json=serviceId,proto3,oneof" json:"service_id,omitempty"`
 	IsActive      *bool                  `protobuf:"varint,6,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
-	RequesterId   string                 `protobuf:"bytes,7,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,7,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -850,9 +850,9 @@ func (x *UpdateRequest) GetIsActive() bool {
 	return false
 }
 
-func (x *UpdateRequest) GetRequesterId() string {
+func (x *UpdateRequest) GetRequesterUuid() string {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return ""
 }
@@ -961,31 +961,31 @@ const file_protos_permission_proto_rawDesc = "" +
 	"\n" +
 	"service_id\x18\f \x01(\rR\tserviceIdB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\xc9\x01\n" +
+	"\v_deleted_by\"\xcd\x01\n" +
 	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12#\n" +
 	"\rinternal_name\x18\x03 \x01(\tR\finternalName\x12\x1d\n" +
 	"\n" +
 	"service_id\x18\x04 \x01(\rR\tserviceId\x12\x1b\n" +
-	"\tis_active\x18\x05 \x01(\bR\bisActive\x12!\n" +
-	"\frequester_id\x18\x06 \x01(\tR\vrequesterId\"\xca\x01\n" +
+	"\tis_active\x18\x05 \x01(\bR\bisActive\x12%\n" +
+	"\x0erequester_uuid\x18\x06 \x01(\tR\rrequesterUuid\"\xce\x01\n" +
 	"\x0eCreateResponse\x12\x1b\n" +
 	"\tis_active\x18\x01 \x01(\bR\bisActive\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12#\n" +
 	"\rinternal_name\x18\x04 \x01(\tR\finternalName\x12\x1d\n" +
 	"\n" +
-	"service_id\x18\x05 \x01(\rR\tserviceId\x12!\n" +
-	"\frequester_id\x18\x06 \x01(\tR\vrequesterId\"B\n" +
+	"service_id\x18\x05 \x01(\rR\tserviceId\x12%\n" +
+	"\x0erequester_uuid\x18\x06 \x01(\tR\rrequesterUuid\"F\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\tR\vrequesterId\"\x10\n" +
-	"\x0eDeleteResponse\"m\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\"\x10\n" +
+	"\x0eDeleteResponse\"q\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\tR\vrequesterId\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\x12\x14\n" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
 	"\x06offset\x18\x04 \x01(\rR\x06offset\"\xa4\x01\n" +
 	"\vGetResponse\x12\x1b\n" +
@@ -1024,7 +1024,7 @@ const file_protos_permission_proto_rawDesc = "" +
 	"\v_created_at\"V\n" +
 	"\fListResponse\x120\n" +
 	"\x04rows\x18\x01 \x03(\v2\x1c.permission_proto.PermissionR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"\xba\x02\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count\"\xbe\x02\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12%\n" +
@@ -1032,8 +1032,8 @@ const file_protos_permission_proto_rawDesc = "" +
 	"\rinternal_name\x18\x04 \x01(\tH\x02R\finternalName\x88\x01\x01\x12\"\n" +
 	"\n" +
 	"service_id\x18\x05 \x01(\rH\x03R\tserviceId\x88\x01\x01\x12 \n" +
-	"\tis_active\x18\x06 \x01(\bH\x04R\bisActive\x88\x01\x01\x12!\n" +
-	"\frequester_id\x18\a \x01(\tR\vrequesterIdB\a\n" +
+	"\tis_active\x18\x06 \x01(\bH\x04R\bisActive\x88\x01\x01\x12%\n" +
+	"\x0erequester_uuid\x18\a \x01(\tR\rrequesterUuidB\a\n" +
 	"\x05_nameB\x0e\n" +
 	"\f_descriptionB\x10\n" +
 	"\x0e_internal_nameB\r\n" +

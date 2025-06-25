@@ -45,7 +45,7 @@ message Role {
 
 message CreateRequest {
     string name = 1;
-    string requester_id = 2;
+    string requester_uuid = 2;
     string description = 3;
 }
 
@@ -76,7 +76,7 @@ message UpdateRequest {
     uint32 id = 1;
     optional string name = 2;
     optional string description = 3;
-    string requester_id = 4;
+    string requester_uuid = 4;
 }
 
 message UpdateResponse {
@@ -85,7 +85,7 @@ message UpdateResponse {
 
 message DeleteRequest {
     uint32 id = 1;
-    string requester_id = 2;
+    string requester_uuid = 2;
 }
 
 message DeleteResponse {}
@@ -93,7 +93,7 @@ message DeleteResponse {}
 message AddPermissionRequest {
     uint32 role_id = 1;
     uint32 permission_id = 2;
-    string requester_id = 3;
+    string requester_uuid = 3;
 }
 
 message AddPermissionResponse {
@@ -103,7 +103,7 @@ message AddPermissionResponse {
 message RemovePermissionRequest {
     uint32 role_id = 1;
     uint32 permission_id = 2;
-    string requester_id = 3;
+    string requester_uuid = 3;
 }
 
 message RemovePermissionResponse {
