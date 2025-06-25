@@ -13,3 +13,4 @@ message HealthCheckRequest {}
 message HealthCheckResponse {
   bool is_healthy = 1;
 }
+
