@@ -1477,8 +1477,8 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x04user\x18\x05 \x01(\v2\x16.auth_users_proto.UserH\x02R\x04user\x88\x01\x01B\x14\n" +
 	"\x12_remaining_retriesB\x12\n" +
 	"\x10_suspended_untilB\a\n" +
-	"\x05_user2\xe5\x03\n" +
-	"\fUsersService\x12K\n" +
+	"\x05_user2\xe9\x03\n" +
+	"\x10AuthUsersService\x12K\n" +
 	"\x06Create\x12\x1f.auth_users_proto.CreateRequest\x1a .auth_users_proto.CreateResponse\x12B\n" +
 	"\x03Get\x12\x1c.auth_users_proto.GetRequest\x1a\x1d.auth_users_proto.GetResponse\x12E\n" +
 	"\x04List\x12\x1d.auth_users_proto.ListRequest\x1a\x1e.auth_users_proto.ListResponse\x12K\n" +
@@ -1527,18 +1527,18 @@ var file_protos_auth_users_proto_proto_depIdxs = []int32{
 	2,  // 5: auth_users_proto.ListResponse.rows:type_name -> auth_users_proto.User
 	2,  // 6: auth_users_proto.UpdateResponse.user:type_name -> auth_users_proto.User
 	2,  // 7: auth_users_proto.VerifyPasswordResponse.user:type_name -> auth_users_proto.User
-	5,  // 8: auth_users_proto.UsersService.Create:input_type -> auth_users_proto.CreateRequest
-	7,  // 9: auth_users_proto.UsersService.Get:input_type -> auth_users_proto.GetRequest
-	9,  // 10: auth_users_proto.UsersService.List:input_type -> auth_users_proto.ListRequest
-	11, // 11: auth_users_proto.UsersService.Update:input_type -> auth_users_proto.UpdateRequest
-	13, // 12: auth_users_proto.UsersService.Delete:input_type -> auth_users_proto.DeleteRequest
-	15, // 13: auth_users_proto.UsersService.VerifyPassword:input_type -> auth_users_proto.VerifyPasswordRequest
-	6,  // 14: auth_users_proto.UsersService.Create:output_type -> auth_users_proto.CreateResponse
-	8,  // 15: auth_users_proto.UsersService.Get:output_type -> auth_users_proto.GetResponse
-	10, // 16: auth_users_proto.UsersService.List:output_type -> auth_users_proto.ListResponse
-	12, // 17: auth_users_proto.UsersService.Update:output_type -> auth_users_proto.UpdateResponse
-	14, // 18: auth_users_proto.UsersService.Delete:output_type -> auth_users_proto.DeleteResponse
-	16, // 19: auth_users_proto.UsersService.VerifyPassword:output_type -> auth_users_proto.VerifyPasswordResponse
+	5,  // 8: auth_users_proto.AuthUsersService.Create:input_type -> auth_users_proto.CreateRequest
+	7,  // 9: auth_users_proto.AuthUsersService.Get:input_type -> auth_users_proto.GetRequest
+	9,  // 10: auth_users_proto.AuthUsersService.List:input_type -> auth_users_proto.ListRequest
+	11, // 11: auth_users_proto.AuthUsersService.Update:input_type -> auth_users_proto.UpdateRequest
+	13, // 12: auth_users_proto.AuthUsersService.Delete:input_type -> auth_users_proto.DeleteRequest
+	15, // 13: auth_users_proto.AuthUsersService.VerifyPassword:input_type -> auth_users_proto.VerifyPasswordRequest
+	6,  // 14: auth_users_proto.AuthUsersService.Create:output_type -> auth_users_proto.CreateResponse
+	8,  // 15: auth_users_proto.AuthUsersService.Get:output_type -> auth_users_proto.GetResponse
+	10, // 16: auth_users_proto.AuthUsersService.List:output_type -> auth_users_proto.ListResponse
+	12, // 17: auth_users_proto.AuthUsersService.Update:output_type -> auth_users_proto.UpdateResponse
+	14, // 18: auth_users_proto.AuthUsersService.Delete:output_type -> auth_users_proto.DeleteResponse
+	16, // 19: auth_users_proto.AuthUsersService.VerifyPassword:output_type -> auth_users_proto.VerifyPasswordResponse
 	14, // [14:20] is the sub-list for method output_type
 	8,  // [8:14] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name

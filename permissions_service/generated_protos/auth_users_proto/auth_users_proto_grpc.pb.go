@@ -19,18 +19,18 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UsersService_Create_FullMethodName         = "/auth_users_proto.UsersService/Create"
-	UsersService_Get_FullMethodName            = "/auth_users_proto.UsersService/Get"
-	UsersService_List_FullMethodName           = "/auth_users_proto.UsersService/List"
-	UsersService_Update_FullMethodName         = "/auth_users_proto.UsersService/Update"
-	UsersService_Delete_FullMethodName         = "/auth_users_proto.UsersService/Delete"
-	UsersService_VerifyPassword_FullMethodName = "/auth_users_proto.UsersService/VerifyPassword"
+	AuthUsersService_Create_FullMethodName         = "/auth_users_proto.AuthUsersService/Create"
+	AuthUsersService_Get_FullMethodName            = "/auth_users_proto.AuthUsersService/Get"
+	AuthUsersService_List_FullMethodName           = "/auth_users_proto.AuthUsersService/List"
+	AuthUsersService_Update_FullMethodName         = "/auth_users_proto.AuthUsersService/Update"
+	AuthUsersService_Delete_FullMethodName         = "/auth_users_proto.AuthUsersService/Delete"
+	AuthUsersService_VerifyPassword_FullMethodName = "/auth_users_proto.AuthUsersService/VerifyPassword"
 )
 
-// UsersServiceClient is the client API for UsersService service.
+// AuthUsersServiceClient is the client API for AuthUsersService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UsersServiceClient interface {
+type AuthUsersServiceClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
@@ -39,271 +39,271 @@ type UsersServiceClient interface {
 	VerifyPassword(ctx context.Context, in *VerifyPasswordRequest, opts ...grpc.CallOption) (*VerifyPasswordResponse, error)
 }
 
-type usersServiceClient struct {
+type authUsersServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUsersServiceClient(cc grpc.ClientConnInterface) UsersServiceClient {
-	return &usersServiceClient{cc}
+func NewAuthUsersServiceClient(cc grpc.ClientConnInterface) AuthUsersServiceClient {
+	return &authUsersServiceClient{cc}
 }
 
-func (c *usersServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+func (c *authUsersServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateResponse)
-	err := c.cc.Invoke(ctx, UsersService_Create_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AuthUsersService_Create_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usersServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+func (c *authUsersServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, UsersService_Get_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AuthUsersService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usersServiceClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error) {
+func (c *authUsersServiceClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListResponse)
-	err := c.cc.Invoke(ctx, UsersService_List_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AuthUsersService_List_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usersServiceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
+func (c *authUsersServiceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateResponse)
-	err := c.cc.Invoke(ctx, UsersService_Update_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AuthUsersService_Update_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usersServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+func (c *authUsersServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DeleteResponse)
-	err := c.cc.Invoke(ctx, UsersService_Delete_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AuthUsersService_Delete_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usersServiceClient) VerifyPassword(ctx context.Context, in *VerifyPasswordRequest, opts ...grpc.CallOption) (*VerifyPasswordResponse, error) {
+func (c *authUsersServiceClient) VerifyPassword(ctx context.Context, in *VerifyPasswordRequest, opts ...grpc.CallOption) (*VerifyPasswordResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(VerifyPasswordResponse)
-	err := c.cc.Invoke(ctx, UsersService_VerifyPassword_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AuthUsersService_VerifyPassword_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UsersServiceServer is the server API for UsersService service.
-// All implementations must embed UnimplementedUsersServiceServer
+// AuthUsersServiceServer is the server API for AuthUsersService service.
+// All implementations must embed UnimplementedAuthUsersServiceServer
 // for forward compatibility.
-type UsersServiceServer interface {
+type AuthUsersServiceServer interface {
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
 	List(context.Context, *ListRequest) (*ListResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	VerifyPassword(context.Context, *VerifyPasswordRequest) (*VerifyPasswordResponse, error)
-	mustEmbedUnimplementedUsersServiceServer()
+	mustEmbedUnimplementedAuthUsersServiceServer()
 }
 
-// UnimplementedUsersServiceServer must be embedded to have
+// UnimplementedAuthUsersServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUsersServiceServer struct{}
+type UnimplementedAuthUsersServiceServer struct{}
 
-func (UnimplementedUsersServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+func (UnimplementedAuthUsersServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedUsersServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+func (UnimplementedAuthUsersServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedUsersServiceServer) List(context.Context, *ListRequest) (*ListResponse, error) {
+func (UnimplementedAuthUsersServiceServer) List(context.Context, *ListRequest) (*ListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (UnimplementedUsersServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
+func (UnimplementedAuthUsersServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedUsersServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
+func (UnimplementedAuthUsersServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
-func (UnimplementedUsersServiceServer) VerifyPassword(context.Context, *VerifyPasswordRequest) (*VerifyPasswordResponse, error) {
+func (UnimplementedAuthUsersServiceServer) VerifyPassword(context.Context, *VerifyPasswordRequest) (*VerifyPasswordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyPassword not implemented")
 }
-func (UnimplementedUsersServiceServer) mustEmbedUnimplementedUsersServiceServer() {}
-func (UnimplementedUsersServiceServer) testEmbeddedByValue()                      {}
+func (UnimplementedAuthUsersServiceServer) mustEmbedUnimplementedAuthUsersServiceServer() {}
+func (UnimplementedAuthUsersServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeUsersServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UsersServiceServer will
+// UnsafeAuthUsersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AuthUsersServiceServer will
 // result in compilation errors.
-type UnsafeUsersServiceServer interface {
-	mustEmbedUnimplementedUsersServiceServer()
+type UnsafeAuthUsersServiceServer interface {
+	mustEmbedUnimplementedAuthUsersServiceServer()
 }
 
-func RegisterUsersServiceServer(s grpc.ServiceRegistrar, srv UsersServiceServer) {
-	// If the following call pancis, it indicates UnimplementedUsersServiceServer was
+func RegisterAuthUsersServiceServer(s grpc.ServiceRegistrar, srv AuthUsersServiceServer) {
+	// If the following call pancis, it indicates UnimplementedAuthUsersServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UsersService_ServiceDesc, srv)
+	s.RegisterService(&AuthUsersService_ServiceDesc, srv)
 }
 
-func _UsersService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AuthUsersService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsersServiceServer).Create(ctx, in)
+		return srv.(AuthUsersServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsersService_Create_FullMethodName,
+		FullMethod: AuthUsersService_Create_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServiceServer).Create(ctx, req.(*CreateRequest))
+		return srv.(AuthUsersServiceServer).Create(ctx, req.(*CreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsersService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AuthUsersService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsersServiceServer).Get(ctx, in)
+		return srv.(AuthUsersServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsersService_Get_FullMethodName,
+		FullMethod: AuthUsersService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServiceServer).Get(ctx, req.(*GetRequest))
+		return srv.(AuthUsersServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsersService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AuthUsersService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsersServiceServer).List(ctx, in)
+		return srv.(AuthUsersServiceServer).List(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsersService_List_FullMethodName,
+		FullMethod: AuthUsersService_List_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServiceServer).List(ctx, req.(*ListRequest))
+		return srv.(AuthUsersServiceServer).List(ctx, req.(*ListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsersService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AuthUsersService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsersServiceServer).Update(ctx, in)
+		return srv.(AuthUsersServiceServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsersService_Update_FullMethodName,
+		FullMethod: AuthUsersService_Update_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServiceServer).Update(ctx, req.(*UpdateRequest))
+		return srv.(AuthUsersServiceServer).Update(ctx, req.(*UpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsersService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AuthUsersService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsersServiceServer).Delete(ctx, in)
+		return srv.(AuthUsersServiceServer).Delete(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsersService_Delete_FullMethodName,
+		FullMethod: AuthUsersService_Delete_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServiceServer).Delete(ctx, req.(*DeleteRequest))
+		return srv.(AuthUsersServiceServer).Delete(ctx, req.(*DeleteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsersService_VerifyPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AuthUsersService_VerifyPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(VerifyPasswordRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsersServiceServer).VerifyPassword(ctx, in)
+		return srv.(AuthUsersServiceServer).VerifyPassword(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsersService_VerifyPassword_FullMethodName,
+		FullMethod: AuthUsersService_VerifyPassword_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServiceServer).VerifyPassword(ctx, req.(*VerifyPasswordRequest))
+		return srv.(AuthUsersServiceServer).VerifyPassword(ctx, req.(*VerifyPasswordRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UsersService_ServiceDesc is the grpc.ServiceDesc for UsersService service.
+// AuthUsersService_ServiceDesc is the grpc.ServiceDesc for AuthUsersService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UsersService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "auth_users_proto.UsersService",
-	HandlerType: (*UsersServiceServer)(nil),
+var AuthUsersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "auth_users_proto.AuthUsersService",
+	HandlerType: (*AuthUsersServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Create",
-			Handler:    _UsersService_Create_Handler,
+			Handler:    _AuthUsersService_Create_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _UsersService_Get_Handler,
+			Handler:    _AuthUsersService_Get_Handler,
 		},
 		{
 			MethodName: "List",
-			Handler:    _UsersService_List_Handler,
+			Handler:    _AuthUsersService_List_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _UsersService_Update_Handler,
+			Handler:    _AuthUsersService_Update_Handler,
 		},
 		{
 			MethodName: "Delete",
-			Handler:    _UsersService_Delete_Handler,
+			Handler:    _AuthUsersService_Delete_Handler,
 		},
 		{
 			MethodName: "VerifyPassword",
-			Handler:    _UsersService_VerifyPassword_Handler,
+			Handler:    _AuthUsersService_VerifyPassword_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
