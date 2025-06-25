@@ -75,7 +75,7 @@ message CreateResponse {
 }
 
 message GetRequest {
-  uint32 id = 1;
+  string uuid = 1;
 }
 
 message GetResponse {
