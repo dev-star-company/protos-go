@@ -28,33 +28,33 @@ message ServiceDto {
 
 message CreateRequest {
     string name = 1;
-    uint32 requester_id = 2;
+    string requester_id = 2;
     string description = 3;
     string internal_name = 4;
 }
 
 message CreateResponse {
     string name = 1;
-    uint32 requester_id = 2;
+    string requester_id = 2;
 }
 
 message DeleteRequest {
     uint32 id = 1;
-    uint32 requester_id = 2;
+    string requester_id = 2;
 }
 
 message DeleteResponse {}
 
 message GetRequest {
     uint32 id = 1;
-    uint32 requester_id = 2;
+    string requester_id = 2;
     uint32 limit = 3;
     uint32 offset = 4;
 }
 
 message GetResponse {
     string name = 1;
-    uint32 requester_id = 2;
+    string requester_id = 2;
 }
 
 message ListRequest {
@@ -80,10 +80,10 @@ message ListResponse {
 message UpdateRequest {
     uint32 id = 1;
     optional string name = 2;
-    uint32 requester_id = 3;
+    string requester_id = 3;
 }
 
 message UpdateResponse {
     string name = 1;
-    uint32 requester_id = 2;
+    string requester_id = 2;
 }

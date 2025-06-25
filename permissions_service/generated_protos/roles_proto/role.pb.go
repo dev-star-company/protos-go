@@ -140,7 +140,7 @@ func (x *Role) GetIsActive() bool {
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterId   string                 `protobuf:"bytes,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -183,11 +183,11 @@ func (x *CreateRequest) GetName() string {
 	return ""
 }
 
-func (x *CreateRequest) GetRequesterId() uint32 {
+func (x *CreateRequest) GetRequesterId() string {
 	if x != nil {
 		return x.RequesterId
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateRequest) GetDescription() string {
@@ -244,7 +244,7 @@ func (x *CreateResponse) GetRole() *Role {
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterId   string                 `protobuf:"bytes,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	Limit         uint32                 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
 	Offset        uint32                 `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -288,11 +288,11 @@ func (x *GetRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *GetRequest) GetRequesterId() uint32 {
+func (x *GetRequest) GetRequesterId() string {
 	if x != nil {
 		return x.RequesterId
 	}
-	return 0
+	return ""
 }
 
 func (x *GetRequest) GetLimit() uint32 {
@@ -546,7 +546,7 @@ type UpdateRequest struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Description   *string                `protobuf:"bytes,3,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,4,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterId   string                 `protobuf:"bytes,4,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -602,11 +602,11 @@ func (x *UpdateRequest) GetDescription() string {
 	return ""
 }
 
-func (x *UpdateRequest) GetRequesterId() uint32 {
+func (x *UpdateRequest) GetRequesterId() string {
 	if x != nil {
 		return x.RequesterId
 	}
-	return 0
+	return ""
 }
 
 type UpdateResponse struct {
@@ -656,7 +656,7 @@ func (x *UpdateResponse) GetRole() *Role {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterId   string                 `protobuf:"bytes,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -698,11 +698,11 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterId() uint32 {
+func (x *DeleteRequest) GetRequesterId() string {
 	if x != nil {
 		return x.RequesterId
 	}
-	return 0
+	return ""
 }
 
 type DeleteResponse struct {
@@ -768,14 +768,14 @@ const file_protos_role_proto_rawDesc = "" +
 	"\v_deleted_by\"h\n" +
 	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12 \n" +
+	"\frequester_id\x18\x02 \x01(\tR\vrequesterId\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\"7\n" +
 	"\x0eCreateResponse\x12%\n" +
 	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"m\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12\x14\n" +
+	"\frequester_id\x18\x02 \x01(\tR\vrequesterId\x12\x14\n" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
 	"\x06offset\x18\x04 \x01(\rR\x06offset\"4\n" +
 	"\vGetResponse\x12%\n" +
@@ -806,14 +806,14 @@ const file_protos_role_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12%\n" +
 	"\vdescription\x18\x03 \x01(\tH\x01R\vdescription\x88\x01\x01\x12!\n" +
-	"\frequester_id\x18\x04 \x01(\rR\vrequesterIdB\a\n" +
+	"\frequester_id\x18\x04 \x01(\tR\vrequesterIdB\a\n" +
 	"\x05_nameB\x0e\n" +
 	"\f_description\"7\n" +
 	"\x0eUpdateResponse\x12%\n" +
 	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"B\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\"\x10\n" +
+	"\frequester_id\x18\x02 \x01(\tR\vrequesterId\"\x10\n" +
 	"\x0eDeleteResponse2\xcd\x02\n" +
 	"\vRoleService\x12A\n" +
 	"\x06Create\x12\x1a.roles_proto.CreateRequest\x1a\x1b.roles_proto.CreateResponse\x128\n" +

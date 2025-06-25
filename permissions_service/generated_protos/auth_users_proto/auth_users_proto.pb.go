@@ -555,7 +555,7 @@ func (x *Password) GetDeletedBy() uint32 {
 
 type CreateRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId     uint32                 `protobuf:"varint,1,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	RequesterId     string                 `protobuf:"bytes,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	Name            string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Surname         string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
 	Email           string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
@@ -596,11 +596,11 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_auth_users_proto_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *CreateRequest) GetRequesterId() uint32 {
+func (x *CreateRequest) GetRequesterId() string {
 	if x != nil {
 		return x.RequesterId
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateRequest) GetName() string {
@@ -939,7 +939,7 @@ func (x *ListResponse) GetRows() []*User {
 
 type UpdateRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId     uint32                 `protobuf:"varint,1,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	RequesterId     string                 `protobuf:"bytes,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	Id              uint32                 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
 	Name            *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Surname         *string                `protobuf:"bytes,4,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
@@ -981,11 +981,11 @@ func (*UpdateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_auth_users_proto_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *UpdateRequest) GetRequesterId() uint32 {
+func (x *UpdateRequest) GetRequesterId() string {
 	if x != nil {
 		return x.RequesterId
 	}
-	return 0
+	return ""
 }
 
 func (x *UpdateRequest) GetId() uint32 {
@@ -1083,7 +1083,7 @@ func (x *UpdateResponse) GetUser() *User {
 
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requesterId,proto3" json:"requesterId,omitempty"`
+	RequesterId   string                 `protobuf:"bytes,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
 	Id            uint32                 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1119,11 +1119,11 @@ func (*DeleteRequest) Descriptor() ([]byte, []int) {
 	return file_protos_auth_users_proto_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *DeleteRequest) GetRequesterId() uint32 {
+func (x *DeleteRequest) GetRequesterId() string {
 	if x != nil {
 		return x.RequesterId
 	}
-	return 0
+	return ""
 }
 
 func (x *DeleteRequest) GetId() uint32 {
@@ -1401,9 +1401,9 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\n" +
 	"deleted_by\x18\b \x01(\rH\x01R\tdeletedBy\x88\x01\x01B\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\xd2\x01\n" +
-	"\rCreateRequest\x12 \n" +
-	"\vrequesterId\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
+	"\v_deleted_by\"\xd3\x01\n" +
+	"\rCreateRequest\x12!\n" +
+	"\frequester_id\x18\x01 \x01(\tR\vrequesterId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
 	"\asurname\x18\x03 \x01(\tR\asurname\x12\x14\n" +
 	"\x05email\x18\x04 \x01(\tR\x05email\x12\x1a\n" +
@@ -1438,9 +1438,9 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"_relations\"P\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12*\n" +
-	"\x04rows\x18\x02 \x03(\v2\x16.auth_users_proto.UserR\x04rows\"\xcb\x02\n" +
-	"\rUpdateRequest\x12 \n" +
-	"\vrequesterId\x18\x01 \x01(\rR\vrequesterId\x12\x0e\n" +
+	"\x04rows\x18\x02 \x03(\v2\x16.auth_users_proto.UserR\x04rows\"\xcc\x02\n" +
+	"\rUpdateRequest\x12!\n" +
+	"\frequester_id\x18\x01 \x01(\tR\vrequesterId\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x03 \x01(\tH\x00R\x04name\x88\x01\x01\x12\x1d\n" +
 	"\asurname\x18\x04 \x01(\tH\x01R\asurname\x88\x01\x01\x12\x19\n" +
@@ -1456,9 +1456,9 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x11_confirm_passwordB\b\n" +
 	"\x06_phone\"<\n" +
 	"\x0eUpdateResponse\x12*\n" +
-	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"A\n" +
-	"\rDeleteRequest\x12 \n" +
-	"\vrequesterId\x18\x01 \x01(\rR\vrequesterId\x12\x0e\n" +
+	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"B\n" +
+	"\rDeleteRequest\x12!\n" +
+	"\frequester_id\x18\x01 \x01(\tR\vrequesterId\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\"\x10\n" +
 	"\x0eDeleteResponse\"\xbc\x01\n" +
 	"\x15VerifyPasswordRequest\x12\x13\n" +

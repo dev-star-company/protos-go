@@ -25,11 +25,11 @@ message Currency {
   string abbreviation = 10;
   int32 decimals = 11;
   uint32 currency_type_id = 12;
-  uint32 requester_id = 13;
+  string requester_id = 13;
 }
 
 message CreateRequest {
-  uint32 requester_id = 1;
+  string requester_id = 1;
   string name = 2;
   string symbol = 3;
   string abbreviation = 4;
@@ -38,7 +38,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  uint32 requester_id = 1;
+  string requester_id = 1;
   string name = 2;
   string symbol = 3;
   string abbreviation = 4;
@@ -57,7 +57,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 requester_id = 1;
+  string requester_id = 1;
   string name = 2;
   string symbol = 3;
   string abbreviation = 4;
@@ -73,7 +73,7 @@ message GetResponse {
 
 message UpdateRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  string requester_id = 2;
   optional string name = 3;
   optional string symbol = 4;
   optional string abbreviation = 5;
@@ -82,7 +82,7 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  uint32 requester_id = 1;
+  string requester_id = 1;
   string name = 2;
   string symbol = 3;
   string abbreviation = 4;
@@ -92,7 +92,7 @@ message UpdateResponse {
 
 message DeleteRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  string requester_id = 2;
 }
 
 message DeleteResponse {

@@ -14,7 +14,7 @@ service AccountBalanceService {
 
 message AccountBalance {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  string requester_id = 2;
   string created_at = 3;
   string updated_at = 4;
   optional string deleted_at = 5;
@@ -27,7 +27,7 @@ message AccountBalance {
 }
 
 message CreateRequest {
-  uint32 requester_id = 1;
+  string requester_id = 1;
   uint32 account_id = 2;
   uint32 currency_id = 3;
   double balance = 4;
@@ -51,7 +51,7 @@ message GetRequest {
 
 message GetResponse {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  string requester_id = 2;
   uint32 account_id = 3;
   uint32 currency_id = 4;
   double balance = 5;
@@ -87,7 +87,7 @@ message ListResponse {
 
 message UpdateRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  string requester_id = 2;
   optional uint32 account_id = 4;
   optional uint32 currency_id = 5;
   optional double balance = 6;
@@ -95,7 +95,7 @@ message UpdateRequest {
 
 message UpdateResponse {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  string requester_id = 2;
   uint32 account_id = 3;
   uint32 currency_id = 4;
   double balance = 5;
@@ -103,7 +103,7 @@ message UpdateResponse {
 
 message DeleteRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  string requester_id = 2;
 }
 
 message DeleteResponse {

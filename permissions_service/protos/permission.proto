@@ -33,7 +33,7 @@ message CreateRequest {
     string internal_name = 3;
     uint32 service_id = 4;
     bool is_active = 5;
-    uint32 requester_id = 6;
+    string requester_id = 6;
 }
 
 message CreateResponse {
@@ -42,19 +42,19 @@ message CreateResponse {
     string description = 3;
     string internal_name = 4;
     uint32 service_id = 5;
-    uint32 requester_id = 6;
+    string requester_id = 6;
 }
 
 message DeleteRequest {
     uint32 id = 1;
-    uint32 requester_id = 2;
+    string requester_id = 2;
 }
 
 message DeleteResponse {}
 
 message GetRequest {
     uint32 id = 1;
-    uint32 requester_id = 2;
+    string requester_id = 2;
     uint32 limit = 3;
     uint32 offset = 4;
 }
@@ -96,7 +96,7 @@ message UpdateRequest {
     optional string internal_name = 4;
     optional uint32 service_id = 5;
     optional bool is_active = 6;
-    uint32 requester_id = 7;
+    string requester_id = 7;
 }
 
 message UpdateResponse {
