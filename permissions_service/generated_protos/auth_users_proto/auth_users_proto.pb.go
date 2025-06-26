@@ -1171,9 +1171,9 @@ func (*DeleteResponse) Descriptor() ([]byte, []int) {
 
 type VerifyPasswordRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            *uint32                `protobuf:"varint,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
+	Uuid          *string                `protobuf:"bytes,1,opt,name=uuid,proto3,oneof" json:"uuid,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	RequesterUuid int32                  `protobuf:"varint,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Email         *string                `protobuf:"bytes,4,opt,name=email,proto3,oneof" json:"email,omitempty"`
 	Phone         *string                `protobuf:"bytes,5,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -1210,11 +1210,11 @@ func (*VerifyPasswordRequest) Descriptor() ([]byte, []int) {
 	return file_protos_auth_users_proto_proto_rawDescGZIP(), []int{15}
 }
 
-func (x *VerifyPasswordRequest) GetId() uint32 {
-	if x != nil && x.Id != nil {
-		return *x.Id
+func (x *VerifyPasswordRequest) GetUuid() string {
+	if x != nil && x.Uuid != nil {
+		return *x.Uuid
 	}
-	return 0
+	return ""
 }
 
 func (x *VerifyPasswordRequest) GetPassword() string {
@@ -1224,11 +1224,11 @@ func (x *VerifyPasswordRequest) GetPassword() string {
 	return ""
 }
 
-func (x *VerifyPasswordRequest) GetRequesterUuid() int32 {
+func (x *VerifyPasswordRequest) GetRequesterUuid() string {
 	if x != nil {
 		return x.RequesterUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *VerifyPasswordRequest) GetEmail() string {
@@ -1460,14 +1460,14 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\rDeleteRequest\x12%\n" +
 	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\"\x10\n" +
-	"\x0eDeleteResponse\"\xc0\x01\n" +
-	"\x15VerifyPasswordRequest\x12\x13\n" +
-	"\x02id\x18\x01 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x1a\n" +
+	"\x0eDeleteResponse\"\xc6\x01\n" +
+	"\x15VerifyPasswordRequest\x12\x17\n" +
+	"\x04uuid\x18\x01 \x01(\tH\x00R\x04uuid\x88\x01\x01\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12%\n" +
-	"\x0erequester_uuid\x18\x03 \x01(\x05R\rrequesterUuid\x12\x19\n" +
+	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\x12\x19\n" +
 	"\x05email\x18\x04 \x01(\tH\x01R\x05email\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\x05 \x01(\tH\x02R\x05phone\x88\x01\x01B\x05\n" +
-	"\x03_idB\b\n" +
+	"\x05phone\x18\x05 \x01(\tH\x02R\x05phone\x88\x01\x01B\a\n" +
+	"\x05_uuidB\b\n" +
 	"\x06_emailB\b\n" +
 	"\x06_phone\"\xf6\x01\n" +
 	"\x16VerifyPasswordResponse\x12\x18\n" +

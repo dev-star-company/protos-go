@@ -135,9 +135,9 @@ message DeleteRequest {
 message DeleteResponse {}
 
 message VerifyPasswordRequest {
-  optional uint32 id = 1;
+  optional string uuid = 1;
   string password = 2;
-  int32 requester_uuid = 3;
+  string requester_uuid = 3;
   optional string email = 4;
   optional string phone = 5;
 }
