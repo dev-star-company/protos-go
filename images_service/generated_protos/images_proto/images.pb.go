@@ -147,7 +147,7 @@ func (x *Images) GetUuid() string {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	MediaTypeId   uint32                 `protobuf:"varint,2,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
 	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	FolderId      uint32                 `protobuf:"varint,4,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
@@ -186,11 +186,11 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_images_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetRequesterUuid() uint32 {
+func (x *CreateRequest) GetRequesterUuid() string {
 	if x != nil {
 		return x.RequesterUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateRequest) GetMediaTypeId() uint32 {
@@ -223,7 +223,7 @@ func (x *CreateRequest) GetUuid() string {
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	MediaTypeId   uint32                 `protobuf:"varint,2,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
 	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	FolderId      uint32                 `protobuf:"varint,4,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
@@ -268,11 +268,11 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_images_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetRequesterUuid() uint32 {
+func (x *CreateResponse) GetRequesterUuid() string {
 	if x != nil {
 		return x.RequesterUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateResponse) GetMediaTypeId() uint32 {
@@ -391,7 +391,7 @@ func (x *GetRequest) GetId() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	MediaTypeId   uint32                 `protobuf:"varint,2,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
 	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	FolderId      uint32                 `protobuf:"varint,4,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
@@ -436,11 +436,11 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_images_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetRequesterUuid() uint32 {
+func (x *GetResponse) GetRequesterUuid() string {
 	if x != nil {
 		return x.RequesterUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *GetResponse) GetMediaTypeId() uint32 {
@@ -516,7 +516,7 @@ func (x *GetResponse) GetDeletedBy() uint32 {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterUuid uint32                 `protobuf:"varint,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	MediaTypeId   *uint32                `protobuf:"varint,3,opt,name=media_type_id,json=mediaTypeId,proto3,oneof" json:"media_type_id,omitempty"`
 	Name          *string                `protobuf:"bytes,4,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Uuid          *string                `protobuf:"bytes,5,opt,name=uuid,proto3,oneof" json:"uuid,omitempty"`
@@ -562,11 +562,11 @@ func (x *UpdateRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *UpdateRequest) GetRequesterUuid() uint32 {
+func (x *UpdateRequest) GetRequesterUuid() string {
 	if x != nil {
 		return x.RequesterUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *UpdateRequest) GetMediaTypeId() uint32 {
@@ -599,7 +599,7 @@ func (x *UpdateRequest) GetFolderId() uint32 {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	MediaTypeId   uint32                 `protobuf:"varint,2,opt,name=media_type_id,json=mediaTypeId,proto3" json:"media_type_id,omitempty"`
 	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	FolderId      uint32                 `protobuf:"varint,4,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
@@ -644,11 +644,11 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_images_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetRequesterUuid() uint32 {
+func (x *UpdateResponse) GetRequesterUuid() string {
 	if x != nil {
 		return x.RequesterUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *UpdateResponse) GetMediaTypeId() uint32 {
@@ -724,7 +724,7 @@ func (x *UpdateResponse) GetDeletedBy() uint32 {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterUuid uint32                 `protobuf:"varint,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -766,11 +766,11 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterUuid() uint32 {
+func (x *DeleteRequest) GetRequesterUuid() string {
 	if x != nil {
 		return x.RequesterUuid
 	}
-	return 0
+	return ""
 }
 
 type DeleteResponse struct {
@@ -1048,13 +1048,13 @@ const file_images_service_protos_images_proto_rawDesc = "" +
 	"\v_deleted_atB\r\n" +
 	"\v_deleted_by\"\x9f\x01\n" +
 	"\rCreateRequest\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\"\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\"\n" +
 	"\rmedia_type_id\x18\x02 \x01(\rR\vmediaTypeId\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1b\n" +
 	"\tfolder_id\x18\x04 \x01(\rR\bfolderId\x12\x12\n" +
 	"\x04uuid\x18\x05 \x01(\tR\x04uuid\"\xda\x02\n" +
 	"\x0eCreateResponse\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\"\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\"\n" +
 	"\rmedia_type_id\x18\x02 \x01(\rR\vmediaTypeId\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1b\n" +
 	"\tfolder_id\x18\x04 \x01(\rR\bfolderId\x12\x12\n" +
@@ -1076,7 +1076,7 @@ const file_images_service_protos_images_proto_rawDesc = "" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"\xd7\x02\n" +
 	"\vGetResponse\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\"\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\"\n" +
 	"\rmedia_type_id\x18\x02 \x01(\rR\vmediaTypeId\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1b\n" +
 	"\tfolder_id\x18\x04 \x01(\rR\bfolderId\x12\x12\n" +
@@ -1096,7 +1096,7 @@ const file_images_service_protos_images_proto_rawDesc = "" +
 	"deleted_by\x18\v \x01(\rR\tdeletedBy\"\xe2\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
-	"\x0erequester_uuid\x18\x02 \x01(\rR\rrequesterUuid\x12'\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\x12'\n" +
 	"\rmedia_type_id\x18\x03 \x01(\rH\x00R\vmediaTypeId\x88\x01\x01\x12\x17\n" +
 	"\x04name\x18\x04 \x01(\tH\x01R\x04name\x88\x01\x01\x12\x17\n" +
 	"\x04uuid\x18\x05 \x01(\tH\x02R\x04uuid\x88\x01\x01\x12\x1b\n" +
@@ -1105,7 +1105,7 @@ const file_images_service_protos_images_proto_rawDesc = "" +
 	"\x05_nameB\a\n" +
 	"\x05_uuid\"\xda\x02\n" +
 	"\x0eUpdateResponse\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\"\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\"\n" +
 	"\rmedia_type_id\x18\x02 \x01(\rR\vmediaTypeId\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1b\n" +
 	"\tfolder_id\x18\x04 \x01(\rR\bfolderId\x12\x12\n" +
@@ -1125,7 +1125,7 @@ const file_images_service_protos_images_proto_rawDesc = "" +
 	"deleted_by\x18\v \x01(\rR\tdeletedBy\"F\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
-	"\x0erequester_uuid\x18\x02 \x01(\rR\rrequesterUuid\"*\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\"*\n" +
 	"\x0eDeleteResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\"\xec\x02\n" +
 	"\vListRequest\x12\x19\n" +

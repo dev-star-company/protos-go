@@ -27,7 +27,7 @@ message Images {
 }
 
 message CreateRequest {
-  uint32 requester_uuid = 1;
+  string requester_uuid = 1;
   uint32 media_type_id = 2;
   string name = 3;
   uint32 folder_id = 4;
@@ -36,7 +36,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  uint32 requester_uuid = 1;
+  string requester_uuid = 1;
   uint32 media_type_id = 2;
   string name = 3;
   uint32 folder_id = 4;
@@ -54,7 +54,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 requester_uuid = 1;
+  string requester_uuid = 1;
   uint32 media_type_id = 2;
    string name = 3;
   uint32 folder_id = 4;
@@ -69,7 +69,7 @@ message GetResponse {
 
 message UpdateRequest {
   uint32 id = 1;
-  uint32 requester_uuid = 2;
+  string requester_uuid = 2;
   optional uint32 media_type_id = 3;
   optional string name = 4;
   optional string uuid = 5;
@@ -77,7 +77,7 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  uint32 requester_uuid = 1;
+  string requester_uuid = 1;
   uint32 media_type_id = 2;
   string name = 3;
   uint32 folder_id = 4;
@@ -92,7 +92,7 @@ message UpdateResponse {
 
 message DeleteRequest {
   uint32 id = 1;
-  uint32 requester_uuid = 2;
+  string requester_uuid = 2;
 }
 
 message DeleteResponse {
