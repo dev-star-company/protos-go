@@ -691,7 +691,7 @@ func (x *CreateResponse) GetUser() *User {
 
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -726,11 +726,11 @@ func (*GetRequest) Descriptor() ([]byte, []int) {
 	return file_protos_auth_users_proto_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *GetRequest) GetId() uint32 {
+func (x *GetRequest) GetUuid() string {
 	if x != nil {
-		return x.Id
+		return x.Uuid
 	}
-	return 0
+	return ""
 }
 
 type GetResponse struct {
@@ -788,6 +788,7 @@ type ListRequest struct {
 	IncludeDeleted *bool                  `protobuf:"varint,7,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	Phone          *string                `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
 	Relations      *Relations             `protobuf:"bytes,9,opt,name=relations,proto3,oneof" json:"relations,omitempty"`
+	RequesterUuid  *string                `protobuf:"bytes,10,opt,name=requester_uuid,json=requesterUuid,proto3,oneof" json:"requester_uuid,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -883,6 +884,13 @@ func (x *ListRequest) GetRelations() *Relations {
 		return x.Relations
 	}
 	return nil
+}
+
+func (x *ListRequest) GetRequesterUuid() string {
+	if x != nil && x.RequesterUuid != nil {
+		return *x.RequesterUuid
+	}
+	return ""
 }
 
 type ListResponse struct {
@@ -1411,12 +1419,12 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x10confirm_password\x18\x06 \x01(\tR\x0fconfirmPassword\x12\x14\n" +
 	"\x05phone\x18\a \x01(\tR\x05phone\"<\n" +
 	"\x0eCreateResponse\x12*\n" +
-	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\x1c\n" +
+	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\" \n" +
 	"\n" +
-	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"9\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"9\n" +
 	"\vGetResponse\x12*\n" +
-	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\xfe\x02\n" +
+	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\xbd\x03\n" +
 	"\vListRequest\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x19\n" +
 	"\x05email\x18\x02 \x01(\tH\x01R\x05email\x88\x01\x01\x12\x17\n" +
@@ -1426,7 +1434,9 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x06offset\x18\x06 \x01(\rR\x06offset\x12,\n" +
 	"\x0finclude_deleted\x18\a \x01(\bH\x04R\x0eincludeDeleted\x88\x01\x01\x12\x19\n" +
 	"\x05phone\x18\b \x01(\tH\x05R\x05phone\x88\x01\x01\x12>\n" +
-	"\trelations\x18\t \x01(\v2\x1b.auth_users_proto.RelationsH\x06R\trelations\x88\x01\x01B\x05\n" +
+	"\trelations\x18\t \x01(\v2\x1b.auth_users_proto.RelationsH\x06R\trelations\x88\x01\x01\x12*\n" +
+	"\x0erequester_uuid\x18\n" +
+	" \x01(\tH\aR\rrequesterUuid\x88\x01\x01B\x05\n" +
 	"\x03_idB\b\n" +
 	"\x06_emailB\a\n" +
 	"\x05_nameB\n" +
@@ -1435,7 +1445,8 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x10_include_deletedB\b\n" +
 	"\x06_phoneB\f\n" +
 	"\n" +
-	"_relations\"P\n" +
+	"_relationsB\x11\n" +
+	"\x0f_requester_uuid\"P\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12*\n" +
 	"\x04rows\x18\x02 \x03(\v2\x16.auth_users_proto.UserR\x04rows\"\xd0\x02\n" +

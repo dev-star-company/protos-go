@@ -30,7 +30,7 @@ type FirstLogin struct {
 	CreatedBy     uint32                 `protobuf:"varint,5,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
 	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
-	UserId        uint32                 `protobuf:"varint,8,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserUuid      string                 `protobuf:"bytes,8,opt,name=user_uuid,json=userUuid,proto3" json:"user_uuid,omitempty"`
 	Successful    bool                   `protobuf:"varint,9,opt,name=successful,proto3" json:"successful,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -115,11 +115,11 @@ func (x *FirstLogin) GetDeletedBy() uint32 {
 	return 0
 }
 
-func (x *FirstLogin) GetUserId() uint32 {
+func (x *FirstLogin) GetUserUuid() string {
 	if x != nil {
-		return x.UserId
+		return x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *FirstLogin) GetSuccessful() bool {
@@ -131,7 +131,7 @@ func (x *FirstLogin) GetSuccessful() bool {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserUuid      string                 `protobuf:"bytes,1,opt,name=user_uuid,json=userUuid,proto3" json:"user_uuid,omitempty"`
 	Successful    bool                   `protobuf:"varint,2,opt,name=successful,proto3" json:"successful,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -168,11 +168,11 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_first_login_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetUserId() uint32 {
+func (x *CreateRequest) GetUserUuid() string {
 	if x != nil {
-		return x.UserId
+		return x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateRequest) GetSuccessful() bool {
@@ -191,7 +191,7 @@ func (x *CreateRequest) GetRequesterUuid() string {
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserUuid      string                 `protobuf:"bytes,1,opt,name=user_uuid,json=userUuid,proto3" json:"user_uuid,omitempty"`
 	Successful    bool                   `protobuf:"varint,2,opt,name=successful,proto3" json:"successful,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -228,11 +228,11 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_protos_first_login_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetUserId() uint32 {
+func (x *CreateResponse) GetUserUuid() string {
 	if x != nil {
-		return x.UserId
+		return x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateResponse) GetSuccessful() bool {
@@ -407,7 +407,7 @@ func (x *GetRequest) GetOffset() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserUuid      string                 `protobuf:"bytes,1,opt,name=user_uuid,json=userUuid,proto3" json:"user_uuid,omitempty"`
 	Successful    bool                   `protobuf:"varint,2,opt,name=successful,proto3" json:"successful,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -444,11 +444,11 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_protos_first_login_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *GetResponse) GetUserId() uint32 {
+func (x *GetResponse) GetUserUuid() string {
 	if x != nil {
-		return x.UserId
+		return x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *GetResponse) GetSuccessful() bool {
@@ -471,7 +471,7 @@ type ListRequest struct {
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	OrderBy        *OrderBy               `protobuf:"bytes,4,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
-	UserId         *uint32                `protobuf:"varint,5,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserUuid       *string                `protobuf:"bytes,5,opt,name=user_uuid,json=userUuid,proto3,oneof" json:"user_uuid,omitempty"`
 	Successful     *bool                  `protobuf:"varint,6,opt,name=successful,proto3,oneof" json:"successful,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
@@ -535,11 +535,11 @@ func (x *ListRequest) GetOrderBy() *OrderBy {
 	return nil
 }
 
-func (x *ListRequest) GetUserId() uint32 {
-	if x != nil && x.UserId != nil {
-		return *x.UserId
+func (x *ListRequest) GetUserUuid() string {
+	if x != nil && x.UserUuid != nil {
+		return *x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *ListRequest) GetSuccessful() bool {
@@ -656,7 +656,7 @@ func (x *ListResponse) GetCount() uint32 {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	UserId        *uint32                `protobuf:"varint,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserUuid      *string                `protobuf:"bytes,2,opt,name=user_uuid,json=userUuid,proto3,oneof" json:"user_uuid,omitempty"`
 	Successful    *bool                  `protobuf:"varint,3,opt,name=successful,proto3,oneof" json:"successful,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,4,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -700,11 +700,11 @@ func (x *UpdateRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *UpdateRequest) GetUserId() uint32 {
-	if x != nil && x.UserId != nil {
-		return *x.UserId
+func (x *UpdateRequest) GetUserUuid() string {
+	if x != nil && x.UserUuid != nil {
+		return *x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *UpdateRequest) GetSuccessful() bool {
@@ -723,7 +723,7 @@ func (x *UpdateRequest) GetRequesterUuid() string {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserUuid      string                 `protobuf:"bytes,1,opt,name=user_uuid,json=userUuid,proto3" json:"user_uuid,omitempty"`
 	Successful    bool                   `protobuf:"varint,2,opt,name=successful,proto3" json:"successful,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -760,11 +760,11 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_protos_first_login_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *UpdateResponse) GetUserId() uint32 {
+func (x *UpdateResponse) GetUserUuid() string {
 	if x != nil {
-		return x.UserId
+		return x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *UpdateResponse) GetSuccessful() bool {
@@ -785,7 +785,7 @@ var File_protos_first_login_proto protoreflect.FileDescriptor
 
 const file_protos_first_login_proto_rawDesc = "" +
 	"\n" +
-	"\x18protos/first_login.proto\x12\x11first_login_proto\"\xb7\x02\n" +
+	"\x18protos/first_login.proto\x12\x11first_login_proto\"\xbb\x02\n" +
 	"\n" +
 	"FirstLogin\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
@@ -800,21 +800,21 @@ const file_protos_first_login_proto_rawDesc = "" +
 	"\n" +
 	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
-	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x17\n" +
-	"\auser_id\x18\b \x01(\rR\x06userId\x12\x1e\n" +
+	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x1b\n" +
+	"\tuser_uuid\x18\b \x01(\tR\buserUuid\x12\x1e\n" +
 	"\n" +
 	"successful\x18\t \x01(\bR\n" +
 	"successfulB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"o\n" +
-	"\rCreateRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1e\n" +
+	"\v_deleted_by\"s\n" +
+	"\rCreateRequest\x12\x1b\n" +
+	"\tuser_uuid\x18\x01 \x01(\tR\buserUuid\x12\x1e\n" +
 	"\n" +
 	"successful\x18\x02 \x01(\bR\n" +
 	"successful\x12%\n" +
-	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"p\n" +
-	"\x0eCreateResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1e\n" +
+	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"t\n" +
+	"\x0eCreateResponse\x12\x1b\n" +
+	"\tuser_uuid\x18\x01 \x01(\tR\buserUuid\x12\x1e\n" +
 	"\n" +
 	"successful\x18\x02 \x01(\bR\n" +
 	"successful\x12%\n" +
@@ -828,28 +828,28 @@ const file_protos_first_login_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
 	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\x12\x14\n" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
-	"\x06offset\x18\x04 \x01(\rR\x06offset\"m\n" +
-	"\vGetResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1e\n" +
+	"\x06offset\x18\x04 \x01(\rR\x06offset\"q\n" +
+	"\vGetResponse\x12\x1b\n" +
+	"\tuser_uuid\x18\x01 \x01(\tR\buserUuid\x12\x1e\n" +
 	"\n" +
 	"successful\x18\x02 \x01(\bR\n" +
 	"successful\x12%\n" +
-	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"\xc3\x02\n" +
+	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"\xc9\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
 	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12:\n" +
-	"\border_by\x18\x04 \x01(\v2\x1a.first_login_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12\x1c\n" +
-	"\auser_id\x18\x05 \x01(\rH\x04R\x06userId\x88\x01\x01\x12#\n" +
+	"\border_by\x18\x04 \x01(\v2\x1a.first_login_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12 \n" +
+	"\tuser_uuid\x18\x05 \x01(\tH\x04R\buserUuid\x88\x01\x01\x12#\n" +
 	"\n" +
 	"successful\x18\x06 \x01(\bH\x05R\n" +
 	"successful\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\x12\n" +
 	"\x10_include_deletedB\v\n" +
-	"\t_order_byB\n" +
+	"\t_order_byB\f\n" +
 	"\n" +
-	"\b_user_idB\r\n" +
+	"_user_uuidB\r\n" +
 	"\v_successful\"X\n" +
 	"\aOrderBy\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
@@ -859,19 +859,19 @@ const file_protos_first_login_proto_rawDesc = "" +
 	"\v_created_at\"W\n" +
 	"\fListResponse\x121\n" +
 	"\x04rows\x18\x01 \x03(\v2\x1d.first_login_proto.FirstLoginR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"\xa4\x01\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count\"\xaa\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
-	"\auser_id\x18\x02 \x01(\rH\x00R\x06userId\x88\x01\x01\x12#\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12 \n" +
+	"\tuser_uuid\x18\x02 \x01(\tH\x00R\buserUuid\x88\x01\x01\x12#\n" +
 	"\n" +
 	"successful\x18\x03 \x01(\bH\x01R\n" +
 	"successful\x88\x01\x01\x12%\n" +
-	"\x0erequester_uuid\x18\x04 \x01(\tR\rrequesterUuidB\n" +
+	"\x0erequester_uuid\x18\x04 \x01(\tR\rrequesterUuidB\f\n" +
 	"\n" +
-	"\b_user_idB\r\n" +
-	"\v_successful\"p\n" +
-	"\x0eUpdateResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1e\n" +
+	"_user_uuidB\r\n" +
+	"\v_successful\"t\n" +
+	"\x0eUpdateResponse\x12\x1b\n" +
+	"\tuser_uuid\x18\x01 \x01(\tR\buserUuid\x12\x1e\n" +
 	"\n" +
 	"successful\x18\x02 \x01(\bR\n" +
 	"successful\x12%\n" +

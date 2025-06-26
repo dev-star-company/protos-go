@@ -88,7 +88,7 @@ message CreateResponse {
 }
 
 message GetRequest {
-  uint32 id = 1;
+  string uuid = 1;
 }
 
 message GetResponse {
@@ -105,6 +105,7 @@ message ListRequest {
   optional bool include_deleted = 7;
   optional string phone = 8;
   optional Relations relations = 9;
+  optional string requester_uuid = 10;
 }
 
 message ListResponse {

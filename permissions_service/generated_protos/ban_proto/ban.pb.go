@@ -407,7 +407,7 @@ func (x *GetRequest) GetOffset() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserUuid      string                 `protobuf:"bytes,1,opt,name=user_uuid,json=userUuid,proto3" json:"user_uuid,omitempty"`
 	ExpiresAt     string                 `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -444,11 +444,11 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_protos_ban_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *GetResponse) GetUserId() uint32 {
+func (x *GetResponse) GetUserUuid() string {
 	if x != nil {
-		return x.UserId
+		return x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *GetResponse) GetExpiresAt() string {
@@ -471,7 +471,7 @@ type ListRequest struct {
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	OrderBy        *OrderBy               `protobuf:"bytes,4,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
-	UserId         *uint32                `protobuf:"varint,5,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserUuid       *string                `protobuf:"bytes,5,opt,name=user_uuid,json=userUuid,proto3,oneof" json:"user_uuid,omitempty"`
 	ExpiresAt      *string                `protobuf:"bytes,6,opt,name=expires_at,json=expiresAt,proto3,oneof" json:"expires_at,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
@@ -535,11 +535,11 @@ func (x *ListRequest) GetOrderBy() *OrderBy {
 	return nil
 }
 
-func (x *ListRequest) GetUserId() uint32 {
-	if x != nil && x.UserId != nil {
-		return *x.UserId
+func (x *ListRequest) GetUserUuid() string {
+	if x != nil && x.UserUuid != nil {
+		return *x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *ListRequest) GetExpiresAt() string {
@@ -656,7 +656,7 @@ func (x *ListResponse) GetCount() uint32 {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	UserId        *uint32                `protobuf:"varint,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserUuid      *string                `protobuf:"bytes,2,opt,name=user_uuid,json=userUuid,proto3,oneof" json:"user_uuid,omitempty"`
 	ExpiresAt     *string                `protobuf:"bytes,3,opt,name=expires_at,json=expiresAt,proto3,oneof" json:"expires_at,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,4,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -700,11 +700,11 @@ func (x *UpdateRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *UpdateRequest) GetUserId() uint32 {
-	if x != nil && x.UserId != nil {
-		return *x.UserId
+func (x *UpdateRequest) GetUserUuid() string {
+	if x != nil && x.UserUuid != nil {
+		return *x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *UpdateRequest) GetExpiresAt() string {
@@ -723,7 +723,7 @@ func (x *UpdateRequest) GetRequesterUuid() string {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserUuid      string                 `protobuf:"bytes,1,opt,name=user_uuid,json=userUuid,proto3" json:"user_uuid,omitempty"`
 	ExpiresAt     string                 `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,3,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -760,11 +760,11 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_protos_ban_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *UpdateResponse) GetUserId() uint32 {
+func (x *UpdateResponse) GetUserUuid() string {
 	if x != nil {
-		return x.UserId
+		return x.UserUuid
 	}
-	return 0
+	return ""
 }
 
 func (x *UpdateResponse) GetExpiresAt() string {
@@ -825,26 +825,26 @@ const file_protos_ban_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
 	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\x12\x14\n" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
-	"\x06offset\x18\x04 \x01(\rR\x06offset\"l\n" +
-	"\vGetResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1d\n" +
+	"\x06offset\x18\x04 \x01(\rR\x06offset\"p\n" +
+	"\vGetResponse\x12\x1b\n" +
+	"\tuser_uuid\x18\x01 \x01(\tR\buserUuid\x12\x1d\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\tR\texpiresAt\x12%\n" +
-	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"\xba\x02\n" +
+	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid\"\xc0\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
 	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x122\n" +
-	"\border_by\x18\x04 \x01(\v2\x12.ban_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12\x1c\n" +
-	"\auser_id\x18\x05 \x01(\rH\x04R\x06userId\x88\x01\x01\x12\"\n" +
+	"\border_by\x18\x04 \x01(\v2\x12.ban_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12 \n" +
+	"\tuser_uuid\x18\x05 \x01(\tH\x04R\buserUuid\x88\x01\x01\x12\"\n" +
 	"\n" +
 	"expires_at\x18\x06 \x01(\tH\x05R\texpiresAt\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\x12\n" +
 	"\x10_include_deletedB\v\n" +
-	"\t_order_byB\n" +
+	"\t_order_byB\f\n" +
 	"\n" +
-	"\b_user_idB\r\n" +
+	"_user_uuidB\r\n" +
 	"\v_expires_at\"X\n" +
 	"\aOrderBy\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
@@ -854,18 +854,18 @@ const file_protos_ban_proto_rawDesc = "" +
 	"\v_created_at\"H\n" +
 	"\fListResponse\x12\"\n" +
 	"\x04rows\x18\x01 \x03(\v2\x0e.ban_proto.BanR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"\xa3\x01\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count\"\xa9\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
-	"\auser_id\x18\x02 \x01(\rH\x00R\x06userId\x88\x01\x01\x12\"\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12 \n" +
+	"\tuser_uuid\x18\x02 \x01(\tH\x00R\buserUuid\x88\x01\x01\x12\"\n" +
 	"\n" +
 	"expires_at\x18\x03 \x01(\tH\x01R\texpiresAt\x88\x01\x01\x12%\n" +
-	"\x0erequester_uuid\x18\x04 \x01(\tR\rrequesterUuidB\n" +
+	"\x0erequester_uuid\x18\x04 \x01(\tR\rrequesterUuidB\f\n" +
 	"\n" +
-	"\b_user_idB\r\n" +
-	"\v_expires_at\"o\n" +
-	"\x0eUpdateResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\rR\x06userId\x12\x1d\n" +
+	"_user_uuidB\r\n" +
+	"\v_expires_at\"s\n" +
+	"\x0eUpdateResponse\x12\x1b\n" +
+	"\tuser_uuid\x18\x01 \x01(\tR\buserUuid\x12\x1d\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\tR\texpiresAt\x12%\n" +
 	"\x0erequester_uuid\x18\x03 \x01(\tR\rrequesterUuid2\xb8\x02\n" +
