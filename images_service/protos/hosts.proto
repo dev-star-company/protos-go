@@ -21,23 +21,26 @@ message Host {
   uint32 updated_by = 6;
   optional uint32 deleted_by = 7;
   string name = 8;
+  bool default = 9;
 }
 
 message CreateRequest {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   string name = 2;
+  bool default = 3;
   
 }
 
 message CreateResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   string name = 2;
-  string created_at = 3;
-  string updated_at = 4;
-  string deleted_at = 5;
-  uint32 created_by = 6;
-  uint32 updated_by = 7;
-  uint32 deleted_by = 8;
+  bool default = 3;
+  string created_at = 4;
+  string updated_at = 5;
+  string deleted_at = 6;
+  uint32 created_by = 7;
+  uint32 updated_by = 8;
+  uint32 deleted_by = 9;
 }
 
 message GetRequest {
@@ -45,37 +48,39 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   string name = 2;
-  string created_at = 3;
-  string updated_at = 4;
-  string deleted_at = 5;
-  uint32 created_by = 6;
-  uint32 updated_by = 7;
-  uint32 deleted_by = 8;
+  bool default = 3;
+  string created_at = 4;
+  string updated_at = 5;
+  string deleted_at = 6;
+  uint32 created_by = 7;
+  uint32 updated_by = 8;
+  uint32 deleted_by = 9;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  uint32 requester_uuid = 2;
   optional string name = 3;
-  optional uint32 source_url_id = 4;
+  optional bool default = 4;
 }
 
 message UpdateResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   string name = 2;
-  string created_at = 3;
-  string updated_at = 4;
-  string deleted_at = 5;
-  uint32 created_by = 6;
-  uint32 updated_by = 7;
-  uint32 deleted_by = 8;
+  bool default = 3;
+  string created_at = 4;
+  string updated_at = 5;
+  string deleted_at = 6;
+  uint32 created_by = 7;
+  uint32 updated_by = 8;
+  uint32 deleted_by = 9;
 }
 
 message DeleteRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  uint32 requester_uuid = 2;
 }
 
 message DeleteResponse {
@@ -86,8 +91,9 @@ message ListRequest {
   optional uint32 limit = 1;
   optional uint32 offset = 2;
   optional string name = 3;
-  optional bool include_deleted = 4;
-  optional OrderBy orderby = 5;
+  bool default = 4;
+  optional bool include_deleted = 5;
+  optional OrderBy orderby = 6;
 }
 
 message OrderBy {

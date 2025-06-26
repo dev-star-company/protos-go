@@ -31,6 +31,8 @@ type HostURLs struct {
 	UpdatedBy     uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Name          string                 `protobuf:"bytes,8,opt,name=name,proto3" json:"name,omitempty"`
+	HostsId       uint32                 `protobuf:"varint,9,opt,name=hosts_id,json=hostsId,proto3" json:"hosts_id,omitempty"`
+	Default       bool                   `protobuf:"varint,10,opt,name=default,proto3" json:"default,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -121,10 +123,26 @@ func (x *HostURLs) GetName() string {
 	return ""
 }
 
+func (x *HostURLs) GetHostsId() uint32 {
+	if x != nil {
+		return x.HostsId
+	}
+	return 0
+}
+
+func (x *HostURLs) GetDefault() bool {
+	if x != nil {
+		return x.Default
+	}
+	return false
+}
+
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	HostsId       uint32                 `protobuf:"varint,3,opt,name=hosts_id,json=hostsId,proto3" json:"hosts_id,omitempty"`
+	Default       bool                   `protobuf:"varint,4,opt,name=default,proto3" json:"default,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -159,9 +177,9 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_host_urls_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetRequesterId() uint32 {
+func (x *CreateRequest) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -173,16 +191,32 @@ func (x *CreateRequest) GetName() string {
 	return ""
 }
 
+func (x *CreateRequest) GetHostsId() uint32 {
+	if x != nil {
+		return x.HostsId
+	}
+	return 0
+}
+
+func (x *CreateRequest) GetDefault() bool {
+	if x != nil {
+		return x.Default
+	}
+	return false
+}
+
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     string                 `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     uint32                 `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
+	HostsId       uint32                 `protobuf:"varint,3,opt,name=hosts_id,json=hostsId,proto3" json:"hosts_id,omitempty"`
+	Default       bool                   `protobuf:"varint,4,opt,name=default,proto3" json:"default,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt     string                 `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,8,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
+	DeletedBy     uint32                 `protobuf:"varint,10,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -217,9 +251,9 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_host_urls_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetRequesterId() uint32 {
+func (x *CreateResponse) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -229,6 +263,20 @@ func (x *CreateResponse) GetName() string {
 		return x.Name
 	}
 	return ""
+}
+
+func (x *CreateResponse) GetHostsId() uint32 {
+	if x != nil {
+		return x.HostsId
+	}
+	return 0
+}
+
+func (x *CreateResponse) GetDefault() bool {
+	if x != nil {
+		return x.Default
+	}
+	return false
 }
 
 func (x *CreateResponse) GetCreatedAt() string {
@@ -319,14 +367,16 @@ func (x *GetRequest) GetId() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     string                 `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     uint32                 `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
+	HostsId       uint32                 `protobuf:"varint,3,opt,name=hosts_id,json=hostsId,proto3" json:"hosts_id,omitempty"`
+	Default       bool                   `protobuf:"varint,4,opt,name=default,proto3" json:"default,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt     string                 `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,8,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
+	DeletedBy     uint32                 `protobuf:"varint,10,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -361,9 +411,9 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_host_urls_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetRequesterId() uint32 {
+func (x *GetResponse) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -373,6 +423,20 @@ func (x *GetResponse) GetName() string {
 		return x.Name
 	}
 	return ""
+}
+
+func (x *GetResponse) GetHostsId() uint32 {
+	if x != nil {
+		return x.HostsId
+	}
+	return 0
+}
+
+func (x *GetResponse) GetDefault() bool {
+	if x != nil {
+		return x.Default
+	}
+	return false
 }
 
 func (x *GetResponse) GetCreatedAt() string {
@@ -420,8 +484,9 @@ func (x *GetResponse) GetDeletedBy() uint32 {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Name          *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	Default       *bool                  `protobuf:"varint,4,opt,name=default,proto3,oneof" json:"default,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -463,9 +528,9 @@ func (x *UpdateRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *UpdateRequest) GetRequesterId() uint32 {
+func (x *UpdateRequest) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -477,16 +542,25 @@ func (x *UpdateRequest) GetName() string {
 	return ""
 }
 
+func (x *UpdateRequest) GetDefault() bool {
+	if x != nil && x.Default != nil {
+		return *x.Default
+	}
+	return false
+}
+
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     string                 `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     uint32                 `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
+	HostsId       uint32                 `protobuf:"varint,3,opt,name=hosts_id,json=hostsId,proto3" json:"hosts_id,omitempty"`
+	Default       bool                   `protobuf:"varint,4,opt,name=default,proto3" json:"default,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt     string                 `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	CreatedBy     uint32                 `protobuf:"varint,8,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     uint32                 `protobuf:"varint,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
+	DeletedBy     uint32                 `protobuf:"varint,10,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -521,9 +595,9 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_host_urls_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetRequesterId() uint32 {
+func (x *UpdateResponse) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -533,6 +607,20 @@ func (x *UpdateResponse) GetName() string {
 		return x.Name
 	}
 	return ""
+}
+
+func (x *UpdateResponse) GetHostsId() uint32 {
+	if x != nil {
+		return x.HostsId
+	}
+	return 0
+}
+
+func (x *UpdateResponse) GetDefault() bool {
+	if x != nil {
+		return x.Default
+	}
+	return false
 }
 
 func (x *UpdateResponse) GetCreatedAt() string {
@@ -580,7 +668,7 @@ func (x *UpdateResponse) GetDeletedBy() uint32 {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -622,9 +710,9 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterId() uint32 {
+func (x *DeleteRequest) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -678,8 +766,10 @@ type ListRequest struct {
 	Limit          *uint32                `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	Name           *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	IncludeDeleted *bool                  `protobuf:"varint,4,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
-	Orderby        *OrderBy               `protobuf:"bytes,5,opt,name=orderby,proto3,oneof" json:"orderby,omitempty"`
+	HostsId        *uint32                `protobuf:"varint,4,opt,name=hosts_id,json=hostsId,proto3,oneof" json:"hosts_id,omitempty"`
+	Default        *bool                  `protobuf:"varint,5,opt,name=default,proto3,oneof" json:"default,omitempty"`
+	IncludeDeleted *bool                  `protobuf:"varint,6,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
+	Orderby        *OrderBy               `protobuf:"bytes,7,opt,name=orderby,proto3,oneof" json:"orderby,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -733,6 +823,20 @@ func (x *ListRequest) GetName() string {
 		return *x.Name
 	}
 	return ""
+}
+
+func (x *ListRequest) GetHostsId() uint32 {
+	if x != nil && x.HostsId != nil {
+		return *x.HostsId
+	}
+	return 0
+}
+
+func (x *ListRequest) GetDefault() bool {
+	if x != nil && x.Default != nil {
+		return *x.Default
+	}
+	return false
 }
 
 func (x *ListRequest) GetIncludeDeleted() bool {
@@ -857,7 +961,7 @@ var File_images_service_protos_host_urls_proto protoreflect.FileDescriptor
 
 const file_images_service_protos_host_urls_proto_rawDesc = "" +
 	"\n" +
-	"%images_service/protos/host_urls.proto\x12\x0fhost_urls_proto\"\x90\x02\n" +
+	"%images_service/protos/host_urls.proto\x12\x0fhost_urls_proto\"\xc5\x02\n" +
 	"\bHostURLs\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\n" +
@@ -872,79 +976,101 @@ const file_images_service_protos_host_urls_proto_rawDesc = "" +
 	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
 	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
-	"\x04name\x18\b \x01(\tR\x04nameB\r\n" +
+	"\x04name\x18\b \x01(\tR\x04name\x12\x19\n" +
+	"\bhosts_id\x18\t \x01(\rR\ahostsId\x12\x18\n" +
+	"\adefault\x18\n" +
+	" \x01(\bR\adefaultB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"F\n" +
-	"\rCreateRequest\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\"\x81\x02\n" +
-	"\x0eCreateResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
+	"\v_deleted_by\"\x7f\n" +
+	"\rCreateRequest\x12%\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x19\n" +
+	"\bhosts_id\x18\x03 \x01(\rR\ahostsId\x12\x18\n" +
+	"\adefault\x18\x04 \x01(\bR\adefault\"\xba\x02\n" +
+	"\x0eCreateResponse\x12%\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x19\n" +
+	"\bhosts_id\x18\x03 \x01(\rR\ahostsId\x12\x18\n" +
+	"\adefault\x18\x04 \x01(\bR\adefault\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x04 \x01(\tR\tupdatedAt\x12\x1d\n" +
+	"updated_at\x18\x06 \x01(\tR\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"deleted_at\x18\x05 \x01(\tR\tdeletedAt\x12\x1d\n" +
+	"deleted_at\x18\a \x01(\tR\tdeletedAt\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\x06 \x01(\rR\tcreatedBy\x12\x1d\n" +
+	"created_by\x18\b \x01(\rR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\x1d\n" +
+	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\x1d\n" +
 	"\n" +
-	"deleted_by\x18\b \x01(\rR\tdeletedBy\"\x1c\n" +
+	"deleted_by\x18\n" +
+	" \x01(\rR\tdeletedBy\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"\xfe\x01\n" +
-	"\vGetResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\xb7\x02\n" +
+	"\vGetResponse\x12%\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x19\n" +
+	"\bhosts_id\x18\x03 \x01(\rR\ahostsId\x12\x18\n" +
+	"\adefault\x18\x04 \x01(\bR\adefault\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x04 \x01(\tR\tupdatedAt\x12\x1d\n" +
+	"updated_at\x18\x06 \x01(\tR\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"deleted_at\x18\x05 \x01(\tR\tdeletedAt\x12\x1d\n" +
+	"deleted_at\x18\a \x01(\tR\tdeletedAt\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\x06 \x01(\rR\tcreatedBy\x12\x1d\n" +
+	"created_by\x18\b \x01(\rR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\x1d\n" +
+	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\x1d\n" +
 	"\n" +
-	"deleted_by\x18\b \x01(\rR\tdeletedBy\"d\n" +
+	"deleted_by\x18\n" +
+	" \x01(\rR\tdeletedBy\"\x93\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12\x17\n" +
-	"\x04name\x18\x03 \x01(\tH\x00R\x04name\x88\x01\x01B\a\n" +
-	"\x05_name\"\x81\x02\n" +
-	"\x0eUpdateResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\rR\rrequesterUuid\x12\x17\n" +
+	"\x04name\x18\x03 \x01(\tH\x00R\x04name\x88\x01\x01\x12\x1d\n" +
+	"\adefault\x18\x04 \x01(\bH\x01R\adefault\x88\x01\x01B\a\n" +
+	"\x05_nameB\n" +
 	"\n" +
-	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\b_default\"\xba\x02\n" +
+	"\x0eUpdateResponse\x12%\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x19\n" +
+	"\bhosts_id\x18\x03 \x01(\rR\ahostsId\x12\x18\n" +
+	"\adefault\x18\x04 \x01(\bR\adefault\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x04 \x01(\tR\tupdatedAt\x12\x1d\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"deleted_at\x18\x05 \x01(\tR\tdeletedAt\x12\x1d\n" +
+	"updated_at\x18\x06 \x01(\tR\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\x06 \x01(\rR\tcreatedBy\x12\x1d\n" +
+	"deleted_at\x18\a \x01(\tR\tdeletedAt\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\x1d\n" +
+	"created_by\x18\b \x01(\rR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"deleted_by\x18\b \x01(\rR\tdeletedBy\"B\n" +
+	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\x1d\n" +
+	"\n" +
+	"deleted_by\x18\n" +
+	" \x01(\rR\tdeletedBy\"F\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\"*\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\rR\rrequesterUuid\"*\n" +
 	"\x0eDeleteResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"\x83\x02\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"\xdb\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12\x17\n" +
-	"\x04name\x18\x03 \x01(\tH\x02R\x04name\x88\x01\x01\x12,\n" +
-	"\x0finclude_deleted\x18\x04 \x01(\bH\x03R\x0eincludeDeleted\x88\x01\x01\x127\n" +
-	"\aorderby\x18\x05 \x01(\v2\x18.host_urls_proto.OrderByH\x04R\aorderby\x88\x01\x01B\b\n" +
+	"\x04name\x18\x03 \x01(\tH\x02R\x04name\x88\x01\x01\x12\x1e\n" +
+	"\bhosts_id\x18\x04 \x01(\rH\x03R\ahostsId\x88\x01\x01\x12\x1d\n" +
+	"\adefault\x18\x05 \x01(\bH\x04R\adefault\x88\x01\x01\x12,\n" +
+	"\x0finclude_deleted\x18\x06 \x01(\bH\x05R\x0eincludeDeleted\x88\x01\x01\x127\n" +
+	"\aorderby\x18\a \x01(\v2\x18.host_urls_proto.OrderByH\x06R\aorderby\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\a\n" +
-	"\x05_nameB\x12\n" +
+	"\x05_nameB\v\n" +
+	"\t_hosts_idB\n" +
+	"\n" +
+	"\b_defaultB\x12\n" +
 	"\x10_include_deletedB\n" +
 	"\n" +
 	"\b_orderby\"X\n" +

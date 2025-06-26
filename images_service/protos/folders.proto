@@ -26,7 +26,7 @@ message Folders {
 }
 
 message CreateRequest {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   uint32 folder_id = 2;
   uint32 host_urls_id = 3;
   string name = 4;
@@ -34,7 +34,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   uint32 folder_id = 2;
   uint32 host_urls_id = 3;
   string name = 4;
@@ -51,7 +51,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   uint32 folder_id = 2;
   uint32 host_urls_id = 3;
   string name = 4;
@@ -65,14 +65,14 @@ message GetResponse {
 
 message UpdateRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  uint32 requester_uuid = 2;
   optional uint32 folder_id = 3;
   uint32 host_urls_id = 4;
   string name = 5;
 }
 
 message UpdateResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   uint32 folder_id = 2;
   uint32 host_urls_id = 3;
   string name = 4;
@@ -86,7 +86,7 @@ message UpdateResponse {
 
 message DeleteRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  uint32 requester_uuid = 2;
 }
 
 message DeleteResponse {

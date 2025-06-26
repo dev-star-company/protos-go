@@ -25,13 +25,13 @@ message Exchange {
 }
 
 message CreateRequest {
-  string requester_id = 1;
+  string requester_uuid = 1;
   double value = 2;
   uint32 currency_id = 3;
 }
 
 message CreateResponse {
-  string requester_id = 1;
+  string requester_uuid = 1;
   double value = 2;
   uint32 currency_id = 3;
   string created_at = 4;
@@ -47,7 +47,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  string requester_id = 1;
+  string requester_uuid = 1;
   double value = 2;
   uint32 currency_id = 3;
   string created_at = 4;
@@ -60,20 +60,20 @@ message GetResponse {
 
 message UpdateRequest {
   uint32 id = 1;
-  string requester_id = 2;
+  string requester_uuid = 2;
   optional double value = 3;
   optional uint32 currency_id = 4;
 }
 
 message UpdateResponse {
-  string requester_id = 1;
+  string requester_uuid = 1;
   double value = 2;
   uint32 currency_id = 3;
 }
 
 message DeleteRequest {
   uint32 id = 1;
-  string requester_id = 2;
+  string requester_uuid = 2;
 }
 
 message DeleteResponse {

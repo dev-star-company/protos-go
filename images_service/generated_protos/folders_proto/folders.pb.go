@@ -139,7 +139,7 @@ func (x *Folders) GetName() string {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	FolderId      uint32                 `protobuf:"varint,2,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
 	HostUrlsId    uint32                 `protobuf:"varint,3,opt,name=host_urls_id,json=hostUrlsId,proto3" json:"host_urls_id,omitempty"`
 	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
@@ -177,9 +177,9 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_folders_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetRequesterId() uint32 {
+func (x *CreateRequest) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -207,7 +207,7 @@ func (x *CreateRequest) GetName() string {
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	FolderId      uint32                 `protobuf:"varint,2,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
 	HostUrlsId    uint32                 `protobuf:"varint,3,opt,name=host_urls_id,json=hostUrlsId,proto3" json:"host_urls_id,omitempty"`
 	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
@@ -251,9 +251,9 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_folders_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetRequesterId() uint32 {
+func (x *CreateResponse) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -367,7 +367,7 @@ func (x *GetRequest) GetId() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	FolderId      uint32                 `protobuf:"varint,2,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
 	HostUrlsId    uint32                 `protobuf:"varint,3,opt,name=host_urls_id,json=hostUrlsId,proto3" json:"host_urls_id,omitempty"`
 	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
@@ -411,9 +411,9 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_folders_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetRequesterId() uint32 {
+func (x *GetResponse) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -484,7 +484,7 @@ func (x *GetResponse) GetDeletedBy() uint32 {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	FolderId      *uint32                `protobuf:"varint,3,opt,name=folder_id,json=folderId,proto3,oneof" json:"folder_id,omitempty"`
 	HostUrlsId    uint32                 `protobuf:"varint,4,opt,name=host_urls_id,json=hostUrlsId,proto3" json:"host_urls_id,omitempty"`
 	Name          string                 `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
@@ -529,9 +529,9 @@ func (x *UpdateRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *UpdateRequest) GetRequesterId() uint32 {
+func (x *UpdateRequest) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -559,7 +559,7 @@ func (x *UpdateRequest) GetName() string {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterId   uint32                 `protobuf:"varint,1,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	FolderId      uint32                 `protobuf:"varint,2,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
 	HostUrlsId    uint32                 `protobuf:"varint,3,opt,name=host_urls_id,json=hostUrlsId,proto3" json:"host_urls_id,omitempty"`
 	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
@@ -603,9 +603,9 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_images_service_protos_folders_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetRequesterId() uint32 {
+func (x *UpdateResponse) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -676,7 +676,7 @@ func (x *UpdateResponse) GetDeletedBy() uint32 {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterId   uint32                 `protobuf:"varint,2,opt,name=requester_id,json=requesterId,proto3" json:"requester_id,omitempty"`
+	RequesterUuid uint32                 `protobuf:"varint,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -718,9 +718,9 @@ func (x *DeleteRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *DeleteRequest) GetRequesterId() uint32 {
+func (x *DeleteRequest) GetRequesterUuid() uint32 {
 	if x != nil {
-		return x.RequesterId
+		return x.RequesterUuid
 	}
 	return 0
 }
@@ -990,15 +990,15 @@ const file_images_service_protos_folders_proto_rawDesc = "" +
 	"\x04name\x18\n" +
 	" \x01(\tR\x04nameB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\x85\x01\n" +
-	"\rCreateRequest\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x1b\n" +
+	"\v_deleted_by\"\x89\x01\n" +
+	"\rCreateRequest\x12%\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\x1b\n" +
 	"\tfolder_id\x18\x02 \x01(\rR\bfolderId\x12 \n" +
 	"\fhost_urls_id\x18\x03 \x01(\rR\n" +
 	"hostUrlsId\x12\x12\n" +
-	"\x04name\x18\x04 \x01(\tR\x04name\"\xc0\x02\n" +
-	"\x0eCreateResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x1b\n" +
+	"\x04name\x18\x04 \x01(\tR\x04name\"\xc4\x02\n" +
+	"\x0eCreateResponse\x12%\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\x1b\n" +
 	"\tfolder_id\x18\x02 \x01(\rR\bfolderId\x12 \n" +
 	"\fhost_urls_id\x18\x03 \x01(\rR\n" +
 	"hostUrlsId\x12\x12\n" +
@@ -1018,9 +1018,9 @@ const file_images_service_protos_folders_proto_rawDesc = "" +
 	" \x01(\rR\tdeletedBy\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"\xbd\x02\n" +
-	"\vGetResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x1b\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\xc1\x02\n" +
+	"\vGetResponse\x12%\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\x1b\n" +
 	"\tfolder_id\x18\x02 \x01(\rR\bfolderId\x12 \n" +
 	"\fhost_urls_id\x18\x03 \x01(\rR\n" +
 	"hostUrlsId\x12\x12\n" +
@@ -1037,18 +1037,18 @@ const file_images_service_protos_folders_proto_rawDesc = "" +
 	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\x1d\n" +
 	"\n" +
 	"deleted_by\x18\n" +
-	" \x01(\rR\tdeletedBy\"\xa8\x01\n" +
+	" \x01(\rR\tdeletedBy\"\xac\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\x12 \n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\rR\rrequesterUuid\x12 \n" +
 	"\tfolder_id\x18\x03 \x01(\rH\x00R\bfolderId\x88\x01\x01\x12 \n" +
 	"\fhost_urls_id\x18\x04 \x01(\rR\n" +
 	"hostUrlsId\x12\x12\n" +
 	"\x04name\x18\x05 \x01(\tR\x04nameB\f\n" +
 	"\n" +
-	"_folder_id\"\xc0\x02\n" +
-	"\x0eUpdateResponse\x12!\n" +
-	"\frequester_id\x18\x01 \x01(\rR\vrequesterId\x12\x1b\n" +
+	"_folder_id\"\xc4\x02\n" +
+	"\x0eUpdateResponse\x12%\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\rR\rrequesterUuid\x12\x1b\n" +
 	"\tfolder_id\x18\x02 \x01(\rR\bfolderId\x12 \n" +
 	"\fhost_urls_id\x18\x03 \x01(\rR\n" +
 	"hostUrlsId\x12\x12\n" +
@@ -1065,10 +1065,10 @@ const file_images_service_protos_folders_proto_rawDesc = "" +
 	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\x1d\n" +
 	"\n" +
 	"deleted_by\x18\n" +
-	" \x01(\rR\tdeletedBy\"B\n" +
+	" \x01(\rR\tdeletedBy\"F\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12!\n" +
-	"\frequester_id\x18\x02 \x01(\rR\vrequesterId\"*\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\rR\rrequesterUuid\"*\n" +
 	"\x0eDeleteResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\"\xc5\x02\n" +
 	"\vListRequest\x12\x19\n" +

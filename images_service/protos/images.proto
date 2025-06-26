@@ -23,27 +23,30 @@ message Images {
   uint32 media_type_id = 8;
   string name = 9;
   uint32 folder_id = 10;
+  string uuid = 11;
 }
 
 message CreateRequest {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   uint32 media_type_id = 2;
   string name = 3;
   uint32 folder_id = 4;
+  string uuid = 5;
   
 }
 
 message CreateResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   uint32 media_type_id = 2;
   string name = 3;
   uint32 folder_id = 4;
-  string created_at = 5;
-  string updated_at = 6;
-  string deleted_at = 7;
-  uint32 created_by = 8;
-  uint32 updated_by = 9;
-  uint32 deleted_by = 10;
+  string uuid = 5;
+  string created_at = 6;
+  string updated_at = 7;
+  string deleted_at = 8;
+  uint32 created_by = 9;
+  uint32 updated_by = 10;
+  uint32 deleted_by = 11;
 }
 
 message GetRequest {
@@ -51,42 +54,45 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   uint32 media_type_id = 2;
-  string name = 3;
+   string name = 3;
   uint32 folder_id = 4;
-  string created_at = 5;
-  string updated_at = 6;
-  string deleted_at = 7;
-  uint32 created_by = 8;
-  uint32 updated_by = 9;
-  uint32 deleted_by = 10;
+  string uuid = 5;
+  string created_at = 6;
+  string updated_at = 7;
+  string deleted_at = 8;
+  uint32 created_by = 9;
+  uint32 updated_by = 10;
+  uint32 deleted_by = 11;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  uint32 requester_uuid = 2;
   optional uint32 media_type_id = 3;
   optional string name = 4;
-  uint32 folder_id = 5;
+  optional string uuid = 5;
+  uint32 folder_id = 6;
 }
 
 message UpdateResponse {
-  uint32 requester_id = 1;
+  uint32 requester_uuid = 1;
   uint32 media_type_id = 2;
   string name = 3;
   uint32 folder_id = 4;
-  string created_at = 5;
-  string updated_at = 6;
-  string deleted_at = 7;
-  uint32 created_by = 8;
-  uint32 updated_by = 9;
-  uint32 deleted_by = 10;
+  string uuid = 5;
+  string created_at = 6;
+  string updated_at = 7;
+  string deleted_at = 8;
+  uint32 created_by = 9;
+  uint32 updated_by = 10;
+  uint32 deleted_by = 11;
 }
 
 message DeleteRequest {
   uint32 id = 1;
-  uint32 requester_id = 2;
+  uint32 requester_uuid = 2;
 }
 
 message DeleteResponse {
@@ -99,8 +105,9 @@ message ListRequest {
   optional uint32 media_type_id = 3;
   optional string name = 4;
   uint32 folder_id = 5;
-  optional bool include_deleted = 6;
-  optional OrderBy orderby = 7;
+  string uuid = 6;
+  optional bool include_deleted = 7;
+  optional OrderBy orderby = 8;
 }
 
 message OrderBy {
