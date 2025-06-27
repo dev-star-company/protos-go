@@ -65,8 +65,8 @@ message CreateRequest {
   string name = 2;
   string surname = 3;
   string email = 4;
-  string password = 5;
-  string confirm_password = 6;
+  // string password = 5;
+  // string confirm_password = 6;
   string phone = 7;
 }
 
@@ -106,8 +106,8 @@ message UpdateRequest {
   optional string name = 3;
   optional string surname = 4;
   optional string email = 5;
-  optional string password = 6;
-  optional string confirm_password = 7;
+  // optional string password = 6;
+  // optional string confirm_password = 7;
   optional string phone = 8;
 }
 

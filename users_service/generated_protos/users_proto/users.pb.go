@@ -454,16 +454,16 @@ func (x *Relations) GetRoles() bool {
 }
 
 type CreateRequest struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid   string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
-	Name            string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Surname         string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
-	Email           string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
-	Password        string                 `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
-	ConfirmPassword string                 `protobuf:"bytes,6,opt,name=confirm_password,json=confirmPassword,proto3" json:"confirm_password,omitempty"`
-	Phone           string                 `protobuf:"bytes,7,opt,name=phone,proto3" json:"phone,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Surname       string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
+	Email         string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
+	// string password = 5;
+	// string confirm_password = 6;
+	Phone         string `protobuf:"bytes,7,opt,name=phone,proto3" json:"phone,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateRequest) Reset() {
@@ -520,20 +520,6 @@ func (x *CreateRequest) GetSurname() string {
 func (x *CreateRequest) GetEmail() string {
 	if x != nil {
 		return x.Email
-	}
-	return ""
-}
-
-func (x *CreateRequest) GetPassword() string {
-	if x != nil {
-		return x.Password
-	}
-	return ""
-}
-
-func (x *CreateRequest) GetConfirmPassword() string {
-	if x != nil {
-		return x.ConfirmPassword
 	}
 	return ""
 }
@@ -838,17 +824,17 @@ func (x *ListResponse) GetRows() []*User {
 }
 
 type UpdateRequest struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid   string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
-	Id              uint32                 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
-	Name            *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	Surname         *string                `protobuf:"bytes,4,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
-	Email           *string                `protobuf:"bytes,5,opt,name=email,proto3,oneof" json:"email,omitempty"`
-	Password        *string                `protobuf:"bytes,6,opt,name=password,proto3,oneof" json:"password,omitempty"`
-	ConfirmPassword *string                `protobuf:"bytes,7,opt,name=confirm_password,json=confirmPassword,proto3,oneof" json:"confirm_password,omitempty"`
-	Phone           *string                `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
+	Id            uint32                 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	Surname       *string                `protobuf:"bytes,4,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
+	Email         *string                `protobuf:"bytes,5,opt,name=email,proto3,oneof" json:"email,omitempty"`
+	// optional string password = 6;
+	// optional string confirm_password = 7;
+	Phone         *string `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateRequest) Reset() {
@@ -912,20 +898,6 @@ func (x *UpdateRequest) GetSurname() string {
 func (x *UpdateRequest) GetEmail() string {
 	if x != nil && x.Email != nil {
 		return *x.Email
-	}
-	return ""
-}
-
-func (x *UpdateRequest) GetPassword() string {
-	if x != nil && x.Password != nil {
-		return *x.Password
-	}
-	return ""
-}
-
-func (x *UpdateRequest) GetConfirmPassword() string {
-	if x != nil && x.ConfirmPassword != nil {
-		return *x.ConfirmPassword
 	}
 	return ""
 }
@@ -1140,14 +1112,12 @@ const file_protos_users_proto_rawDesc = "" +
 	"\x06emails\x18\x01 \x01(\bR\x06emails\x12\x16\n" +
 	"\x06phones\x18\x02 \x01(\bR\x06phones\x12\x1c\n" +
 	"\tpasswords\x18\x03 \x01(\bR\tpasswords\x12\x14\n" +
-	"\x05roles\x18\x04 \x01(\bR\x05roles\"\xd7\x01\n" +
+	"\x05roles\x18\x04 \x01(\bR\x05roles\"\x90\x01\n" +
 	"\rCreateRequest\x12%\n" +
 	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
 	"\asurname\x18\x03 \x01(\tR\asurname\x12\x14\n" +
-	"\x05email\x18\x04 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x05 \x01(\tR\bpassword\x12)\n" +
-	"\x10confirm_password\x18\x06 \x01(\tR\x0fconfirmPassword\x12\x14\n" +
+	"\x05email\x18\x04 \x01(\tR\x05email\x12\x14\n" +
 	"\x05phone\x18\a \x01(\tR\x05phone\"7\n" +
 	"\x0eCreateResponse\x12%\n" +
 	"\x04user\x18\x01 \x01(\v2\x11.users_proto.UserR\x04user\" \n" +
@@ -1177,22 +1147,18 @@ const file_protos_users_proto_rawDesc = "" +
 	"_relations\"K\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12%\n" +
-	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\xd0\x02\n" +
+	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\xdd\x01\n" +
 	"\rUpdateRequest\x12%\n" +
 	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x03 \x01(\tH\x00R\x04name\x88\x01\x01\x12\x1d\n" +
 	"\asurname\x18\x04 \x01(\tH\x01R\asurname\x88\x01\x01\x12\x19\n" +
-	"\x05email\x18\x05 \x01(\tH\x02R\x05email\x88\x01\x01\x12\x1f\n" +
-	"\bpassword\x18\x06 \x01(\tH\x03R\bpassword\x88\x01\x01\x12.\n" +
-	"\x10confirm_password\x18\a \x01(\tH\x04R\x0fconfirmPassword\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\b \x01(\tH\x05R\x05phone\x88\x01\x01B\a\n" +
+	"\x05email\x18\x05 \x01(\tH\x02R\x05email\x88\x01\x01\x12\x19\n" +
+	"\x05phone\x18\b \x01(\tH\x03R\x05phone\x88\x01\x01B\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
 	"\b_surnameB\b\n" +
-	"\x06_emailB\v\n" +
-	"\t_passwordB\x13\n" +
-	"\x11_confirm_passwordB\b\n" +
+	"\x06_emailB\b\n" +
 	"\x06_phone\"7\n" +
 	"\x0eUpdateResponse\x12%\n" +
 	"\x04user\x18\x01 \x01(\v2\x11.users_proto.UserR\x04user\"F\n" +
