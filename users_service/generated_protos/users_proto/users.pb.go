@@ -826,13 +826,14 @@ func (x *ListResponse) GetRows() []*User {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
-	Id            uint32                 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	Id            *uint32                `protobuf:"varint,2,opt,name=id,proto3,oneof" json:"id,omitempty"`
 	Name          *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Surname       *string                `protobuf:"bytes,4,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
 	Email         *string                `protobuf:"bytes,5,opt,name=email,proto3,oneof" json:"email,omitempty"`
 	// optional string password = 6;
 	// optional string confirm_password = 7;
 	Phone         *string `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
+	Uuid          *string `protobuf:"bytes,9,opt,name=uuid,proto3,oneof" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -875,8 +876,8 @@ func (x *UpdateRequest) GetRequesterUuid() string {
 }
 
 func (x *UpdateRequest) GetId() uint32 {
-	if x != nil {
-		return x.Id
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return 0
 }
@@ -905,6 +906,13 @@ func (x *UpdateRequest) GetEmail() string {
 func (x *UpdateRequest) GetPhone() string {
 	if x != nil && x.Phone != nil {
 		return *x.Phone
+	}
+	return ""
+}
+
+func (x *UpdateRequest) GetUuid() string {
+	if x != nil && x.Uuid != nil {
+		return *x.Uuid
 	}
 	return ""
 }
@@ -1147,19 +1155,22 @@ const file_protos_users_proto_rawDesc = "" +
 	"_relations\"K\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12%\n" +
-	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\xdd\x01\n" +
+	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\x8b\x02\n" +
 	"\rUpdateRequest\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\rR\x02id\x12\x17\n" +
-	"\x04name\x18\x03 \x01(\tH\x00R\x04name\x88\x01\x01\x12\x1d\n" +
-	"\asurname\x18\x04 \x01(\tH\x01R\asurname\x88\x01\x01\x12\x19\n" +
-	"\x05email\x18\x05 \x01(\tH\x02R\x05email\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\b \x01(\tH\x03R\x05phone\x88\x01\x01B\a\n" +
+	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x13\n" +
+	"\x02id\x18\x02 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x17\n" +
+	"\x04name\x18\x03 \x01(\tH\x01R\x04name\x88\x01\x01\x12\x1d\n" +
+	"\asurname\x18\x04 \x01(\tH\x02R\asurname\x88\x01\x01\x12\x19\n" +
+	"\x05email\x18\x05 \x01(\tH\x03R\x05email\x88\x01\x01\x12\x19\n" +
+	"\x05phone\x18\b \x01(\tH\x04R\x05phone\x88\x01\x01\x12\x17\n" +
+	"\x04uuid\x18\t \x01(\tH\x05R\x04uuid\x88\x01\x01B\x05\n" +
+	"\x03_idB\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
 	"\b_surnameB\b\n" +
 	"\x06_emailB\b\n" +
-	"\x06_phone\"7\n" +
+	"\x06_phoneB\a\n" +
+	"\x05_uuid\"7\n" +
 	"\x0eUpdateResponse\x12%\n" +
 	"\x04user\x18\x01 \x01(\v2\x11.users_proto.UserR\x04user\"F\n" +
 	"\rDeleteRequest\x12%\n" +
