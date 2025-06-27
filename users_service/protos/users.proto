@@ -102,13 +102,14 @@ message ListResponse {
 
 message UpdateRequest {
   string requester_uuid = 1;
-  uint32 id = 2;
+  optional uint32 id = 2;
   optional string name = 3;
   optional string surname = 4;
   optional string email = 5;
   // optional string password = 6;
   // optional string confirm_password = 7;
   optional string phone = 8;
+  optional string uuid = 9;
 }
 
 message UpdateResponse {
