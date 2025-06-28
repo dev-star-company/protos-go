@@ -23,6 +23,7 @@ message HostURLs {
   string name = 8;
   uint32 hosts_id = 9;
   bool default = 10;
+  string url = 11;
 }
 
 message CreateRequest {
@@ -30,6 +31,7 @@ message CreateRequest {
   string name = 2;
   uint32 hosts_id = 3;
   bool default = 4;
+  string url = 5;
 }
 
 message CreateResponse {
@@ -37,12 +39,13 @@ message CreateResponse {
   string name = 2;
   uint32 hosts_id = 3;
   bool default = 4;
-  string created_at = 5;
-  string updated_at = 6;
-  string deleted_at = 7;
-  uint32 created_by = 8;
-  uint32 updated_by = 9;
-  uint32 deleted_by = 10;
+  string url = 5;
+  string created_at = 6;
+  string updated_at = 7;
+  string deleted_at = 8;
+  uint32 created_by = 9;
+  uint32 updated_by = 10;
+  uint32 deleted_by = 11;
 }
 
 message GetRequest {
@@ -54,12 +57,13 @@ message GetResponse {
   string name = 2;
   uint32 hosts_id = 3;
   bool default = 4;
-  string created_at = 5;
-  string updated_at = 6;
-  string deleted_at = 7;
-  uint32 created_by = 8;
-  uint32 updated_by = 9;
-  uint32 deleted_by = 10;
+  string url = 5;
+  string created_at = 6;
+  string updated_at = 7;
+  string deleted_at = 8;
+  uint32 created_by = 9;
+  uint32 updated_by = 10;
+  uint32 deleted_by = 11;
 }
 
 message UpdateRequest {
@@ -67,6 +71,7 @@ message UpdateRequest {
   string requester_uuid = 2;
   optional string name = 3;
   optional bool default = 4;
+  optional string url = 5;
 }
 
 message UpdateResponse {
@@ -74,12 +79,13 @@ message UpdateResponse {
   string name = 2;
   uint32 hosts_id = 3;
   bool default = 4;
-  string created_at = 5;
-  string updated_at = 6;
-  string deleted_at = 7;
-  uint32 created_by = 8;
-  uint32 updated_by = 9;
-  uint32 deleted_by = 10;
+  string url = 5;
+  string created_at = 6;
+  string updated_at = 7;
+  string deleted_at = 8;
+  uint32 created_by = 9;
+  uint32 updated_by = 10;
+  uint32 deleted_by = 11;
 }
 
 message DeleteRequest {
@@ -97,8 +103,9 @@ message ListRequest {
   optional string name = 3;
   optional uint32 hosts_id = 4;
   optional bool default = 5;
-  optional bool include_deleted = 6;
-  optional OrderBy orderby = 7;
+  optional string url = 6;
+  optional bool include_deleted = 7;
+  optional OrderBy orderby = 8;
 }
 
 message OrderBy {
