@@ -27,7 +27,7 @@ message Role {
 
 message CreateRequest {
     string name = 1;
-    string requester_uuid = 2;
+    bool is_active = 2;
     string description = 3;
 }
 
@@ -37,9 +37,6 @@ message CreateResponse {
 
 message GetRequest {
     uint32 id = 1;
-    string requester_uuid = 2;
-    uint32 limit = 3;
-    uint32 offset = 4;
 }
 
 message GetResponse {
@@ -51,8 +48,9 @@ message ListRequest {
     optional uint32 offset = 2;
     optional string name = 3;
     optional string description = 4;
-    optional bool include_deleted = 5;
-    optional OrderBy order_by = 6;
+    optional bool is_active = 5;
+    optional bool include_deleted = 6;
+    optional OrderBy order_by = 7;
 }
 
 message OrderBy {
@@ -69,7 +67,7 @@ message UpdateRequest {
     uint32 id = 1;
     optional string name = 2;
     optional string description = 3;
-    string requester_uuid = 4;
+    optional bool is_active = 4;
 }
 
 message UpdateResponse {
@@ -78,7 +76,6 @@ message UpdateResponse {
 
 message DeleteRequest {
     uint32 id = 1;
-    string requester_uuid = 2;
 }
 
 message DeleteResponse {}
