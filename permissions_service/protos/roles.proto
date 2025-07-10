@@ -23,12 +23,14 @@ message Role {
     uint32 updated_by = 8;
     optional uint32 deleted_by = 9;
     bool is_active = 10;
+    string requester_uuid = 11;
 }
 
 message CreateRequest {
     string name = 1;
     bool is_active = 2;
     string description = 3;
+    string requester_uuid = 4;
 }
 
 message CreateResponse {
@@ -37,6 +39,7 @@ message CreateResponse {
 
 message GetRequest {
     uint32 id = 1;
+    string requester_uuid = 11;
 }
 
 message GetResponse {
@@ -65,6 +68,7 @@ message ListResponse {
 
 message UpdateRequest {
     uint32 id = 1;
+    string requester_uuid = 11;
     optional string name = 2;
     optional string description = 3;
     optional bool is_active = 4;
@@ -76,6 +80,7 @@ message UpdateResponse {
 
 message DeleteRequest {
     uint32 id = 1;
+    string requester_uuid = 11;
 }
 
 message DeleteResponse {}
