@@ -5,11 +5,14 @@ package roles_proto;
 option go_package = "./generated_protos/roles_proto";
 
 service RoleService {
+    rpc Me (MeRequest) returns (MeResponse);
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Get (GetRequest) returns (GetResponse);
     rpc List (ListRequest) returns (ListResponse);
     rpc Update (UpdateRequest) returns (UpdateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    rpc ListByUserUuid (ListByUserUuidRequest) returns (ListByUserUuidResponse);
 }
 
 message Role {
@@ -84,3 +87,17 @@ message DeleteRequest {
 }
 
 message DeleteResponse {}
+
+message MeRequest {}
+
+message MeResponse {
+  repeated Role roles = 1;
+}
+
+message ListByUserUuidRequest {
+    string user_uuid = 1;
+}
+
+message ListByUserUuidResponse {
+    repeated Role roles = 1;
+}
