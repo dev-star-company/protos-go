@@ -32,7 +32,7 @@ type Role struct {
 	CreatedBy     uint32                 `protobuf:"varint,7,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
 	UpdatedBy     uint32                 `protobuf:"varint,8,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	DeletedBy     *uint32                `protobuf:"varint,9,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
-	IsActive      bool                   `protobuf:"varint,10,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	IsActive      *bool                  `protobuf:"varint,10,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,11,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -132,8 +132,8 @@ func (x *Role) GetDeletedBy() uint32 {
 }
 
 func (x *Role) GetIsActive() bool {
-	if x != nil {
-		return x.IsActive
+	if x != nil && x.IsActive != nil {
+		return *x.IsActive
 	}
 	return false
 }
@@ -148,7 +148,7 @@ func (x *Role) GetRequesterUuid() string {
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	IsActive      bool                   `protobuf:"varint,2,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	IsActive      *bool                  `protobuf:"varint,2,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,4,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -193,8 +193,8 @@ func (x *CreateRequest) GetName() string {
 }
 
 func (x *CreateRequest) GetIsActive() bool {
-	if x != nil {
-		return x.IsActive
+	if x != nil && x.IsActive != nil {
+		return *x.IsActive
 	}
 	return false
 }
@@ -761,7 +761,7 @@ var File_permissions_service_protos_roles_proto protoreflect.FileDescriptor
 
 const file_permissions_service_protos_roles_proto_rawDesc = "" +
 	"\n" +
-	"&permissions_service/protos/roles.proto\x12\vroles_proto\"\xf2\x02\n" +
+	"&permissions_service/protos/roles.proto\x12\vroles_proto\"\x85\x03\n" +
 	"\x04Role\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -777,17 +777,21 @@ const file_permissions_service_protos_roles_proto_rawDesc = "" +
 	"\n" +
 	"updated_by\x18\b \x01(\rR\tupdatedBy\x12\"\n" +
 	"\n" +
-	"deleted_by\x18\t \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x1b\n" +
+	"deleted_by\x18\t \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12 \n" +
 	"\tis_active\x18\n" +
-	" \x01(\bR\bisActive\x12%\n" +
+	" \x01(\bH\x02R\bisActive\x88\x01\x01\x12%\n" +
 	"\x0erequester_uuid\x18\v \x01(\tR\rrequesterUuidB\r\n" +
 	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\x89\x01\n" +
+	"\v_deleted_byB\f\n" +
+	"\n" +
+	"_is_active\"\x9c\x01\n" +
 	"\rCreateRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1b\n" +
-	"\tis_active\x18\x02 \x01(\bR\bisActive\x12 \n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
+	"\tis_active\x18\x02 \x01(\bH\x00R\bisActive\x88\x01\x01\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12%\n" +
-	"\x0erequester_uuid\x18\x04 \x01(\tR\rrequesterUuid\"7\n" +
+	"\x0erequester_uuid\x18\x04 \x01(\tR\rrequesterUuidB\f\n" +
+	"\n" +
+	"_is_active\"7\n" +
 	"\x0eCreateResponse\x12%\n" +
 	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"C\n" +
 	"\n" +
@@ -900,6 +904,7 @@ func file_permissions_service_protos_roles_proto_init() {
 		return
 	}
 	file_permissions_service_protos_roles_proto_msgTypes[0].OneofWrappers = []any{}
+	file_permissions_service_protos_roles_proto_msgTypes[1].OneofWrappers = []any{}
 	file_permissions_service_protos_roles_proto_msgTypes[5].OneofWrappers = []any{}
 	file_permissions_service_protos_roles_proto_msgTypes[6].OneofWrappers = []any{}
 	file_permissions_service_protos_roles_proto_msgTypes[8].OneofWrappers = []any{}

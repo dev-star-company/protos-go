@@ -22,13 +22,13 @@ message Role {
     uint32 created_by = 7;
     uint32 updated_by = 8;
     optional uint32 deleted_by = 9;
-    bool is_active = 10;
+    optional bool is_active = 10;
     string requester_uuid = 11;
 }
 
 message CreateRequest {
     string name = 1;
-    bool is_active = 2;
+    optional bool is_active = 2;
     string description = 3;
     string requester_uuid = 4;
 }
