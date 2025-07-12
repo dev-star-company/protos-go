@@ -59,6 +59,7 @@ message ListRequest {
 message OrderBy {
     optional string id = 1;
     optional string created_at = 2;
+    optional string name = 3;
 }
 
 message ListResponse {

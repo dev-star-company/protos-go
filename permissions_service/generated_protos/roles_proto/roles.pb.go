@@ -449,6 +449,7 @@ type OrderBy struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            *string                `protobuf:"bytes,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
 	CreatedAt     *string                `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -493,6 +494,13 @@ func (x *OrderBy) GetId() string {
 func (x *OrderBy) GetCreatedAt() string {
 	if x != nil && x.CreatedAt != nil {
 		return *x.CreatedAt
+	}
+	return ""
+}
+
+func (x *OrderBy) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
@@ -815,13 +823,15 @@ const file_permissions_service_protos_roles_proto_rawDesc = "" +
 	"\n" +
 	"_is_activeB\x12\n" +
 	"\x10_include_deletedB\v\n" +
-	"\t_order_by\"X\n" +
+	"\t_order_by\"z\n" +
 	"\aOrderBy\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"created_at\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
+	"created_at\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01\x12\x17\n" +
+	"\x04name\x18\x03 \x01(\tH\x02R\x04name\x88\x01\x01B\x05\n" +
 	"\x03_idB\r\n" +
-	"\v_created_at\"K\n" +
+	"\v_created_atB\a\n" +
+	"\x05_name\"K\n" +
 	"\fListResponse\x12%\n" +
 	"\x04rows\x18\x01 \x03(\v2\x11.roles_proto.RoleR\x04rows\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\rR\x05count\"\xcf\x01\n" +
