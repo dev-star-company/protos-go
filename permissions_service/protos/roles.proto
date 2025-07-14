@@ -63,8 +63,8 @@ message OrderBy {
 }
 
 message ListResponse {
-    repeated Role rows = 1;
-    uint32 count = 2;
+    uint32 count = 1;
+    repeated Role rows = 2;
 }
 
 message UpdateRequest {
