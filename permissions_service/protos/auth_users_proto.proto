@@ -100,8 +100,8 @@ message ListRequest {
   optional string email = 2;
   optional string name = 3;
   optional string surname = 4;
-  uint32 limit = 5;
-  uint32 offset = 6;
+  optional uint32 limit = 5;
+  optional uint32 offset = 6;
   optional bool include_deleted = 7;
   optional string phone = 8;
   optional Relations relations = 9;
