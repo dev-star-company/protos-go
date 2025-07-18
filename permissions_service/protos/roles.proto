@@ -10,6 +10,8 @@ service RoleService {
     rpc List (ListRequest) returns (ListResponse);
     rpc Update (UpdateRequest) returns (UpdateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
+    rpc GetRoleUsers (GetRoleByUsersRequest) returns (GetRoleByUsersResponse);
+
 }
 
 message Role {
@@ -42,12 +44,12 @@ message GetRequest {
     string requester_uuid = 2;
 }
 
-message GetRolesByUserRequest {
+message GetRoleByUsersRequest {
     uint32 id = 1;
     string requester_uuid = 2;
 }
 
-message GetRolesByUserResponse {
+message GetRoleByUsersResponse {
     repeated uint32 user_ids = 1;
     string requester_uuid = 2;
 }

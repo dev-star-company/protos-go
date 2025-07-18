@@ -10,6 +10,7 @@ service AuthUsersService {
   rpc List (ListRequest) returns (ListResponse);
   rpc Update (UpdateRequest) returns (UpdateResponse);
   rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc GetUserRoles (GetUserByRolesRequest) returns (GetUserByRolesResponse);
 
   rpc VerifyPassword (VerifyPasswordRequest) returns (VerifyPasswordResponse);
 }
