@@ -95,6 +95,16 @@ message GetResponse {
   User user = 1;
 }
 
+message GetUserByRolesRequest {
+    uint32 id = 1;
+    string requester_uuid = 2;
+}
+
+message GetUserByRolesResponse {
+    repeated uint32 roles_ids = 1;
+    string requester_uuid = 2;
+}
+
 message ListRequest {
   optional uint32 id = 1;
   optional string email = 2;

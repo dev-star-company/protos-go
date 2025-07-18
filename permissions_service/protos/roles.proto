@@ -42,6 +42,16 @@ message GetRequest {
     string requester_uuid = 2;
 }
 
+message GetRolesByUserRequest {
+    uint32 id = 1;
+    string requester_uuid = 2;
+}
+
+message GetRolesByUserResponse {
+    repeated uint32 user_ids = 1;
+    string requester_uuid = 2;
+}
+
 message GetResponse {
     Role role = 1;
 }

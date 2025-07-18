@@ -46,8 +46,6 @@ message DeleteResponse {}
 message GetRequest {
     uint32 id = 1;
     string requester_uuid = 2;
-    uint32 limit = 3;
-    uint32 offset = 4;
 }
 
 message GetResponse {
