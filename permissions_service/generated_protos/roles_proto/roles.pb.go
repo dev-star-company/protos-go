@@ -507,8 +507,8 @@ func (x *OrderBy) GetName() string {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Rows          []*Role                `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
-	Count         uint32                 `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
+	Count         uint32                 `protobuf:"varint,1,opt,name=count,proto3" json:"count,omitempty"`
+	Rows          []*Role                `protobuf:"bytes,2,rep,name=rows,proto3" json:"rows,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -543,18 +543,18 @@ func (*ListResponse) Descriptor() ([]byte, []int) {
 	return file_permissions_service_protos_roles_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *ListResponse) GetRows() []*Role {
-	if x != nil {
-		return x.Rows
-	}
-	return nil
-}
-
 func (x *ListResponse) GetCount() uint32 {
 	if x != nil {
 		return x.Count
 	}
 	return 0
+}
+
+func (x *ListResponse) GetRows() []*Role {
+	if x != nil {
+		return x.Rows
+	}
+	return nil
 }
 
 type UpdateRequest struct {
@@ -832,9 +832,9 @@ const file_permissions_service_protos_roles_proto_rawDesc = "" +
 	"\x03_idB\r\n" +
 	"\v_created_atB\a\n" +
 	"\x05_name\"K\n" +
-	"\fListResponse\x12%\n" +
-	"\x04rows\x18\x01 \x03(\v2\x11.roles_proto.RoleR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"\xcf\x01\n" +
+	"\fListResponse\x12\x14\n" +
+	"\x05count\x18\x01 \x01(\rR\x05count\x12%\n" +
+	"\x04rows\x18\x02 \x03(\v2\x11.roles_proto.RoleR\x04rows\"\xcf\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
 	"\x0erequester_uuid\x18\x05 \x01(\tR\rrequesterUuid\x12\x17\n" +

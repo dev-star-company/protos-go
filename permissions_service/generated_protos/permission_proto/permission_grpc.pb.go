@@ -19,11 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PermissionService_Create_FullMethodName = "/permission_proto.PermissionService/Create"
-	PermissionService_Delete_FullMethodName = "/permission_proto.PermissionService/Delete"
-	PermissionService_List_FullMethodName   = "/permission_proto.PermissionService/List"
-	PermissionService_Update_FullMethodName = "/permission_proto.PermissionService/Update"
-	PermissionService_Get_FullMethodName    = "/permission_proto.PermissionService/Get"
+	PermissionService_Create_FullMethodName    = "/permission_proto.PermissionService/Create"
+	PermissionService_Delete_FullMethodName    = "/permission_proto.PermissionService/Delete"
+	PermissionService_List_FullMethodName      = "/permission_proto.PermissionService/List"
+	PermissionService_Update_FullMethodName    = "/permission_proto.PermissionService/Update"
+	PermissionService_Get_FullMethodName       = "/permission_proto.PermissionService/Get"
+	PermissionService_ListByIds_FullMethodName = "/permission_proto.PermissionService/ListByIds"
 )
 
 // PermissionServiceClient is the client API for PermissionService service.
@@ -35,6 +36,7 @@ type PermissionServiceClient interface {
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+	ListByIds(ctx context.Context, in *ListByIdsRequest, opts ...grpc.CallOption) (*ListByIdsResponse, error)
 }
 
 type permissionServiceClient struct {
@@ -95,6 +97,16 @@ func (c *permissionServiceClient) Get(ctx context.Context, in *GetRequest, opts 
 	return out, nil
 }
 
+func (c *permissionServiceClient) ListByIds(ctx context.Context, in *ListByIdsRequest, opts ...grpc.CallOption) (*ListByIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListByIdsResponse)
+	err := c.cc.Invoke(ctx, PermissionService_ListByIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PermissionServiceServer is the server API for PermissionService service.
 // All implementations must embed UnimplementedPermissionServiceServer
 // for forward compatibility.
@@ -104,6 +116,7 @@ type PermissionServiceServer interface {
 	List(context.Context, *ListRequest) (*ListResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
+	ListByIds(context.Context, *ListByIdsRequest) (*ListByIdsResponse, error)
 	mustEmbedUnimplementedPermissionServiceServer()
 }
 
@@ -128,6 +141,9 @@ func (UnimplementedPermissionServiceServer) Update(context.Context, *UpdateReque
 }
 func (UnimplementedPermissionServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedPermissionServiceServer) ListByIds(context.Context, *ListByIdsRequest) (*ListByIdsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListByIds not implemented")
 }
 func (UnimplementedPermissionServiceServer) mustEmbedUnimplementedPermissionServiceServer() {}
 func (UnimplementedPermissionServiceServer) testEmbeddedByValue()                           {}
@@ -240,6 +256,24 @@ func _PermissionService_Get_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PermissionService_ListByIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListByIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PermissionServiceServer).ListByIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PermissionService_ListByIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PermissionServiceServer).ListByIds(ctx, req.(*ListByIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PermissionService_ServiceDesc is the grpc.ServiceDesc for PermissionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -266,6 +300,10 @@ var PermissionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _PermissionService_Get_Handler,
+		},
+		{
+			MethodName: "ListByIds",
+			Handler:    _PermissionService_ListByIds_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

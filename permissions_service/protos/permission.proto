@@ -10,6 +10,7 @@ service PermissionService {
     rpc List (ListRequest) returns (ListResponse);
     rpc Update (UpdateRequest) returns (UpdateResponse);
     rpc Get (GetRequest) returns (GetResponse);
+    rpc ListByIds (ListByIdsRequest) returns (ListByIdsResponse);
 }
 
 message Permission {
@@ -77,6 +78,14 @@ message ListRequest {
     optional string internal_name = 7;
     optional uint32 service_id = 8;
     optional bool is_active = 9;
+}
+
+message ListByIdsRequest {
+    repeated uint32 ids = 1;
+}
+
+message ListByIdsResponse {
+    repeated Permission permissions = 1;
 }
 
 message OrderBy {

@@ -783,8 +783,8 @@ type ListRequest struct {
 	Email          *string                `protobuf:"bytes,2,opt,name=email,proto3,oneof" json:"email,omitempty"`
 	Name           *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Surname        *string                `protobuf:"bytes,4,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
-	Limit          uint32                 `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
-	Offset         uint32                 `protobuf:"varint,6,opt,name=offset,proto3" json:"offset,omitempty"`
+	Limit          *uint32                `protobuf:"varint,5,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset         *uint32                `protobuf:"varint,6,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	IncludeDeleted *bool                  `protobuf:"varint,7,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	Phone          *string                `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
 	Relations      *Relations             `protobuf:"bytes,9,opt,name=relations,proto3,oneof" json:"relations,omitempty"`
@@ -852,15 +852,15 @@ func (x *ListRequest) GetSurname() string {
 }
 
 func (x *ListRequest) GetLimit() uint32 {
-	if x != nil {
-		return x.Limit
+	if x != nil && x.Limit != nil {
+		return *x.Limit
 	}
 	return 0
 }
 
 func (x *ListRequest) GetOffset() uint32 {
-	if x != nil {
-		return x.Offset
+	if x != nil && x.Offset != nil {
+		return *x.Offset
 	}
 	return 0
 }
@@ -1432,24 +1432,26 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"GetRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"9\n" +
 	"\vGetResponse\x12*\n" +
-	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\xbd\x03\n" +
+	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\xdc\x03\n" +
 	"\vListRequest\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x19\n" +
 	"\x05email\x18\x02 \x01(\tH\x01R\x05email\x88\x01\x01\x12\x17\n" +
 	"\x04name\x18\x03 \x01(\tH\x02R\x04name\x88\x01\x01\x12\x1d\n" +
-	"\asurname\x18\x04 \x01(\tH\x03R\asurname\x88\x01\x01\x12\x14\n" +
-	"\x05limit\x18\x05 \x01(\rR\x05limit\x12\x16\n" +
-	"\x06offset\x18\x06 \x01(\rR\x06offset\x12,\n" +
-	"\x0finclude_deleted\x18\a \x01(\bH\x04R\x0eincludeDeleted\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\b \x01(\tH\x05R\x05phone\x88\x01\x01\x12>\n" +
-	"\trelations\x18\t \x01(\v2\x1b.auth_users_proto.RelationsH\x06R\trelations\x88\x01\x01\x12*\n" +
+	"\asurname\x18\x04 \x01(\tH\x03R\asurname\x88\x01\x01\x12\x19\n" +
+	"\x05limit\x18\x05 \x01(\rH\x04R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x06 \x01(\rH\x05R\x06offset\x88\x01\x01\x12,\n" +
+	"\x0finclude_deleted\x18\a \x01(\bH\x06R\x0eincludeDeleted\x88\x01\x01\x12\x19\n" +
+	"\x05phone\x18\b \x01(\tH\aR\x05phone\x88\x01\x01\x12>\n" +
+	"\trelations\x18\t \x01(\v2\x1b.auth_users_proto.RelationsH\bR\trelations\x88\x01\x01\x12*\n" +
 	"\x0erequester_uuid\x18\n" +
-	" \x01(\tH\aR\rrequesterUuid\x88\x01\x01B\x05\n" +
+	" \x01(\tH\tR\rrequesterUuid\x88\x01\x01B\x05\n" +
 	"\x03_idB\b\n" +
 	"\x06_emailB\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
-	"\b_surnameB\x12\n" +
+	"\b_surnameB\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_offsetB\x12\n" +
 	"\x10_include_deletedB\b\n" +
 	"\x06_phoneB\f\n" +
 	"\n" +
