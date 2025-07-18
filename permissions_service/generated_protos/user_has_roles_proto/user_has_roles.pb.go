@@ -341,8 +341,6 @@ type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
-	Limit         uint32                 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
-	Offset        uint32                 `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -389,20 +387,6 @@ func (x *GetRequest) GetRequesterUuid() string {
 		return x.RequesterUuid
 	}
 	return ""
-}
-
-func (x *GetRequest) GetLimit() uint32 {
-	if x != nil {
-		return x.Limit
-	}
-	return 0
-}
-
-func (x *GetRequest) GetOffset() uint32 {
-	if x != nil {
-		return x.Offset
-	}
-	return 0
 }
 
 type GetResponse struct {
@@ -799,13 +783,11 @@ const file_permissions_service_protos_user_has_roles_proto_rawDesc = "" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
 	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\"\x10\n" +
-	"\x0eDeleteResponse\"q\n" +
+	"\x0eDeleteResponse\"C\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
-	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\x12\x14\n" +
-	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
-	"\x06offset\x18\x04 \x01(\rR\x06offset\"f\n" +
+	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\"f\n" +
 	"\vGetResponse\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\rR\x06userId\x12%\n" +
