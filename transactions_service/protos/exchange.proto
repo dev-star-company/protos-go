@@ -31,15 +31,14 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  string requester_uuid = 1;
-  double value = 2;
-  uint32 currency_id = 3;
-  string created_at = 4;
-  string updated_at = 5;
-  string deleted_at = 6;
-  uint32 created_by = 7;
-  uint32 updated_by = 8;
-  uint32 deleted_by = 9;
+  double value = 1;
+  uint32 currency_id = 2;
+  string created_at = 3;
+  string updated_at = 4;
+  string deleted_at = 5;
+  uint32 created_by = 6;
+  uint32 updated_by = 7;
+  uint32 deleted_by = 8;
 }
 
 message GetRequest {
@@ -47,15 +46,14 @@ message GetRequest {
 }
 
 message GetResponse {
-  string requester_uuid = 1;
-  double value = 2;
-  uint32 currency_id = 3;
-  string created_at = 4;
-  string updated_at = 5;
-  string deleted_at = 6;
-  uint32 created_by = 7;
-  uint32 updated_by = 8;
-  uint32 deleted_by = 9;
+  double value = 1;
+  uint32 currency_id = 2;
+  string created_at = 3;
+  string updated_at = 4;
+  string deleted_at = 5;
+  uint32 created_by = 6;
+  uint32 updated_by = 7;
+  uint32 deleted_by = 8;
 }
 
 message UpdateRequest {
@@ -66,9 +64,8 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  string requester_uuid = 1;
-  double value = 2;
-  uint32 currency_id = 3;
+  double value = 1;
+  uint32 currency_id = 2;
 }
 
 message DeleteRequest {

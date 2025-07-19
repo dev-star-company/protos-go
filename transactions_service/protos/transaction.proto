@@ -42,20 +42,19 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  string requester_uuid = 1;
-  uint32 origin_account_id = 2;
-  uint32 destination_account_id = 3;
-  uint32 transaction_type_id = 4;
-  double amount = 5;
-  uint32 exchange_id = 6;
-  bool successful = 7;
-  string observation = 8;
-  string created_at = 9;
-  string updated_at = 10;
-  string deleted_at = 11;
-  uint32 created_by = 12;
-  uint32 updated_by = 13;
-  uint32 deleted_by = 14;
+  uint32 origin_account_id = 1;
+  uint32 destination_account_id = 2;
+  uint32 transaction_type_id = 3;
+  double amount = 4;
+  uint32 exchange_id = 5;
+  bool successful = 6;
+  string observation = 7;
+  string created_at = 8;
+  string updated_at = 9;
+  string deleted_at = 10;
+  uint32 created_by = 11;
+  uint32 updated_by = 12;
+  uint32 deleted_by = 13;
 }
 
 message GetRequest {
@@ -63,20 +62,19 @@ message GetRequest {
 }
 
 message GetResponse {
-  string requester_uuid = 1;
-  uint32 origin_account_id = 2;
-  uint32 destination_account_id = 3;
-  uint32 transaction_type_id = 4;
-  double amount = 5;
-  uint32 exchange_id = 6;
-  bool successful = 7;
-  string observation = 8;
-  string created_at = 9;
-  string updated_at = 10;
-  string deleted_at = 11;
-  uint32 created_by = 12;
-  uint32 updated_by = 13;
-  uint32 deleted_by = 14;
+  uint32 origin_account_id = 1;
+  uint32 destination_account_id = 2;
+  uint32 transaction_type_id = 3;
+  double amount = 4;
+  uint32 exchange_id = 5;
+  bool successful = 6;
+  string observation = 7;
+  string created_at = 8;
+  string updated_at = 9;
+  string deleted_at = 10;
+  uint32 created_by = 11;
+  uint32 updated_by = 12;
+  uint32 deleted_by = 13;
 }
 
 message UpdateRequest {
@@ -92,14 +90,13 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  string requester_uuid = 1;
-  uint32 origin_account_id = 2;
-  uint32 destination_account_id = 3;
-  uint32 transaction_type_id = 4;
-  double amount = 5;
-  uint32 exchange_id = 6;
-  bool successful = 7;
-  string observation = 8;
+  uint32 origin_account_id = 1;
+  uint32 destination_account_id = 2;
+  uint32 transaction_type_id = 3;
+  double amount = 4;
+  uint32 exchange_id = 5;
+  bool successful = 6;
+  string observation = 7;
 }
 
 message DeleteRequest {
