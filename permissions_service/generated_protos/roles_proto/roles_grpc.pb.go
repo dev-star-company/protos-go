@@ -19,12 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	RoleService_Create_FullMethodName       = "/roles_proto.RoleService/Create"
-	RoleService_Get_FullMethodName          = "/roles_proto.RoleService/Get"
-	RoleService_List_FullMethodName         = "/roles_proto.RoleService/List"
-	RoleService_Update_FullMethodName       = "/roles_proto.RoleService/Update"
-	RoleService_Delete_FullMethodName       = "/roles_proto.RoleService/Delete"
-	RoleService_GetRoleUsers_FullMethodName = "/roles_proto.RoleService/GetRoleUsers"
+	RoleService_Create_FullMethodName = "/roles_proto.RoleService/Create"
+	RoleService_Get_FullMethodName    = "/roles_proto.RoleService/Get"
+	RoleService_List_FullMethodName   = "/roles_proto.RoleService/List"
+	RoleService_Update_FullMethodName = "/roles_proto.RoleService/Update"
+	RoleService_Delete_FullMethodName = "/roles_proto.RoleService/Delete"
 )
 
 // RoleServiceClient is the client API for RoleService service.
@@ -36,7 +35,6 @@ type RoleServiceClient interface {
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
-	GetRoleUsers(ctx context.Context, in *GetRoleByUsersRequest, opts ...grpc.CallOption) (*GetRoleByUsersResponse, error)
 }
 
 type roleServiceClient struct {
@@ -97,16 +95,6 @@ func (c *roleServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts 
 	return out, nil
 }
 
-func (c *roleServiceClient) GetRoleUsers(ctx context.Context, in *GetRoleByUsersRequest, opts ...grpc.CallOption) (*GetRoleByUsersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRoleByUsersResponse)
-	err := c.cc.Invoke(ctx, RoleService_GetRoleUsers_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // RoleServiceServer is the server API for RoleService service.
 // All implementations must embed UnimplementedRoleServiceServer
 // for forward compatibility.
@@ -116,7 +104,6 @@ type RoleServiceServer interface {
 	List(context.Context, *ListRequest) (*ListResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
-	GetRoleUsers(context.Context, *GetRoleByUsersRequest) (*GetRoleByUsersResponse, error)
 	mustEmbedUnimplementedRoleServiceServer()
 }
 
@@ -141,9 +128,6 @@ func (UnimplementedRoleServiceServer) Update(context.Context, *UpdateRequest) (*
 }
 func (UnimplementedRoleServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
-}
-func (UnimplementedRoleServiceServer) GetRoleUsers(context.Context, *GetRoleByUsersRequest) (*GetRoleByUsersResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetRoleUsers not implemented")
 }
 func (UnimplementedRoleServiceServer) mustEmbedUnimplementedRoleServiceServer() {}
 func (UnimplementedRoleServiceServer) testEmbeddedByValue()                     {}
@@ -256,24 +240,6 @@ func _RoleService_Delete_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RoleService_GetRoleUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRoleByUsersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RoleServiceServer).GetRoleUsers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RoleService_GetRoleUsers_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleServiceServer).GetRoleUsers(ctx, req.(*GetRoleByUsersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // RoleService_ServiceDesc is the grpc.ServiceDesc for RoleService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -300,10 +266,6 @@ var RoleService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Delete",
 			Handler:    _RoleService_Delete_Handler,
-		},
-		{
-			MethodName: "GetRoleUsers",
-			Handler:    _RoleService_GetRoleUsers_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
