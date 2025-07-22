@@ -14,38 +14,29 @@ service AccountsService {
 
 message Account {
     uint32 id = 1;
-    string user_uuid = 2;
+    string user_id = 2;
     uint32 account_type_id = 3;
     double balance = 4;
     optional uint32 bank_id = 5;
-    uint32 created_by = 6;
-    uint32 updated_by = 7;
     string created_at = 8;
-    string updated_at = 9;
     optional string deleted_at = 10;
-    optional uint32 deleted_by = 11;
   }
   
 
 message CreateRequest {
-  string requester_uuid = 1;
-  string user_uuid = 2;
+  string user_id = 2;
   uint32 account_type_id = 3;
   optional uint32 bank_id = 4;
   double balance = 5;
 }
 
 message CreateResponse {
-  string user_uuid = 1;
+  string user_id = 1;
   uint32 account_type_id = 2;
   uint32 bank_id = 3;
   double balance = 4;
-  uint32 created_by = 5;
-  uint32 updated_by = 6;
   string created_at = 7;
-  string updated_at = 8;
   string deleted_at = 9;
-  uint32 deleted_by = 10;
 }
 
 message GetRequest {
@@ -53,43 +44,33 @@ message GetRequest {
 }
 
 message GetResponse {
-  string user_uuid = 1;
+  string user_id = 1;
   uint32 account_type_id = 2;
   uint32 bank_id = 3;
   double balance = 4;
-  uint32 created_by = 5;
-  uint32 updated_by = 6;
   string created_at = 7;
-  string updated_at = 8;
   string deleted_at = 9;
-  uint32 deleted_by = 10;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  string requester_uuid = 2;
-  optional string user_uuid = 3;
+  optional string user_id = 3;
   optional uint32 account_type_id = 4;
   optional uint32 bank_id = 5;
   optional double balance = 6;
 }
 
 message UpdateResponse {
-  string user_uuid = 1;
+  string user_id = 1;
   uint32 account_type_id = 2;
   uint32 bank_id = 3;
   double balance = 4;
-  uint32 created_by = 5;
-  uint32 updated_by = 6;
   string created_at = 7;
-  string updated_at = 8;
   string deleted_at = 9;
-  uint32 deleted_by = 10;
 }
 
 message DeleteRequest {
   uint32 id = 1;
-  string requester_uuid = 2;
 }
 
 message DeleteResponse {
@@ -100,7 +81,7 @@ message ListRequest {
   optional uint32 limit = 1;
   optional uint32 offset = 2;
   optional bool include_deleted = 3;
-  optional string user_uuid = 4;
+  optional string user_id = 4;
   optional uint32 account_type_id = 5;
   optional uint32 bank_id = 6;
   optional OrderBy orderby = 7;

@@ -26,11 +26,7 @@ type Phone struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Phone         string                 `protobuf:"bytes,2,opt,name=phone,proto3" json:"phone,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     *uint32                `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
 	Uuid          string                 `protobuf:"bytes,10,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -88,39 +84,11 @@ func (x *Phone) GetCreatedAt() string {
 	return ""
 }
 
-func (x *Phone) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return ""
-}
-
 func (x *Phone) GetDeletedAt() string {
 	if x != nil && x.DeletedAt != nil {
 		return *x.DeletedAt
 	}
 	return ""
-}
-
-func (x *Phone) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *Phone) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *Phone) GetDeletedBy() uint32 {
-	if x != nil && x.DeletedBy != nil {
-		return *x.DeletedBy
-	}
-	return 0
 }
 
 func (x *Phone) GetMain() bool {
@@ -142,11 +110,7 @@ type Email struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     *uint32                `protobuf:"varint,8,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
 	Uuid          string                 `protobuf:"bytes,10,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -204,39 +168,11 @@ func (x *Email) GetCreatedAt() string {
 	return ""
 }
 
-func (x *Email) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return ""
-}
-
 func (x *Email) GetDeletedAt() string {
 	if x != nil && x.DeletedAt != nil {
 		return *x.DeletedAt
 	}
 	return ""
-}
-
-func (x *Email) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *Email) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *Email) GetDeletedBy() uint32 {
-	if x != nil && x.DeletedBy != nil {
-		return *x.DeletedBy
-	}
-	return 0
 }
 
 func (x *Email) GetMain() bool {
@@ -260,11 +196,7 @@ type User struct {
 	Surname       string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
 	Emails        []*Email               `protobuf:"bytes,4,rep,name=emails,proto3" json:"emails,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,8,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     *uint32                `protobuf:"varint,10,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	Phones        []*Phone               `protobuf:"bytes,12,rep,name=phones,proto3" json:"phones,omitempty"`
 	Uuid          string                 `protobuf:"bytes,13,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -336,39 +268,11 @@ func (x *User) GetCreatedAt() string {
 	return ""
 }
 
-func (x *User) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return ""
-}
-
 func (x *User) GetDeletedAt() string {
 	if x != nil && x.DeletedAt != nil {
 		return *x.DeletedAt
 	}
 	return ""
-}
-
-func (x *User) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *User) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *User) GetDeletedBy() uint32 {
-	if x != nil && x.DeletedBy != nil {
-		return *x.DeletedBy
-	}
-	return 0
 }
 
 func (x *User) GetPhones() []*Phone {
@@ -454,11 +358,10 @@ func (x *Relations) GetRoles() bool {
 }
 
 type CreateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Surname       string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
-	Email         string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
+	state   protoimpl.MessageState `protogen:"open.v1"`
+	Name    string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Surname string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
+	Email   string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
 	// string password = 5;
 	// string confirm_password = 6;
 	Phone         string `protobuf:"bytes,7,opt,name=phone,proto3" json:"phone,omitempty"`
@@ -494,13 +397,6 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_users_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *CreateRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
 }
 
 func (x *CreateRequest) GetName() string {
@@ -824,12 +720,11 @@ func (x *ListResponse) GetRows() []*User {
 }
 
 type UpdateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
-	Id            *uint32                `protobuf:"varint,2,opt,name=id,proto3,oneof" json:"id,omitempty"`
-	Name          *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	Surname       *string                `protobuf:"bytes,4,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
-	Email         *string                `protobuf:"bytes,5,opt,name=email,proto3,oneof" json:"email,omitempty"`
+	state   protoimpl.MessageState `protogen:"open.v1"`
+	Id      *uint32                `protobuf:"varint,2,opt,name=id,proto3,oneof" json:"id,omitempty"`
+	Name    *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	Surname *string                `protobuf:"bytes,4,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
+	Email   *string                `protobuf:"bytes,5,opt,name=email,proto3,oneof" json:"email,omitempty"`
 	// optional string password = 6;
 	// optional string confirm_password = 7;
 	Phone         *string `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
@@ -866,13 +761,6 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_users_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *UpdateRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
 }
 
 func (x *UpdateRequest) GetId() uint32 {
@@ -963,7 +851,6 @@ func (x *UpdateResponse) GetUser() *User {
 
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Id            uint32                 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -997,13 +884,6 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
 	return file_protos_users_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *DeleteRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
 }
 
 func (x *DeleteRequest) GetId() uint32 {
@@ -1053,76 +933,47 @@ var File_protos_users_proto protoreflect.FileDescriptor
 
 const file_protos_users_proto_rawDesc = "" +
 	"\n" +
-	"\x12protos/users.proto\x12\vusers_proto\"\xb7\x02\n" +
+	"\x12protos/users.proto\x12\vusers_proto\"\xa7\x01\n" +
 	"\x05Phone\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05phone\x18\x02 \x01(\tR\x05phone\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"updated_at\x18\x04 \x01(\tR\tupdatedAt\x12\"\n" +
-	"\n" +
-	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
-	"\n" +
-	"created_by\x18\x06 \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\"\n" +
-	"\n" +
-	"deleted_by\x18\b \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
+	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
 	"\x04main\x18\t \x01(\bR\x04main\x12\x12\n" +
 	"\x04uuid\x18\n" +
 	" \x01(\tR\x04uuidB\r\n" +
-	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\xb7\x02\n" +
+	"\v_deleted_at\"\xa7\x01\n" +
 	"\x05Email\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"updated_at\x18\x04 \x01(\tR\tupdatedAt\x12\"\n" +
-	"\n" +
-	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
-	"\n" +
-	"created_by\x18\x06 \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\a \x01(\rR\tupdatedBy\x12\"\n" +
-	"\n" +
-	"deleted_by\x18\b \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12\x12\n" +
+	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
 	"\x04main\x18\t \x01(\bR\x04main\x12\x12\n" +
 	"\x04uuid\x18\n" +
 	" \x01(\tR\x04uuidB\r\n" +
-	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"\x92\x03\n" +
+	"\v_deleted_at\"\x82\x02\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
 	"\asurname\x18\x03 \x01(\tR\asurname\x12*\n" +
 	"\x06emails\x18\x04 \x03(\v2\x12.users_proto.EmailR\x06emails\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"updated_at\x18\x06 \x01(\tR\tupdatedAt\x12\"\n" +
-	"\n" +
-	"deleted_at\x18\a \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
-	"\n" +
-	"created_by\x18\b \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\t \x01(\rR\tupdatedBy\x12\"\n" +
-	"\n" +
-	"deleted_by\x18\n" +
-	" \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12*\n" +
+	"deleted_at\x18\a \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12*\n" +
 	"\x06phones\x18\f \x03(\v2\x12.users_proto.PhoneR\x06phones\x12\x12\n" +
 	"\x04uuid\x18\r \x01(\tR\x04uuidB\r\n" +
-	"\v_deleted_atB\r\n" +
-	"\v_deleted_by\"o\n" +
+	"\v_deleted_at\"o\n" +
 	"\tRelations\x12\x16\n" +
 	"\x06emails\x18\x01 \x01(\bR\x06emails\x12\x16\n" +
 	"\x06phones\x18\x02 \x01(\bR\x06phones\x12\x1c\n" +
 	"\tpasswords\x18\x03 \x01(\bR\tpasswords\x12\x14\n" +
-	"\x05roles\x18\x04 \x01(\bR\x05roles\"\x90\x01\n" +
-	"\rCreateRequest\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x12\n" +
+	"\x05roles\x18\x04 \x01(\bR\x05roles\"i\n" +
+	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
 	"\asurname\x18\x03 \x01(\tR\asurname\x12\x14\n" +
 	"\x05email\x18\x04 \x01(\tR\x05email\x12\x14\n" +
@@ -1155,9 +1006,8 @@ const file_protos_users_proto_rawDesc = "" +
 	"_relations\"K\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12%\n" +
-	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\x8b\x02\n" +
-	"\rUpdateRequest\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x13\n" +
+	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\xe4\x01\n" +
+	"\rUpdateRequest\x12\x13\n" +
 	"\x02id\x18\x02 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x17\n" +
 	"\x04name\x18\x03 \x01(\tH\x01R\x04name\x88\x01\x01\x12\x1d\n" +
 	"\asurname\x18\x04 \x01(\tH\x02R\asurname\x88\x01\x01\x12\x19\n" +
@@ -1172,9 +1022,8 @@ const file_protos_users_proto_rawDesc = "" +
 	"\x06_phoneB\a\n" +
 	"\x05_uuid\"7\n" +
 	"\x0eUpdateResponse\x12%\n" +
-	"\x04user\x18\x01 \x01(\v2\x11.users_proto.UserR\x04user\"F\n" +
-	"\rDeleteRequest\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x0e\n" +
+	"\x04user\x18\x01 \x01(\v2\x11.users_proto.UserR\x04user\"\x1f\n" +
+	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\"\x10\n" +
 	"\x0eDeleteResponse2\xce\x02\n" +
 	"\fUsersService\x12A\n" +

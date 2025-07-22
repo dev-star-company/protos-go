@@ -15,11 +15,7 @@ service RoleHasPermissionService {
 message RoleHasPermissions {
     uint32 id = 1;
     string created_at = 2;
-    string updated_at = 3;
     optional string deleted_at = 4;
-    uint32 created_by = 5;
-    uint32 updated_by = 6;
-    optional uint32 deleted_by = 7;
     uint32 role_id = 8;
     uint32 permission_id = 9;
 }
@@ -27,25 +23,21 @@ message RoleHasPermissions {
 message CreateRequest {
     uint32 role_id = 1;
     uint32 permission_id = 2;
-    string requester_uuid = 3;
 }
 
 message CreateResponse {
     uint32 role_id = 1;
     uint32 permission_id = 2;
-    string requester_uuid = 3;
 }
 
 message DeleteRequest {
     uint32 id = 1;
-    string requester_uuid = 2;
 }
 
 message DeleteResponse {}
 
 message GetRequest {
     uint32 id = 1;
-    string requester_uuid = 2;
     uint32 limit = 3;
     uint32 offset = 4;
 }
@@ -53,7 +45,6 @@ message GetRequest {
 message GetResponse {
     uint32 role_id = 1;
     uint32 permission_id = 2;
-    string requester_uuid = 3;
 }
 
 message ListRequest {
@@ -77,11 +68,9 @@ message UpdateRequest {
     uint32 id = 1;
     optional uint32 role_id = 2;
     optional uint32 permission_id = 3;
-    string requester_uuid = 4;
 }
 
 message UpdateResponse {
     uint32 role_id = 1;
     uint32 permission_id = 2;
-    string requester_uuid = 3;
 }

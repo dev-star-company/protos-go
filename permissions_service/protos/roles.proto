@@ -19,20 +19,14 @@ message Role {
     string name = 2;
     string description = 3;
     string created_at = 4;
-    string updated_at = 5;
     optional string deleted_at = 6;
-    uint32 created_by = 7;
-    uint32 updated_by = 8;
-    optional uint32 deleted_by = 9;
     optional bool is_active = 10;
-    string requester_uuid = 11;
 }
 
 message CreateRequest {
     string name = 1;
     optional bool is_active = 2;
     string description = 3;
-    string requester_uuid = 4;
 }
 
 message CreateResponse {
@@ -41,17 +35,14 @@ message CreateResponse {
 
 message GetRequest {
     uint32 id = 1;
-    string requester_uuid = 2;
 }
 
 message GetRoleByUsersRequest {
     uint32 id = 1;
-    string requester_uuid = 2;
 }
 
 message GetRoleByUsersResponse {
     repeated uint32 user_ids = 1;
-    string requester_uuid = 2;
 }
 
 message GetResponse {
@@ -81,7 +72,6 @@ message ListResponse {
 
 message UpdateRequest {
     uint32 id = 1;
-    string requester_uuid =5;
     optional string name = 2;
     optional string description = 3;
     optional bool is_active = 4;
@@ -93,7 +83,6 @@ message UpdateResponse {
 
 message DeleteRequest {
     uint32 id = 1;
-    string requester_uuid = 2   ;
 }
 
 message DeleteResponse {}

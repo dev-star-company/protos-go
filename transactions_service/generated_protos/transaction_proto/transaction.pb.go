@@ -25,11 +25,7 @@ type Transaction struct {
 	state                protoimpl.MessageState `protogen:"open.v1"`
 	Id                   uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	CreatedAt            string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt            string                 `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt            *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	CreatedBy            uint32                 `protobuf:"varint,5,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy            uint32                 `protobuf:"varint,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy            *uint32                `protobuf:"varint,7,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	OriginAccountId      uint32                 `protobuf:"varint,8,opt,name=origin_account_id,json=originAccountId,proto3" json:"origin_account_id,omitempty"`
 	DestinationAccountId uint32                 `protobuf:"varint,9,opt,name=destination_account_id,json=destinationAccountId,proto3" json:"destination_account_id,omitempty"`
 	TransactionTypeId    uint32                 `protobuf:"varint,10,opt,name=transaction_type_id,json=transactionTypeId,proto3" json:"transaction_type_id,omitempty"`
@@ -85,39 +81,11 @@ func (x *Transaction) GetCreatedAt() string {
 	return ""
 }
 
-func (x *Transaction) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return ""
-}
-
 func (x *Transaction) GetDeletedAt() string {
 	if x != nil && x.DeletedAt != nil {
 		return *x.DeletedAt
 	}
 	return ""
-}
-
-func (x *Transaction) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *Transaction) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *Transaction) GetDeletedBy() uint32 {
-	if x != nil && x.DeletedBy != nil {
-		return *x.DeletedBy
-	}
-	return 0
 }
 
 func (x *Transaction) GetOriginAccountId() uint32 {
@@ -171,7 +139,6 @@ func (x *Transaction) GetObservation() string {
 
 type CreateRequest struct {
 	state                protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid        string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	OriginAccountId      uint32                 `protobuf:"varint,2,opt,name=origin_account_id,json=originAccountId,proto3" json:"origin_account_id,omitempty"`
 	DestinationAccountId uint32                 `protobuf:"varint,3,opt,name=destination_account_id,json=destinationAccountId,proto3" json:"destination_account_id,omitempty"`
 	TransactionTypeId    uint32                 `protobuf:"varint,4,opt,name=transaction_type_id,json=transactionTypeId,proto3" json:"transaction_type_id,omitempty"`
@@ -211,13 +178,6 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_transaction_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *CreateRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
 }
 
 func (x *CreateRequest) GetOriginAccountId() uint32 {
@@ -279,11 +239,7 @@ type CreateResponse struct {
 	Successful           bool                   `protobuf:"varint,6,opt,name=successful,proto3" json:"successful,omitempty"`
 	Observation          string                 `protobuf:"bytes,7,opt,name=observation,proto3" json:"observation,omitempty"`
 	CreatedAt            string                 `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt            string                 `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt            string                 `protobuf:"bytes,10,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	CreatedBy            uint32                 `protobuf:"varint,11,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy            uint32                 `protobuf:"varint,12,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy            uint32                 `protobuf:"varint,13,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
@@ -374,39 +330,11 @@ func (x *CreateResponse) GetCreatedAt() string {
 	return ""
 }
 
-func (x *CreateResponse) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return ""
-}
-
 func (x *CreateResponse) GetDeletedAt() string {
 	if x != nil {
 		return x.DeletedAt
 	}
 	return ""
-}
-
-func (x *CreateResponse) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *CreateResponse) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *CreateResponse) GetDeletedBy() uint32 {
-	if x != nil {
-		return x.DeletedBy
-	}
-	return 0
 }
 
 type GetRequest struct {
@@ -463,11 +391,7 @@ type GetResponse struct {
 	Successful           bool                   `protobuf:"varint,6,opt,name=successful,proto3" json:"successful,omitempty"`
 	Observation          string                 `protobuf:"bytes,7,opt,name=observation,proto3" json:"observation,omitempty"`
 	CreatedAt            string                 `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt            string                 `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt            string                 `protobuf:"bytes,10,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	CreatedBy            uint32                 `protobuf:"varint,11,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy            uint32                 `protobuf:"varint,12,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy            uint32                 `protobuf:"varint,13,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
@@ -558,13 +482,6 @@ func (x *GetResponse) GetCreatedAt() string {
 	return ""
 }
 
-func (x *GetResponse) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return ""
-}
-
 func (x *GetResponse) GetDeletedAt() string {
 	if x != nil {
 		return x.DeletedAt
@@ -572,31 +489,9 @@ func (x *GetResponse) GetDeletedAt() string {
 	return ""
 }
 
-func (x *GetResponse) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *GetResponse) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *GetResponse) GetDeletedBy() uint32 {
-	if x != nil {
-		return x.DeletedBy
-	}
-	return 0
-}
-
 type UpdateRequest struct {
 	state                protoimpl.MessageState `protogen:"open.v1"`
 	Id                   uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterUuid        string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	OriginAccountId      *uint32                `protobuf:"varint,3,opt,name=origin_account_id,json=originAccountId,proto3,oneof" json:"origin_account_id,omitempty"`
 	DestinationAccountId *uint32                `protobuf:"varint,4,opt,name=destination_account_id,json=destinationAccountId,proto3,oneof" json:"destination_account_id,omitempty"`
 	TransactionTypeId    *uint32                `protobuf:"varint,5,opt,name=transaction_type_id,json=transactionTypeId,proto3,oneof" json:"transaction_type_id,omitempty"`
@@ -643,13 +538,6 @@ func (x *UpdateRequest) GetId() uint32 {
 		return x.Id
 	}
 	return 0
-}
-
-func (x *UpdateRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
 }
 
 func (x *UpdateRequest) GetOriginAccountId() uint32 {
@@ -796,7 +684,6 @@ func (x *UpdateResponse) GetObservation() string {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -836,13 +723,6 @@ func (x *DeleteRequest) GetId() uint32 {
 		return x.Id
 	}
 	return 0
-}
-
-func (x *DeleteRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
 }
 
 type DeleteResponse struct {
@@ -1121,21 +1001,13 @@ var File_protos_transaction_proto protoreflect.FileDescriptor
 
 const file_protos_transaction_proto_rawDesc = "" +
 	"\n" +
-	"\x18protos/transaction.proto\x12\x11transaction_proto\"\xa1\x04\n" +
+	"\x18protos/transaction.proto\x12\x11transaction_proto\"\x91\x03\n" +
 	"\vTransaction\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\"\n" +
-	"\n" +
-	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
-	"\n" +
-	"created_by\x18\x05 \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\x06 \x01(\rR\tupdatedBy\x12\"\n" +
-	"\n" +
-	"deleted_by\x18\a \x01(\rH\x01R\tdeletedBy\x88\x01\x01\x12*\n" +
+	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12*\n" +
 	"\x11origin_account_id\x18\b \x01(\rR\x0foriginAccountId\x124\n" +
 	"\x16destination_account_id\x18\t \x01(\rR\x14destinationAccountId\x12.\n" +
 	"\x13transaction_type_id\x18\n" +
@@ -1146,12 +1018,10 @@ const file_protos_transaction_proto_rawDesc = "" +
 	"\n" +
 	"successful\x18\r \x01(\bR\n" +
 	"successful\x12%\n" +
-	"\vobservation\x18\x0e \x01(\tH\x02R\vobservation\x88\x01\x01B\r\n" +
-	"\v_deleted_atB\r\n" +
-	"\v_deleted_byB\x0e\n" +
-	"\f_observation\"\xd8\x02\n" +
-	"\rCreateRequest\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12*\n" +
+	"\vobservation\x18\x0e \x01(\tH\x01R\vobservation\x88\x01\x01B\r\n" +
+	"\v_deleted_atB\x0e\n" +
+	"\f_observation\"\xb1\x02\n" +
+	"\rCreateRequest\x12*\n" +
 	"\x11origin_account_id\x18\x02 \x01(\rR\x0foriginAccountId\x124\n" +
 	"\x16destination_account_id\x18\x03 \x01(\rR\x14destinationAccountId\x12.\n" +
 	"\x13transaction_type_id\x18\x04 \x01(\rR\x11transactionTypeId\x12\x16\n" +
@@ -1162,7 +1032,7 @@ const file_protos_transaction_proto_rawDesc = "" +
 	"successful\x18\a \x01(\bR\n" +
 	"successful\x12%\n" +
 	"\vobservation\x18\b \x01(\tH\x00R\vobservation\x88\x01\x01B\x0e\n" +
-	"\f_observation\"\xd7\x03\n" +
+	"\f_observation\"\xdb\x02\n" +
 	"\x0eCreateResponse\x12*\n" +
 	"\x11origin_account_id\x18\x01 \x01(\rR\x0foriginAccountId\x124\n" +
 	"\x16destination_account_id\x18\x02 \x01(\rR\x14destinationAccountId\x12.\n" +
@@ -1177,19 +1047,11 @@ const file_protos_transaction_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\b \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\t \x01(\tR\tupdatedAt\x12\x1d\n" +
-	"\n" +
 	"deleted_at\x18\n" +
-	" \x01(\tR\tdeletedAt\x12\x1d\n" +
-	"\n" +
-	"created_by\x18\v \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\f \x01(\rR\tupdatedBy\x12\x1d\n" +
-	"\n" +
-	"deleted_by\x18\r \x01(\rR\tdeletedBy\"\x1c\n" +
+	" \x01(\tR\tdeletedAt\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"\xd4\x03\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\xd8\x02\n" +
 	"\vGetResponse\x12*\n" +
 	"\x11origin_account_id\x18\x01 \x01(\rR\x0foriginAccountId\x124\n" +
 	"\x16destination_account_id\x18\x02 \x01(\rR\x14destinationAccountId\x12.\n" +
@@ -1204,19 +1066,10 @@ const file_protos_transaction_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\b \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\t \x01(\tR\tupdatedAt\x12\x1d\n" +
-	"\n" +
 	"deleted_at\x18\n" +
-	" \x01(\tR\tdeletedAt\x12\x1d\n" +
-	"\n" +
-	"created_by\x18\v \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\f \x01(\rR\tupdatedBy\x12\x1d\n" +
-	"\n" +
-	"deleted_by\x18\r \x01(\rR\tdeletedBy\"\xf9\x03\n" +
+	" \x01(\tR\tdeletedAt\"\xd2\x03\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
-	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\x12/\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12/\n" +
 	"\x11origin_account_id\x18\x03 \x01(\rH\x00R\x0foriginAccountId\x88\x01\x01\x129\n" +
 	"\x16destination_account_id\x18\x04 \x01(\rH\x01R\x14destinationAccountId\x88\x01\x01\x123\n" +
 	"\x13transaction_type_id\x18\x05 \x01(\rH\x02R\x11transactionTypeId\x88\x01\x01\x12\x1b\n" +
@@ -1244,10 +1097,9 @@ const file_protos_transaction_proto_rawDesc = "" +
 	"\n" +
 	"successful\x18\x06 \x01(\bR\n" +
 	"successful\x12 \n" +
-	"\vobservation\x18\a \x01(\tR\vobservation\"F\n" +
+	"\vobservation\x18\a \x01(\tR\vobservation\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
-	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\"*\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"*\n" +
 	"\x0eDeleteResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\"\x96\x05\n" +
 	"\vListRequest\x12\x19\n" +

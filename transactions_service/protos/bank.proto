@@ -16,17 +16,12 @@ message Bank {
   uint32 id = 1;
   string name = 2;
   string bank_number = 3;
-  uint32 created_by = 4;
-  uint32 updated_by = 5;
-  optional uint32 deleted_by = 6;
   string created_at = 7;
-  string updated_at = 8;
   optional string deleted_at = 9;
 }
   
 
 message CreateRequest {
-  string requester_uuid = 1;
   string name = 2;
   string bank_number = 3;
 }
@@ -34,11 +29,7 @@ message CreateRequest {
 message CreateResponse {
   string name = 1;
   string bank_number = 2;
-  uint32 created_by = 3;
-  uint32 updated_by = 4;
-  uint32 deleted_by = 5;
   string created_at = 6;
-  string updated_at = 7;
   string deleted_at = 8;
 }
 
@@ -49,17 +40,12 @@ message GetRequest {
 message GetResponse {
   string name = 1;
   string bank_number = 2;
-  uint32 created_by = 3;
-  uint32 updated_by = 4;
-  uint32 deleted_by = 5;
   string created_at = 6;
-  string updated_at = 7;
   string deleted_at = 8;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  string requester_uuid = 2;
   optional string name = 3;
   optional string bank_number = 4;
 }
@@ -71,7 +57,6 @@ message UpdateResponse {
 
 message DeleteRequest {
   uint32 id = 1;
-  string requester_uuid = 2;
 }
 
 message DeleteResponse {

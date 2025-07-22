@@ -26,11 +26,7 @@ type Bank struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	BankNumber    string                 `protobuf:"bytes,3,opt,name=bank_number,json=bankNumber,proto3" json:"bank_number,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,4,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,5,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     *uint32                `protobuf:"varint,6,opt,name=deleted_by,json=deletedBy,proto3,oneof" json:"deleted_by,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,9,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -87,37 +83,9 @@ func (x *Bank) GetBankNumber() string {
 	return ""
 }
 
-func (x *Bank) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *Bank) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *Bank) GetDeletedBy() uint32 {
-	if x != nil && x.DeletedBy != nil {
-		return *x.DeletedBy
-	}
-	return 0
-}
-
 func (x *Bank) GetCreatedAt() string {
 	if x != nil {
 		return x.CreatedAt
-	}
-	return ""
-}
-
-func (x *Bank) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
 	}
 	return ""
 }
@@ -131,7 +99,6 @@ func (x *Bank) GetDeletedAt() string {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequesterUuid string                 `protobuf:"bytes,1,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	BankNumber    string                 `protobuf:"bytes,3,opt,name=bank_number,json=bankNumber,proto3" json:"bank_number,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -168,13 +135,6 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_bank_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
-}
-
 func (x *CreateRequest) GetName() string {
 	if x != nil {
 		return x.Name
@@ -193,11 +153,7 @@ type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	BankNumber    string                 `protobuf:"bytes,2,opt,name=bank_number,json=bankNumber,proto3" json:"bank_number,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,3,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,4,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     uint32                 `protobuf:"varint,5,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt     string                 `protobuf:"bytes,8,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -247,37 +203,9 @@ func (x *CreateResponse) GetBankNumber() string {
 	return ""
 }
 
-func (x *CreateResponse) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *CreateResponse) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *CreateResponse) GetDeletedBy() uint32 {
-	if x != nil {
-		return x.DeletedBy
-	}
-	return 0
-}
-
 func (x *CreateResponse) GetCreatedAt() string {
 	if x != nil {
 		return x.CreatedAt
-	}
-	return ""
-}
-
-func (x *CreateResponse) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
 	}
 	return ""
 }
@@ -337,11 +265,7 @@ type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	BankNumber    string                 `protobuf:"bytes,2,opt,name=bank_number,json=bankNumber,proto3" json:"bank_number,omitempty"`
-	CreatedBy     uint32                 `protobuf:"varint,3,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
-	UpdatedBy     uint32                 `protobuf:"varint,4,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
-	DeletedBy     uint32                 `protobuf:"varint,5,opt,name=deleted_by,json=deletedBy,proto3" json:"deleted_by,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	DeletedAt     string                 `protobuf:"bytes,8,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -391,37 +315,9 @@ func (x *GetResponse) GetBankNumber() string {
 	return ""
 }
 
-func (x *GetResponse) GetCreatedBy() uint32 {
-	if x != nil {
-		return x.CreatedBy
-	}
-	return 0
-}
-
-func (x *GetResponse) GetUpdatedBy() uint32 {
-	if x != nil {
-		return x.UpdatedBy
-	}
-	return 0
-}
-
-func (x *GetResponse) GetDeletedBy() uint32 {
-	if x != nil {
-		return x.DeletedBy
-	}
-	return 0
-}
-
 func (x *GetResponse) GetCreatedAt() string {
 	if x != nil {
 		return x.CreatedAt
-	}
-	return ""
-}
-
-func (x *GetResponse) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
 	}
 	return ""
 }
@@ -436,7 +332,6 @@ func (x *GetResponse) GetDeletedAt() string {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	Name          *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	BankNumber    *string                `protobuf:"bytes,4,opt,name=bank_number,json=bankNumber,proto3,oneof" json:"bank_number,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -478,13 +373,6 @@ func (x *UpdateRequest) GetId() uint32 {
 		return x.Id
 	}
 	return 0
-}
-
-func (x *UpdateRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
 }
 
 func (x *UpdateRequest) GetName() string {
@@ -556,7 +444,6 @@ func (x *UpdateResponse) GetBankNumber() string {
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RequesterUuid string                 `protobuf:"bytes,2,opt,name=requester_uuid,json=requesterUuid,proto3" json:"requester_uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -596,13 +483,6 @@ func (x *DeleteRequest) GetId() uint32 {
 		return x.Id
 	}
 	return 0
-}
-
-func (x *DeleteRequest) GetRequesterUuid() string {
-	if x != nil {
-		return x.RequesterUuid
-	}
-	return ""
 }
 
 type DeleteResponse struct {
@@ -850,69 +730,42 @@ var File_protos_bank_proto protoreflect.FileDescriptor
 const file_protos_bank_proto_rawDesc = "" +
 	"\n" +
 	"\x11protos/bank.proto\x12\n" +
-	"bank_proto\"\xad\x02\n" +
+	"bank_proto\"\x9d\x01\n" +
 	"\x04Bank\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n" +
 	"\vbank_number\x18\x03 \x01(\tR\n" +
 	"bankNumber\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\x04 \x01(\rR\tcreatedBy\x12\x1d\n" +
+	"created_at\x18\a \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"updated_by\x18\x05 \x01(\rR\tupdatedBy\x12\"\n" +
-	"\n" +
-	"deleted_by\x18\x06 \x01(\rH\x00R\tdeletedBy\x88\x01\x01\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\a \x01(\tR\tcreatedAt\x12\x1d\n" +
-	"\n" +
-	"updated_at\x18\b \x01(\tR\tupdatedAt\x12\"\n" +
-	"\n" +
-	"deleted_at\x18\t \x01(\tH\x01R\tdeletedAt\x88\x01\x01B\r\n" +
-	"\v_deleted_byB\r\n" +
-	"\v_deleted_at\"k\n" +
-	"\rCreateRequest\x12%\n" +
-	"\x0erequester_uuid\x18\x01 \x01(\tR\rrequesterUuid\x12\x12\n" +
+	"deleted_at\x18\t \x01(\tH\x00R\tdeletedAt\x88\x01\x01B\r\n" +
+	"\v_deleted_at\"D\n" +
+	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n" +
 	"\vbank_number\x18\x03 \x01(\tR\n" +
-	"bankNumber\"\xff\x01\n" +
+	"bankNumber\"\x83\x01\n" +
 	"\x0eCreateResponse\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1f\n" +
 	"\vbank_number\x18\x02 \x01(\tR\n" +
 	"bankNumber\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\x03 \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\x04 \x01(\rR\tupdatedBy\x12\x1d\n" +
-	"\n" +
-	"deleted_by\x18\x05 \x01(\rR\tdeletedBy\x12\x1d\n" +
-	"\n" +
 	"created_at\x18\x06 \x01(\tR\tcreatedAt\x12\x1d\n" +
-	"\n" +
-	"updated_at\x18\a \x01(\tR\tupdatedAt\x12\x1d\n" +
 	"\n" +
 	"deleted_at\x18\b \x01(\tR\tdeletedAt\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"\xfc\x01\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\x80\x01\n" +
 	"\vGetResponse\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1f\n" +
 	"\vbank_number\x18\x02 \x01(\tR\n" +
 	"bankNumber\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\x03 \x01(\rR\tcreatedBy\x12\x1d\n" +
-	"\n" +
-	"updated_by\x18\x04 \x01(\rR\tupdatedBy\x12\x1d\n" +
-	"\n" +
-	"deleted_by\x18\x05 \x01(\rR\tdeletedBy\x12\x1d\n" +
-	"\n" +
 	"created_at\x18\x06 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\a \x01(\tR\tupdatedAt\x12\x1d\n" +
-	"\n" +
-	"deleted_at\x18\b \x01(\tR\tdeletedAt\"\x9e\x01\n" +
+	"deleted_at\x18\b \x01(\tR\tdeletedAt\"w\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
-	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\x12\x17\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x03 \x01(\tH\x00R\x04name\x88\x01\x01\x12$\n" +
 	"\vbank_number\x18\x04 \x01(\tH\x01R\n" +
 	"bankNumber\x88\x01\x01B\a\n" +
@@ -921,10 +774,9 @@ const file_protos_bank_proto_rawDesc = "" +
 	"\x0eUpdateResponse\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1f\n" +
 	"\vbank_number\x18\x02 \x01(\tR\n" +
-	"bankNumber\"F\n" +
+	"bankNumber\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12%\n" +
-	"\x0erequester_uuid\x18\x02 \x01(\tR\rrequesterUuid\"*\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"*\n" +
 	"\x0eDeleteResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\"\xb4\x02\n" +
 	"\vListRequest\x12\x19\n" +
