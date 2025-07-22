@@ -10,7 +10,6 @@ service RoleService {
     rpc List (ListRequest) returns (ListResponse);
     rpc Update (UpdateRequest) returns (UpdateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
-    rpc GetRoleUsers (GetRoleByUsersRequest) returns (GetRoleByUsersResponse);
 
 }
 
@@ -35,14 +34,6 @@ message CreateResponse {
 
 message GetRequest {
     uint32 id = 1;
-}
-
-message GetRoleByUsersRequest {
-    uint32 id = 1;
-}
-
-message GetRoleByUsersResponse {
-    repeated uint32 user_ids = 1;
 }
 
 message GetResponse {

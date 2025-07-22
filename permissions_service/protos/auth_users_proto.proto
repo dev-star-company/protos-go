@@ -10,7 +10,6 @@ service AuthUsersService {
   rpc List (ListRequest) returns (ListResponse);
   rpc Update (UpdateRequest) returns (UpdateResponse);
   rpc Delete (DeleteRequest) returns (DeleteResponse);
-  rpc GetRolesByUser (GetUserByRolesRequest) returns (GetUserByRolesResponse);
 
   rpc VerifyPassword (VerifyPasswordRequest) returns (VerifyPasswordResponse);
 }
@@ -74,14 +73,6 @@ message GetRequest {
 
 message GetResponse {
   User user = 1;
-}
-
-message GetUserByRolesRequest {
-  uint32 id = 1;
-}
-
-message GetUserByRolesResponse {
-  repeated uint32 roles_ids = 1;
 }
 
 message ListRequest {
