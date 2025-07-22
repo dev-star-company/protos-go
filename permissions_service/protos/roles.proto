@@ -42,7 +42,7 @@ message GetRoleByUsersRequest {
 }
 
 message GetRoleByUsersResponse {
-    repeated uint32 user_ids = 1;
+    repeated int32 user_ids = 1;
 }
 
 message GetResponse {

@@ -18,7 +18,6 @@ message Phone {
   string created_at = 3;
   optional string deleted_at = 5;
   bool main = 9;
-  string uuid = 10;
 }
 
 message Email {
@@ -27,7 +26,6 @@ message Email {
   string created_at = 3;
   optional string deleted_at = 5;
   bool main = 9;
-  string uuid = 10;
 }
 
 message User {
@@ -38,7 +36,6 @@ message User {
   string created_at = 5;
   optional string deleted_at = 7;
   repeated Phone phones = 12;
-  string uuid = 13;
 }
 
 message Relations {
@@ -95,7 +92,6 @@ message UpdateRequest {
   // optional string password = 6;
   // optional string confirm_password = 7;
   optional string phone = 8;
-  optional string uuid = 9;
 }
 
 message UpdateResponse {

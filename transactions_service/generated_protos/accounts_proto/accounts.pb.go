@@ -24,7 +24,7 @@ const (
 type Account struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	AccountTypeId uint32                 `protobuf:"varint,3,opt,name=account_type_id,json=accountTypeId,proto3" json:"account_type_id,omitempty"`
 	Balance       float64                `protobuf:"fixed64,4,opt,name=balance,proto3" json:"balance,omitempty"`
 	BankId        *uint32                `protobuf:"varint,5,opt,name=bank_id,json=bankId,proto3,oneof" json:"bank_id,omitempty"`
@@ -71,11 +71,11 @@ func (x *Account) GetId() uint32 {
 	return 0
 }
 
-func (x *Account) GetUserId() string {
+func (x *Account) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *Account) GetAccountTypeId() uint32 {
@@ -115,7 +115,7 @@ func (x *Account) GetDeletedAt() string {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	AccountTypeId uint32                 `protobuf:"varint,3,opt,name=account_type_id,json=accountTypeId,proto3" json:"account_type_id,omitempty"`
 	BankId        *uint32                `protobuf:"varint,4,opt,name=bank_id,json=bankId,proto3,oneof" json:"bank_id,omitempty"`
 	Balance       float64                `protobuf:"fixed64,5,opt,name=balance,proto3" json:"balance,omitempty"`
@@ -153,11 +153,11 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_accounts_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetUserId() string {
+func (x *CreateRequest) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *CreateRequest) GetAccountTypeId() uint32 {
@@ -183,7 +183,7 @@ func (x *CreateRequest) GetBalance() float64 {
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	AccountTypeId uint32                 `protobuf:"varint,2,opt,name=account_type_id,json=accountTypeId,proto3" json:"account_type_id,omitempty"`
 	BankId        uint32                 `protobuf:"varint,3,opt,name=bank_id,json=bankId,proto3" json:"bank_id,omitempty"`
 	Balance       float64                `protobuf:"fixed64,4,opt,name=balance,proto3" json:"balance,omitempty"`
@@ -223,11 +223,11 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_protos_accounts_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetUserId() string {
+func (x *CreateResponse) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *CreateResponse) GetAccountTypeId() uint32 {
@@ -311,7 +311,7 @@ func (x *GetRequest) GetId() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	AccountTypeId uint32                 `protobuf:"varint,2,opt,name=account_type_id,json=accountTypeId,proto3" json:"account_type_id,omitempty"`
 	BankId        uint32                 `protobuf:"varint,3,opt,name=bank_id,json=bankId,proto3" json:"bank_id,omitempty"`
 	Balance       float64                `protobuf:"fixed64,4,opt,name=balance,proto3" json:"balance,omitempty"`
@@ -351,11 +351,11 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_protos_accounts_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetUserId() string {
+func (x *GetResponse) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *GetResponse) GetAccountTypeId() uint32 {
@@ -396,7 +396,7 @@ func (x *GetResponse) GetDeletedAt() string {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	UserId        *string                `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserId        *int32                 `protobuf:"varint,3,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	AccountTypeId *uint32                `protobuf:"varint,4,opt,name=account_type_id,json=accountTypeId,proto3,oneof" json:"account_type_id,omitempty"`
 	BankId        *uint32                `protobuf:"varint,5,opt,name=bank_id,json=bankId,proto3,oneof" json:"bank_id,omitempty"`
 	Balance       *float64               `protobuf:"fixed64,6,opt,name=balance,proto3,oneof" json:"balance,omitempty"`
@@ -441,11 +441,11 @@ func (x *UpdateRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *UpdateRequest) GetUserId() string {
+func (x *UpdateRequest) GetUserId() int32 {
 	if x != nil && x.UserId != nil {
 		return *x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *UpdateRequest) GetAccountTypeId() uint32 {
@@ -471,7 +471,7 @@ func (x *UpdateRequest) GetBalance() float64 {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	AccountTypeId uint32                 `protobuf:"varint,2,opt,name=account_type_id,json=accountTypeId,proto3" json:"account_type_id,omitempty"`
 	BankId        uint32                 `protobuf:"varint,3,opt,name=bank_id,json=bankId,proto3" json:"bank_id,omitempty"`
 	Balance       float64                `protobuf:"fixed64,4,opt,name=balance,proto3" json:"balance,omitempty"`
@@ -511,11 +511,11 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_protos_accounts_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetUserId() string {
+func (x *UpdateResponse) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *UpdateResponse) GetAccountTypeId() uint32 {
@@ -646,7 +646,7 @@ type ListRequest struct {
 	Limit          *uint32                `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
-	UserId         *string                `protobuf:"bytes,4,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserId         *int32                 `protobuf:"varint,4,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	AccountTypeId  *uint32                `protobuf:"varint,5,opt,name=account_type_id,json=accountTypeId,proto3,oneof" json:"account_type_id,omitempty"`
 	BankId         *uint32                `protobuf:"varint,6,opt,name=bank_id,json=bankId,proto3,oneof" json:"bank_id,omitempty"`
 	Orderby        *OrderBy               `protobuf:"bytes,7,opt,name=orderby,proto3,oneof" json:"orderby,omitempty"`
@@ -705,11 +705,11 @@ func (x *ListRequest) GetIncludeDeleted() bool {
 	return false
 }
 
-func (x *ListRequest) GetUserId() string {
+func (x *ListRequest) GetUserId() int32 {
 	if x != nil && x.UserId != nil {
 		return *x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *ListRequest) GetAccountTypeId() uint32 {
@@ -844,7 +844,7 @@ const file_protos_accounts_proto_rawDesc = "" +
 	"\x15protos/accounts.proto\x12\x0eaccounts_proto\"\xf0\x01\n" +
 	"\aAccount\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\x12&\n" +
+	"\auser_id\x18\x02 \x01(\x05R\x06userId\x12&\n" +
 	"\x0faccount_type_id\x18\x03 \x01(\rR\raccountTypeId\x12\x18\n" +
 	"\abalance\x18\x04 \x01(\x01R\abalance\x12\x1c\n" +
 	"\abank_id\x18\x05 \x01(\rH\x00R\x06bankId\x88\x01\x01\x12\x1d\n" +
@@ -857,14 +857,14 @@ const file_protos_accounts_proto_rawDesc = "" +
 	"\b_bank_idB\r\n" +
 	"\v_deleted_at\"\x94\x01\n" +
 	"\rCreateRequest\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\x12&\n" +
+	"\auser_id\x18\x02 \x01(\x05R\x06userId\x12&\n" +
 	"\x0faccount_type_id\x18\x03 \x01(\rR\raccountTypeId\x12\x1c\n" +
 	"\abank_id\x18\x04 \x01(\rH\x00R\x06bankId\x88\x01\x01\x12\x18\n" +
 	"\abalance\x18\x05 \x01(\x01R\abalanceB\n" +
 	"\n" +
 	"\b_bank_id\"\xc2\x01\n" +
 	"\x0eCreateResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\x12&\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12&\n" +
 	"\x0faccount_type_id\x18\x02 \x01(\rR\raccountTypeId\x12\x17\n" +
 	"\abank_id\x18\x03 \x01(\rR\x06bankId\x12\x18\n" +
 	"\abalance\x18\x04 \x01(\x01R\abalance\x12\x1d\n" +
@@ -876,7 +876,7 @@ const file_protos_accounts_proto_rawDesc = "" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"\xbf\x01\n" +
 	"\vGetResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\x12&\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12&\n" +
 	"\x0faccount_type_id\x18\x02 \x01(\rR\raccountTypeId\x12\x17\n" +
 	"\abank_id\x18\x03 \x01(\rR\x06bankId\x12\x18\n" +
 	"\abalance\x18\x04 \x01(\x01R\abalance\x12\x1d\n" +
@@ -886,7 +886,7 @@ const file_protos_accounts_proto_rawDesc = "" +
 	"deleted_at\x18\t \x01(\tR\tdeletedAt\"\xdf\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
-	"\auser_id\x18\x03 \x01(\tH\x00R\x06userId\x88\x01\x01\x12+\n" +
+	"\auser_id\x18\x03 \x01(\x05H\x00R\x06userId\x88\x01\x01\x12+\n" +
 	"\x0faccount_type_id\x18\x04 \x01(\rH\x01R\raccountTypeId\x88\x01\x01\x12\x1c\n" +
 	"\abank_id\x18\x05 \x01(\rH\x02R\x06bankId\x88\x01\x01\x12\x1d\n" +
 	"\abalance\x18\x06 \x01(\x01H\x03R\abalance\x88\x01\x01B\n" +
@@ -898,7 +898,7 @@ const file_protos_accounts_proto_rawDesc = "" +
 	"\n" +
 	"\b_balance\"\xc2\x01\n" +
 	"\x0eUpdateResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\x12&\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12&\n" +
 	"\x0faccount_type_id\x18\x02 \x01(\rR\raccountTypeId\x12\x17\n" +
 	"\abank_id\x18\x03 \x01(\rR\x06bankId\x12\x18\n" +
 	"\abalance\x18\x04 \x01(\x01R\abalance\x12\x1d\n" +
@@ -914,7 +914,7 @@ const file_protos_accounts_proto_rawDesc = "" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
 	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12\x1c\n" +
-	"\auser_id\x18\x04 \x01(\tH\x03R\x06userId\x88\x01\x01\x12+\n" +
+	"\auser_id\x18\x04 \x01(\x05H\x03R\x06userId\x88\x01\x01\x12+\n" +
 	"\x0faccount_type_id\x18\x05 \x01(\rH\x04R\raccountTypeId\x88\x01\x01\x12\x1c\n" +
 	"\abank_id\x18\x06 \x01(\rH\x05R\x06bankId\x88\x01\x01\x126\n" +
 	"\aorderby\x18\a \x01(\v2\x17.accounts_proto.OrderByH\x06R\aorderby\x88\x01\x01B\b\n" +

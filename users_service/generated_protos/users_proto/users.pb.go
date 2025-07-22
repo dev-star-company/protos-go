@@ -28,7 +28,6 @@ type Phone struct {
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
-	Uuid          string                 `protobuf:"bytes,10,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -98,13 +97,6 @@ func (x *Phone) GetMain() bool {
 	return false
 }
 
-func (x *Phone) GetUuid() string {
-	if x != nil {
-		return x.Uuid
-	}
-	return ""
-}
-
 type Email struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -112,7 +104,6 @@ type Email struct {
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
-	Uuid          string                 `protobuf:"bytes,10,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -182,13 +173,6 @@ func (x *Email) GetMain() bool {
 	return false
 }
 
-func (x *Email) GetUuid() string {
-	if x != nil {
-		return x.Uuid
-	}
-	return ""
-}
-
 type User struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -198,7 +182,6 @@ type User struct {
 	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	Phones        []*Phone               `protobuf:"bytes,12,rep,name=phones,proto3" json:"phones,omitempty"`
-	Uuid          string                 `protobuf:"bytes,13,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -280,13 +263,6 @@ func (x *User) GetPhones() []*Phone {
 		return x.Phones
 	}
 	return nil
-}
-
-func (x *User) GetUuid() string {
-	if x != nil {
-		return x.Uuid
-	}
-	return ""
 }
 
 type Relations struct {
@@ -728,7 +704,6 @@ type UpdateRequest struct {
 	// optional string password = 6;
 	// optional string confirm_password = 7;
 	Phone         *string `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
-	Uuid          *string `protobuf:"bytes,9,opt,name=uuid,proto3,oneof" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -794,13 +769,6 @@ func (x *UpdateRequest) GetEmail() string {
 func (x *UpdateRequest) GetPhone() string {
 	if x != nil && x.Phone != nil {
 		return *x.Phone
-	}
-	return ""
-}
-
-func (x *UpdateRequest) GetUuid() string {
-	if x != nil && x.Uuid != nil {
-		return *x.Uuid
 	}
 	return ""
 }
@@ -933,7 +901,7 @@ var File_protos_users_proto protoreflect.FileDescriptor
 
 const file_protos_users_proto_rawDesc = "" +
 	"\n" +
-	"\x12protos/users.proto\x12\vusers_proto\"\xa7\x01\n" +
+	"\x12protos/users.proto\x12\vusers_proto\"\x93\x01\n" +
 	"\x05Phone\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05phone\x18\x02 \x01(\tR\x05phone\x12\x1d\n" +
@@ -941,10 +909,8 @@ const file_protos_users_proto_rawDesc = "" +
 	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
-	"\x04main\x18\t \x01(\bR\x04main\x12\x12\n" +
-	"\x04uuid\x18\n" +
-	" \x01(\tR\x04uuidB\r\n" +
-	"\v_deleted_at\"\xa7\x01\n" +
+	"\x04main\x18\t \x01(\bR\x04mainB\r\n" +
+	"\v_deleted_at\"\x93\x01\n" +
 	"\x05Email\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1d\n" +
@@ -952,10 +918,8 @@ const file_protos_users_proto_rawDesc = "" +
 	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
-	"\x04main\x18\t \x01(\bR\x04main\x12\x12\n" +
-	"\x04uuid\x18\n" +
-	" \x01(\tR\x04uuidB\r\n" +
-	"\v_deleted_at\"\x82\x02\n" +
+	"\x04main\x18\t \x01(\bR\x04mainB\r\n" +
+	"\v_deleted_at\"\xee\x01\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
@@ -965,8 +929,7 @@ const file_protos_users_proto_rawDesc = "" +
 	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\a \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12*\n" +
-	"\x06phones\x18\f \x03(\v2\x12.users_proto.PhoneR\x06phones\x12\x12\n" +
-	"\x04uuid\x18\r \x01(\tR\x04uuidB\r\n" +
+	"\x06phones\x18\f \x03(\v2\x12.users_proto.PhoneR\x06phonesB\r\n" +
 	"\v_deleted_at\"o\n" +
 	"\tRelations\x12\x16\n" +
 	"\x06emails\x18\x01 \x01(\bR\x06emails\x12\x16\n" +
@@ -1006,21 +969,19 @@ const file_protos_users_proto_rawDesc = "" +
 	"_relations\"K\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12%\n" +
-	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\xe4\x01\n" +
+	"\x04rows\x18\x02 \x03(\v2\x11.users_proto.UserR\x04rows\"\xc2\x01\n" +
 	"\rUpdateRequest\x12\x13\n" +
 	"\x02id\x18\x02 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x17\n" +
 	"\x04name\x18\x03 \x01(\tH\x01R\x04name\x88\x01\x01\x12\x1d\n" +
 	"\asurname\x18\x04 \x01(\tH\x02R\asurname\x88\x01\x01\x12\x19\n" +
 	"\x05email\x18\x05 \x01(\tH\x03R\x05email\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\b \x01(\tH\x04R\x05phone\x88\x01\x01\x12\x17\n" +
-	"\x04uuid\x18\t \x01(\tH\x05R\x04uuid\x88\x01\x01B\x05\n" +
+	"\x05phone\x18\b \x01(\tH\x04R\x05phone\x88\x01\x01B\x05\n" +
 	"\x03_idB\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
 	"\b_surnameB\b\n" +
 	"\x06_emailB\b\n" +
-	"\x06_phoneB\a\n" +
-	"\x05_uuid\"7\n" +
+	"\x06_phone\"7\n" +
 	"\x0eUpdateResponse\x12%\n" +
 	"\x04user\x18\x01 \x01(\v2\x11.users_proto.UserR\x04user\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +

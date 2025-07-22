@@ -26,7 +26,7 @@ type Ban struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	UserId        string                 `protobuf:"bytes,8,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,8,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	ExpiresAt     string                 `protobuf:"bytes,10,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -83,11 +83,11 @@ func (x *Ban) GetDeletedAt() string {
 	return ""
 }
 
-func (x *Ban) GetUserId() string {
+func (x *Ban) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *Ban) GetExpiresAt() string {
@@ -99,7 +99,7 @@ func (x *Ban) GetExpiresAt() string {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	ExpiresAt     string                 `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -135,11 +135,11 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_protos_ban_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetUserId() string {
+func (x *CreateRequest) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *CreateRequest) GetExpiresAt() string {
@@ -151,7 +151,7 @@ func (x *CreateRequest) GetExpiresAt() string {
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	ExpiresAt     string                 `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -187,11 +187,11 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_protos_ban_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetUserId() string {
+func (x *CreateResponse) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *CreateResponse) GetExpiresAt() string {
@@ -343,7 +343,7 @@ func (x *GetRequest) GetOffset() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	ExpiresAt     string                 `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -379,11 +379,11 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_protos_ban_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *GetResponse) GetUserId() string {
+func (x *GetResponse) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *GetResponse) GetExpiresAt() string {
@@ -399,7 +399,7 @@ type ListRequest struct {
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	OrderBy        *OrderBy               `protobuf:"bytes,4,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
-	UserId         *string                `protobuf:"bytes,5,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserId         *int32                 `protobuf:"varint,5,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	ExpiresAt      *string                `protobuf:"bytes,6,opt,name=expires_at,json=expiresAt,proto3,oneof" json:"expires_at,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
@@ -463,11 +463,11 @@ func (x *ListRequest) GetOrderBy() *OrderBy {
 	return nil
 }
 
-func (x *ListRequest) GetUserId() string {
+func (x *ListRequest) GetUserId() int32 {
 	if x != nil && x.UserId != nil {
 		return *x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *ListRequest) GetExpiresAt() string {
@@ -584,7 +584,7 @@ func (x *ListResponse) GetCount() uint32 {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	UserId        *string                `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserId        *int32                 `protobuf:"varint,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	ExpiresAt     *string                `protobuf:"bytes,3,opt,name=expires_at,json=expiresAt,proto3,oneof" json:"expires_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -627,11 +627,11 @@ func (x *UpdateRequest) GetId() uint32 {
 	return 0
 }
 
-func (x *UpdateRequest) GetUserId() string {
+func (x *UpdateRequest) GetUserId() int32 {
 	if x != nil && x.UserId != nil {
 		return *x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *UpdateRequest) GetExpiresAt() string {
@@ -643,7 +643,7 @@ func (x *UpdateRequest) GetExpiresAt() string {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	ExpiresAt     string                 `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -679,11 +679,11 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_protos_ban_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *UpdateResponse) GetUserId() string {
+func (x *UpdateResponse) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *UpdateResponse) GetExpiresAt() string {
@@ -704,17 +704,17 @@ const file_protos_ban_proto_rawDesc = "" +
 	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x17\n" +
-	"\auser_id\x18\b \x01(\tR\x06userId\x12\x1d\n" +
+	"\auser_id\x18\b \x01(\x05R\x06userId\x12\x1d\n" +
 	"\n" +
 	"expires_at\x18\n" +
 	" \x01(\tR\texpiresAtB\r\n" +
 	"\v_deleted_at\"G\n" +
 	"\rCreateRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1d\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12\x1d\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\tR\texpiresAt\"H\n" +
 	"\x0eCreateResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1d\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12\x1d\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\tR\texpiresAt\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
@@ -726,7 +726,7 @@ const file_protos_ban_proto_rawDesc = "" +
 	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
 	"\x06offset\x18\x04 \x01(\rR\x06offset\"E\n" +
 	"\vGetResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1d\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12\x1d\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\tR\texpiresAt\"\xba\x02\n" +
 	"\vListRequest\x12\x19\n" +
@@ -734,7 +734,7 @@ const file_protos_ban_proto_rawDesc = "" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
 	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x122\n" +
 	"\border_by\x18\x04 \x01(\v2\x12.ban_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12\x1c\n" +
-	"\auser_id\x18\x05 \x01(\tH\x04R\x06userId\x88\x01\x01\x12\"\n" +
+	"\auser_id\x18\x05 \x01(\x05H\x04R\x06userId\x88\x01\x01\x12\"\n" +
 	"\n" +
 	"expires_at\x18\x06 \x01(\tH\x05R\texpiresAt\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
@@ -755,14 +755,14 @@ const file_protos_ban_proto_rawDesc = "" +
 	"\x05count\x18\x02 \x01(\rR\x05count\"|\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
-	"\auser_id\x18\x02 \x01(\tH\x00R\x06userId\x88\x01\x01\x12\"\n" +
+	"\auser_id\x18\x02 \x01(\x05H\x00R\x06userId\x88\x01\x01\x12\"\n" +
 	"\n" +
 	"expires_at\x18\x03 \x01(\tH\x01R\texpiresAt\x88\x01\x01B\n" +
 	"\n" +
 	"\b_user_idB\r\n" +
 	"\v_expires_at\"H\n" +
 	"\x0eUpdateResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1d\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12\x1d\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\tR\texpiresAt2\xb8\x02\n" +
 	"\n" +
