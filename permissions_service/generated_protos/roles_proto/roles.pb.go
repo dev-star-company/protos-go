@@ -299,7 +299,7 @@ func (x *GetRoleByUsersRequest) GetId() uint32 {
 
 type GetRoleByUsersResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserIds       []int32                `protobuf:"varint,1,rep,packed,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
+	UserIds       []uint32               `protobuf:"varint,1,rep,packed,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -334,7 +334,7 @@ func (*GetRoleByUsersResponse) Descriptor() ([]byte, []int) {
 	return file_protos_roles_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetRoleByUsersResponse) GetUserIds() []int32 {
+func (x *GetRoleByUsersResponse) GetUserIds() []uint32 {
 	if x != nil {
 		return x.UserIds
 	}
@@ -813,7 +813,7 @@ const file_protos_roles_proto_rawDesc = "" +
 	"\x15GetRoleByUsersRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"3\n" +
 	"\x16GetRoleByUsersResponse\x12\x19\n" +
-	"\buser_ids\x18\x01 \x03(\x05R\auserIds\"4\n" +
+	"\buser_ids\x18\x01 \x03(\rR\auserIds\"4\n" +
 	"\vGetResponse\x12%\n" +
 	"\x04role\x18\x01 \x01(\v2\x11.roles_proto.RoleR\x04role\"\xe8\x02\n" +
 	"\vListRequest\x12\x19\n" +

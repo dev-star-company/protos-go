@@ -10,7 +10,7 @@ service AuthUsersService {
   rpc List (ListRequest) returns (ListResponse);
   rpc Update (UpdateRequest) returns (UpdateResponse);
   rpc Delete (DeleteRequest) returns (DeleteResponse);
-  rpc GetUserRoles (GetUserByRolesRequest) returns (GetUserByRolesResponse);
+  rpc GetRolesByUser (GetUserByRolesRequest) returns (GetUserByRolesResponse);
 
   rpc VerifyPassword (VerifyPasswordRequest) returns (VerifyPasswordResponse);
 }
@@ -21,7 +21,6 @@ message Phone {
   string created_at = 3;
   optional string deleted_at = 5;
   bool main = 9;
-  string uuid = 10;
 }
 
 message Email {
@@ -30,7 +29,6 @@ message Email {
   string created_at = 3;
   optional string deleted_at = 5;
   bool main = 9;
-  string uuid = 10;
 }
 
 message User {
@@ -41,7 +39,6 @@ message User {
   string created_at = 5;
   optional string deleted_at = 7;
   repeated Phone phones = 12;
-  string uuid = 13;
 }
 
 message Relations {
@@ -72,7 +69,7 @@ message CreateResponse {
 }
 
 message GetRequest {
-  string uuid = 1;
+  uint32 id = 1;
 }
 
 message GetResponse {
@@ -80,11 +77,11 @@ message GetResponse {
 }
 
 message GetUserByRolesRequest {
-    uint32 id = 1;
+  uint32 id = 1;
 }
 
 message GetUserByRolesResponse {
-    repeated uint32 roles_ids = 1;
+  repeated uint32 roles_ids = 1;
 }
 
 message ListRequest {
@@ -112,7 +109,6 @@ message UpdateRequest {
   optional string password = 6;
   optional string confirm_password = 7;
   optional string phone = 8;
-  optional string uuid = 9;
 }
 
 message UpdateResponse {
@@ -126,7 +122,7 @@ message DeleteRequest {
 message DeleteResponse {}
 
 message VerifyPasswordRequest {
-  optional string uuid = 1;
+  optional uint32 id = 1;
   string password = 2;
   optional string email = 4;
   optional string phone = 5;

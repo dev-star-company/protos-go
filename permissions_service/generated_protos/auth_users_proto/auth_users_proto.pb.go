@@ -28,7 +28,6 @@ type Phone struct {
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
-	Uuid          string                 `protobuf:"bytes,10,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -98,13 +97,6 @@ func (x *Phone) GetMain() bool {
 	return false
 }
 
-func (x *Phone) GetUuid() string {
-	if x != nil {
-		return x.Uuid
-	}
-	return ""
-}
-
 type Email struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -112,7 +104,6 @@ type Email struct {
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
-	Uuid          string                 `protobuf:"bytes,10,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -182,13 +173,6 @@ func (x *Email) GetMain() bool {
 	return false
 }
 
-func (x *Email) GetUuid() string {
-	if x != nil {
-		return x.Uuid
-	}
-	return ""
-}
-
 type User struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -198,7 +182,6 @@ type User struct {
 	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	Phones        []*Phone               `protobuf:"bytes,12,rep,name=phones,proto3" json:"phones,omitempty"`
-	Uuid          string                 `protobuf:"bytes,13,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -280,13 +263,6 @@ func (x *User) GetPhones() []*Phone {
 		return x.Phones
 	}
 	return nil
-}
-
-func (x *User) GetUuid() string {
-	if x != nil {
-		return x.Uuid
-	}
-	return ""
 }
 
 type Relations struct {
@@ -555,7 +531,7 @@ func (x *CreateResponse) GetUser() *User {
 
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -590,11 +566,11 @@ func (*GetRequest) Descriptor() ([]byte, []int) {
 	return file_protos_auth_users_proto_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *GetRequest) GetUuid() string {
+func (x *GetRequest) GetId() uint32 {
 	if x != nil {
-		return x.Uuid
+		return x.Id
 	}
-	return ""
+	return 0
 }
 
 type GetResponse struct {
@@ -898,7 +874,6 @@ type UpdateRequest struct {
 	Password        *string                `protobuf:"bytes,6,opt,name=password,proto3,oneof" json:"password,omitempty"`
 	ConfirmPassword *string                `protobuf:"bytes,7,opt,name=confirm_password,json=confirmPassword,proto3,oneof" json:"confirm_password,omitempty"`
 	Phone           *string                `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
-	Uuid            *string                `protobuf:"bytes,9,opt,name=uuid,proto3,oneof" json:"uuid,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -978,13 +953,6 @@ func (x *UpdateRequest) GetConfirmPassword() string {
 func (x *UpdateRequest) GetPhone() string {
 	if x != nil && x.Phone != nil {
 		return *x.Phone
-	}
-	return ""
-}
-
-func (x *UpdateRequest) GetUuid() string {
-	if x != nil && x.Uuid != nil {
-		return *x.Uuid
 	}
 	return ""
 }
@@ -1115,7 +1083,7 @@ func (*DeleteResponse) Descriptor() ([]byte, []int) {
 
 type VerifyPasswordRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Uuid          *string                `protobuf:"bytes,1,opt,name=uuid,proto3,oneof" json:"uuid,omitempty"`
+	Id            *uint32                `protobuf:"varint,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
 	Email         *string                `protobuf:"bytes,4,opt,name=email,proto3,oneof" json:"email,omitempty"`
 	Phone         *string                `protobuf:"bytes,5,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
@@ -1153,11 +1121,11 @@ func (*VerifyPasswordRequest) Descriptor() ([]byte, []int) {
 	return file_protos_auth_users_proto_proto_rawDescGZIP(), []int{17}
 }
 
-func (x *VerifyPasswordRequest) GetUuid() string {
-	if x != nil && x.Uuid != nil {
-		return *x.Uuid
+func (x *VerifyPasswordRequest) GetId() uint32 {
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
-	return ""
+	return 0
 }
 
 func (x *VerifyPasswordRequest) GetPassword() string {
@@ -1253,7 +1221,7 @@ var File_protos_auth_users_proto_proto protoreflect.FileDescriptor
 
 const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\n" +
-	"\x1dprotos/auth_users_proto.proto\x12\x10auth_users_proto\"\xa7\x01\n" +
+	"\x1dprotos/auth_users_proto.proto\x12\x10auth_users_proto\"\x93\x01\n" +
 	"\x05Phone\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05phone\x18\x02 \x01(\tR\x05phone\x12\x1d\n" +
@@ -1261,10 +1229,8 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
-	"\x04main\x18\t \x01(\bR\x04main\x12\x12\n" +
-	"\x04uuid\x18\n" +
-	" \x01(\tR\x04uuidB\r\n" +
-	"\v_deleted_at\"\xa7\x01\n" +
+	"\x04main\x18\t \x01(\bR\x04mainB\r\n" +
+	"\v_deleted_at\"\x93\x01\n" +
 	"\x05Email\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1d\n" +
@@ -1272,10 +1238,8 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
-	"\x04main\x18\t \x01(\bR\x04main\x12\x12\n" +
-	"\x04uuid\x18\n" +
-	" \x01(\tR\x04uuidB\r\n" +
-	"\v_deleted_at\"\x8c\x02\n" +
+	"\x04main\x18\t \x01(\bR\x04mainB\r\n" +
+	"\v_deleted_at\"\xf8\x01\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
@@ -1285,8 +1249,7 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\a \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12/\n" +
-	"\x06phones\x18\f \x03(\v2\x17.auth_users_proto.PhoneR\x06phones\x12\x12\n" +
-	"\x04uuid\x18\r \x01(\tR\x04uuidB\r\n" +
+	"\x06phones\x18\f \x03(\v2\x17.auth_users_proto.PhoneR\x06phonesB\r\n" +
 	"\v_deleted_at\"o\n" +
 	"\tRelations\x12\x16\n" +
 	"\x06emails\x18\x01 \x01(\bR\x06emails\x12\x16\n" +
@@ -1309,10 +1272,10 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x10confirm_password\x18\x06 \x01(\tR\x0fconfirmPassword\x12\x14\n" +
 	"\x05phone\x18\a \x01(\tR\x05phone\"<\n" +
 	"\x0eCreateResponse\x12*\n" +
-	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\" \n" +
+	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\x1c\n" +
 	"\n" +
-	"GetRequest\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"9\n" +
+	"GetRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"9\n" +
 	"\vGetResponse\x12*\n" +
 	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"'\n" +
 	"\x15GetUserByRolesRequest\x12\x0e\n" +
@@ -1342,7 +1305,7 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"_relations\"P\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12*\n" +
-	"\x04rows\x18\x02 \x03(\v2\x16.auth_users_proto.UserR\x04rows\"\xd7\x02\n" +
+	"\x04rows\x18\x02 \x03(\v2\x16.auth_users_proto.UserR\x04rows\"\xb5\x02\n" +
 	"\rUpdateRequest\x12\x13\n" +
 	"\x02id\x18\x02 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x17\n" +
 	"\x04name\x18\x03 \x01(\tH\x01R\x04name\x88\x01\x01\x12\x1d\n" +
@@ -1350,8 +1313,7 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x05email\x18\x05 \x01(\tH\x03R\x05email\x88\x01\x01\x12\x1f\n" +
 	"\bpassword\x18\x06 \x01(\tH\x04R\bpassword\x88\x01\x01\x12.\n" +
 	"\x10confirm_password\x18\a \x01(\tH\x05R\x0fconfirmPassword\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\b \x01(\tH\x06R\x05phone\x88\x01\x01\x12\x17\n" +
-	"\x04uuid\x18\t \x01(\tH\aR\x04uuid\x88\x01\x01B\x05\n" +
+	"\x05phone\x18\b \x01(\tH\x06R\x05phone\x88\x01\x01B\x05\n" +
 	"\x03_idB\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
@@ -1359,19 +1321,18 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x06_emailB\v\n" +
 	"\t_passwordB\x13\n" +
 	"\x11_confirm_passwordB\b\n" +
-	"\x06_phoneB\a\n" +
-	"\x05_uuid\"<\n" +
+	"\x06_phone\"<\n" +
 	"\x0eUpdateResponse\x12*\n" +
 	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\"\x10\n" +
-	"\x0eDeleteResponse\"\x9f\x01\n" +
-	"\x15VerifyPasswordRequest\x12\x17\n" +
-	"\x04uuid\x18\x01 \x01(\tH\x00R\x04uuid\x88\x01\x01\x12\x1a\n" +
+	"\x0eDeleteResponse\"\x99\x01\n" +
+	"\x15VerifyPasswordRequest\x12\x13\n" +
+	"\x02id\x18\x01 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x19\n" +
 	"\x05email\x18\x04 \x01(\tH\x01R\x05email\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\x05 \x01(\tH\x02R\x05phone\x88\x01\x01B\a\n" +
-	"\x05_uuidB\b\n" +
+	"\x05phone\x18\x05 \x01(\tH\x02R\x05phone\x88\x01\x01B\x05\n" +
+	"\x03_idB\b\n" +
 	"\x06_emailB\b\n" +
 	"\x06_phone\"\xf6\x01\n" +
 	"\x16VerifyPasswordResponse\x12\x18\n" +
@@ -1381,14 +1342,14 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x04user\x18\x05 \x01(\v2\x16.auth_users_proto.UserH\x02R\x04user\x88\x01\x01B\x14\n" +
 	"\x12_remaining_retriesB\x12\n" +
 	"\x10_suspended_untilB\a\n" +
-	"\x05_user2\xcc\x04\n" +
+	"\x05_user2\xce\x04\n" +
 	"\x10AuthUsersService\x12K\n" +
 	"\x06Create\x12\x1f.auth_users_proto.CreateRequest\x1a .auth_users_proto.CreateResponse\x12B\n" +
 	"\x03Get\x12\x1c.auth_users_proto.GetRequest\x1a\x1d.auth_users_proto.GetResponse\x12E\n" +
 	"\x04List\x12\x1d.auth_users_proto.ListRequest\x1a\x1e.auth_users_proto.ListResponse\x12K\n" +
 	"\x06Update\x12\x1f.auth_users_proto.UpdateRequest\x1a .auth_users_proto.UpdateResponse\x12K\n" +
-	"\x06Delete\x12\x1f.auth_users_proto.DeleteRequest\x1a .auth_users_proto.DeleteResponse\x12a\n" +
-	"\fGetUserRoles\x12'.auth_users_proto.GetUserByRolesRequest\x1a(.auth_users_proto.GetUserByRolesResponse\x12c\n" +
+	"\x06Delete\x12\x1f.auth_users_proto.DeleteRequest\x1a .auth_users_proto.DeleteResponse\x12c\n" +
+	"\x0eGetRolesByUser\x12'.auth_users_proto.GetUserByRolesRequest\x1a(.auth_users_proto.GetUserByRolesResponse\x12c\n" +
 	"\x0eVerifyPassword\x12'.auth_users_proto.VerifyPasswordRequest\x1a(.auth_users_proto.VerifyPasswordResponseB%Z#./generated_protos/auth_users_protob\x06proto3"
 
 var (
@@ -1439,14 +1400,14 @@ var file_protos_auth_users_proto_proto_depIdxs = []int32{
 	11, // 10: auth_users_proto.AuthUsersService.List:input_type -> auth_users_proto.ListRequest
 	13, // 11: auth_users_proto.AuthUsersService.Update:input_type -> auth_users_proto.UpdateRequest
 	15, // 12: auth_users_proto.AuthUsersService.Delete:input_type -> auth_users_proto.DeleteRequest
-	9,  // 13: auth_users_proto.AuthUsersService.GetUserRoles:input_type -> auth_users_proto.GetUserByRolesRequest
+	9,  // 13: auth_users_proto.AuthUsersService.GetRolesByUser:input_type -> auth_users_proto.GetUserByRolesRequest
 	17, // 14: auth_users_proto.AuthUsersService.VerifyPassword:input_type -> auth_users_proto.VerifyPasswordRequest
 	6,  // 15: auth_users_proto.AuthUsersService.Create:output_type -> auth_users_proto.CreateResponse
 	8,  // 16: auth_users_proto.AuthUsersService.Get:output_type -> auth_users_proto.GetResponse
 	12, // 17: auth_users_proto.AuthUsersService.List:output_type -> auth_users_proto.ListResponse
 	14, // 18: auth_users_proto.AuthUsersService.Update:output_type -> auth_users_proto.UpdateResponse
 	16, // 19: auth_users_proto.AuthUsersService.Delete:output_type -> auth_users_proto.DeleteResponse
-	10, // 20: auth_users_proto.AuthUsersService.GetUserRoles:output_type -> auth_users_proto.GetUserByRolesResponse
+	10, // 20: auth_users_proto.AuthUsersService.GetRolesByUser:output_type -> auth_users_proto.GetUserByRolesResponse
 	18, // 21: auth_users_proto.AuthUsersService.VerifyPassword:output_type -> auth_users_proto.VerifyPasswordResponse
 	15, // [15:22] is the sub-list for method output_type
 	8,  // [8:15] is the sub-list for method input_type

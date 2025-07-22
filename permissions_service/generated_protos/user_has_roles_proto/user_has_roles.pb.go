@@ -383,6 +383,8 @@ type ListRequest struct {
 	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	OrderBy        *OrderBy               `protobuf:"bytes,4,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
+	RoleId         *uint32                `protobuf:"varint,5,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
+	UserId         *int32                 `protobuf:"varint,6,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -443,6 +445,20 @@ func (x *ListRequest) GetOrderBy() *OrderBy {
 		return x.OrderBy
 	}
 	return nil
+}
+
+func (x *ListRequest) GetRoleId() uint32 {
+	if x != nil && x.RoleId != nil {
+		return *x.RoleId
+	}
+	return 0
+}
+
+func (x *ListRequest) GetUserId() int32 {
+	if x != nil && x.UserId != nil {
+		return *x.UserId
+	}
+	return 0
 }
 
 type OrderBy struct {
@@ -689,16 +705,22 @@ const file_protos_user_has_roles_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"?\n" +
 	"\vGetResponse\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\x05R\x06userId\"\xe8\x01\n" +
+	"\auser_id\x18\x02 \x01(\x05R\x06userId\"\xbc\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
 	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12=\n" +
-	"\border_by\x18\x04 \x01(\v2\x1d.user_has_roles_proto.OrderByH\x03R\aorderBy\x88\x01\x01B\b\n" +
+	"\border_by\x18\x04 \x01(\v2\x1d.user_has_roles_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12\x1c\n" +
+	"\arole_id\x18\x05 \x01(\rH\x04R\x06roleId\x88\x01\x01\x12\x1c\n" +
+	"\auser_id\x18\x06 \x01(\x05H\x05R\x06userId\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\x12\n" +
 	"\x10_include_deletedB\v\n" +
-	"\t_order_by\"X\n" +
+	"\t_order_byB\n" +
+	"\n" +
+	"\b_role_idB\n" +
+	"\n" +
+	"\b_user_id\"X\n" +
 	"\aOrderBy\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
 	"\n" +
