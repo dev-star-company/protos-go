@@ -16,10 +16,10 @@ service PromotionsService {
 message Promotions {
   uint32 id = 1;
   string created_at = 2;
-  optional string deleted_at = 4;
-  string name = 8;
-  string starting_datetime = 9;
-  string ending_datetime = 10;
+  optional string deleted_at = 3;
+  string name = 4;
+  string starting_datetime = 5;
+  string ending_datetime = 6;
 
 }
 
@@ -38,17 +38,17 @@ message AddProductsToPromotionResponse {
 }
 
 message CreateRequest {
-  string name = 2;
-  string starting_datetime = 3;
-  string ending_datetime = 4;
+  string name = 1;
+  string starting_datetime = 2;
+  string ending_datetime = 3;
 }
 
 message CreateResponse {
-  string name = 2;
-  string starting_datetime = 3;
-  string ending_datetime = 4;
-  string created_at = 5;
-  string deleted_at = 7;
+  string name = 1;
+  string starting_datetime = 2;
+  string ending_datetime = 3;
+  string created_at = 4;
+  string deleted_at = 5;
 }
 
 message GetRequest {
@@ -56,26 +56,26 @@ message GetRequest {
 }
 
 message GetResponse {
-  string name = 2;
-  string starting_datetime = 3;
-  string ending_datetime = 4;
-  string created_at = 5;
-  string deleted_at = 7;
+  string name = 1;
+  string starting_datetime = 2;
+  string ending_datetime = 3;
+  string created_at = 4;
+  string deleted_at = 5;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional string name = 3;
-  optional string starting_datetime = 4;
-  optional string ending_datetime = 5;
+  optional string name = 2;
+  optional string starting_datetime = 3;
+  optional string ending_datetime = 4;
 }
 
 message UpdateResponse {
-  string name = 2;
-  string starting_datetime = 3;
-  string ending_datetime = 4;
-  string created_at = 5;
-  string deleted_at = 7;
+  string name = 1;
+  string starting_datetime = 2;
+  string ending_datetime = 3;
+  string created_at = 4;
+  string deleted_at = 5;
 }
 
 message DeleteRequest {

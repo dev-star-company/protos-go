@@ -15,28 +15,28 @@ service ProductPricesService {
 message ProductPrices {
   uint32 id = 1;
   string created_at = 2;
-  optional string deleted_at = 4;
-  uint32 price_type_id = 8;
-  uint32 products_id = 9;
-  double default_value = 10;
-  optional double min_value = 11;
+  optional string deleted_at = 3;
+  uint32 price_type_id = 4;
+  uint32 products_id = 5;
+  double default_value = 6;
+  optional double min_value = 7;
 
 }
 
 message CreateRequest {
-  uint32 price_type_id = 2;
-  uint32 products_id = 3;
-  double default_value = 4;
-  optional double min_value = 5;
+  uint32 price_type_id = 1;
+  uint32 products_id = 2;
+  double default_value = 3;
+  optional double min_value = 4;
 }
 
 message CreateResponse {
-  uint32 price_type_id = 2;
-  uint32 products_id = 3;
-  double default_value = 4;
-  double min_value = 5;
-  string created_at = 6;
-  string deleted_at = 8;
+  uint32 price_type_id = 1;
+  uint32 products_id = 2;
+  double default_value = 3;
+  double min_value = 4;
+  string created_at = 5;
+  string deleted_at = 6;
 }
 
 message GetRequest {
@@ -44,29 +44,29 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 price_type_id = 2;
-  uint32 products_id = 3;
-  double default_value = 4;
-  double min_value = 5;
-  string created_at = 6;
-  string deleted_at = 8;
+  uint32 price_type_id = 1;
+  uint32 products_id = 2;
+  double default_value = 3;
+  double min_value = 4;
+  string created_at = 5;
+  string deleted_at = 6;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional uint32 price_type_id = 3;
-  optional uint32 products_id = 4;
-  optional double default_value = 5;
-  optional double min_value = 6;
+  optional uint32 price_type_id = 2;
+  optional uint32 products_id = 3;
+  optional double default_value = 4;
+  optional double min_value = 5;
 }
 
 message UpdateResponse {
-  uint32 price_type_id = 2;
-  uint32 products_id = 3;
-  double default_value = 4;
-  double min_value = 5;
-  string created_at = 6;
-  string deleted_at = 8;
+  uint32 price_type_id = 1;
+  uint32 products_id = 2;
+  double default_value = 3;
+  double min_value = 4;
+  string created_at = 5;
+  string deleted_at = 6;
 }
 
 message DeleteRequest {

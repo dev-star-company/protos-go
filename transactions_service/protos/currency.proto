@@ -15,20 +15,20 @@ service CurrencyService {
 message Currency {
   uint32 id = 1;
   string created_at = 2;
-  optional string deleted_at = 4;
-  string name = 8;
-  string symbol = 9;
-  string abbreviation = 10;
-  int32 decimals = 11;
-  uint32 currency_type_id = 12;
+  optional string deleted_at = 3;
+  string name = 4;
+  string symbol = 5;
+  string abbreviation = 6;
+  int32 decimals = 7;
+  uint32 currency_type_id = 8;
 }
 
 message CreateRequest {
-  string name = 2;
-  string symbol = 3;
-  string abbreviation = 4;
-  int32 decimals = 5;
-  uint32 currency_type_id = 6;
+  string name = 1;
+  string symbol = 2;
+  string abbreviation = 3;
+  int32 decimals = 4;
+  uint32 currency_type_id = 5;
 }
 
 message CreateResponse {
@@ -38,7 +38,7 @@ message CreateResponse {
   int32 decimals = 4;
   uint32 currency_type_id = 5;
   string created_at = 6;
-  string deleted_at = 8;
+  string deleted_at = 7;
 }
 
 message GetRequest {
@@ -52,16 +52,16 @@ message GetResponse {
   int32 decimals = 4;
   uint32 currency_type_id = 5;
   string created_at = 6;
-  string deleted_at = 8;
+  string deleted_at = 7;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional string name = 3;
-  optional string symbol = 4;
-  optional string abbreviation = 5;
-  optional int32 decimals = 6;
-  optional uint32 currency_type_id = 7;
+  optional string name = 2;
+  optional string symbol = 3;
+  optional string abbreviation = 4;
+  optional int32 decimals = 5;
+  optional uint32 currency_type_id = 6;
 }
 
 message UpdateResponse {

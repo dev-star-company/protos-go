@@ -16,21 +16,21 @@ message Bank {
   uint32 id = 1;
   string name = 2;
   string bank_number = 3;
-  string created_at = 7;
-  optional string deleted_at = 9;
+  string created_at = 4;
+  optional string deleted_at = 5;
 }
   
 
 message CreateRequest {
-  string name = 2;
-  string bank_number = 3;
+  string name = 1;
+  string bank_number = 2;
 }
 
 message CreateResponse {
   string name = 1;
   string bank_number = 2;
-  string created_at = 6;
-  string deleted_at = 8;
+  string created_at = 3;
+  string deleted_at = 4;
 }
 
 message GetRequest {
@@ -40,14 +40,14 @@ message GetRequest {
 message GetResponse {
   string name = 1;
   string bank_number = 2;
-  string created_at = 6;
-  string deleted_at = 8;
+  string created_at = 3;
+  string deleted_at = 4;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional string name = 3;
-  optional string bank_number = 4;
+  optional string name = 2;
+  optional string bank_number = 3;
 }
 
 message UpdateResponse {

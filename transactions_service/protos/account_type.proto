@@ -15,18 +15,18 @@ service AccountTypeService {
 message AccountType {
   uint32 id = 1;
   string name = 2;
-  string created_at = 5;
-  optional string deleted_at = 7;
+  string created_at = 3;
+  optional string deleted_at = 4;
 }
 
 message CreateRequest {
-  string name = 2;
+  string name = 1;
 }
 
 message CreateResponse {
   string name = 1;
-  string created_at = 4;
-  string deleted_at = 6;
+  string created_at = 2;
+  string deleted_at = 3;
 }
 
 message GetRequest {
@@ -35,8 +35,8 @@ message GetRequest {
 
 message GetResponse {
   string name = 1;
-  string created_at = 4;
-  string deleted_at = 6;
+  string created_at = 2;
+  string deleted_at = 3;
 }
 
 message OrderBy {

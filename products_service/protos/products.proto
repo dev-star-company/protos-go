@@ -15,37 +15,37 @@ service ProductsService {
 message Products {
   uint32 id = 1;
   string created_at = 2;
-  optional string deleted_at = 4;
-  optional uint32 category_id = 8;
-  optional uint32 brand_id = 9;
-  optional uint32 variant_type_id = 10;
-  optional uint32 product_references_id = 11;
-  optional uint32 image_id = 12;
-  string name = 13;
-  uint32 stock = 14;
+  optional string deleted_at = 3;
+  optional uint32 category_id = 4;
+  optional uint32 brand_id = 5;
+  optional uint32 variant_type_id = 6;
+  optional uint32 product_references_id = 7;
+  optional uint32 image_id = 8;
+  string name = 9;
+  uint32 stock = 10;
 }
 
 message CreateRequest {
-  optional uint32 category_id = 2;
-  optional uint32 brand_id = 3;
-  optional uint32 variant_type_id = 4;
-  optional uint32 product_references_id = 5;
-  optional uint32 image_id = 6;
-  string name = 7;
-  uint32 stock = 8;
+  optional uint32 category_id = 1;
+  optional uint32 brand_id = 2;
+  optional uint32 variant_type_id = 3;
+  optional uint32 product_references_id = 4;
+  optional uint32 image_id = 5;
+  string name = 6;
+  uint32 stock = 7;
   
 }
 
 message CreateResponse {
-  uint32 category_id = 2;
-  uint32 brand_id = 3;
-  uint32 variant_type_id = 4;
-  uint32 product_references_id = 5;
-  uint32 image_id = 6;
-  string name = 7;
-  uint32 stock = 8;
-  string created_at = 9;
-  string deleted_at = 11;
+  uint32 category_id = 1;
+  uint32 brand_id = 2;
+  uint32 variant_type_id = 3;
+  uint32 product_references_id = 4;
+  uint32 image_id = 5;
+  string name = 6;
+  uint32 stock = 7;
+  string created_at = 8;
+  string deleted_at = 9;
 }
 
 message GetRequest {
@@ -53,36 +53,36 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 category_id = 2;
-  uint32 brand_id = 3;
-  uint32 variant_type_id = 4;
-  uint32 product_references_id = 5;
-  uint32 image_id = 6;
-  string name = 7;
-  uint32 stock = 8;
-  string created_at = 9;
-  string deleted_at = 11;
+  uint32 category_id = 1;
+  uint32 brand_id = 2;
+  uint32 variant_type_id = 3;
+  uint32 product_references_id = 4;
+  uint32 image_id = 5;
+  string name = 6;
+  uint32 stock = 7;
+  string created_at = 8;
+  string deleted_at = 9;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional uint32 category_id = 3;
-  optional uint32 brand_id = 4;
-  optional uint32 variant_type_id = 5;
-  optional uint32 product_references_id = 6;
-  optional uint32 image_id = 7;
-  optional string name = 8;
-  optional uint32 stock = 9;
+  optional uint32 category_id = 2;
+  optional uint32 brand_id = 3;
+  optional uint32 variant_type_id = 4;
+  optional uint32 product_references_id = 5;
+  optional uint32 image_id = 6;
+  optional string name = 7;
+  optional uint32 stock = 8;
 }
 
 message UpdateResponse {
-  uint32 category_id = 2;
-  uint32 brand_id = 3;
-  uint32 variant_type_id = 4;
-  uint32 product_references_id = 5;
-  uint32 image_id = 6;
-  string name = 7;
-  uint32 stock = 8;
+  uint32 category_id = 1;
+  uint32 brand_id = 2;
+  uint32 variant_type_id = 3;
+  uint32 product_references_id = 4;
+  uint32 image_id = 5;
+  string name = 6;
+  uint32 stock = 7;
 }
 
 message DeleteRequest {

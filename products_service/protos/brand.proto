@@ -15,19 +15,19 @@ service BrandService {
 message Brand {
   uint32 id = 1;
   string created_at = 2;
-  optional string deleted_at = 4;
-  string name = 8;
+  optional string deleted_at = 3;
+  string name = 4;
 }
 
 message CreateRequest {
-  string name = 2;
+  string name = 1;
   
 }
 
 message CreateResponse {
-  string name = 2;
-  string created_at = 3;
-  string deleted_at = 5;
+  string name = 1;
+  string created_at = 2;
+  string deleted_at = 3;
 }
 
 message GetRequest {
@@ -35,20 +35,20 @@ message GetRequest {
 }
 
 message GetResponse {
-  string name = 2;
-  string created_at = 3;
-  string deleted_at = 5;
+  string name = 1;
+  string created_at = 2;
+  string deleted_at = 3;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional string name = 3;
+  optional string name = 2;
 }
 
 message UpdateResponse {
-  string name = 2;
-  string created_at = 3;
-  string deleted_at = 5;
+  string name = 1;
+  string created_at = 2;
+  string deleted_at = 3;
 }
 
 message DeleteRequest {

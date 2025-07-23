@@ -21,9 +21,9 @@ message Permission {
     string name = 2;
     string description = 3;
     string created_at = 4;
-    optional string deleted_at = 6;
-    bool is_active = 10;
-    string permission = 11;
+    optional string deleted_at = 5;
+    bool is_active = 6;
+    string permission = 7;
 }
 
 message Role {
@@ -31,13 +31,13 @@ message Role {
     string name = 2;
     string description = 3;
     string created_at = 4;
-    optional string deleted_at = 6;
-    bool is_active = 10;
+    optional string deleted_at = 5;
+    bool is_active = 6;
 }
 
 message CreateRequest {
     string name = 1;
-    string description = 3;
+    string description = 2;
 }
 
 message CreateResponse {
@@ -85,25 +85,25 @@ message AddPermissionRequest {
 }
 
 message AddPermissionResponse {
-    Role role = 1;
+    Role role = 3;
 }
 
 message RemovePermissionRequest {
-    uint32 role_id = 1;
-    uint32 permission_id = 2;
+    uint32 role_id = 4;
+    uint32 permission_id = 5;
 }
 
 message RemovePermissionResponse {
-    Role role = 1;
+    Role role = 6;
 }
 
 message GetPermissionsRequest {
-    uint32 role_id = 1;
-    uint32 limit = 2;
-    uint32 offset = 3;
+    uint32 role_id = 7;
+    uint32 limit = 8;
+    uint32 offset = 9;
 }
 
 message GetPermissionsResponse {
-    repeated Permission rows = 1;
-    uint32 count = 2;
+    repeated Permission rows = 10;
+    uint32 count = 11;
 }

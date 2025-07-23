@@ -15,22 +15,22 @@ service ProductHasInfoService {
 message ProductHasInfo {
   uint32 id = 1;
   string created_at = 2;
-  optional string deleted_at = 4;
-  uint32 products_id = 8;
-  uint32 product_info_id = 9;
+  optional string deleted_at = 3;
+  uint32 products_id = 4;
+  uint32 product_info_id = 5;
 
 }
 
 message CreateRequest {
-  uint32 products_id = 2;
-  uint32 product_info_id = 3;
+  uint32 products_id = 1;
+  uint32 product_info_id = 2;
 }
 
 message CreateResponse {
-  uint32 products_id = 2;
-  uint32 product_info_id = 3;
-  string created_at = 4;
-  string deleted_at = 6;
+  uint32 products_id = 1;
+  uint32 product_info_id = 2;
+  string created_at = 3;
+  string deleted_at = 4;
 }
 
 message GetRequest {
@@ -38,23 +38,23 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 products_id = 2;
-  uint32 product_info_id = 3;
-  string created_at = 4;
-  string deleted_at = 6;
+  uint32 products_id = 1;
+  uint32 product_info_id = 2;
+  string created_at = 3;
+  string deleted_at = 4;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional uint32 products_id = 3;
-  optional uint32 product_info_id = 4;
+  optional uint32 products_id = 2;
+  optional uint32 product_info_id = 3;
 }
 
 message UpdateResponse {
-  uint32 products_id = 2;
-  uint32 product_info_id = 3;
-  string created_at = 4;
-  string deleted_at = 6;
+  uint32 products_id = 1;
+  uint32 product_info_id = 2;
+  string created_at = 3;
+  string deleted_at = 4;
 }
 
 message DeleteRequest {

@@ -15,25 +15,25 @@ service FeaturesValuesService {
 message FeaturesValues {
   uint32 id = 1;
   string created_at = 2;
-  optional string deleted_at = 4;
-  uint32 feature_id = 8;
-  uint32 feature_unit_values_id = 9;
-  optional uint32 feature_values_id = 10;
-  string value = 11;
+  optional string deleted_at = 3;
+  uint32 feature_id = 4;
+  uint32 feature_unit_values_id = 5;
+  optional uint32 feature_values_id = 6;
+  string value = 7;
 }
 
 message CreateRequest {
-  uint32 feature_id = 2;
-  uint32 feature_unit_values_id = 3;
-  string value = 4;
+  uint32 feature_id = 1;
+  uint32 feature_unit_values_id = 2;
+  string value = 3;
 }
 
 message CreateResponse {
-  uint32 feature_id = 2;
-  uint32 feature_unit_values_id = 3;
-  string value = 4;
-  string created_at = 5;
-  string deleted_at = 7;
+  uint32 feature_id = 1;
+  uint32 feature_unit_values_id = 2;
+  string value = 3;
+  string created_at = 4;
+  string deleted_at = 5;
 }
 
 message GetRequest {
@@ -41,26 +41,26 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 feature_id = 2;
-  uint32 feature_unit_values_id = 3;
-  string value = 4;
-  string created_at = 5;
-  string deleted_at = 7;
+  uint32 feature_id = 1;
+  uint32 feature_unit_values_id = 2;
+  string value = 3;
+  string created_at = 4;
+  string deleted_at = 5;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional uint32 feature_id = 3;
-  optional uint32 feature_unit_values_id = 4;
-  optional string value = 5;
+  optional uint32 feature_id = 2;
+  optional uint32 feature_unit_values_id = 3;
+  optional string value = 4;
 }
 
 message UpdateResponse {
-  uint32 feature_id = 2;
-  uint32 feature_unit_values_id = 3;
-  string value = 4;
-  string created_at = 5;
-  string deleted_at = 7;
+  uint32 feature_id = 1;
+  uint32 feature_unit_values_id = 2;
+  string value = 3;
+  string created_at = 4;
+  string deleted_at = 5;
 }
 
 message DeleteRequest {

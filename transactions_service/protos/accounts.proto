@@ -18,16 +18,16 @@ message Account {
     uint32 account_type_id = 3;
     double balance = 4;
     optional uint32 bank_id = 5;
-    string created_at = 8;
-    optional string deleted_at = 10;
+    string created_at = 6;
+    optional string deleted_at = 7;
   }
   
 
 message CreateRequest {
-  int32 user_id = 2;
-  uint32 account_type_id = 3;
-  optional uint32 bank_id = 4;
-  double balance = 5;
+  int32 user_id = 1;
+  uint32 account_type_id = 2;
+  optional uint32 bank_id = 3;
+  double balance = 4;
 }
 
 message CreateResponse {
@@ -35,8 +35,8 @@ message CreateResponse {
   uint32 account_type_id = 2;
   uint32 bank_id = 3;
   double balance = 4;
-  string created_at = 7;
-  string deleted_at = 9;
+  string created_at = 5;
+  string deleted_at = 6;
 }
 
 message GetRequest {
@@ -48,16 +48,16 @@ message GetResponse {
   uint32 account_type_id = 2;
   uint32 bank_id = 3;
   double balance = 4;
-  string created_at = 7;
-  string deleted_at = 9;
+  string created_at = 5;
+  string deleted_at = 6;
 }
 
 message UpdateRequest {
   uint32 id = 1;
-  optional int32 user_id = 3;
-  optional uint32 account_type_id = 4;
-  optional uint32 bank_id = 5;
-  optional double balance = 6;
+  optional int32 user_id = 2;
+  optional uint32 account_type_id = 3;
+  optional uint32 bank_id = 4;
+  optional double balance = 5;
 }
 
 message UpdateResponse {
@@ -65,8 +65,8 @@ message UpdateResponse {
   uint32 account_type_id = 2;
   uint32 bank_id = 3;
   double balance = 4;
-  string created_at = 7;
-  string deleted_at = 9;
+  string created_at = 5;
+  string deleted_at = 6;
 }
 
 message DeleteRequest {
