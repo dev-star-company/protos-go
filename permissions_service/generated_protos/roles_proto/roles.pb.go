@@ -27,8 +27,8 @@ type Role struct {
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	IsActive      *bool                  `protobuf:"varint,10,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	IsActive      *bool                  `protobuf:"varint,6,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -705,9 +705,8 @@ const file_protos_roles_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x04 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\x06 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12 \n" +
-	"\tis_active\x18\n" +
-	" \x01(\bH\x01R\bisActive\x88\x01\x01B\r\n" +
+	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12 \n" +
+	"\tis_active\x18\x06 \x01(\bH\x01R\bisActive\x88\x01\x01B\r\n" +
 	"\v_deleted_atB\f\n" +
 	"\n" +
 	"_is_active\"u\n" +

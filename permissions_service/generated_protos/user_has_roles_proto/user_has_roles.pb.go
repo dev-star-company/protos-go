@@ -25,9 +25,9 @@ type UserHasRoles struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	RoleId        uint32                 `protobuf:"varint,8,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	UserId        int32                  `protobuf:"varint,9,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,3,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	RoleId        uint32                 `protobuf:"varint,4,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,5,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -327,8 +327,8 @@ func (x *GetRequest) GetId() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RoleId        uint32                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	RoleId        uint32                 `protobuf:"varint,2,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -379,12 +379,12 @@ func (x *GetResponse) GetUserId() int32 {
 
 type ListRequest struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
-	Limit          *uint32                `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
-	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
-	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
-	OrderBy        *OrderBy               `protobuf:"bytes,4,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
-	RoleId         *uint32                `protobuf:"varint,5,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
-	UserId         *int32                 `protobuf:"varint,6,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	Limit          *uint32                `protobuf:"varint,4,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset         *uint32                `protobuf:"varint,5,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
+	IncludeDeleted *bool                  `protobuf:"varint,6,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
+	OrderBy        *OrderBy               `protobuf:"bytes,7,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
+	RoleId         *uint32                `protobuf:"varint,8,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
+	UserId         *int32                 `protobuf:"varint,9,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -463,8 +463,8 @@ func (x *ListRequest) GetUserId() int32 {
 
 type OrderBy struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            *string                `protobuf:"bytes,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
-	CreatedAt     *string                `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
+	Id            *string                `protobuf:"bytes,10,opt,name=id,proto3,oneof" json:"id,omitempty"`
+	CreatedAt     *string                `protobuf:"bytes,11,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -515,8 +515,8 @@ func (x *OrderBy) GetCreatedAt() string {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Rows          []*UserHasRoles        `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
-	Count         uint32                 `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
+	Rows          []*UserHasRoles        `protobuf:"bytes,12,rep,name=rows,proto3" json:"rows,omitempty"`
+	Count         uint32                 `protobuf:"varint,13,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -567,9 +567,9 @@ func (x *ListResponse) GetCount() uint32 {
 
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RoleId        *uint32                `protobuf:"varint,2,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
-	UserId        *int32                 `protobuf:"varint,3,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	Id            uint32                 `protobuf:"varint,14,opt,name=id,proto3" json:"id,omitempty"`
+	RoleId        *uint32                `protobuf:"varint,15,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
+	UserId        *int32                 `protobuf:"varint,16,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -627,8 +627,8 @@ func (x *UpdateRequest) GetUserId() int32 {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RoleId        uint32                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	RoleId        uint32                 `protobuf:"varint,17,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	UserId        int32                  `protobuf:"varint,18,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -687,9 +687,9 @@ const file_protos_user_has_roles_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x17\n" +
-	"\arole_id\x18\b \x01(\rR\x06roleId\x12\x17\n" +
-	"\auser_id\x18\t \x01(\x05R\x06userIdB\r\n" +
+	"deleted_at\x18\x03 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x17\n" +
+	"\arole_id\x18\x04 \x01(\rR\x06roleId\x12\x17\n" +
+	"\auser_id\x18\x05 \x01(\x05R\x06userIdB\r\n" +
 	"\v_deleted_at\"A\n" +
 	"\rCreateRequest\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12\x17\n" +
@@ -704,15 +704,15 @@ const file_protos_user_has_roles_proto_rawDesc = "" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"?\n" +
 	"\vGetResponse\x12\x17\n" +
-	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\x05R\x06userId\"\xbc\x02\n" +
+	"\arole_id\x18\x02 \x01(\rR\x06roleId\x12\x17\n" +
+	"\auser_id\x18\x03 \x01(\x05R\x06userId\"\xbc\x02\n" +
 	"\vListRequest\x12\x19\n" +
-	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
-	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
-	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12=\n" +
-	"\border_by\x18\x04 \x01(\v2\x1d.user_has_roles_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12\x1c\n" +
-	"\arole_id\x18\x05 \x01(\rH\x04R\x06roleId\x88\x01\x01\x12\x1c\n" +
-	"\auser_id\x18\x06 \x01(\x05H\x05R\x06userId\x88\x01\x01B\b\n" +
+	"\x05limit\x18\x04 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x05 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
+	"\x0finclude_deleted\x18\x06 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12=\n" +
+	"\border_by\x18\a \x01(\v2\x1d.user_has_roles_proto.OrderByH\x03R\aorderBy\x88\x01\x01\x12\x1c\n" +
+	"\arole_id\x18\b \x01(\rH\x04R\x06roleId\x88\x01\x01\x12\x1c\n" +
+	"\auser_id\x18\t \x01(\x05H\x05R\x06userId\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\x12\n" +
 	"\x10_include_deletedB\v\n" +
@@ -722,25 +722,26 @@ const file_protos_user_has_roles_proto_rawDesc = "" +
 	"\n" +
 	"\b_user_id\"X\n" +
 	"\aOrderBy\x12\x13\n" +
-	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
+	"\x02id\x18\n" +
+	" \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"created_at\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
+	"created_at\x18\v \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
 	"\x03_idB\r\n" +
 	"\v_created_at\"\\\n" +
 	"\fListResponse\x126\n" +
-	"\x04rows\x18\x01 \x03(\v2\".user_has_roles_proto.UserHasRolesR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"s\n" +
+	"\x04rows\x18\f \x03(\v2\".user_has_roles_proto.UserHasRolesR\x04rows\x12\x14\n" +
+	"\x05count\x18\r \x01(\rR\x05count\"s\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
-	"\arole_id\x18\x02 \x01(\rH\x00R\x06roleId\x88\x01\x01\x12\x1c\n" +
-	"\auser_id\x18\x03 \x01(\x05H\x01R\x06userId\x88\x01\x01B\n" +
+	"\x02id\x18\x0e \x01(\rR\x02id\x12\x1c\n" +
+	"\arole_id\x18\x0f \x01(\rH\x00R\x06roleId\x88\x01\x01\x12\x1c\n" +
+	"\auser_id\x18\x10 \x01(\x05H\x01R\x06userId\x88\x01\x01B\n" +
 	"\n" +
 	"\b_role_idB\n" +
 	"\n" +
 	"\b_user_id\"B\n" +
 	"\x0eUpdateResponse\x12\x17\n" +
-	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\x05R\x06userId2\xaf\x03\n" +
+	"\arole_id\x18\x11 \x01(\rR\x06roleId\x12\x17\n" +
+	"\auser_id\x18\x12 \x01(\x05R\x06userId2\xaf\x03\n" +
 	"\x13UserHasRolesService\x12S\n" +
 	"\x06Create\x12#.user_has_roles_proto.CreateRequest\x1a$.user_has_roles_proto.CreateResponse\x12S\n" +
 	"\x06Delete\x12#.user_has_roles_proto.DeleteRequest\x1a$.user_has_roles_proto.DeleteResponse\x12M\n" +

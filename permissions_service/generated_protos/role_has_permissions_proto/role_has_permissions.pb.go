@@ -25,9 +25,9 @@ type RoleHasPermissions struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	RoleId        uint32                 `protobuf:"varint,8,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	PermissionId  uint32                 `protobuf:"varint,9,opt,name=permission_id,json=permissionId,proto3" json:"permission_id,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,3,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	RoleId        uint32                 `protobuf:"varint,4,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	PermissionId  uint32                 `protobuf:"varint,5,opt,name=permission_id,json=permissionId,proto3" json:"permission_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -284,8 +284,8 @@ func (*DeleteResponse) Descriptor() ([]byte, []int) {
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Limit         uint32                 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
-	Offset        uint32                 `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
+	Limit         uint32                 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Offset        uint32                 `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -343,8 +343,8 @@ func (x *GetRequest) GetOffset() uint32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RoleId        uint32                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	PermissionId  uint32                 `protobuf:"varint,2,opt,name=permission_id,json=permissionId,proto3" json:"permission_id,omitempty"`
+	RoleId        uint32                 `protobuf:"varint,4,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	PermissionId  uint32                 `protobuf:"varint,5,opt,name=permission_id,json=permissionId,proto3" json:"permission_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -395,10 +395,12 @@ func (x *GetResponse) GetPermissionId() uint32 {
 
 type ListRequest struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
-	Limit          *uint32                `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
-	Offset         *uint32                `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
-	IncludeDeleted *bool                  `protobuf:"varint,3,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
-	OrderBy        *OrderBy               `protobuf:"bytes,4,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
+	RoleId         *uint32                `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
+	PermissionId   *uint32                `protobuf:"varint,2,opt,name=permission_id,json=permissionId,proto3,oneof" json:"permission_id,omitempty"`
+	Limit          *uint32                `protobuf:"varint,6,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset         *uint32                `protobuf:"varint,7,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
+	IncludeDeleted *bool                  `protobuf:"varint,8,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
+	OrderBy        *OrderBy               `protobuf:"bytes,9,opt,name=order_by,json=orderBy,proto3,oneof" json:"order_by,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -433,6 +435,20 @@ func (*ListRequest) Descriptor() ([]byte, []int) {
 	return file_protos_role_has_permissions_proto_rawDescGZIP(), []int{7}
 }
 
+func (x *ListRequest) GetRoleId() uint32 {
+	if x != nil && x.RoleId != nil {
+		return *x.RoleId
+	}
+	return 0
+}
+
+func (x *ListRequest) GetPermissionId() uint32 {
+	if x != nil && x.PermissionId != nil {
+		return *x.PermissionId
+	}
+	return 0
+}
+
 func (x *ListRequest) GetLimit() uint32 {
 	if x != nil && x.Limit != nil {
 		return *x.Limit
@@ -463,8 +479,8 @@ func (x *ListRequest) GetOrderBy() *OrderBy {
 
 type OrderBy struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            *string                `protobuf:"bytes,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
-	CreatedAt     *string                `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
+	Id            *string                `protobuf:"bytes,10,opt,name=id,proto3,oneof" json:"id,omitempty"`
+	CreatedAt     *string                `protobuf:"bytes,11,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -515,8 +531,8 @@ func (x *OrderBy) GetCreatedAt() string {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Rows          []*RoleHasPermissions  `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
-	Count         uint32                 `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
+	Rows          []*RoleHasPermissions  `protobuf:"bytes,12,rep,name=rows,proto3" json:"rows,omitempty"`
+	Count         uint32                 `protobuf:"varint,13,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -567,9 +583,9 @@ func (x *ListResponse) GetCount() uint32 {
 
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	RoleId        *uint32                `protobuf:"varint,2,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
-	PermissionId  *uint32                `protobuf:"varint,3,opt,name=permission_id,json=permissionId,proto3,oneof" json:"permission_id,omitempty"`
+	Id            uint32                 `protobuf:"varint,14,opt,name=id,proto3" json:"id,omitempty"`
+	RoleId        *uint32                `protobuf:"varint,15,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
+	PermissionId  *uint32                `protobuf:"varint,16,opt,name=permission_id,json=permissionId,proto3,oneof" json:"permission_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -627,8 +643,8 @@ func (x *UpdateRequest) GetPermissionId() uint32 {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RoleId        uint32                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	PermissionId  uint32                 `protobuf:"varint,2,opt,name=permission_id,json=permissionId,proto3" json:"permission_id,omitempty"`
+	RoleId        uint32                 `protobuf:"varint,17,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	PermissionId  uint32                 `protobuf:"varint,18,opt,name=permission_id,json=permissionId,proto3" json:"permission_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -687,9 +703,9 @@ const file_protos_role_has_permissions_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x17\n" +
-	"\arole_id\x18\b \x01(\rR\x06roleId\x12#\n" +
-	"\rpermission_id\x18\t \x01(\rR\fpermissionIdB\r\n" +
+	"deleted_at\x18\x03 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x17\n" +
+	"\arole_id\x18\x04 \x01(\rR\x06roleId\x12#\n" +
+	"\rpermission_id\x18\x05 \x01(\rR\fpermissionIdB\r\n" +
 	"\v_deleted_at\"M\n" +
 	"\rCreateRequest\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12#\n" +
@@ -703,39 +719,45 @@ const file_protos_role_has_permissions_proto_rawDesc = "" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
-	"\x05limit\x18\x03 \x01(\rR\x05limit\x12\x16\n" +
-	"\x06offset\x18\x04 \x01(\rR\x06offset\"K\n" +
+	"\x05limit\x18\x02 \x01(\rR\x05limit\x12\x16\n" +
+	"\x06offset\x18\x03 \x01(\rR\x06offset\"K\n" +
 	"\vGetResponse\x12\x17\n" +
-	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12#\n" +
-	"\rpermission_id\x18\x02 \x01(\rR\fpermissionId\"\xee\x01\n" +
-	"\vListRequest\x12\x19\n" +
-	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
-	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
-	"\x0finclude_deleted\x18\x03 \x01(\bH\x02R\x0eincludeDeleted\x88\x01\x01\x12C\n" +
-	"\border_by\x18\x04 \x01(\v2#.role_has_permissions_proto.OrderByH\x03R\aorderBy\x88\x01\x01B\b\n" +
+	"\arole_id\x18\x04 \x01(\rR\x06roleId\x12#\n" +
+	"\rpermission_id\x18\x05 \x01(\rR\fpermissionId\"\xd4\x02\n" +
+	"\vListRequest\x12\x1c\n" +
+	"\arole_id\x18\x01 \x01(\rH\x00R\x06roleId\x88\x01\x01\x12(\n" +
+	"\rpermission_id\x18\x02 \x01(\rH\x01R\fpermissionId\x88\x01\x01\x12\x19\n" +
+	"\x05limit\x18\x06 \x01(\rH\x02R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\a \x01(\rH\x03R\x06offset\x88\x01\x01\x12,\n" +
+	"\x0finclude_deleted\x18\b \x01(\bH\x04R\x0eincludeDeleted\x88\x01\x01\x12C\n" +
+	"\border_by\x18\t \x01(\v2#.role_has_permissions_proto.OrderByH\x05R\aorderBy\x88\x01\x01B\n" +
+	"\n" +
+	"\b_role_idB\x10\n" +
+	"\x0e_permission_idB\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\x12\n" +
 	"\x10_include_deletedB\v\n" +
 	"\t_order_by\"X\n" +
 	"\aOrderBy\x12\x13\n" +
-	"\x02id\x18\x01 \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
+	"\x02id\x18\n" +
+	" \x01(\tH\x00R\x02id\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"created_at\x18\x02 \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
+	"created_at\x18\v \x01(\tH\x01R\tcreatedAt\x88\x01\x01B\x05\n" +
 	"\x03_idB\r\n" +
 	"\v_created_at\"h\n" +
 	"\fListResponse\x12B\n" +
-	"\x04rows\x18\x01 \x03(\v2..role_has_permissions_proto.RoleHasPermissionsR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"\x85\x01\n" +
+	"\x04rows\x18\f \x03(\v2..role_has_permissions_proto.RoleHasPermissionsR\x04rows\x12\x14\n" +
+	"\x05count\x18\r \x01(\rR\x05count\"\x85\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1c\n" +
-	"\arole_id\x18\x02 \x01(\rH\x00R\x06roleId\x88\x01\x01\x12(\n" +
-	"\rpermission_id\x18\x03 \x01(\rH\x01R\fpermissionId\x88\x01\x01B\n" +
+	"\x02id\x18\x0e \x01(\rR\x02id\x12\x1c\n" +
+	"\arole_id\x18\x0f \x01(\rH\x00R\x06roleId\x88\x01\x01\x12(\n" +
+	"\rpermission_id\x18\x10 \x01(\rH\x01R\fpermissionId\x88\x01\x01B\n" +
 	"\n" +
 	"\b_role_idB\x10\n" +
 	"\x0e_permission_id\"N\n" +
 	"\x0eUpdateResponse\x12\x17\n" +
-	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12#\n" +
-	"\rpermission_id\x18\x02 \x01(\rR\fpermissionId2\xf0\x03\n" +
+	"\arole_id\x18\x11 \x01(\rR\x06roleId\x12#\n" +
+	"\rpermission_id\x18\x12 \x01(\rR\fpermissionId2\xf0\x03\n" +
 	"\x18RoleHasPermissionService\x12_\n" +
 	"\x06Create\x12).role_has_permissions_proto.CreateRequest\x1a*.role_has_permissions_proto.CreateResponse\x12_\n" +
 	"\x06Delete\x12).role_has_permissions_proto.DeleteRequest\x1a*.role_has_permissions_proto.DeleteResponse\x12Y\n" +

@@ -15,9 +15,9 @@ service LoginAttemptsService {
 message LoginAttempts {
     uint32 id = 1;
     string created_at = 2;
-    optional string deleted_at = 4;
-    int32 user_id = 8;
-    bool successful = 9;
+    optional string deleted_at = 3;
+    int32 user_id = 4;
+    bool successful = 5;
 }
 
 message CreateRequest {
@@ -38,41 +38,41 @@ message DeleteResponse {}
 
 message GetRequest {
     uint32 id = 1;
-    uint32 limit = 3;
-    uint32 offset = 4;
+    uint32 limit = 2;
+    uint32 offset = 3;
 }
 
 message GetResponse {
-    int32 user_id = 1;
-    bool successful = 2;
+    int32 user_id = 4;
+    bool successful = 5;
 }
 
 message ListRequest {
-    optional uint32 limit = 1;
-    optional uint32 offset = 2;
-    optional bool include_deleted = 3;
-    optional OrderBy order_by = 4;
-    optional int32 user_id = 5;
-    optional bool successful = 6;
+    optional uint32 limit = 6;
+    optional uint32 offset = 7;
+    optional bool include_deleted = 8;
+    optional OrderBy order_by = 9;
+    optional int32 user_id = 10;
+    optional bool successful = 11;
 }
 
 message OrderBy {
-    optional string id = 1;
-    optional string created_at = 2;
+    optional string id = 12;
+    optional string created_at = 13;
 }
 
 message ListResponse {
-    repeated LoginAttempts rows = 1;
-    uint32 count = 2;
+    repeated LoginAttempts rows = 14;
+    uint32 count = 15;
 }
 
 message UpdateRequest {
-    uint32 id = 1;
-    optional int32 user_id = 2;
-    optional bool successful = 3;
+    uint32 id = 16;
+    optional int32 user_id = 17;
+    optional bool successful = 18;
 }
 
 message UpdateResponse {
-    int32 user_id = 1;
-    bool successful = 2;
+    int32 user_id = 19;
+    bool successful = 20;
 }

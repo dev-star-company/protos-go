@@ -15,17 +15,17 @@ service ServiceService {
 message ServiceDto {
     uint32 id = 1;
     string created_at = 2;
-    optional string deleted_at = 4;
-    string name = 8;
-    bool is_active = 9;
-    string description = 10;
-    string internal_name = 11;
+    optional string deleted_at = 3;
+    string name = 4;
+    bool is_active = 5;
+    string description = 6;
+    string internal_name = 7;
 }
 
 message CreateRequest {
     string name = 1;
-    string description = 3;
-    string internal_name = 4;
+    string description = 2;
+    string internal_name = 3;
 }
 
 message CreateResponse {
@@ -40,39 +40,39 @@ message DeleteResponse {}
 
 message GetRequest {
     uint32 id = 1;
-    uint32 limit = 3;
-    uint32 offset = 4;
+    uint32 limit = 2;
+    uint32 offset = 3;
 }
 
 message GetResponse {
-    string name = 1;
+    string name = 4;
 }
 
 message ListRequest {
-    optional uint32 limit = 1;
-    optional uint32 offset = 2;
-    optional bool include_deleted = 3;
-    optional string name = 4;
-    optional OrderBy order_by = 5;
-    optional string description = 6;
-    optional string internal_name = 7;
+    optional uint32 limit = 5;
+    optional uint32 offset = 6;
+    optional bool include_deleted = 7;
+    optional string name = 8;
+    optional OrderBy order_by = 9;
+    optional string description = 10;
+    optional string internal_name = 11;
 }
 
 message OrderBy {
-    optional string id = 1;
-    optional string created_at = 2;
+    optional string id = 12;
+    optional string created_at = 13;
 }
 
 message ListResponse {
-    repeated ServiceDto rows = 1;
-    uint32 count = 2;
+    repeated ServiceDto rows = 14;
+    uint32 count = 15;
 }
 
 message UpdateRequest {
-    uint32 id = 1;
-    optional string name = 2;
+    uint32 id = 16;
+    optional string name = 17;
 }
 
 message UpdateResponse {
-    string name = 1;
+    string name = 18;
 }

@@ -18,16 +18,18 @@ message Phone {
   uint32 id = 1;
   string phone = 2;
   string created_at = 3;
-  optional string deleted_at = 5;
-  bool main = 9;
+  optional string deleted_at = 4;
+  bool main = 5;
+  uint32 user_id = 6;
 }
 
 message Email {
   uint32 id = 1;
   string email = 2;
   string created_at = 3;
-  optional string deleted_at = 5;
-  bool main = 9;
+  optional string deleted_at = 4;
+  bool main = 5;
+  uint32 user_id = 6;
 }
 
 message User {
@@ -36,8 +38,8 @@ message User {
   string surname = 3;
   repeated Email emails = 4;
   string created_at = 5;
-  optional string deleted_at = 7;
-  repeated Phone phones = 12;
+  optional string deleted_at = 6;
+  repeated Phone phones = 7;
 }
 
 message Relations {
@@ -51,16 +53,17 @@ message Password {
   uint32 id = 1;
   string password = 2;
   string created_at = 3;
-  optional string deleted_at = 5;
+  optional string deleted_at = 4;
+  uint32 user_id = 5;
 }
 
 message CreateRequest {
-  string name = 2;
-  string surname = 3;
-  string email = 4;
-  string password = 5;
-  string confirm_password = 6;
-  string phone = 7;
+  string name = 1;
+  string surname = 2;
+  string email = 3;
+  string password = 4;
+  string confirm_password = 5;
+  string phone = 6;
 }
 
 message CreateResponse {
@@ -93,13 +96,13 @@ message ListResponse {
 }
 
 message UpdateRequest {
-  optional uint32 id = 2;
-  optional string name = 3;
-  optional string surname = 4;
-  optional string email = 5;
-  optional string password = 6;
-  optional string confirm_password = 7;
-  optional string phone = 8;
+  optional uint32 id = 1;
+  optional string name = 2;
+  optional string surname = 3;
+  optional string email = 4;
+  optional string password = 5;
+  optional string confirm_password = 6;
+  optional string phone = 7;
 }
 
 message UpdateResponse {
@@ -107,7 +110,7 @@ message UpdateResponse {
 }
 
 message DeleteRequest {
-  uint32 id = 2;
+  uint32 id = 1;
 }
 
 message DeleteResponse {}
@@ -115,13 +118,13 @@ message DeleteResponse {}
 message VerifyPasswordRequest {
   optional uint32 id = 1;
   string password = 2;
-  optional string email = 4;
-  optional string phone = 5;
+  optional string email = 3;
+  optional string phone = 4;
 }
 
 message VerifyPasswordResponse {
-  bool success = 1;
-  optional uint32 remaining_retries = 2;
-  optional string suspended_until = 4;
-  optional User user = 5;
+  bool success = 5;
+  optional uint32 remaining_retries = 6;
+  optional string suspended_until = 7;
+  optional User user = 8;
 }

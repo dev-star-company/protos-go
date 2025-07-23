@@ -26,8 +26,9 @@ type Phone struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Phone         string                 `protobuf:"bytes,2,opt,name=phone,proto3" json:"phone,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	Main          bool                   `protobuf:"varint,5,opt,name=main,proto3" json:"main,omitempty"`
+	UserId        uint32                 `protobuf:"varint,6,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -97,13 +98,21 @@ func (x *Phone) GetMain() bool {
 	return false
 }
 
+func (x *Phone) GetUserId() uint32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
 type Email struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	Main          bool                   `protobuf:"varint,9,opt,name=main,proto3" json:"main,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	Main          bool                   `protobuf:"varint,5,opt,name=main,proto3" json:"main,omitempty"`
+	UserId        uint32                 `protobuf:"varint,6,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -173,6 +182,13 @@ func (x *Email) GetMain() bool {
 	return false
 }
 
+func (x *Email) GetUserId() uint32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
 type User struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -180,8 +196,8 @@ type User struct {
 	Surname       string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
 	Emails        []*Email               `protobuf:"bytes,4,rep,name=emails,proto3" json:"emails,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	Phones        []*Phone               `protobuf:"bytes,12,rep,name=phones,proto3" json:"phones,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	Phones        []*Phone               `protobuf:"bytes,7,rep,name=phones,proto3" json:"phones,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -338,7 +354,8 @@ type Password struct {
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	UserId        uint32                 `protobuf:"varint,5,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -401,14 +418,21 @@ func (x *Password) GetDeletedAt() string {
 	return ""
 }
 
+func (x *Password) GetUserId() uint32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
 type CreateRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
-	Name            string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Surname         string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
-	Email           string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
-	Password        string                 `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
-	ConfirmPassword string                 `protobuf:"bytes,6,opt,name=confirm_password,json=confirmPassword,proto3" json:"confirm_password,omitempty"`
-	Phone           string                 `protobuf:"bytes,7,opt,name=phone,proto3" json:"phone,omitempty"`
+	Name            string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Surname         string                 `protobuf:"bytes,2,opt,name=surname,proto3" json:"surname,omitempty"`
+	Email           string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	Password        string                 `protobuf:"bytes,4,opt,name=password,proto3" json:"password,omitempty"`
+	ConfirmPassword string                 `protobuf:"bytes,5,opt,name=confirm_password,json=confirmPassword,proto3" json:"confirm_password,omitempty"`
+	Phone           string                 `protobuf:"bytes,6,opt,name=phone,proto3" json:"phone,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -779,13 +803,13 @@ func (x *ListResponse) GetRows() []*User {
 
 type UpdateRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
-	Id              *uint32                `protobuf:"varint,2,opt,name=id,proto3,oneof" json:"id,omitempty"`
-	Name            *string                `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	Surname         *string                `protobuf:"bytes,4,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
-	Email           *string                `protobuf:"bytes,5,opt,name=email,proto3,oneof" json:"email,omitempty"`
-	Password        *string                `protobuf:"bytes,6,opt,name=password,proto3,oneof" json:"password,omitempty"`
-	ConfirmPassword *string                `protobuf:"bytes,7,opt,name=confirm_password,json=confirmPassword,proto3,oneof" json:"confirm_password,omitempty"`
-	Phone           *string                `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
+	Id              *uint32                `protobuf:"varint,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
+	Name            *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	Surname         *string                `protobuf:"bytes,3,opt,name=surname,proto3,oneof" json:"surname,omitempty"`
+	Email           *string                `protobuf:"bytes,4,opt,name=email,proto3,oneof" json:"email,omitempty"`
+	Password        *string                `protobuf:"bytes,5,opt,name=password,proto3,oneof" json:"password,omitempty"`
+	ConfirmPassword *string                `protobuf:"bytes,6,opt,name=confirm_password,json=confirmPassword,proto3,oneof" json:"confirm_password,omitempty"`
+	Phone           *string                `protobuf:"bytes,7,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -915,7 +939,7 @@ func (x *UpdateResponse) GetUser() *User {
 
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            uint32                 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -997,8 +1021,8 @@ type VerifyPasswordRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            *uint32                `protobuf:"varint,1,opt,name=id,proto3,oneof" json:"id,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	Email         *string                `protobuf:"bytes,4,opt,name=email,proto3,oneof" json:"email,omitempty"`
-	Phone         *string                `protobuf:"bytes,5,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
+	Email         *string                `protobuf:"bytes,3,opt,name=email,proto3,oneof" json:"email,omitempty"`
+	Phone         *string                `protobuf:"bytes,4,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1063,10 +1087,10 @@ func (x *VerifyPasswordRequest) GetPhone() string {
 
 type VerifyPasswordResponse struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
-	Success          bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
-	RemainingRetries *uint32                `protobuf:"varint,2,opt,name=remaining_retries,json=remainingRetries,proto3,oneof" json:"remaining_retries,omitempty"`
-	SuspendedUntil   *string                `protobuf:"bytes,4,opt,name=suspended_until,json=suspendedUntil,proto3,oneof" json:"suspended_until,omitempty"`
-	User             *User                  `protobuf:"bytes,5,opt,name=user,proto3,oneof" json:"user,omitempty"`
+	Success          bool                   `protobuf:"varint,5,opt,name=success,proto3" json:"success,omitempty"`
+	RemainingRetries *uint32                `protobuf:"varint,6,opt,name=remaining_retries,json=remainingRetries,proto3,oneof" json:"remaining_retries,omitempty"`
+	SuspendedUntil   *string                `protobuf:"bytes,7,opt,name=suspended_until,json=suspendedUntil,proto3,oneof" json:"suspended_until,omitempty"`
+	User             *User                  `protobuf:"bytes,8,opt,name=user,proto3,oneof" json:"user,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -1133,24 +1157,26 @@ var File_protos_auth_users_proto_proto protoreflect.FileDescriptor
 
 const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\n" +
-	"\x1dprotos/auth_users_proto.proto\x12\x10auth_users_proto\"\x93\x01\n" +
+	"\x1dprotos/auth_users_proto.proto\x12\x10auth_users_proto\"\xac\x01\n" +
 	"\x05Phone\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05phone\x18\x02 \x01(\tR\x05phone\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
-	"\x04main\x18\t \x01(\bR\x04mainB\r\n" +
-	"\v_deleted_at\"\x93\x01\n" +
+	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
+	"\x04main\x18\x05 \x01(\bR\x04main\x12\x17\n" +
+	"\auser_id\x18\x06 \x01(\rR\x06userIdB\r\n" +
+	"\v_deleted_at\"\xac\x01\n" +
 	"\x05Email\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
-	"\x04main\x18\t \x01(\bR\x04mainB\r\n" +
+	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
+	"\x04main\x18\x05 \x01(\bR\x04main\x12\x17\n" +
+	"\auser_id\x18\x06 \x01(\rR\x06userIdB\r\n" +
 	"\v_deleted_at\"\xf8\x01\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
@@ -1160,29 +1186,30 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\a \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12/\n" +
-	"\x06phones\x18\f \x03(\v2\x17.auth_users_proto.PhoneR\x06phonesB\r\n" +
+	"deleted_at\x18\x06 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12/\n" +
+	"\x06phones\x18\a \x03(\v2\x17.auth_users_proto.PhoneR\x06phonesB\r\n" +
 	"\v_deleted_at\"o\n" +
 	"\tRelations\x12\x16\n" +
 	"\x06emails\x18\x01 \x01(\bR\x06emails\x12\x16\n" +
 	"\x06phones\x18\x02 \x01(\bR\x06phones\x12\x1c\n" +
 	"\tpasswords\x18\x03 \x01(\bR\tpasswords\x12\x14\n" +
-	"\x05roles\x18\x04 \x01(\bR\x05roles\"\x88\x01\n" +
+	"\x05roles\x18\x04 \x01(\bR\x05roles\"\xa1\x01\n" +
 	"\bPassword\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01B\r\n" +
+	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x17\n" +
+	"\auser_id\x18\x05 \x01(\rR\x06userIdB\r\n" +
 	"\v_deleted_at\"\xb0\x01\n" +
 	"\rCreateRequest\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
-	"\asurname\x18\x03 \x01(\tR\asurname\x12\x14\n" +
-	"\x05email\x18\x04 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x05 \x01(\tR\bpassword\x12)\n" +
-	"\x10confirm_password\x18\x06 \x01(\tR\x0fconfirmPassword\x12\x14\n" +
-	"\x05phone\x18\a \x01(\tR\x05phone\"<\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
+	"\asurname\x18\x02 \x01(\tR\asurname\x12\x14\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\x12\x1a\n" +
+	"\bpassword\x18\x04 \x01(\tR\bpassword\x12)\n" +
+	"\x10confirm_password\x18\x05 \x01(\tR\x0fconfirmPassword\x12\x14\n" +
+	"\x05phone\x18\x06 \x01(\tR\x05phone\"<\n" +
 	"\x0eCreateResponse\x12*\n" +
 	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\x1c\n" +
 	"\n" +
@@ -1215,13 +1242,13 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12*\n" +
 	"\x04rows\x18\x02 \x03(\v2\x16.auth_users_proto.UserR\x04rows\"\xb5\x02\n" +
 	"\rUpdateRequest\x12\x13\n" +
-	"\x02id\x18\x02 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x17\n" +
-	"\x04name\x18\x03 \x01(\tH\x01R\x04name\x88\x01\x01\x12\x1d\n" +
-	"\asurname\x18\x04 \x01(\tH\x02R\asurname\x88\x01\x01\x12\x19\n" +
-	"\x05email\x18\x05 \x01(\tH\x03R\x05email\x88\x01\x01\x12\x1f\n" +
-	"\bpassword\x18\x06 \x01(\tH\x04R\bpassword\x88\x01\x01\x12.\n" +
-	"\x10confirm_password\x18\a \x01(\tH\x05R\x0fconfirmPassword\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\b \x01(\tH\x06R\x05phone\x88\x01\x01B\x05\n" +
+	"\x02id\x18\x01 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x17\n" +
+	"\x04name\x18\x02 \x01(\tH\x01R\x04name\x88\x01\x01\x12\x1d\n" +
+	"\asurname\x18\x03 \x01(\tH\x02R\asurname\x88\x01\x01\x12\x19\n" +
+	"\x05email\x18\x04 \x01(\tH\x03R\x05email\x88\x01\x01\x12\x1f\n" +
+	"\bpassword\x18\x05 \x01(\tH\x04R\bpassword\x88\x01\x01\x12.\n" +
+	"\x10confirm_password\x18\x06 \x01(\tH\x05R\x0fconfirmPassword\x88\x01\x01\x12\x19\n" +
+	"\x05phone\x18\a \x01(\tH\x06R\x05phone\x88\x01\x01B\x05\n" +
 	"\x03_idB\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
@@ -1233,21 +1260,21 @@ const file_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x0eUpdateResponse\x12*\n" +
 	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\rR\x02id\"\x10\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\x10\n" +
 	"\x0eDeleteResponse\"\x99\x01\n" +
 	"\x15VerifyPasswordRequest\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x19\n" +
-	"\x05email\x18\x04 \x01(\tH\x01R\x05email\x88\x01\x01\x12\x19\n" +
-	"\x05phone\x18\x05 \x01(\tH\x02R\x05phone\x88\x01\x01B\x05\n" +
+	"\x05email\x18\x03 \x01(\tH\x01R\x05email\x88\x01\x01\x12\x19\n" +
+	"\x05phone\x18\x04 \x01(\tH\x02R\x05phone\x88\x01\x01B\x05\n" +
 	"\x03_idB\b\n" +
 	"\x06_emailB\b\n" +
 	"\x06_phone\"\xf6\x01\n" +
 	"\x16VerifyPasswordResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\x120\n" +
-	"\x11remaining_retries\x18\x02 \x01(\rH\x00R\x10remainingRetries\x88\x01\x01\x12,\n" +
-	"\x0fsuspended_until\x18\x04 \x01(\tH\x01R\x0esuspendedUntil\x88\x01\x01\x12/\n" +
-	"\x04user\x18\x05 \x01(\v2\x16.auth_users_proto.UserH\x02R\x04user\x88\x01\x01B\x14\n" +
+	"\asuccess\x18\x05 \x01(\bR\asuccess\x120\n" +
+	"\x11remaining_retries\x18\x06 \x01(\rH\x00R\x10remainingRetries\x88\x01\x01\x12,\n" +
+	"\x0fsuspended_until\x18\a \x01(\tH\x01R\x0esuspendedUntil\x88\x01\x01\x12/\n" +
+	"\x04user\x18\b \x01(\v2\x16.auth_users_proto.UserH\x02R\x04user\x88\x01\x01B\x14\n" +
 	"\x12_remaining_retriesB\x12\n" +
 	"\x10_suspended_untilB\a\n" +
 	"\x05_user2\xe9\x03\n" +

@@ -18,8 +18,8 @@ message Role {
     string name = 2;
     string description = 3;
     string created_at = 4;
-    optional string deleted_at = 6;
-    optional bool is_active = 10;
+    optional string deleted_at = 5;
+    optional bool is_active = 6;
 }
 
 message CreateRequest {
