@@ -10,6 +10,8 @@ service AuthUsersService {
   rpc List (ListRequest) returns (ListResponse);
   rpc Update (UpdateRequest) returns (UpdateResponse);
   rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc UpdateEmail(UpdateEmailRequest) returns (UpdateEmailResponse);
+  rpc UpdatePhone(UpdatePhoneRequest) returns (UpdatePhoneResponse);
 
   rpc VerifyPassword (VerifyPasswordRequest) returns (VerifyPasswordResponse);
 }
@@ -127,4 +129,22 @@ message VerifyPasswordResponse {
   optional uint32 remaining_retries = 6;
   optional string suspended_until = 7;
   optional User user = 8;
+}
+
+message UpdateEmailRequest {
+  int32 user_id = 1;
+  string email = 2;
+}
+
+message UpdateEmailResponse {
+  User user = 1;
+}
+
+message UpdatePhoneRequest {
+  int32 user_id = 1;
+  string phone = 2;
+}
+
+message UpdatePhoneResponse {
+  User user = 1;
 }
