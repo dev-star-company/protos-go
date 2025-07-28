@@ -140,6 +140,7 @@ message UpdateEmailRequest {
 
 message UpdateEmailResponse {
   User user = 1;
+  Email email = 2;
 }
 
 message UpdatePhoneRequest {
@@ -149,4 +150,5 @@ message UpdatePhoneRequest {
 
 message UpdatePhoneResponse {
   User user = 1;
+  Phone phone = 2;
 }
