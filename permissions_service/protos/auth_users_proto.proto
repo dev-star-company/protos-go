@@ -42,6 +42,7 @@ message User {
   string created_at = 5;
   optional string deleted_at = 6;
   repeated Phone phones = 7;
+  uint32 user_id = 8;
 }
 
 message Relations {
@@ -90,6 +91,7 @@ message ListRequest {
   optional bool include_deleted = 7;
   optional string phone = 8;
   optional Relations relations = 9;
+  optional uint32 user_id = 10;
 }
 
 message ListResponse {

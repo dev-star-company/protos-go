@@ -198,6 +198,7 @@ type User struct {
 	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	Phones        []*Phone               `protobuf:"bytes,7,rep,name=phones,proto3" json:"phones,omitempty"`
+	UserId        uint32                 `protobuf:"varint,8,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -279,6 +280,13 @@ func (x *User) GetPhones() []*Phone {
 		return x.Phones
 	}
 	return nil
+}
+
+func (x *User) GetUserId() uint32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
 }
 
 type Relations struct {
@@ -652,6 +660,7 @@ type ListRequest struct {
 	IncludeDeleted *bool                  `protobuf:"varint,7,opt,name=include_deleted,json=includeDeleted,proto3,oneof" json:"include_deleted,omitempty"`
 	Phone          *string                `protobuf:"bytes,8,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
 	Relations      *Relations             `protobuf:"bytes,9,opt,name=relations,proto3,oneof" json:"relations,omitempty"`
+	UserId         *uint32                `protobuf:"varint,10,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -747,6 +756,13 @@ func (x *ListRequest) GetRelations() *Relations {
 		return x.Relations
 	}
 	return nil
+}
+
+func (x *ListRequest) GetUserId() uint32 {
+	if x != nil && x.UserId != nil {
+		return *x.UserId
+	}
+	return 0
 }
 
 type ListResponse struct {
@@ -1385,7 +1401,7 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
 	"\x04main\x18\x05 \x01(\bR\x04main\x12\x17\n" +
 	"\auser_id\x18\x06 \x01(\rR\x06userIdB\r\n" +
-	"\v_deleted_at\"\xf8\x01\n" +
+	"\v_deleted_at\"\x91\x02\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
@@ -1395,7 +1411,8 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\x06 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12/\n" +
-	"\x06phones\x18\a \x03(\v2\x17.auth_users_proto.PhoneR\x06phonesB\r\n" +
+	"\x06phones\x18\a \x03(\v2\x17.auth_users_proto.PhoneR\x06phones\x12\x17\n" +
+	"\auser_id\x18\b \x01(\rR\x06userIdB\r\n" +
 	"\v_deleted_at\"o\n" +
 	"\tRelations\x12\x16\n" +
 	"\x06emails\x18\x01 \x01(\bR\x06emails\x12\x16\n" +
@@ -1424,7 +1441,7 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"9\n" +
 	"\vGetResponse\x12*\n" +
-	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\x9d\x03\n" +
+	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\"\xc7\x03\n" +
 	"\vListRequest\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\rH\x00R\x02id\x88\x01\x01\x12\x19\n" +
 	"\x05email\x18\x02 \x01(\tH\x01R\x05email\x88\x01\x01\x12\x17\n" +
@@ -1434,7 +1451,9 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x06offset\x18\x06 \x01(\rH\x05R\x06offset\x88\x01\x01\x12,\n" +
 	"\x0finclude_deleted\x18\a \x01(\bH\x06R\x0eincludeDeleted\x88\x01\x01\x12\x19\n" +
 	"\x05phone\x18\b \x01(\tH\aR\x05phone\x88\x01\x01\x12>\n" +
-	"\trelations\x18\t \x01(\v2\x1b.auth_users_proto.RelationsH\bR\trelations\x88\x01\x01B\x05\n" +
+	"\trelations\x18\t \x01(\v2\x1b.auth_users_proto.RelationsH\bR\trelations\x88\x01\x01\x12\x1c\n" +
+	"\auser_id\x18\n" +
+	" \x01(\rH\tR\x06userId\x88\x01\x01B\x05\n" +
 	"\x03_idB\b\n" +
 	"\x06_emailB\a\n" +
 	"\x05_nameB\n" +
@@ -1445,7 +1464,9 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x10_include_deletedB\b\n" +
 	"\x06_phoneB\f\n" +
 	"\n" +
-	"_relations\"P\n" +
+	"_relationsB\n" +
+	"\n" +
+	"\b_user_id\"P\n" +
 	"\fListResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\rR\x05count\x12*\n" +
 	"\x04rows\x18\x02 \x03(\v2\x16.auth_users_proto.UserR\x04rows\"\xb5\x02\n" +
