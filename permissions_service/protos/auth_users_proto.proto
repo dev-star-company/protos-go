@@ -44,7 +44,6 @@ message User {
   optional string deleted_at = 6;
   repeated Phone phones = 7;
   uint32 user_id = 8;
-  bool include_deleted = 9;
 }
 
 message Relations {

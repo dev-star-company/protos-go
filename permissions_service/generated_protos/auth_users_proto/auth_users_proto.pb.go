@@ -190,18 +190,17 @@ func (x *Email) GetUserId() uint32 {
 }
 
 type User struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Id             uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name           string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Surname        string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
-	Emails         []*Email               `protobuf:"bytes,4,rep,name=emails,proto3" json:"emails,omitempty"`
-	CreatedAt      string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt      *string                `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	Phones         []*Phone               `protobuf:"bytes,7,rep,name=phones,proto3" json:"phones,omitempty"`
-	UserId         uint32                 `protobuf:"varint,8,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	IncludeDeleted bool                   `protobuf:"varint,9,opt,name=include_deleted,json=includeDeleted,proto3" json:"include_deleted,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Surname       string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
+	Emails        []*Email               `protobuf:"bytes,4,rep,name=emails,proto3" json:"emails,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	Phones        []*Phone               `protobuf:"bytes,7,rep,name=phones,proto3" json:"phones,omitempty"`
+	UserId        uint32                 `protobuf:"varint,8,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *User) Reset() {
@@ -288,13 +287,6 @@ func (x *User) GetUserId() uint32 {
 		return x.UserId
 	}
 	return 0
-}
-
-func (x *User) GetIncludeDeleted() bool {
-	if x != nil {
-		return x.IncludeDeleted
-	}
-	return false
 }
 
 type Relations struct {
@@ -1489,7 +1481,7 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
 	"\x04main\x18\x05 \x01(\bR\x04main\x12\x17\n" +
 	"\auser_id\x18\x06 \x01(\rR\x06userIdB\r\n" +
-	"\v_deleted_at\"\xba\x02\n" +
+	"\v_deleted_at\"\x91\x02\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
@@ -1500,8 +1492,7 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"\n" +
 	"deleted_at\x18\x06 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12/\n" +
 	"\x06phones\x18\a \x03(\v2\x17.auth_users_proto.PhoneR\x06phones\x12\x17\n" +
-	"\auser_id\x18\b \x01(\rR\x06userId\x12'\n" +
-	"\x0finclude_deleted\x18\t \x01(\bR\x0eincludeDeletedB\r\n" +
+	"\auser_id\x18\b \x01(\rR\x06userIdB\r\n" +
 	"\v_deleted_at\"o\n" +
 	"\tRelations\x12\x16\n" +
 	"\x06emails\x18\x01 \x01(\bR\x06emails\x12\x16\n" +
