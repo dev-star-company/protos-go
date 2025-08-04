@@ -1377,6 +1377,86 @@ func (x *UpdatePhoneResponse) GetPhone() *Phone {
 	return nil
 }
 
+type RecoveryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecoveryRequest) Reset() {
+	*x = RecoveryRequest{}
+	mi := &file_permissions_service_protos_auth_users_proto_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecoveryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecoveryRequest) ProtoMessage() {}
+
+func (x *RecoveryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_permissions_service_protos_auth_users_proto_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecoveryRequest.ProtoReflect.Descriptor instead.
+func (*RecoveryRequest) Descriptor() ([]byte, []int) {
+	return file_permissions_service_protos_auth_users_proto_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *RecoveryRequest) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type RecoveryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecoveryResponse) Reset() {
+	*x = RecoveryResponse{}
+	mi := &file_permissions_service_protos_auth_users_proto_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecoveryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecoveryResponse) ProtoMessage() {}
+
+func (x *RecoveryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_permissions_service_protos_auth_users_proto_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecoveryResponse.ProtoReflect.Descriptor instead.
+func (*RecoveryResponse) Descriptor() ([]byte, []int) {
+	return file_permissions_service_protos_auth_users_proto_proto_rawDescGZIP(), []int{22}
+}
+
 var File_permissions_service_protos_auth_users_proto_proto protoreflect.FileDescriptor
 
 const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
@@ -1518,7 +1598,10 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x05phone\x18\x02 \x01(\tR\x05phone\"p\n" +
 	"\x13UpdatePhoneResponse\x12*\n" +
 	"\x04user\x18\x01 \x01(\v2\x16.auth_users_proto.UserR\x04user\x12-\n" +
-	"\x05phone\x18\x02 \x01(\v2\x17.auth_users_proto.PhoneR\x05phone2\xa1\x05\n" +
+	"\x05phone\x18\x02 \x01(\v2\x17.auth_users_proto.PhoneR\x05phone\"!\n" +
+	"\x0fRecoveryRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\x12\n" +
+	"\x10RecoveryResponse2\xf4\x05\n" +
 	"\x10AuthUsersService\x12K\n" +
 	"\x06Create\x12\x1f.auth_users_proto.CreateRequest\x1a .auth_users_proto.CreateResponse\x12B\n" +
 	"\x03Get\x12\x1c.auth_users_proto.GetRequest\x1a\x1d.auth_users_proto.GetResponse\x12E\n" +
@@ -1526,7 +1609,8 @@ const file_permissions_service_protos_auth_users_proto_proto_rawDesc = "" +
 	"\x06Update\x12\x1f.auth_users_proto.UpdateRequest\x1a .auth_users_proto.UpdateResponse\x12K\n" +
 	"\x06Delete\x12\x1f.auth_users_proto.DeleteRequest\x1a .auth_users_proto.DeleteResponse\x12Z\n" +
 	"\vUpdateEmail\x12$.auth_users_proto.UpdateEmailRequest\x1a%.auth_users_proto.UpdateEmailResponse\x12Z\n" +
-	"\vUpdatePhone\x12$.auth_users_proto.UpdatePhoneRequest\x1a%.auth_users_proto.UpdatePhoneResponse\x12c\n" +
+	"\vUpdatePhone\x12$.auth_users_proto.UpdatePhoneRequest\x1a%.auth_users_proto.UpdatePhoneResponse\x12Q\n" +
+	"\bRecovery\x12!.auth_users_proto.RecoveryRequest\x1a\".auth_users_proto.RecoveryResponse\x12c\n" +
 	"\x0eVerifyPassword\x12'.auth_users_proto.VerifyPasswordRequest\x1a(.auth_users_proto.VerifyPasswordResponseB%Z#./generated_protos/auth_users_protob\x06proto3"
 
 var (
@@ -1541,7 +1625,7 @@ func file_permissions_service_protos_auth_users_proto_proto_rawDescGZIP() []byte
 	return file_permissions_service_protos_auth_users_proto_proto_rawDescData
 }
 
-var file_permissions_service_protos_auth_users_proto_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
+var file_permissions_service_protos_auth_users_proto_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
 var file_permissions_service_protos_auth_users_proto_proto_goTypes = []any{
 	(*Phone)(nil),                  // 0: auth_users_proto.Phone
 	(*Email)(nil),                  // 1: auth_users_proto.Email
@@ -1564,6 +1648,8 @@ var file_permissions_service_protos_auth_users_proto_proto_goTypes = []any{
 	(*UpdateEmailResponse)(nil),    // 18: auth_users_proto.UpdateEmailResponse
 	(*UpdatePhoneRequest)(nil),     // 19: auth_users_proto.UpdatePhoneRequest
 	(*UpdatePhoneResponse)(nil),    // 20: auth_users_proto.UpdatePhoneResponse
+	(*RecoveryRequest)(nil),        // 21: auth_users_proto.RecoveryRequest
+	(*RecoveryResponse)(nil),       // 22: auth_users_proto.RecoveryResponse
 }
 var file_permissions_service_protos_auth_users_proto_proto_depIdxs = []int32{
 	1,  // 0: auth_users_proto.User.emails:type_name -> auth_users_proto.Email
@@ -1585,17 +1671,19 @@ var file_permissions_service_protos_auth_users_proto_proto_depIdxs = []int32{
 	13, // 16: auth_users_proto.AuthUsersService.Delete:input_type -> auth_users_proto.DeleteRequest
 	17, // 17: auth_users_proto.AuthUsersService.UpdateEmail:input_type -> auth_users_proto.UpdateEmailRequest
 	19, // 18: auth_users_proto.AuthUsersService.UpdatePhone:input_type -> auth_users_proto.UpdatePhoneRequest
-	15, // 19: auth_users_proto.AuthUsersService.VerifyPassword:input_type -> auth_users_proto.VerifyPasswordRequest
-	6,  // 20: auth_users_proto.AuthUsersService.Create:output_type -> auth_users_proto.CreateResponse
-	8,  // 21: auth_users_proto.AuthUsersService.Get:output_type -> auth_users_proto.GetResponse
-	10, // 22: auth_users_proto.AuthUsersService.List:output_type -> auth_users_proto.ListResponse
-	12, // 23: auth_users_proto.AuthUsersService.Update:output_type -> auth_users_proto.UpdateResponse
-	14, // 24: auth_users_proto.AuthUsersService.Delete:output_type -> auth_users_proto.DeleteResponse
-	18, // 25: auth_users_proto.AuthUsersService.UpdateEmail:output_type -> auth_users_proto.UpdateEmailResponse
-	20, // 26: auth_users_proto.AuthUsersService.UpdatePhone:output_type -> auth_users_proto.UpdatePhoneResponse
-	16, // 27: auth_users_proto.AuthUsersService.VerifyPassword:output_type -> auth_users_proto.VerifyPasswordResponse
-	20, // [20:28] is the sub-list for method output_type
-	12, // [12:20] is the sub-list for method input_type
+	21, // 19: auth_users_proto.AuthUsersService.Recovery:input_type -> auth_users_proto.RecoveryRequest
+	15, // 20: auth_users_proto.AuthUsersService.VerifyPassword:input_type -> auth_users_proto.VerifyPasswordRequest
+	6,  // 21: auth_users_proto.AuthUsersService.Create:output_type -> auth_users_proto.CreateResponse
+	8,  // 22: auth_users_proto.AuthUsersService.Get:output_type -> auth_users_proto.GetResponse
+	10, // 23: auth_users_proto.AuthUsersService.List:output_type -> auth_users_proto.ListResponse
+	12, // 24: auth_users_proto.AuthUsersService.Update:output_type -> auth_users_proto.UpdateResponse
+	14, // 25: auth_users_proto.AuthUsersService.Delete:output_type -> auth_users_proto.DeleteResponse
+	18, // 26: auth_users_proto.AuthUsersService.UpdateEmail:output_type -> auth_users_proto.UpdateEmailResponse
+	20, // 27: auth_users_proto.AuthUsersService.UpdatePhone:output_type -> auth_users_proto.UpdatePhoneResponse
+	22, // 28: auth_users_proto.AuthUsersService.Recovery:output_type -> auth_users_proto.RecoveryResponse
+	16, // 29: auth_users_proto.AuthUsersService.VerifyPassword:output_type -> auth_users_proto.VerifyPasswordResponse
+	21, // [21:30] is the sub-list for method output_type
+	12, // [12:21] is the sub-list for method input_type
 	12, // [12:12] is the sub-list for extension type_name
 	12, // [12:12] is the sub-list for extension extendee
 	0,  // [0:12] is the sub-list for field type_name
@@ -1620,7 +1708,7 @@ func file_permissions_service_protos_auth_users_proto_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_permissions_service_protos_auth_users_proto_proto_rawDesc), len(file_permissions_service_protos_auth_users_proto_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   21,
+			NumMessages:   23,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

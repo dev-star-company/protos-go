@@ -26,6 +26,7 @@ const (
 	AuthUsersService_Delete_FullMethodName         = "/auth_users_proto.AuthUsersService/Delete"
 	AuthUsersService_UpdateEmail_FullMethodName    = "/auth_users_proto.AuthUsersService/UpdateEmail"
 	AuthUsersService_UpdatePhone_FullMethodName    = "/auth_users_proto.AuthUsersService/UpdatePhone"
+	AuthUsersService_Recovery_FullMethodName       = "/auth_users_proto.AuthUsersService/Recovery"
 	AuthUsersService_VerifyPassword_FullMethodName = "/auth_users_proto.AuthUsersService/VerifyPassword"
 )
 
@@ -40,6 +41,7 @@ type AuthUsersServiceClient interface {
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	UpdateEmail(ctx context.Context, in *UpdateEmailRequest, opts ...grpc.CallOption) (*UpdateEmailResponse, error)
 	UpdatePhone(ctx context.Context, in *UpdatePhoneRequest, opts ...grpc.CallOption) (*UpdatePhoneResponse, error)
+	Recovery(ctx context.Context, in *RecoveryRequest, opts ...grpc.CallOption) (*RecoveryResponse, error)
 	VerifyPassword(ctx context.Context, in *VerifyPasswordRequest, opts ...grpc.CallOption) (*VerifyPasswordResponse, error)
 }
 
@@ -121,6 +123,16 @@ func (c *authUsersServiceClient) UpdatePhone(ctx context.Context, in *UpdatePhon
 	return out, nil
 }
 
+func (c *authUsersServiceClient) Recovery(ctx context.Context, in *RecoveryRequest, opts ...grpc.CallOption) (*RecoveryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecoveryResponse)
+	err := c.cc.Invoke(ctx, AuthUsersService_Recovery_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *authUsersServiceClient) VerifyPassword(ctx context.Context, in *VerifyPasswordRequest, opts ...grpc.CallOption) (*VerifyPasswordResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(VerifyPasswordResponse)
@@ -142,6 +154,7 @@ type AuthUsersServiceServer interface {
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	UpdateEmail(context.Context, *UpdateEmailRequest) (*UpdateEmailResponse, error)
 	UpdatePhone(context.Context, *UpdatePhoneRequest) (*UpdatePhoneResponse, error)
+	Recovery(context.Context, *RecoveryRequest) (*RecoveryResponse, error)
 	VerifyPassword(context.Context, *VerifyPasswordRequest) (*VerifyPasswordResponse, error)
 	mustEmbedUnimplementedAuthUsersServiceServer()
 }
@@ -173,6 +186,9 @@ func (UnimplementedAuthUsersServiceServer) UpdateEmail(context.Context, *UpdateE
 }
 func (UnimplementedAuthUsersServiceServer) UpdatePhone(context.Context, *UpdatePhoneRequest) (*UpdatePhoneResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdatePhone not implemented")
+}
+func (UnimplementedAuthUsersServiceServer) Recovery(context.Context, *RecoveryRequest) (*RecoveryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Recovery not implemented")
 }
 func (UnimplementedAuthUsersServiceServer) VerifyPassword(context.Context, *VerifyPasswordRequest) (*VerifyPasswordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyPassword not implemented")
@@ -324,6 +340,24 @@ func _AuthUsersService_UpdatePhone_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthUsersService_Recovery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecoveryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthUsersServiceServer).Recovery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthUsersService_Recovery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthUsersServiceServer).Recovery(ctx, req.(*RecoveryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _AuthUsersService_VerifyPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(VerifyPasswordRequest)
 	if err := dec(in); err != nil {
@@ -376,6 +410,10 @@ var AuthUsersService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdatePhone",
 			Handler:    _AuthUsersService_UpdatePhone_Handler,
+		},
+		{
+			MethodName: "Recovery",
+			Handler:    _AuthUsersService_Recovery_Handler,
 		},
 		{
 			MethodName: "VerifyPassword",
