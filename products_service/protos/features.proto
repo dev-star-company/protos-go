@@ -26,10 +26,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  string name = 1;
-  uint32 feature_value_id = 2;
-  string created_at = 3;
-  string deleted_at = 4;
+  Features features = 1;
 }
 
 message GetRequest {

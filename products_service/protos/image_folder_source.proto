@@ -31,12 +31,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  string name = 1;
-  string base_url = 2;
-  string acess_key = 3;
-  string secret_key = 4;
-  string created_at = 5;
-  string deleted_at = 6;;
+  ImageFolderSource imagefoldersource = 1;
 }
 
 message GetRequest {
@@ -44,12 +39,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  string name = 1;
-  string base_url = 2;
-  string acess_key = 3;
-  string secret_key = 4;
-  string created_at = 5;
-  string deleted_at = 6;
+  ImageFolderSource imagefoldersource = 1;
 }
 
 message UpdateRequest {
@@ -61,12 +51,7 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  string name = 1;
-  string base_url = 2;
-  string acess_key = 3;
-  string secret_key = 4;
-  string created_at = 5;
-  string deleted_at = 6;
+  ImageFolderSource imagefoldersource = 1;
 }
 
 message DeleteRequest {

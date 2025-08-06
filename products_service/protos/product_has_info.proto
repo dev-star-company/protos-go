@@ -27,10 +27,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  uint32 products_id = 1;
-  uint32 product_info_id = 2;
-  string created_at = 3;
-  string deleted_at = 4;
+  ProductHasInfo producthasinfo = 1;
 }
 
 message GetRequest {
@@ -38,10 +35,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 products_id = 1;
-  uint32 product_info_id = 2;
-  string created_at = 3;
-  string deleted_at = 4;
+  ProductHasInfo producthasinfo = 1;
 }
 
 message UpdateRequest {
@@ -51,19 +45,14 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  uint32 products_id = 1;
-  uint32 product_info_id = 2;
-  string created_at = 3;
-  string deleted_at = 4;
+  ProductHasInfo producthasinfo = 1;
 }
 
 message DeleteRequest {
   uint32 id = 1;
 }
 
-message DeleteResponse {
-  string message = 1;
-}
+message DeleteResponse {}
 
 message ListRequest {
   optional uint32 limit = 1;

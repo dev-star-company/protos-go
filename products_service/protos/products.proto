@@ -37,15 +37,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  uint32 category_id = 1;
-  uint32 brand_id = 2;
-  uint32 variant_type_id = 3;
-  uint32 product_references_id = 4;
-  uint32 image_id = 5;
-  string name = 6;
-  uint32 stock = 7;
-  string created_at = 8;
-  string deleted_at = 9;
+  Products products = 1;
 }
 
 message GetRequest {
@@ -53,15 +45,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 category_id = 1;
-  uint32 brand_id = 2;
-  uint32 variant_type_id = 3;
-  uint32 product_references_id = 4;
-  uint32 image_id = 5;
-  string name = 6;
-  uint32 stock = 7;
-  string created_at = 8;
-  string deleted_at = 9;
+  Products products = 1;
 }
 
 message UpdateRequest {
@@ -76,22 +60,14 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  uint32 category_id = 1;
-  uint32 brand_id = 2;
-  uint32 variant_type_id = 3;
-  uint32 product_references_id = 4;
-  uint32 image_id = 5;
-  string name = 6;
-  uint32 stock = 7;
+  Products products = 1;
 }
 
 message DeleteRequest {
   uint32 id = 1;
 }
 
-message DeleteResponse {
-  string message = 1;
-}
+message DeleteResponse {}
 
 message ListRequest {
   optional uint32 limit = 1;

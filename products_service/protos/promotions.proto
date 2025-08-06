@@ -44,11 +44,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  string name = 1;
-  string starting_datetime = 2;
-  string ending_datetime = 3;
-  string created_at = 4;
-  string deleted_at = 5;
+  Promotions promotions = 1;
 }
 
 message GetRequest {
@@ -56,11 +52,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  string name = 1;
-  string starting_datetime = 2;
-  string ending_datetime = 3;
-  string created_at = 4;
-  string deleted_at = 5;
+  Promotions promotions = 1;
 }
 
 message UpdateRequest {
@@ -71,20 +63,14 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  string name = 1;
-  string starting_datetime = 2;
-  string ending_datetime = 3;
-  string created_at = 4;
-  string deleted_at = 5;
+  Promotions promotions = 1;
 }
 
 message DeleteRequest {
   uint32 id = 1;
 }
 
-message DeleteResponse {
-  string message = 1;
-}
+message DeleteResponse {}
 
 message ListRequest {
   optional uint32 limit = 1;

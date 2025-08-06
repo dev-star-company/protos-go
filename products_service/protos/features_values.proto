@@ -29,11 +29,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  uint32 feature_id = 1;
-  uint32 feature_unit_values_id = 2;
-  string value = 3;
-  string created_at = 4;
-  string deleted_at = 5;
+  FeaturesValues featuresvalues = 1;
 }
 
 message GetRequest {
@@ -41,11 +37,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 feature_id = 1;
-  uint32 feature_unit_values_id = 2;
-  string value = 3;
-  string created_at = 4;
-  string deleted_at = 5;
+  FeaturesValues featuresvalues = 1;
 }
 
 message UpdateRequest {
@@ -56,20 +48,14 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  uint32 feature_id = 1;
-  uint32 feature_unit_values_id = 2;
-  string value = 3;
-  string created_at = 4;
-  string deleted_at = 5;
+  FeaturesValues featuresvalues = 1;
 }
 
 message DeleteRequest {
   uint32 id = 1;
 }
 
-message DeleteResponse {
-  string message = 1;
-}
+message DeleteResponse {}
 
 message ListRequest {
   optional uint32 limit = 1;
