@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.30.2
-// source: protos/account_balance.proto
+// source: transactions_service/protos/account_balance.proto
 
 package account_balance_proto
 
@@ -25,17 +25,17 @@ type AccountBalance struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     *string                `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	AccountId     uint32                 `protobuf:"varint,8,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
-	CurrencyId    uint32                 `protobuf:"varint,9,opt,name=currency_id,json=currencyId,proto3" json:"currency_id,omitempty"`
-	Balance       float64                `protobuf:"fixed64,10,opt,name=balance,proto3" json:"balance,omitempty"`
+	DeletedAt     *string                `protobuf:"bytes,3,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
+	AccountId     uint32                 `protobuf:"varint,4,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	CurrencyId    uint32                 `protobuf:"varint,5,opt,name=currency_id,json=currencyId,proto3" json:"currency_id,omitempty"`
+	Balance       float64                `protobuf:"fixed64,6,opt,name=balance,proto3" json:"balance,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AccountBalance) Reset() {
 	*x = AccountBalance{}
-	mi := &file_protos_account_balance_proto_msgTypes[0]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +47,7 @@ func (x *AccountBalance) String() string {
 func (*AccountBalance) ProtoMessage() {}
 
 func (x *AccountBalance) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[0]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *AccountBalance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountBalance.ProtoReflect.Descriptor instead.
 func (*AccountBalance) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{0}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *AccountBalance) GetId() uint32 {
@@ -107,16 +107,16 @@ func (x *AccountBalance) GetBalance() float64 {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     uint32                 `protobuf:"varint,2,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
-	CurrencyId    uint32                 `protobuf:"varint,3,opt,name=currency_id,json=currencyId,proto3" json:"currency_id,omitempty"`
-	Balance       float64                `protobuf:"fixed64,4,opt,name=balance,proto3" json:"balance,omitempty"`
+	AccountId     uint32                 `protobuf:"varint,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	CurrencyId    uint32                 `protobuf:"varint,2,opt,name=currency_id,json=currencyId,proto3" json:"currency_id,omitempty"`
+	Balance       float64                `protobuf:"fixed64,3,opt,name=balance,proto3" json:"balance,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
-	mi := &file_protos_account_balance_proto_msgTypes[1]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -128,7 +128,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[1]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -141,7 +141,7 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{1}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateRequest) GetAccountId() uint32 {
@@ -171,14 +171,14 @@ type CreateResponse struct {
 	CurrencyId    uint32                 `protobuf:"varint,2,opt,name=currency_id,json=currencyId,proto3" json:"currency_id,omitempty"`
 	Balance       float64                `protobuf:"fixed64,3,opt,name=balance,proto3" json:"balance,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     string                 `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	DeletedAt     string                 `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateResponse) Reset() {
 	*x = CreateResponse{}
-	mi := &file_protos_account_balance_proto_msgTypes[2]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -190,7 +190,7 @@ func (x *CreateResponse) String() string {
 func (*CreateResponse) ProtoMessage() {}
 
 func (x *CreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[2]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -203,7 +203,7 @@ func (x *CreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{2}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateResponse) GetAccountId() uint32 {
@@ -250,7 +250,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_protos_account_balance_proto_msgTypes[3]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -262,7 +262,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[3]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -275,7 +275,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{3}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetRequest) GetId() uint32 {
@@ -292,14 +292,14 @@ type GetResponse struct {
 	CurrencyId    uint32                 `protobuf:"varint,3,opt,name=currency_id,json=currencyId,proto3" json:"currency_id,omitempty"`
 	Balance       float64                `protobuf:"fixed64,4,opt,name=balance,proto3" json:"balance,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt     string                 `protobuf:"bytes,7,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	DeletedAt     string                 `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_protos_account_balance_proto_msgTypes[4]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -311,7 +311,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[4]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -324,7 +324,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{4}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetResponse) GetId() uint32 {
@@ -384,7 +384,7 @@ type ListRequest struct {
 
 func (x *ListRequest) Reset() {
 	*x = ListRequest{}
-	mi := &file_protos_account_balance_proto_msgTypes[5]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -396,7 +396,7 @@ func (x *ListRequest) String() string {
 func (*ListRequest) ProtoMessage() {}
 
 func (x *ListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[5]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -409,7 +409,7 @@ func (x *ListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
 func (*ListRequest) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{5}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListRequest) GetLimit() uint32 {
@@ -471,7 +471,7 @@ type OrderBy struct {
 
 func (x *OrderBy) Reset() {
 	*x = OrderBy{}
-	mi := &file_protos_account_balance_proto_msgTypes[6]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -483,7 +483,7 @@ func (x *OrderBy) String() string {
 func (*OrderBy) ProtoMessage() {}
 
 func (x *OrderBy) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[6]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -496,7 +496,7 @@ func (x *OrderBy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrderBy.ProtoReflect.Descriptor instead.
 func (*OrderBy) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{6}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *OrderBy) GetId() string {
@@ -523,7 +523,7 @@ type ListResponse struct {
 
 func (x *ListResponse) Reset() {
 	*x = ListResponse{}
-	mi := &file_protos_account_balance_proto_msgTypes[7]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -535,7 +535,7 @@ func (x *ListResponse) String() string {
 func (*ListResponse) ProtoMessage() {}
 
 func (x *ListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[7]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -548,7 +548,7 @@ func (x *ListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
 func (*ListResponse) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{7}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ListResponse) GetCount() uint32 {
@@ -568,16 +568,16 @@ func (x *ListResponse) GetRows() []*AccountBalance {
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	AccountId     *uint32                `protobuf:"varint,3,opt,name=account_id,json=accountId,proto3,oneof" json:"account_id,omitempty"`
-	CurrencyId    *uint32                `protobuf:"varint,4,opt,name=currency_id,json=currencyId,proto3,oneof" json:"currency_id,omitempty"`
-	Balance       *float64               `protobuf:"fixed64,5,opt,name=balance,proto3,oneof" json:"balance,omitempty"`
+	AccountId     *uint32                `protobuf:"varint,2,opt,name=account_id,json=accountId,proto3,oneof" json:"account_id,omitempty"`
+	CurrencyId    *uint32                `protobuf:"varint,3,opt,name=currency_id,json=currencyId,proto3,oneof" json:"currency_id,omitempty"`
+	Balance       *float64               `protobuf:"fixed64,4,opt,name=balance,proto3,oneof" json:"balance,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateRequest) Reset() {
 	*x = UpdateRequest{}
-	mi := &file_protos_account_balance_proto_msgTypes[8]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -589,7 +589,7 @@ func (x *UpdateRequest) String() string {
 func (*UpdateRequest) ProtoMessage() {}
 
 func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[8]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -602,7 +602,7 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{8}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateRequest) GetId() uint32 {
@@ -645,7 +645,7 @@ type UpdateResponse struct {
 
 func (x *UpdateResponse) Reset() {
 	*x = UpdateResponse{}
-	mi := &file_protos_account_balance_proto_msgTypes[9]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -657,7 +657,7 @@ func (x *UpdateResponse) String() string {
 func (*UpdateResponse) ProtoMessage() {}
 
 func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[9]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -670,7 +670,7 @@ func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
 func (*UpdateResponse) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{9}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateResponse) GetId() uint32 {
@@ -710,7 +710,7 @@ type DeleteRequest struct {
 
 func (x *DeleteRequest) Reset() {
 	*x = DeleteRequest{}
-	mi := &file_protos_account_balance_proto_msgTypes[10]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -722,7 +722,7 @@ func (x *DeleteRequest) String() string {
 func (*DeleteRequest) ProtoMessage() {}
 
 func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[10]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -735,7 +735,7 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{10}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteRequest) GetId() uint32 {
@@ -754,7 +754,7 @@ type DeleteResponse struct {
 
 func (x *DeleteResponse) Reset() {
 	*x = DeleteResponse{}
-	mi := &file_protos_account_balance_proto_msgTypes[11]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -766,7 +766,7 @@ func (x *DeleteResponse) String() string {
 func (*DeleteResponse) ProtoMessage() {}
 
 func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_account_balance_proto_msgTypes[11]
+	mi := &file_transactions_service_protos_account_balance_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -779,7 +779,7 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return file_protos_account_balance_proto_rawDescGZIP(), []int{11}
+	return file_transactions_service_protos_account_balance_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DeleteResponse) GetMessage() string {
@@ -789,30 +789,29 @@ func (x *DeleteResponse) GetMessage() string {
 	return ""
 }
 
-var File_protos_account_balance_proto protoreflect.FileDescriptor
+var File_transactions_service_protos_account_balance_proto protoreflect.FileDescriptor
 
-const file_protos_account_balance_proto_rawDesc = "" +
+const file_transactions_service_protos_account_balance_proto_rawDesc = "" +
 	"\n" +
-	"\x1cprotos/account_balance.proto\x12\x15account_balance_proto\"\xcc\x01\n" +
+	"1transactions_service/protos/account_balance.proto\x12\x15account_balance_proto\"\xcc\x01\n" +
 	"\x0eAccountBalance\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
+	"deleted_at\x18\x03 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x1d\n" +
 	"\n" +
-	"account_id\x18\b \x01(\rR\taccountId\x12\x1f\n" +
-	"\vcurrency_id\x18\t \x01(\rR\n" +
+	"account_id\x18\x04 \x01(\rR\taccountId\x12\x1f\n" +
+	"\vcurrency_id\x18\x05 \x01(\rR\n" +
 	"currencyId\x12\x18\n" +
-	"\abalance\x18\n" +
-	" \x01(\x01R\abalanceB\r\n" +
+	"\abalance\x18\x06 \x01(\x01R\abalanceB\r\n" +
 	"\v_deleted_at\"i\n" +
 	"\rCreateRequest\x12\x1d\n" +
 	"\n" +
-	"account_id\x18\x02 \x01(\rR\taccountId\x12\x1f\n" +
-	"\vcurrency_id\x18\x03 \x01(\rR\n" +
+	"account_id\x18\x01 \x01(\rR\taccountId\x12\x1f\n" +
+	"\vcurrency_id\x18\x02 \x01(\rR\n" +
 	"currencyId\x12\x18\n" +
-	"\abalance\x18\x04 \x01(\x01R\abalance\"\xa8\x01\n" +
+	"\abalance\x18\x03 \x01(\x01R\abalance\"\xa8\x01\n" +
 	"\x0eCreateResponse\x12\x1d\n" +
 	"\n" +
 	"account_id\x18\x01 \x01(\rR\taccountId\x12\x1f\n" +
@@ -822,7 +821,7 @@ const file_protos_account_balance_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x04 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"deleted_at\x18\x06 \x01(\tR\tdeletedAt\"\x1c\n" +
+	"deleted_at\x18\x05 \x01(\tR\tdeletedAt\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"\xb5\x01\n" +
@@ -836,7 +835,7 @@ const file_protos_account_balance_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"deleted_at\x18\a \x01(\tR\tdeletedAt\"\xfb\x02\n" +
+	"deleted_at\x18\x06 \x01(\tR\tdeletedAt\"\xfb\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12,\n" +
@@ -868,10 +867,10 @@ const file_protos_account_balance_proto_rawDesc = "" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\"\n" +
 	"\n" +
-	"account_id\x18\x03 \x01(\rH\x00R\taccountId\x88\x01\x01\x12$\n" +
-	"\vcurrency_id\x18\x04 \x01(\rH\x01R\n" +
+	"account_id\x18\x02 \x01(\rH\x00R\taccountId\x88\x01\x01\x12$\n" +
+	"\vcurrency_id\x18\x03 \x01(\rH\x01R\n" +
 	"currencyId\x88\x01\x01\x12\x1d\n" +
-	"\abalance\x18\x05 \x01(\x01H\x02R\abalance\x88\x01\x01B\r\n" +
+	"\abalance\x18\x04 \x01(\x01H\x02R\abalance\x88\x01\x01B\r\n" +
 	"\v_account_idB\x0e\n" +
 	"\f_currency_idB\n" +
 	"\n" +
@@ -895,19 +894,19 @@ const file_protos_account_balance_proto_rawDesc = "" +
 	"\x04List\x12\".account_balance_proto.ListRequest\x1a#.account_balance_proto.ListResponseB*Z(./generated_protos/account_balance_protob\x06proto3"
 
 var (
-	file_protos_account_balance_proto_rawDescOnce sync.Once
-	file_protos_account_balance_proto_rawDescData []byte
+	file_transactions_service_protos_account_balance_proto_rawDescOnce sync.Once
+	file_transactions_service_protos_account_balance_proto_rawDescData []byte
 )
 
-func file_protos_account_balance_proto_rawDescGZIP() []byte {
-	file_protos_account_balance_proto_rawDescOnce.Do(func() {
-		file_protos_account_balance_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_protos_account_balance_proto_rawDesc), len(file_protos_account_balance_proto_rawDesc)))
+func file_transactions_service_protos_account_balance_proto_rawDescGZIP() []byte {
+	file_transactions_service_protos_account_balance_proto_rawDescOnce.Do(func() {
+		file_transactions_service_protos_account_balance_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_transactions_service_protos_account_balance_proto_rawDesc), len(file_transactions_service_protos_account_balance_proto_rawDesc)))
 	})
-	return file_protos_account_balance_proto_rawDescData
+	return file_transactions_service_protos_account_balance_proto_rawDescData
 }
 
-var file_protos_account_balance_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
-var file_protos_account_balance_proto_goTypes = []any{
+var file_transactions_service_protos_account_balance_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_transactions_service_protos_account_balance_proto_goTypes = []any{
 	(*AccountBalance)(nil), // 0: account_balance_proto.AccountBalance
 	(*CreateRequest)(nil),  // 1: account_balance_proto.CreateRequest
 	(*CreateResponse)(nil), // 2: account_balance_proto.CreateResponse
@@ -921,7 +920,7 @@ var file_protos_account_balance_proto_goTypes = []any{
 	(*DeleteRequest)(nil),  // 10: account_balance_proto.DeleteRequest
 	(*DeleteResponse)(nil), // 11: account_balance_proto.DeleteResponse
 }
-var file_protos_account_balance_proto_depIdxs = []int32{
+var file_transactions_service_protos_account_balance_proto_depIdxs = []int32{
 	6,  // 0: account_balance_proto.ListRequest.orderby:type_name -> account_balance_proto.OrderBy
 	0,  // 1: account_balance_proto.ListResponse.rows:type_name -> account_balance_proto.AccountBalance
 	1,  // 2: account_balance_proto.AccountBalanceService.Create:input_type -> account_balance_proto.CreateRequest
@@ -941,30 +940,30 @@ var file_protos_account_balance_proto_depIdxs = []int32{
 	0,  // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_protos_account_balance_proto_init() }
-func file_protos_account_balance_proto_init() {
-	if File_protos_account_balance_proto != nil {
+func init() { file_transactions_service_protos_account_balance_proto_init() }
+func file_transactions_service_protos_account_balance_proto_init() {
+	if File_transactions_service_protos_account_balance_proto != nil {
 		return
 	}
-	file_protos_account_balance_proto_msgTypes[0].OneofWrappers = []any{}
-	file_protos_account_balance_proto_msgTypes[5].OneofWrappers = []any{}
-	file_protos_account_balance_proto_msgTypes[6].OneofWrappers = []any{}
-	file_protos_account_balance_proto_msgTypes[8].OneofWrappers = []any{}
+	file_transactions_service_protos_account_balance_proto_msgTypes[0].OneofWrappers = []any{}
+	file_transactions_service_protos_account_balance_proto_msgTypes[5].OneofWrappers = []any{}
+	file_transactions_service_protos_account_balance_proto_msgTypes[6].OneofWrappers = []any{}
+	file_transactions_service_protos_account_balance_proto_msgTypes[8].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_protos_account_balance_proto_rawDesc), len(file_protos_account_balance_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_transactions_service_protos_account_balance_proto_rawDesc), len(file_transactions_service_protos_account_balance_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_protos_account_balance_proto_goTypes,
-		DependencyIndexes: file_protos_account_balance_proto_depIdxs,
-		MessageInfos:      file_protos_account_balance_proto_msgTypes,
+		GoTypes:           file_transactions_service_protos_account_balance_proto_goTypes,
+		DependencyIndexes: file_transactions_service_protos_account_balance_proto_depIdxs,
+		MessageInfos:      file_transactions_service_protos_account_balance_proto_msgTypes,
 	}.Build()
-	File_protos_account_balance_proto = out.File
-	file_protos_account_balance_proto_goTypes = nil
-	file_protos_account_balance_proto_depIdxs = nil
+	File_transactions_service_protos_account_balance_proto = out.File
+	file_transactions_service_protos_account_balance_proto_goTypes = nil
+	file_transactions_service_protos_account_balance_proto_depIdxs = nil
 }

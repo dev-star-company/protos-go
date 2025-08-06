@@ -15,7 +15,7 @@ service BankService {
 message Bank {
   uint32 id = 1;
   string name = 2;
-  string bank_number = 3;
+  optional string bank_number = 3;
   string created_at = 4;
   optional string deleted_at = 5;
 }
@@ -23,12 +23,12 @@ message Bank {
 
 message CreateRequest {
   string name = 1;
-  string bank_number = 2;
+  optional string bank_number = 2;
 }
 
 message CreateResponse {
   string name = 1;
-  string bank_number = 2;
+  optional string bank_number = 2;
   string created_at = 3;
   string deleted_at = 4;
 }
@@ -39,7 +39,7 @@ message GetRequest {
 
 message GetResponse {
   string name = 1;
-  string bank_number = 2;
+  optional string bank_number = 2;
   string created_at = 3;
   string deleted_at = 4;
 }
@@ -52,7 +52,7 @@ message UpdateRequest {
 
 message UpdateResponse {
   string name = 1;
-  string bank_number = 2;
+  optional string bank_number = 2;
 }
 
 message DeleteRequest {

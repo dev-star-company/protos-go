@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: protos/proof.proto
+// source: transactions_service/protos/proof.proto
 
 package proof_proto
 
@@ -269,5 +269,5 @@ var ProofService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "protos/proof.proto",
+	Metadata: "transactions_service/protos/proof.proto",
 }

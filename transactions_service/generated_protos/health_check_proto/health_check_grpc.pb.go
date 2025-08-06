@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: protos/health_check.proto
+// source: transactions_service/protos/health_check.proto
 
 package health_check_proto
 
@@ -117,5 +117,5 @@ var HealthCheckService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "protos/health_check.proto",
+	Metadata: "transactions_service/protos/health_check.proto",
 }

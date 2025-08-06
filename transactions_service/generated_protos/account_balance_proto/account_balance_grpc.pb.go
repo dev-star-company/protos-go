@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: protos/account_balance.proto
+// source: transactions_service/protos/account_balance.proto
 
 package account_balance_proto
 
@@ -269,5 +269,5 @@ var AccountBalanceService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "protos/account_balance.proto",
+	Metadata: "transactions_service/protos/account_balance.proto",
 }
