@@ -238,13 +238,10 @@ func (x *GetRequest) GetId() uint32 {
 }
 
 type GetResponse struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Name           string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	FeatureValueId uint32                 `protobuf:"varint,2,opt,name=feature_value_id,json=featureValueId,proto3" json:"feature_value_id,omitempty"`
-	CreatedAt      string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt      string                 `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Features      *Features              `protobuf:"bytes,1,opt,name=features,proto3" json:"features,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetResponse) Reset() {
@@ -277,32 +274,11 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_products_service_protos_features_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetName() string {
+func (x *GetResponse) GetFeatures() *Features {
 	if x != nil {
-		return x.Name
+		return x.Features
 	}
-	return ""
-}
-
-func (x *GetResponse) GetFeatureValueId() uint32 {
-	if x != nil {
-		return x.FeatureValueId
-	}
-	return 0
-}
-
-func (x *GetResponse) GetCreatedAt() string {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return ""
-}
-
-func (x *GetResponse) GetDeletedAt() string {
-	if x != nil {
-		return x.DeletedAt
-	}
-	return ""
+	return nil
 }
 
 type UpdateRequest struct {
@@ -366,13 +342,10 @@ func (x *UpdateRequest) GetFeatureValueId() uint32 {
 }
 
 type UpdateResponse struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Name           string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	FeatureValueId uint32                 `protobuf:"varint,2,opt,name=feature_value_id,json=featureValueId,proto3" json:"feature_value_id,omitempty"`
-	CreatedAt      string                 `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	DeletedAt      string                 `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Features      *Features              `protobuf:"bytes,1,opt,name=features,proto3" json:"features,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateResponse) Reset() {
@@ -405,32 +378,11 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_products_service_protos_features_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetName() string {
+func (x *UpdateResponse) GetFeatures() *Features {
 	if x != nil {
-		return x.Name
+		return x.Features
 	}
-	return ""
-}
-
-func (x *UpdateResponse) GetFeatureValueId() uint32 {
-	if x != nil {
-		return x.FeatureValueId
-	}
-	return 0
-}
-
-func (x *UpdateResponse) GetCreatedAt() string {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return ""
-}
-
-func (x *UpdateResponse) GetDeletedAt() string {
-	if x != nil {
-		return x.DeletedAt
-	}
-	return ""
+	return nil
 }
 
 type DeleteRequest struct {
@@ -479,7 +431,6 @@ func (x *DeleteRequest) GetId() uint32 {
 
 type DeleteResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -512,13 +463,6 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
 	return file_products_service_protos_features_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *DeleteResponse) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
 }
 
 type ListRequest struct {
@@ -730,31 +674,20 @@ const file_products_service_protos_features_proto_rawDesc = "" +
 	"\bfeatures\x18\x01 \x01(\v2\x18.features_proto.FeaturesR\bfeatures\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"\x89\x01\n" +
-	"\vGetResponse\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12(\n" +
-	"\x10feature_value_id\x18\x02 \x01(\rR\x0efeatureValueId\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
-	"\n" +
-	"deleted_at\x18\x04 \x01(\tR\tdeletedAt\"\x85\x01\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"C\n" +
+	"\vGetResponse\x124\n" +
+	"\bfeatures\x18\x01 \x01(\v2\x18.features_proto.FeaturesR\bfeatures\"\x85\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12-\n" +
 	"\x10feature_value_id\x18\x03 \x01(\rH\x01R\x0efeatureValueId\x88\x01\x01B\a\n" +
 	"\x05_nameB\x13\n" +
-	"\x11_feature_value_id\"\x8c\x01\n" +
-	"\x0eUpdateResponse\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12(\n" +
-	"\x10feature_value_id\x18\x02 \x01(\rR\x0efeatureValueId\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\x03 \x01(\tR\tcreatedAt\x12\x1d\n" +
-	"\n" +
-	"deleted_at\x18\x04 \x01(\tR\tdeletedAt\"\x1f\n" +
+	"\x11_feature_value_id\"F\n" +
+	"\x0eUpdateResponse\x124\n" +
+	"\bfeatures\x18\x01 \x01(\v2\x18.features_proto.FeaturesR\bfeatures\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"*\n" +
-	"\x0eDeleteResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"\xc6\x02\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\x10\n" +
+	"\x0eDeleteResponse\"\xc6\x02\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\x02 \x01(\rH\x01R\x06offset\x88\x01\x01\x12\x17\n" +
@@ -814,23 +747,25 @@ var file_products_service_protos_features_proto_goTypes = []any{
 }
 var file_products_service_protos_features_proto_depIdxs = []int32{
 	0,  // 0: features_proto.CreateResponse.features:type_name -> features_proto.Features
-	10, // 1: features_proto.ListRequest.orderby:type_name -> features_proto.OrderBy
-	0,  // 2: features_proto.ListResponse.rows:type_name -> features_proto.Features
-	1,  // 3: features_proto.FeaturesService.Create:input_type -> features_proto.CreateRequest
-	3,  // 4: features_proto.FeaturesService.Get:input_type -> features_proto.GetRequest
-	5,  // 5: features_proto.FeaturesService.Update:input_type -> features_proto.UpdateRequest
-	7,  // 6: features_proto.FeaturesService.Delete:input_type -> features_proto.DeleteRequest
-	9,  // 7: features_proto.FeaturesService.List:input_type -> features_proto.ListRequest
-	2,  // 8: features_proto.FeaturesService.Create:output_type -> features_proto.CreateResponse
-	4,  // 9: features_proto.FeaturesService.Get:output_type -> features_proto.GetResponse
-	6,  // 10: features_proto.FeaturesService.Update:output_type -> features_proto.UpdateResponse
-	8,  // 11: features_proto.FeaturesService.Delete:output_type -> features_proto.DeleteResponse
-	11, // 12: features_proto.FeaturesService.List:output_type -> features_proto.ListResponse
-	8,  // [8:13] is the sub-list for method output_type
-	3,  // [3:8] is the sub-list for method input_type
-	3,  // [3:3] is the sub-list for extension type_name
-	3,  // [3:3] is the sub-list for extension extendee
-	0,  // [0:3] is the sub-list for field type_name
+	0,  // 1: features_proto.GetResponse.features:type_name -> features_proto.Features
+	0,  // 2: features_proto.UpdateResponse.features:type_name -> features_proto.Features
+	10, // 3: features_proto.ListRequest.orderby:type_name -> features_proto.OrderBy
+	0,  // 4: features_proto.ListResponse.rows:type_name -> features_proto.Features
+	1,  // 5: features_proto.FeaturesService.Create:input_type -> features_proto.CreateRequest
+	3,  // 6: features_proto.FeaturesService.Get:input_type -> features_proto.GetRequest
+	5,  // 7: features_proto.FeaturesService.Update:input_type -> features_proto.UpdateRequest
+	7,  // 8: features_proto.FeaturesService.Delete:input_type -> features_proto.DeleteRequest
+	9,  // 9: features_proto.FeaturesService.List:input_type -> features_proto.ListRequest
+	2,  // 10: features_proto.FeaturesService.Create:output_type -> features_proto.CreateResponse
+	4,  // 11: features_proto.FeaturesService.Get:output_type -> features_proto.GetResponse
+	6,  // 12: features_proto.FeaturesService.Update:output_type -> features_proto.UpdateResponse
+	8,  // 13: features_proto.FeaturesService.Delete:output_type -> features_proto.DeleteResponse
+	11, // 14: features_proto.FeaturesService.List:output_type -> features_proto.ListResponse
+	10, // [10:15] is the sub-list for method output_type
+	5,  // [5:10] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_products_service_protos_features_proto_init() }
