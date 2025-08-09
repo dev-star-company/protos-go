@@ -16,7 +16,7 @@ message Transaction {
   uint32 id = 1;
   string created_at = 2;
   optional string deleted_at = 3;
-  uint32 origin_account_id = 4;
+  optional uint32 origin_account_id = 4;
   uint32 destination_account_id = 5;
   uint32 transaction_type_id = 6;
   double amount = 7;
@@ -26,7 +26,7 @@ message Transaction {
 }
 
 message CreateRequest {
-  uint32 origin_account_id = 1;
+  optional uint32 origin_account_id = 1;
   uint32 destination_account_id = 2;
   uint32 transaction_type_id = 3;
   double amount = 4;
@@ -37,7 +37,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  uint32 origin_account_id = 1;
+  optional uint32 origin_account_id = 1;
   uint32 destination_account_id = 2;
   uint32 transaction_type_id = 3;
   double amount = 4;
@@ -53,7 +53,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  uint32 origin_account_id = 1;
+  optional uint32 origin_account_id = 1;
   uint32 destination_account_id = 2;
   uint32 transaction_type_id = 3;
   double amount = 4;
@@ -76,7 +76,7 @@ message UpdateRequest {
 }
 
 message UpdateResponse {
-  uint32 origin_account_id = 1;
+  optional uint32 origin_account_id = 1;
   uint32 destination_account_id = 2;
   uint32 transaction_type_id = 3;
   double amount = 4;
