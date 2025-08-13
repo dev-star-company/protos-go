@@ -107,9 +107,11 @@ func (x *RoleHasPermissions) GetPermission() *Permission {
 
 type Permission struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description   string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	InternalName  string                 `protobuf:"bytes,3,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	InternalName  string                 `protobuf:"bytes,4,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
+	Code          string                 `protobuf:"bytes,5,opt,name=code,proto3" json:"code,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -144,6 +146,13 @@ func (*Permission) Descriptor() ([]byte, []int) {
 	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{1}
 }
 
+func (x *Permission) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 func (x *Permission) GetName() string {
 	if x != nil {
 		return x.Name
@@ -161,6 +170,13 @@ func (x *Permission) GetDescription() string {
 func (x *Permission) GetInternalName() string {
 	if x != nil {
 		return x.InternalName
+	}
+	return ""
+}
+
+func (x *Permission) GetCode() string {
+	if x != nil {
+		return x.Code
 	}
 	return ""
 }
@@ -777,12 +793,14 @@ const file_permissions_service_protos_role_has_permissions_proto_rawDesc = "" +
 	"\n" +
 	"permission\x18\x06 \x01(\v2&.role_has_permissions_proto.PermissionR\n" +
 	"permissionB\r\n" +
-	"\v_deleted_at\"g\n" +
+	"\v_deleted_at\"\x8b\x01\n" +
 	"\n" +
-	"Permission\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x02 \x01(\tR\vdescription\x12#\n" +
-	"\rinternal_name\x18\x03 \x01(\tR\finternalName\"M\n" +
+	"Permission\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12#\n" +
+	"\rinternal_name\x18\x04 \x01(\tR\finternalName\x12\x12\n" +
+	"\x04code\x18\x05 \x01(\tR\x04code\"M\n" +
 	"\rCreateRequest\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12#\n" +
 	"\rpermission_id\x18\x02 \x01(\rR\fpermissionId\"N\n" +

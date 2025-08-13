@@ -22,9 +22,11 @@ message RoleHasPermissions {
 }
 
 message Permission {
-    string name = 1;
-    string description = 2;
-    string internal_name = 3;
+    uint32 id = 1;
+    string name = 2;
+    string description = 3;
+    string internal_name = 4;
+    string code = 5;
 }
 
 message CreateRequest {
