@@ -28,6 +28,7 @@ type RoleHasPermissions struct {
 	DeletedAt     *string                `protobuf:"bytes,3,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	RoleId        uint32                 `protobuf:"varint,4,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
 	PermissionId  uint32                 `protobuf:"varint,5,opt,name=permission_id,json=permissionId,proto3" json:"permission_id,omitempty"`
+	Permission    *Permission            `protobuf:"bytes,6,opt,name=permission,proto3" json:"permission,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -97,6 +98,73 @@ func (x *RoleHasPermissions) GetPermissionId() uint32 {
 	return 0
 }
 
+func (x *RoleHasPermissions) GetPermission() *Permission {
+	if x != nil {
+		return x.Permission
+	}
+	return nil
+}
+
+type Permission struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Description   string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	InternalName  string                 `protobuf:"bytes,3,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Permission) Reset() {
+	*x = Permission{}
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Permission) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Permission) ProtoMessage() {}
+
+func (x *Permission) ProtoReflect() protoreflect.Message {
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Permission.ProtoReflect.Descriptor instead.
+func (*Permission) Descriptor() ([]byte, []int) {
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Permission) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Permission) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *Permission) GetInternalName() string {
+	if x != nil {
+		return x.InternalName
+	}
+	return ""
+}
+
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RoleId        uint32                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
@@ -107,7 +175,7 @@ type CreateRequest struct {
 
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[1]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -119,7 +187,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[1]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -132,7 +200,7 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{1}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateRequest) GetRoleId() uint32 {
@@ -159,7 +227,7 @@ type CreateResponse struct {
 
 func (x *CreateResponse) Reset() {
 	*x = CreateResponse{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[2]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -171,7 +239,7 @@ func (x *CreateResponse) String() string {
 func (*CreateResponse) ProtoMessage() {}
 
 func (x *CreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[2]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -184,7 +252,7 @@ func (x *CreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{2}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateResponse) GetRoleId() uint32 {
@@ -210,7 +278,7 @@ type DeleteRequest struct {
 
 func (x *DeleteRequest) Reset() {
 	*x = DeleteRequest{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[3]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -222,7 +290,7 @@ func (x *DeleteRequest) String() string {
 func (*DeleteRequest) ProtoMessage() {}
 
 func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[3]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -235,7 +303,7 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{3}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *DeleteRequest) GetId() uint32 {
@@ -253,7 +321,7 @@ type DeleteResponse struct {
 
 func (x *DeleteResponse) Reset() {
 	*x = DeleteResponse{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[4]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -265,7 +333,7 @@ func (x *DeleteResponse) String() string {
 func (*DeleteResponse) ProtoMessage() {}
 
 func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[4]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -278,7 +346,7 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{4}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{5}
 }
 
 type GetRequest struct {
@@ -292,7 +360,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[5]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -304,7 +372,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[5]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -317,7 +385,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{5}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetRequest) GetId() uint32 {
@@ -351,7 +419,7 @@ type GetResponse struct {
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[6]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -363,7 +431,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[6]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -376,7 +444,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{6}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetResponse) GetRoleId() uint32 {
@@ -407,7 +475,7 @@ type ListRequest struct {
 
 func (x *ListRequest) Reset() {
 	*x = ListRequest{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[7]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -419,7 +487,7 @@ func (x *ListRequest) String() string {
 func (*ListRequest) ProtoMessage() {}
 
 func (x *ListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[7]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -432,7 +500,7 @@ func (x *ListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
 func (*ListRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{7}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ListRequest) GetRoleId() uint32 {
@@ -487,7 +555,7 @@ type OrderBy struct {
 
 func (x *OrderBy) Reset() {
 	*x = OrderBy{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[8]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -499,7 +567,7 @@ func (x *OrderBy) String() string {
 func (*OrderBy) ProtoMessage() {}
 
 func (x *OrderBy) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[8]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -512,7 +580,7 @@ func (x *OrderBy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrderBy.ProtoReflect.Descriptor instead.
 func (*OrderBy) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{8}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *OrderBy) GetId() string {
@@ -531,15 +599,15 @@ func (x *OrderBy) GetCreatedAt() string {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Rows          []*RoleHasPermissions  `protobuf:"bytes,12,rep,name=rows,proto3" json:"rows,omitempty"`
-	Count         uint32                 `protobuf:"varint,13,opt,name=count,proto3" json:"count,omitempty"`
+	Rows          []*RoleHasPermissions  `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
+	Count         uint32                 `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ListResponse) Reset() {
 	*x = ListResponse{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[9]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -551,7 +619,7 @@ func (x *ListResponse) String() string {
 func (*ListResponse) ProtoMessage() {}
 
 func (x *ListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[9]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -564,7 +632,7 @@ func (x *ListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
 func (*ListResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{9}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ListResponse) GetRows() []*RoleHasPermissions {
@@ -592,7 +660,7 @@ type UpdateRequest struct {
 
 func (x *UpdateRequest) Reset() {
 	*x = UpdateRequest{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[10]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -604,7 +672,7 @@ func (x *UpdateRequest) String() string {
 func (*UpdateRequest) ProtoMessage() {}
 
 func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[10]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -617,7 +685,7 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{10}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *UpdateRequest) GetId() uint32 {
@@ -651,7 +719,7 @@ type UpdateResponse struct {
 
 func (x *UpdateResponse) Reset() {
 	*x = UpdateResponse{}
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[11]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -663,7 +731,7 @@ func (x *UpdateResponse) String() string {
 func (*UpdateResponse) ProtoMessage() {}
 
 func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[11]
+	mi := &file_permissions_service_protos_role_has_permissions_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -676,7 +744,7 @@ func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
 func (*UpdateResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{11}
+	return file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *UpdateResponse) GetRoleId() uint32 {
@@ -697,7 +765,7 @@ var File_permissions_service_protos_role_has_permissions_proto protoreflect.File
 
 const file_permissions_service_protos_role_has_permissions_proto_rawDesc = "" +
 	"\n" +
-	"5permissions_service/protos/role_has_permissions.proto\x12\x1arole_has_permissions_proto\"\xb4\x01\n" +
+	"5permissions_service/protos/role_has_permissions.proto\x12\x1arole_has_permissions_proto\"\xfc\x01\n" +
 	"\x12RoleHasPermissions\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\n" +
@@ -705,8 +773,16 @@ const file_permissions_service_protos_role_has_permissions_proto_rawDesc = "" +
 	"\n" +
 	"deleted_at\x18\x03 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x17\n" +
 	"\arole_id\x18\x04 \x01(\rR\x06roleId\x12#\n" +
-	"\rpermission_id\x18\x05 \x01(\rR\fpermissionIdB\r\n" +
-	"\v_deleted_at\"M\n" +
+	"\rpermission_id\x18\x05 \x01(\rR\fpermissionId\x12F\n" +
+	"\n" +
+	"permission\x18\x06 \x01(\v2&.role_has_permissions_proto.PermissionR\n" +
+	"permissionB\r\n" +
+	"\v_deleted_at\"g\n" +
+	"\n" +
+	"Permission\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
+	"\vdescription\x18\x02 \x01(\tR\vdescription\x12#\n" +
+	"\rinternal_name\x18\x03 \x01(\tR\finternalName\"M\n" +
 	"\rCreateRequest\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12#\n" +
 	"\rpermission_id\x18\x02 \x01(\rR\fpermissionId\"N\n" +
@@ -746,8 +822,8 @@ const file_permissions_service_protos_role_has_permissions_proto_rawDesc = "" +
 	"\x03_idB\r\n" +
 	"\v_created_at\"h\n" +
 	"\fListResponse\x12B\n" +
-	"\x04rows\x18\f \x03(\v2..role_has_permissions_proto.RoleHasPermissionsR\x04rows\x12\x14\n" +
-	"\x05count\x18\r \x01(\rR\x05count\"\x85\x01\n" +
+	"\x04rows\x18\x01 \x03(\v2..role_has_permissions_proto.RoleHasPermissionsR\x04rows\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count\"\x85\x01\n" +
 	"\rUpdateRequest\x12\x0e\n" +
 	"\x02id\x18\x0e \x01(\rR\x02id\x12\x1c\n" +
 	"\arole_id\x18\x0f \x01(\rH\x00R\x06roleId\x88\x01\x01\x12(\n" +
@@ -777,39 +853,41 @@ func file_permissions_service_protos_role_has_permissions_proto_rawDescGZIP() []
 	return file_permissions_service_protos_role_has_permissions_proto_rawDescData
 }
 
-var file_permissions_service_protos_role_has_permissions_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_permissions_service_protos_role_has_permissions_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_permissions_service_protos_role_has_permissions_proto_goTypes = []any{
 	(*RoleHasPermissions)(nil), // 0: role_has_permissions_proto.RoleHasPermissions
-	(*CreateRequest)(nil),      // 1: role_has_permissions_proto.CreateRequest
-	(*CreateResponse)(nil),     // 2: role_has_permissions_proto.CreateResponse
-	(*DeleteRequest)(nil),      // 3: role_has_permissions_proto.DeleteRequest
-	(*DeleteResponse)(nil),     // 4: role_has_permissions_proto.DeleteResponse
-	(*GetRequest)(nil),         // 5: role_has_permissions_proto.GetRequest
-	(*GetResponse)(nil),        // 6: role_has_permissions_proto.GetResponse
-	(*ListRequest)(nil),        // 7: role_has_permissions_proto.ListRequest
-	(*OrderBy)(nil),            // 8: role_has_permissions_proto.OrderBy
-	(*ListResponse)(nil),       // 9: role_has_permissions_proto.ListResponse
-	(*UpdateRequest)(nil),      // 10: role_has_permissions_proto.UpdateRequest
-	(*UpdateResponse)(nil),     // 11: role_has_permissions_proto.UpdateResponse
+	(*Permission)(nil),         // 1: role_has_permissions_proto.Permission
+	(*CreateRequest)(nil),      // 2: role_has_permissions_proto.CreateRequest
+	(*CreateResponse)(nil),     // 3: role_has_permissions_proto.CreateResponse
+	(*DeleteRequest)(nil),      // 4: role_has_permissions_proto.DeleteRequest
+	(*DeleteResponse)(nil),     // 5: role_has_permissions_proto.DeleteResponse
+	(*GetRequest)(nil),         // 6: role_has_permissions_proto.GetRequest
+	(*GetResponse)(nil),        // 7: role_has_permissions_proto.GetResponse
+	(*ListRequest)(nil),        // 8: role_has_permissions_proto.ListRequest
+	(*OrderBy)(nil),            // 9: role_has_permissions_proto.OrderBy
+	(*ListResponse)(nil),       // 10: role_has_permissions_proto.ListResponse
+	(*UpdateRequest)(nil),      // 11: role_has_permissions_proto.UpdateRequest
+	(*UpdateResponse)(nil),     // 12: role_has_permissions_proto.UpdateResponse
 }
 var file_permissions_service_protos_role_has_permissions_proto_depIdxs = []int32{
-	8,  // 0: role_has_permissions_proto.ListRequest.order_by:type_name -> role_has_permissions_proto.OrderBy
-	0,  // 1: role_has_permissions_proto.ListResponse.rows:type_name -> role_has_permissions_proto.RoleHasPermissions
-	1,  // 2: role_has_permissions_proto.RoleHasPermissionService.Create:input_type -> role_has_permissions_proto.CreateRequest
-	3,  // 3: role_has_permissions_proto.RoleHasPermissionService.Delete:input_type -> role_has_permissions_proto.DeleteRequest
-	7,  // 4: role_has_permissions_proto.RoleHasPermissionService.List:input_type -> role_has_permissions_proto.ListRequest
-	10, // 5: role_has_permissions_proto.RoleHasPermissionService.Update:input_type -> role_has_permissions_proto.UpdateRequest
-	5,  // 6: role_has_permissions_proto.RoleHasPermissionService.Get:input_type -> role_has_permissions_proto.GetRequest
-	2,  // 7: role_has_permissions_proto.RoleHasPermissionService.Create:output_type -> role_has_permissions_proto.CreateResponse
-	4,  // 8: role_has_permissions_proto.RoleHasPermissionService.Delete:output_type -> role_has_permissions_proto.DeleteResponse
-	9,  // 9: role_has_permissions_proto.RoleHasPermissionService.List:output_type -> role_has_permissions_proto.ListResponse
-	11, // 10: role_has_permissions_proto.RoleHasPermissionService.Update:output_type -> role_has_permissions_proto.UpdateResponse
-	6,  // 11: role_has_permissions_proto.RoleHasPermissionService.Get:output_type -> role_has_permissions_proto.GetResponse
-	7,  // [7:12] is the sub-list for method output_type
-	2,  // [2:7] is the sub-list for method input_type
-	2,  // [2:2] is the sub-list for extension type_name
-	2,  // [2:2] is the sub-list for extension extendee
-	0,  // [0:2] is the sub-list for field type_name
+	1,  // 0: role_has_permissions_proto.RoleHasPermissions.permission:type_name -> role_has_permissions_proto.Permission
+	9,  // 1: role_has_permissions_proto.ListRequest.order_by:type_name -> role_has_permissions_proto.OrderBy
+	0,  // 2: role_has_permissions_proto.ListResponse.rows:type_name -> role_has_permissions_proto.RoleHasPermissions
+	2,  // 3: role_has_permissions_proto.RoleHasPermissionService.Create:input_type -> role_has_permissions_proto.CreateRequest
+	4,  // 4: role_has_permissions_proto.RoleHasPermissionService.Delete:input_type -> role_has_permissions_proto.DeleteRequest
+	8,  // 5: role_has_permissions_proto.RoleHasPermissionService.List:input_type -> role_has_permissions_proto.ListRequest
+	11, // 6: role_has_permissions_proto.RoleHasPermissionService.Update:input_type -> role_has_permissions_proto.UpdateRequest
+	6,  // 7: role_has_permissions_proto.RoleHasPermissionService.Get:input_type -> role_has_permissions_proto.GetRequest
+	3,  // 8: role_has_permissions_proto.RoleHasPermissionService.Create:output_type -> role_has_permissions_proto.CreateResponse
+	5,  // 9: role_has_permissions_proto.RoleHasPermissionService.Delete:output_type -> role_has_permissions_proto.DeleteResponse
+	10, // 10: role_has_permissions_proto.RoleHasPermissionService.List:output_type -> role_has_permissions_proto.ListResponse
+	12, // 11: role_has_permissions_proto.RoleHasPermissionService.Update:output_type -> role_has_permissions_proto.UpdateResponse
+	7,  // 12: role_has_permissions_proto.RoleHasPermissionService.Get:output_type -> role_has_permissions_proto.GetResponse
+	8,  // [8:13] is the sub-list for method output_type
+	3,  // [3:8] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_permissions_service_protos_role_has_permissions_proto_init() }
@@ -818,16 +896,16 @@ func file_permissions_service_protos_role_has_permissions_proto_init() {
 		return
 	}
 	file_permissions_service_protos_role_has_permissions_proto_msgTypes[0].OneofWrappers = []any{}
-	file_permissions_service_protos_role_has_permissions_proto_msgTypes[7].OneofWrappers = []any{}
 	file_permissions_service_protos_role_has_permissions_proto_msgTypes[8].OneofWrappers = []any{}
-	file_permissions_service_protos_role_has_permissions_proto_msgTypes[10].OneofWrappers = []any{}
+	file_permissions_service_protos_role_has_permissions_proto_msgTypes[9].OneofWrappers = []any{}
+	file_permissions_service_protos_role_has_permissions_proto_msgTypes[11].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_permissions_service_protos_role_has_permissions_proto_rawDesc), len(file_permissions_service_protos_role_has_permissions_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
