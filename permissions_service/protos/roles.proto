@@ -8,6 +8,7 @@ service RoleService {
     rpc Create (CreateRequest) returns (CreateResponse);
     rpc Get (GetRequest) returns (GetResponse);
     rpc List (ListRequest) returns (ListResponse);
+    rpc ListUser (ListUserRequest) returns (ListUserResponse);
     rpc Update (UpdateRequest) returns (UpdateResponse);
     rpc Delete (DeleteRequest) returns (DeleteResponse);
 
@@ -38,6 +39,18 @@ message GetRequest {
 
 message GetResponse {
     Role role = 1;
+}
+
+message ListUserRequest {
+    optional uint32 limit = 1;
+    optional uint32 offset = 2;
+    optional string name = 3;
+    optional uint32 user_id = 9;
+}
+
+message ListUserResponse {
+    repeated Role rows = 1;
+    uint32 count = 2;
 }
 
 message ListRequest {
