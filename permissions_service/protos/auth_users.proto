@@ -8,6 +8,7 @@ service AuthUsersService {
   rpc Create (CreateRequest) returns (CreateResponse);
   rpc Get (GetRequest) returns (GetResponse);
   rpc List (ListRequest) returns (ListResponse);
+  rpc ListRole (ListRoleRequest) returns (ListRoleResponse);
   rpc Update (UpdateRequest) returns (UpdateResponse);
   rpc Delete (DeleteRequest) returns (DeleteResponse);
   rpc UpdateEmail(UpdateEmailRequest) returns (UpdateEmailResponse);
@@ -99,6 +100,20 @@ message ListResponse {
   uint32 count = 1;
   repeated User rows = 2;
 }
+
+message ListRoleRequest {
+  optional string name = 3;
+  optional string surname = 4;
+  uint32 limit = 5;
+  uint32 offset = 6;
+  optional uint32 role_id = 10;
+}
+
+message ListRoleResponse {
+  uint32 count = 1;
+  repeated User rows = 2;
+}
+
 
 message UpdateRequest {
   optional uint32 id = 1;
