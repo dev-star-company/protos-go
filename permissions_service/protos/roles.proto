@@ -20,6 +20,7 @@ message Role {
     string created_at = 4;
     optional string deleted_at = 5;
     optional bool is_active = 6;
+    optional uint32 user_id = 7;
 }
 
 message CreateRequest {

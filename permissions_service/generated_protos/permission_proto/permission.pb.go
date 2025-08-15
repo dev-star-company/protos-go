@@ -31,6 +31,7 @@ type Permission struct {
 	Description   string                 `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
 	InternalName  string                 `protobuf:"bytes,7,opt,name=internal_name,json=internalName,proto3" json:"internal_name,omitempty"`
 	ServiceId     uint32                 `protobuf:"varint,8,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
+	RoleId        uint32                 `protobuf:"varint,9,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -117,6 +118,13 @@ func (x *Permission) GetInternalName() string {
 func (x *Permission) GetServiceId() uint32 {
 	if x != nil {
 		return x.ServiceId
+	}
+	return 0
+}
+
+func (x *Permission) GetRoleId() uint32 {
+	if x != nil {
+		return x.RoleId
 	}
 	return 0
 }
@@ -500,6 +508,7 @@ type ListRequest struct {
 	InternalName   *string                `protobuf:"bytes,15,opt,name=internal_name,json=internalName,proto3,oneof" json:"internal_name,omitempty"`
 	ServiceId      *uint32                `protobuf:"varint,16,opt,name=service_id,json=serviceId,proto3,oneof" json:"service_id,omitempty"`
 	IsActive       *bool                  `protobuf:"varint,17,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
+	RoleId         *uint32                `protobuf:"varint,18,opt,name=role_id,json=roleId,proto3,oneof" json:"role_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -595,6 +604,13 @@ func (x *ListRequest) GetIsActive() bool {
 		return *x.IsActive
 	}
 	return false
+}
+
+func (x *ListRequest) GetRoleId() uint32 {
+	if x != nil && x.RoleId != nil {
+		return *x.RoleId
+	}
+	return 0
 }
 
 type ListByIdsRequest struct {
@@ -953,7 +969,7 @@ var File_permissions_service_protos_permission_proto protoreflect.FileDescriptor
 
 const file_permissions_service_protos_permission_proto_rawDesc = "" +
 	"\n" +
-	"+permissions_service/protos/permission.proto\x12\x10permission_proto\"\x85\x02\n" +
+	"+permissions_service/protos/permission.proto\x12\x10permission_proto\"\x9e\x02\n" +
 	"\n" +
 	"Permission\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
@@ -966,7 +982,8 @@ const file_permissions_service_protos_permission_proto_rawDesc = "" +
 	"\vdescription\x18\x06 \x01(\tR\vdescription\x12#\n" +
 	"\rinternal_name\x18\a \x01(\tR\finternalName\x12\x1d\n" +
 	"\n" +
-	"service_id\x18\b \x01(\rR\tserviceIdB\r\n" +
+	"service_id\x18\b \x01(\rR\tserviceId\x12\x17\n" +
+	"\arole_id\x18\t \x01(\rR\x06roleIdB\r\n" +
 	"\v_deleted_at\"\xa6\x01\n" +
 	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
@@ -996,7 +1013,7 @@ const file_permissions_service_protos_permission_proto_rawDesc = "" +
 	"\vdescription\x18\x06 \x01(\tR\vdescription\x12#\n" +
 	"\rinternal_name\x18\a \x01(\tR\finternalName\x12\x1d\n" +
 	"\n" +
-	"service_id\x18\b \x01(\rR\tserviceId\"\xdc\x03\n" +
+	"service_id\x18\b \x01(\rR\tserviceId\"\x86\x04\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\t \x01(\rH\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
 	"\x06offset\x18\n" +
@@ -1008,7 +1025,8 @@ const file_permissions_service_protos_permission_proto_rawDesc = "" +
 	"\rinternal_name\x18\x0f \x01(\tH\x06R\finternalName\x88\x01\x01\x12\"\n" +
 	"\n" +
 	"service_id\x18\x10 \x01(\rH\aR\tserviceId\x88\x01\x01\x12 \n" +
-	"\tis_active\x18\x11 \x01(\bH\bR\bisActive\x88\x01\x01B\b\n" +
+	"\tis_active\x18\x11 \x01(\bH\bR\bisActive\x88\x01\x01\x12\x1c\n" +
+	"\arole_id\x18\x12 \x01(\rH\tR\x06roleId\x88\x01\x01B\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\x12\n" +
 	"\x10_include_deletedB\v\n" +
@@ -1018,7 +1036,9 @@ const file_permissions_service_protos_permission_proto_rawDesc = "" +
 	"\x0e_internal_nameB\r\n" +
 	"\v_service_idB\f\n" +
 	"\n" +
-	"_is_active\"$\n" +
+	"_is_activeB\n" +
+	"\n" +
+	"\b_role_id\"$\n" +
 	"\x10ListByIdsRequest\x12\x10\n" +
 	"\x03ids\x18\x12 \x03(\rR\x03ids\"S\n" +
 	"\x11ListByIdsResponse\x12>\n" +

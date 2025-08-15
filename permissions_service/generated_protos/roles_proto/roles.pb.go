@@ -29,6 +29,7 @@ type Role struct {
 	CreatedAt     string                 `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,5,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
 	IsActive      *bool                  `protobuf:"varint,6,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
+	UserId        *uint32                `protobuf:"varint,7,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -103,6 +104,13 @@ func (x *Role) GetIsActive() bool {
 		return *x.IsActive
 	}
 	return false
+}
+
+func (x *Role) GetUserId() uint32 {
+	if x != nil && x.UserId != nil {
+		return *x.UserId
+	}
+	return 0
 }
 
 type CreateRequest struct {
@@ -705,7 +713,7 @@ var File_permissions_service_protos_roles_proto protoreflect.FileDescriptor
 
 const file_permissions_service_protos_roles_proto_rawDesc = "" +
 	"\n" +
-	"&permissions_service/protos/roles.proto\x12\vroles_proto\"\xce\x01\n" +
+	"&permissions_service/protos/roles.proto\x12\vroles_proto\"\xf8\x01\n" +
 	"\x04Role\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -714,10 +722,13 @@ const file_permissions_service_protos_roles_proto_rawDesc = "" +
 	"created_at\x18\x04 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
 	"deleted_at\x18\x05 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12 \n" +
-	"\tis_active\x18\x06 \x01(\bH\x01R\bisActive\x88\x01\x01B\r\n" +
+	"\tis_active\x18\x06 \x01(\bH\x01R\bisActive\x88\x01\x01\x12\x1c\n" +
+	"\auser_id\x18\a \x01(\rH\x02R\x06userId\x88\x01\x01B\r\n" +
 	"\v_deleted_atB\f\n" +
 	"\n" +
-	"_is_active\"u\n" +
+	"_is_activeB\n" +
+	"\n" +
+	"\b_user_id\"u\n" +
 	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\tis_active\x18\x02 \x01(\bH\x00R\bisActive\x88\x01\x01\x12 \n" +
