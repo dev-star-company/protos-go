@@ -94,6 +94,13 @@ message ListRequest {
   optional Relations relations = 9;
   optional uint32 user_id = 10;
   optional uint32 role_id = 11;
+  optional OrderBy order_by = 12;
+}
+
+message OrderBy {
+    optional string id = 1;
+    optional string created_at = 2;
+    optional string name = 3;
 }
 
 message ListResponse {
