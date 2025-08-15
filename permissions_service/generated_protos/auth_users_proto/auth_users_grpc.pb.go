@@ -22,7 +22,6 @@ const (
 	AuthUsersService_Create_FullMethodName         = "/auth_users_proto.AuthUsersService/Create"
 	AuthUsersService_Get_FullMethodName            = "/auth_users_proto.AuthUsersService/Get"
 	AuthUsersService_List_FullMethodName           = "/auth_users_proto.AuthUsersService/List"
-	AuthUsersService_ListRole_FullMethodName       = "/auth_users_proto.AuthUsersService/ListRole"
 	AuthUsersService_Update_FullMethodName         = "/auth_users_proto.AuthUsersService/Update"
 	AuthUsersService_Delete_FullMethodName         = "/auth_users_proto.AuthUsersService/Delete"
 	AuthUsersService_UpdateEmail_FullMethodName    = "/auth_users_proto.AuthUsersService/UpdateEmail"
@@ -38,7 +37,6 @@ type AuthUsersServiceClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
-	ListRole(ctx context.Context, in *ListRoleRequest, opts ...grpc.CallOption) (*ListRoleResponse, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	UpdateEmail(ctx context.Context, in *UpdateEmailRequest, opts ...grpc.CallOption) (*UpdateEmailResponse, error)
@@ -79,16 +77,6 @@ func (c *authUsersServiceClient) List(ctx context.Context, in *ListRequest, opts
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListResponse)
 	err := c.cc.Invoke(ctx, AuthUsersService_List_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authUsersServiceClient) ListRole(ctx context.Context, in *ListRoleRequest, opts ...grpc.CallOption) (*ListRoleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListRoleResponse)
-	err := c.cc.Invoke(ctx, AuthUsersService_ListRole_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -162,7 +150,6 @@ type AuthUsersServiceServer interface {
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
 	List(context.Context, *ListRequest) (*ListResponse, error)
-	ListRole(context.Context, *ListRoleRequest) (*ListRoleResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	UpdateEmail(context.Context, *UpdateEmailRequest) (*UpdateEmailResponse, error)
@@ -187,9 +174,6 @@ func (UnimplementedAuthUsersServiceServer) Get(context.Context, *GetRequest) (*G
 }
 func (UnimplementedAuthUsersServiceServer) List(context.Context, *ListRequest) (*ListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
-}
-func (UnimplementedAuthUsersServiceServer) ListRole(context.Context, *ListRoleRequest) (*ListRoleResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListRole not implemented")
 }
 func (UnimplementedAuthUsersServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
@@ -280,24 +264,6 @@ func _AuthUsersService_List_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthUsersServiceServer).List(ctx, req.(*ListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AuthUsersService_ListRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListRoleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthUsersServiceServer).ListRole(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AuthUsersService_ListRole_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthUsersServiceServer).ListRole(ctx, req.(*ListRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -428,10 +394,6 @@ var AuthUsersService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "List",
 			Handler:    _AuthUsersService_List_Handler,
-		},
-		{
-			MethodName: "ListRole",
-			Handler:    _AuthUsersService_ListRole_Handler,
 		},
 		{
 			MethodName: "Update",
