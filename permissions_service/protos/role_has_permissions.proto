@@ -40,7 +40,8 @@ message CreateResponse {
 }
 
 message DeleteRequest {
-    uint32 id = 1;
+    uint32 role_id = 1;
+    uint32 permission_id = 2;
 }
 
 message DeleteResponse {}
