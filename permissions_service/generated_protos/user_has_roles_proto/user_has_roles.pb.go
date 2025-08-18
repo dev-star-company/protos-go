@@ -203,7 +203,8 @@ func (x *CreateResponse) GetUserId() uint32 {
 
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	RoleId        uint32                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	UserId        uint32                 `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -238,9 +239,16 @@ func (*DeleteRequest) Descriptor() ([]byte, []int) {
 	return file_permissions_service_protos_user_has_roles_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *DeleteRequest) GetId() uint32 {
+func (x *DeleteRequest) GetRoleId() uint32 {
 	if x != nil {
-		return x.Id
+		return x.RoleId
+	}
+	return 0
+}
+
+func (x *DeleteRequest) GetUserId() uint32 {
+	if x != nil {
+		return x.UserId
 	}
 	return 0
 }
@@ -696,9 +704,10 @@ const file_permissions_service_protos_user_has_roles_proto_rawDesc = "" +
 	"\auser_id\x18\x02 \x01(\rR\x06userId\"B\n" +
 	"\x0eCreateResponse\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\rR\x06userId\"\x1f\n" +
-	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\"\x10\n" +
+	"\auser_id\x18\x02 \x01(\rR\x06userId\"A\n" +
+	"\rDeleteRequest\x12\x17\n" +
+	"\arole_id\x18\x01 \x01(\rR\x06roleId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\rR\x06userId\"\x10\n" +
 	"\x0eDeleteResponse\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
