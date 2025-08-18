@@ -17,12 +17,23 @@ message Permission {
     uint32 id = 1;
     string created_at = 2;
     optional string deleted_at = 3;
-    bool is_active = 4;
+    optional bool is_active = 4;
     string name = 5;
     string description = 6;
     string internal_name = 7;
     uint32 service_id = 8;
     uint32 role_id = 9;
+    repeated Role roles = 10;
+}
+
+message Role {
+    uint32 id = 1;
+    string name = 2;
+    string description = 3;
+    string created_at = 4;
+    optional string deleted_at = 5;
+    optional bool is_active = 6;
+    optional uint32 user_id = 7;
 }
 
 message CreateRequest {
