@@ -46,14 +46,14 @@ message User {
   uint32 user_id = 8;
 }
 
-message Role {
+message Roles {
     uint32 id = 1;
     string name = 2;
     string description = 3;
-    repeated Permission permissions = 8;
+    repeated Permissions permissions = 8;
 }
 
-message Permission {
+message Permissions {
     uint32 id = 1;
     string name = 5;
     string internal_name = 7;
