@@ -40,10 +40,11 @@ message User {
   string name = 2;
   string surname = 3;
   repeated Email emails = 4;
+  repeated Roles roles = 8;
+  repeated Phone phones = 7;
   string created_at = 5;
   optional string deleted_at = 6;
-  repeated Phone phones = 7;
-  uint32 user_id = 8;
+  uint32 user_id = 9;
 }
 
 message Roles {

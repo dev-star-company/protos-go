@@ -195,10 +195,11 @@ type User struct {
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Surname       string                 `protobuf:"bytes,3,opt,name=surname,proto3" json:"surname,omitempty"`
 	Emails        []*Email               `protobuf:"bytes,4,rep,name=emails,proto3" json:"emails,omitempty"`
+	Roles         []*Roles               `protobuf:"bytes,8,rep,name=roles,proto3" json:"roles,omitempty"`
+	Phones        []*Phone               `protobuf:"bytes,7,rep,name=phones,proto3" json:"phones,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	DeletedAt     *string                `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3,oneof" json:"deleted_at,omitempty"`
-	Phones        []*Phone               `protobuf:"bytes,7,rep,name=phones,proto3" json:"phones,omitempty"`
-	UserId        uint32                 `protobuf:"varint,8,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        uint32                 `protobuf:"varint,9,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -261,6 +262,20 @@ func (x *User) GetEmails() []*Email {
 	return nil
 }
 
+func (x *User) GetRoles() []*Roles {
+	if x != nil {
+		return x.Roles
+	}
+	return nil
+}
+
+func (x *User) GetPhones() []*Phone {
+	if x != nil {
+		return x.Phones
+	}
+	return nil
+}
+
 func (x *User) GetCreatedAt() string {
 	if x != nil {
 		return x.CreatedAt
@@ -273,13 +288,6 @@ func (x *User) GetDeletedAt() string {
 		return *x.DeletedAt
 	}
 	return ""
-}
-
-func (x *User) GetPhones() []*Phone {
-	if x != nil {
-		return x.Phones
-	}
-	return nil
 }
 
 func (x *User) GetUserId() uint32 {
@@ -1685,18 +1693,19 @@ const file_permissions_service_protos_auth_users_proto_rawDesc = "" +
 	"deleted_at\x18\x04 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x12\n" +
 	"\x04main\x18\x05 \x01(\bR\x04main\x12\x17\n" +
 	"\auser_id\x18\x06 \x01(\rR\x06userIdB\r\n" +
-	"\v_deleted_at\"\x91\x02\n" +
+	"\v_deleted_at\"\xc0\x02\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
 	"\asurname\x18\x03 \x01(\tR\asurname\x12/\n" +
-	"\x06emails\x18\x04 \x03(\v2\x17.auth_users_proto.EmailR\x06emails\x12\x1d\n" +
+	"\x06emails\x18\x04 \x03(\v2\x17.auth_users_proto.EmailR\x06emails\x12-\n" +
+	"\x05roles\x18\b \x03(\v2\x17.auth_users_proto.RolesR\x05roles\x12/\n" +
+	"\x06phones\x18\a \x03(\v2\x17.auth_users_proto.PhoneR\x06phones\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\"\n" +
 	"\n" +
-	"deleted_at\x18\x06 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12/\n" +
-	"\x06phones\x18\a \x03(\v2\x17.auth_users_proto.PhoneR\x06phones\x12\x17\n" +
-	"\auser_id\x18\b \x01(\rR\x06userIdB\r\n" +
+	"deleted_at\x18\x06 \x01(\tH\x00R\tdeletedAt\x88\x01\x01\x12\x17\n" +
+	"\auser_id\x18\t \x01(\rR\x06userIdB\r\n" +
 	"\v_deleted_at\"\x8e\x01\n" +
 	"\x05Roles\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
@@ -1883,42 +1892,43 @@ var file_permissions_service_protos_auth_users_proto_goTypes = []any{
 }
 var file_permissions_service_protos_auth_users_proto_depIdxs = []int32{
 	1,  // 0: auth_users_proto.User.emails:type_name -> auth_users_proto.Email
-	0,  // 1: auth_users_proto.User.phones:type_name -> auth_users_proto.Phone
-	4,  // 2: auth_users_proto.Roles.permissions:type_name -> auth_users_proto.Permissions
-	2,  // 3: auth_users_proto.CreateResponse.user:type_name -> auth_users_proto.User
-	2,  // 4: auth_users_proto.GetResponse.user:type_name -> auth_users_proto.User
-	5,  // 5: auth_users_proto.ListRequest.relations:type_name -> auth_users_proto.Relations
-	12, // 6: auth_users_proto.ListRequest.order_by:type_name -> auth_users_proto.OrderBy
-	2,  // 7: auth_users_proto.ListResponse.rows:type_name -> auth_users_proto.User
-	2,  // 8: auth_users_proto.UpdateResponse.user:type_name -> auth_users_proto.User
-	2,  // 9: auth_users_proto.VerifyPasswordResponse.user:type_name -> auth_users_proto.User
-	2,  // 10: auth_users_proto.UpdateEmailResponse.user:type_name -> auth_users_proto.User
-	1,  // 11: auth_users_proto.UpdateEmailResponse.email:type_name -> auth_users_proto.Email
-	2,  // 12: auth_users_proto.UpdatePhoneResponse.user:type_name -> auth_users_proto.User
-	0,  // 13: auth_users_proto.UpdatePhoneResponse.phone:type_name -> auth_users_proto.Phone
-	7,  // 14: auth_users_proto.AuthUsersService.Create:input_type -> auth_users_proto.CreateRequest
-	9,  // 15: auth_users_proto.AuthUsersService.Get:input_type -> auth_users_proto.GetRequest
-	11, // 16: auth_users_proto.AuthUsersService.List:input_type -> auth_users_proto.ListRequest
-	14, // 17: auth_users_proto.AuthUsersService.Update:input_type -> auth_users_proto.UpdateRequest
-	16, // 18: auth_users_proto.AuthUsersService.Delete:input_type -> auth_users_proto.DeleteRequest
-	20, // 19: auth_users_proto.AuthUsersService.UpdateEmail:input_type -> auth_users_proto.UpdateEmailRequest
-	22, // 20: auth_users_proto.AuthUsersService.UpdatePhone:input_type -> auth_users_proto.UpdatePhoneRequest
-	24, // 21: auth_users_proto.AuthUsersService.Recovery:input_type -> auth_users_proto.RecoveryRequest
-	18, // 22: auth_users_proto.AuthUsersService.VerifyPassword:input_type -> auth_users_proto.VerifyPasswordRequest
-	8,  // 23: auth_users_proto.AuthUsersService.Create:output_type -> auth_users_proto.CreateResponse
-	10, // 24: auth_users_proto.AuthUsersService.Get:output_type -> auth_users_proto.GetResponse
-	13, // 25: auth_users_proto.AuthUsersService.List:output_type -> auth_users_proto.ListResponse
-	15, // 26: auth_users_proto.AuthUsersService.Update:output_type -> auth_users_proto.UpdateResponse
-	17, // 27: auth_users_proto.AuthUsersService.Delete:output_type -> auth_users_proto.DeleteResponse
-	21, // 28: auth_users_proto.AuthUsersService.UpdateEmail:output_type -> auth_users_proto.UpdateEmailResponse
-	23, // 29: auth_users_proto.AuthUsersService.UpdatePhone:output_type -> auth_users_proto.UpdatePhoneResponse
-	25, // 30: auth_users_proto.AuthUsersService.Recovery:output_type -> auth_users_proto.RecoveryResponse
-	19, // 31: auth_users_proto.AuthUsersService.VerifyPassword:output_type -> auth_users_proto.VerifyPasswordResponse
-	23, // [23:32] is the sub-list for method output_type
-	14, // [14:23] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	3,  // 1: auth_users_proto.User.roles:type_name -> auth_users_proto.Roles
+	0,  // 2: auth_users_proto.User.phones:type_name -> auth_users_proto.Phone
+	4,  // 3: auth_users_proto.Roles.permissions:type_name -> auth_users_proto.Permissions
+	2,  // 4: auth_users_proto.CreateResponse.user:type_name -> auth_users_proto.User
+	2,  // 5: auth_users_proto.GetResponse.user:type_name -> auth_users_proto.User
+	5,  // 6: auth_users_proto.ListRequest.relations:type_name -> auth_users_proto.Relations
+	12, // 7: auth_users_proto.ListRequest.order_by:type_name -> auth_users_proto.OrderBy
+	2,  // 8: auth_users_proto.ListResponse.rows:type_name -> auth_users_proto.User
+	2,  // 9: auth_users_proto.UpdateResponse.user:type_name -> auth_users_proto.User
+	2,  // 10: auth_users_proto.VerifyPasswordResponse.user:type_name -> auth_users_proto.User
+	2,  // 11: auth_users_proto.UpdateEmailResponse.user:type_name -> auth_users_proto.User
+	1,  // 12: auth_users_proto.UpdateEmailResponse.email:type_name -> auth_users_proto.Email
+	2,  // 13: auth_users_proto.UpdatePhoneResponse.user:type_name -> auth_users_proto.User
+	0,  // 14: auth_users_proto.UpdatePhoneResponse.phone:type_name -> auth_users_proto.Phone
+	7,  // 15: auth_users_proto.AuthUsersService.Create:input_type -> auth_users_proto.CreateRequest
+	9,  // 16: auth_users_proto.AuthUsersService.Get:input_type -> auth_users_proto.GetRequest
+	11, // 17: auth_users_proto.AuthUsersService.List:input_type -> auth_users_proto.ListRequest
+	14, // 18: auth_users_proto.AuthUsersService.Update:input_type -> auth_users_proto.UpdateRequest
+	16, // 19: auth_users_proto.AuthUsersService.Delete:input_type -> auth_users_proto.DeleteRequest
+	20, // 20: auth_users_proto.AuthUsersService.UpdateEmail:input_type -> auth_users_proto.UpdateEmailRequest
+	22, // 21: auth_users_proto.AuthUsersService.UpdatePhone:input_type -> auth_users_proto.UpdatePhoneRequest
+	24, // 22: auth_users_proto.AuthUsersService.Recovery:input_type -> auth_users_proto.RecoveryRequest
+	18, // 23: auth_users_proto.AuthUsersService.VerifyPassword:input_type -> auth_users_proto.VerifyPasswordRequest
+	8,  // 24: auth_users_proto.AuthUsersService.Create:output_type -> auth_users_proto.CreateResponse
+	10, // 25: auth_users_proto.AuthUsersService.Get:output_type -> auth_users_proto.GetResponse
+	13, // 26: auth_users_proto.AuthUsersService.List:output_type -> auth_users_proto.ListResponse
+	15, // 27: auth_users_proto.AuthUsersService.Update:output_type -> auth_users_proto.UpdateResponse
+	17, // 28: auth_users_proto.AuthUsersService.Delete:output_type -> auth_users_proto.DeleteResponse
+	21, // 29: auth_users_proto.AuthUsersService.UpdateEmail:output_type -> auth_users_proto.UpdateEmailResponse
+	23, // 30: auth_users_proto.AuthUsersService.UpdatePhone:output_type -> auth_users_proto.UpdatePhoneResponse
+	25, // 31: auth_users_proto.AuthUsersService.Recovery:output_type -> auth_users_proto.RecoveryResponse
+	19, // 32: auth_users_proto.AuthUsersService.VerifyPassword:output_type -> auth_users_proto.VerifyPasswordResponse
+	24, // [24:33] is the sub-list for method output_type
+	15, // [15:24] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_permissions_service_protos_auth_users_proto_init() }
