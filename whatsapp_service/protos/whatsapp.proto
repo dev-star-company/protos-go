@@ -1,0 +1,190 @@
+syntax = "proto3";
+
+package whatsapp_proto;
+
+option go_package = "./generated_protos/whatsapp_proto";
+
+service WhatsappService {
+    rpc Connect (stream ConnectRequest) returns (stream ConnectResponse) {};
+    rpc Disconnect (DisconnectRequest) returns (DisconnectResponse) {};
+    rpc WatchConnectionStatus (WatchConnectionStatusRequest) returns (stream WatchConnectionStatusResponse) {};
+    rpc SendMessage (SendMessageRequest) returns (SendMessageResponse) {};
+    rpc SendMessageToGroup (SendMessageToGroupRequest) returns (SendMessageToGroupResponse) {};
+    rpc SendMediaMessage (SendMediaMessageRequest) returns (SendMediaMessageResponse) {};
+    rpc DownloadMedia (DownloadMediaRequest) returns (DownloadMediaResponse) {};
+    rpc GetContacts (GetContactsRequest) returns (GetContactsResponse) {};
+    rpc GetGroups (GetGroupsRequest) returns (GetGroupsResponse) {};
+    rpc GetGroupMembers (GetGroupMembersRequest) returns (GetGroupMembersResponse) {};
+    rpc WatchMessages (WatchMessagesRequest) returns (stream WatchMessagesResponse) {};
+    rpc GetConnectionStatus (GetConnectionStatusRequest) returns (GetConnectionStatusResponse) {};
+    rpc PostToBroadcastList (PostToBroadcastListRequest) returns (PostToBroadcastListResponse) {};
+}
+
+message ContactDto {
+    string name = 1;
+    string jid = 2;
+}
+
+message GroupDto {
+    string name = 1;
+    string jid = 2;
+}
+
+message GroupMemberDto {
+    string jid = 1;
+    string name = 2;
+    bool is_admin = 3;
+    bool is_super_admin = 4;
+}
+
+message ConnectRequest {
+    optional string phone_number = 1;
+}
+
+message ConnectResponse {
+    bool is_ended = 1;
+    string status = 2;
+    optional string pairing_code = 3;
+    optional string qr_code = 4;
+    optional string store_id = 5;
+    optional string user_phone = 6;
+    optional string error_message = 7;
+}
+
+message DisconnectRequest {
+    string phone_number = 1;
+}
+
+message DisconnectResponse {
+    optional string status = 1;
+}
+
+message WatchConnectionStatusRequest {
+    string phone_number = 1;
+}
+
+message WatchConnectionStatusResponse {
+    string phone_number = 1;
+    string status = 2;
+}
+
+message DisconnectFromRequest {
+    string phone_number = 1;
+}
+
+message DisconnectFromResponse {
+    string status = 1;
+}
+
+message SendMessageRequest {
+    string from = 1;
+    string to = 2;
+    string message = 3;
+}
+
+message SendMessageResponse {}
+
+message SendMessageToGroupRequest {
+    string from = 1;
+    string group_jid = 2;
+    string message = 3;
+}
+
+message SendMessageToGroupResponse {}
+
+message GetContactsRequest {
+    string phone_number = 1;
+}
+
+message GetContactsResponse {
+    repeated ContactDto contacts = 1;
+}
+
+message GetGroupsRequest {
+    string phone_number = 1;
+}
+
+message GetGroupsResponse {
+    repeated GroupDto groups = 1;
+}
+
+message GetGroupMembersRequest {
+    string phone_number = 1;
+    string group_jid = 2;
+}
+
+message GetGroupMembersResponse {
+    repeated GroupMemberDto members = 1;
+}
+
+message WatchMessagesRequest {}
+
+message WatchMessagesResponse {
+    string from = 1;
+    string receiver = 2;
+    bool is_from_me = 3;
+    bool is_group = 4;
+    string message = 5;
+    string message_type = 6;
+    string client = 7;
+    
+    // Media-related fields
+    string media_id = 8;
+    string media_url = 9;
+    int64 media_size = 10;
+    string mime_type = 11;
+    string file_name = 12;
+    string caption = 13;
+    bytes thumbnail = 14;
+
+    string uuid = 15;
+}
+
+message SendMediaMessageRequest {
+    string from = 1;
+    string to = 2;
+    string caption = 3;
+    bytes media_data = 4;
+    string mime_type = 5;
+    string file_name = 6;
+}
+
+message SendMediaMessageResponse {
+    string message_id = 1;
+}
+
+message DownloadMediaRequest {
+    string message_id = 1;
+    string client = 2;
+}
+
+message DownloadMediaResponse {
+    bytes data = 1;
+    string mime_type = 2;
+    string file_name = 3;
+    int64 size = 4;
+}
+
+message GetConnectionStatusRequest {
+    string phone_number = 1;
+}
+
+message GetConnectionStatusResponse {
+    string status = 1;
+    optional string store_id = 2;
+    optional string user_phone = 3;
+}
+
+message PostToBroadcastListRequest {
+    string phone_number = 1;
+    optional string status_text = 2;
+    optional bytes media_data = 3;
+    optional string mime_type = 4;
+    optional string file_name = 5;
+    optional string caption = 6;
+}
+
+message PostToBroadcastListResponse {
+    string message_id = 1;
+    string status = 2;
+}
