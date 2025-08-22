@@ -80,8 +80,8 @@ message ListRequest {
 }
 
 message ListResponse {
-  uint32 count = 1;
-  repeated User rows = 2;
+  repeated User rows = 1;
+  int32 count = 2;
 }
 
 message UpdateRequest {

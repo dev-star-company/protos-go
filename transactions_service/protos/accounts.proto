@@ -93,6 +93,6 @@ message OrderBy {
 }
 
 message ListResponse {
-    repeated Account rows = 1;
-    uint32 count = 2;
+  repeated Account rows = 1;
+  int32 count = 2;
   }

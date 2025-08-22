@@ -85,5 +85,5 @@ message OrderBy {
 
 message ListResponse {
   repeated Exchange rows = 1;
-  uint32 count = 2;
+  int32 count = 2;
 }
