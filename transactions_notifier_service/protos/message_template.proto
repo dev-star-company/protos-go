@@ -54,5 +54,6 @@ message ListRequest {
 }
 
 message ListResponse {
-    repeated MessageTemplateDto templates = 1;
+    repeated MessageTemplateDto rows = 1;
+    int32 count = 2;
 }

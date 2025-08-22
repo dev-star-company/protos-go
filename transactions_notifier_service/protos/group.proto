@@ -58,5 +58,6 @@ message ListRequest {
 }
 
 message ListResponse {
-    repeated GroupDto groups = 1;
+    repeated GroupDto rows = 1;
+    int32 count = 2;
 }

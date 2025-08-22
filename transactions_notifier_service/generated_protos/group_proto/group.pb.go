@@ -503,7 +503,8 @@ func (x *ListRequest) GetOffset() int32 {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Groups        []*GroupDto            `protobuf:"bytes,1,rep,name=groups,proto3" json:"groups,omitempty"`
+	Rows          []*GroupDto            `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
+	Count         int32                  `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -538,11 +539,18 @@ func (*ListResponse) Descriptor() ([]byte, []int) {
 	return file_transactions_notifier_service_protos_group_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *ListResponse) GetGroups() []*GroupDto {
+func (x *ListResponse) GetRows() []*GroupDto {
 	if x != nil {
-		return x.Groups
+		return x.Rows
 	}
 	return nil
+}
+
+func (x *ListResponse) GetCount() int32 {
+	if x != nil {
+		return x.Count
+	}
+	return 0
 }
 
 var File_transactions_notifier_service_protos_group_proto protoreflect.FileDescriptor
@@ -575,9 +583,10 @@ const file_transactions_notifier_service_protos_group_proto_rawDesc = "" +
 	"\x0eDeleteResponse\";\n" +
 	"\vListRequest\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
-	"\x06offset\x18\x02 \x01(\x05R\x06offset\"=\n" +
-	"\fListResponse\x12-\n" +
-	"\x06groups\x18\x01 \x03(\v2\x15.group_proto.GroupDtoR\x06groups2\xd8\x02\n" +
+	"\x06offset\x18\x02 \x01(\x05R\x06offset\"O\n" +
+	"\fListResponse\x12)\n" +
+	"\x04rows\x18\x01 \x03(\v2\x15.group_proto.GroupDtoR\x04rows\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\x05R\x05count2\xd8\x02\n" +
 	"\fGroupService\x12C\n" +
 	"\x06Create\x12\x1a.group_proto.CreateRequest\x1a\x1b.group_proto.CreateResponse\"\x00\x12:\n" +
 	"\x03Get\x12\x17.group_proto.GetRequest\x1a\x18.group_proto.GetResponse\"\x00\x12C\n" +
@@ -617,7 +626,7 @@ var file_transactions_notifier_service_protos_group_proto_depIdxs = []int32{
 	0,  // 2: group_proto.GetResponse.group:type_name -> group_proto.GroupDto
 	0,  // 3: group_proto.UpdateRequest.group:type_name -> group_proto.GroupDto
 	0,  // 4: group_proto.UpdateResponse.group:type_name -> group_proto.GroupDto
-	0,  // 5: group_proto.ListResponse.groups:type_name -> group_proto.GroupDto
+	0,  // 5: group_proto.ListResponse.rows:type_name -> group_proto.GroupDto
 	1,  // 6: group_proto.GroupService.Create:input_type -> group_proto.CreateRequest
 	3,  // 7: group_proto.GroupService.Get:input_type -> group_proto.GetRequest
 	5,  // 8: group_proto.GroupService.Update:input_type -> group_proto.UpdateRequest

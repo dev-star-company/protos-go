@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	WhatsappConfigService_Create_FullMethodName = "/whatsapp_config_proto.WhatsappConfigService/Create"
 	WhatsappConfigService_Get_FullMethodName    = "/whatsapp_config_proto.WhatsappConfigService/Get"
+	WhatsappConfigService_Delete_FullMethodName = "/whatsapp_config_proto.WhatsappConfigService/Delete"
 )
 
 // WhatsappConfigServiceClient is the client API for WhatsappConfigService service.
@@ -29,6 +30,7 @@ const (
 type WhatsappConfigServiceClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 }
 
 type whatsappConfigServiceClient struct {
@@ -59,12 +61,23 @@ func (c *whatsappConfigServiceClient) Get(ctx context.Context, in *GetRequest, o
 	return out, nil
 }
 
+func (c *whatsappConfigServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteResponse)
+	err := c.cc.Invoke(ctx, WhatsappConfigService_Delete_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // WhatsappConfigServiceServer is the server API for WhatsappConfigService service.
 // All implementations must embed UnimplementedWhatsappConfigServiceServer
 // for forward compatibility.
 type WhatsappConfigServiceServer interface {
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
+	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	mustEmbedUnimplementedWhatsappConfigServiceServer()
 }
 
@@ -80,6 +93,9 @@ func (UnimplementedWhatsappConfigServiceServer) Create(context.Context, *CreateR
 }
 func (UnimplementedWhatsappConfigServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedWhatsappConfigServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedWhatsappConfigServiceServer) mustEmbedUnimplementedWhatsappConfigServiceServer() {}
 func (UnimplementedWhatsappConfigServiceServer) testEmbeddedByValue()                               {}
@@ -138,6 +154,24 @@ func _WhatsappConfigService_Get_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WhatsappConfigService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WhatsappConfigServiceServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WhatsappConfigService_Delete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WhatsappConfigServiceServer).Delete(ctx, req.(*DeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // WhatsappConfigService_ServiceDesc is the grpc.ServiceDesc for WhatsappConfigService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -152,6 +186,10 @@ var WhatsappConfigService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _WhatsappConfigService_Get_Handler,
+		},
+		{
+			MethodName: "Delete",
+			Handler:    _WhatsappConfigService_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

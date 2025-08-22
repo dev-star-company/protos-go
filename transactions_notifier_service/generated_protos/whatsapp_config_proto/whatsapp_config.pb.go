@@ -265,6 +265,94 @@ func (x *GetResponse) GetConfig() *WhatsappConfigDto {
 	return nil
 }
 
+type DeleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteRequest) Reset() {
+	*x = DeleteRequest{}
+	mi := &file_transactions_notifier_service_protos_whatsapp_config_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRequest) ProtoMessage() {}
+
+func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_transactions_notifier_service_protos_whatsapp_config_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRequest) Descriptor() ([]byte, []int) {
+	return file_transactions_notifier_service_protos_whatsapp_config_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *DeleteRequest) GetUserId() int32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type DeleteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteResponse) Reset() {
+	*x = DeleteResponse{}
+	mi := &file_transactions_notifier_service_protos_whatsapp_config_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResponse) ProtoMessage() {}
+
+func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_transactions_notifier_service_protos_whatsapp_config_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResponse) Descriptor() ([]byte, []int) {
+	return file_transactions_notifier_service_protos_whatsapp_config_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DeleteResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
 var File_transactions_notifier_service_protos_whatsapp_config_proto protoreflect.FileDescriptor
 
 const file_transactions_notifier_service_protos_whatsapp_config_proto_rawDesc = "" +
@@ -283,10 +371,15 @@ const file_transactions_notifier_service_protos_whatsapp_config_proto_rawDesc = 
 	"GetRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x05R\x06userId\"O\n" +
 	"\vGetResponse\x12@\n" +
-	"\x06config\x18\x01 \x01(\v2(.whatsapp_config_proto.WhatsappConfigDtoR\x06config2\xc0\x01\n" +
+	"\x06config\x18\x01 \x01(\v2(.whatsapp_config_proto.WhatsappConfigDtoR\x06config\"(\n" +
+	"\rDeleteRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\"*\n" +
+	"\x0eDeleteResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess2\x99\x02\n" +
 	"\x15WhatsappConfigService\x12W\n" +
 	"\x06Create\x12$.whatsapp_config_proto.CreateRequest\x1a%.whatsapp_config_proto.CreateResponse\"\x00\x12N\n" +
-	"\x03Get\x12!.whatsapp_config_proto.GetRequest\x1a\".whatsapp_config_proto.GetResponse\"\x00B*Z(./generated_protos/whatsapp_config_protob\x06proto3"
+	"\x03Get\x12!.whatsapp_config_proto.GetRequest\x1a\".whatsapp_config_proto.GetResponse\"\x00\x12W\n" +
+	"\x06Delete\x12$.whatsapp_config_proto.DeleteRequest\x1a%.whatsapp_config_proto.DeleteResponse\"\x00B*Z(./generated_protos/whatsapp_config_protob\x06proto3"
 
 var (
 	file_transactions_notifier_service_protos_whatsapp_config_proto_rawDescOnce sync.Once
@@ -300,13 +393,15 @@ func file_transactions_notifier_service_protos_whatsapp_config_proto_rawDescGZIP
 	return file_transactions_notifier_service_protos_whatsapp_config_proto_rawDescData
 }
 
-var file_transactions_notifier_service_protos_whatsapp_config_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_transactions_notifier_service_protos_whatsapp_config_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_transactions_notifier_service_protos_whatsapp_config_proto_goTypes = []any{
 	(*WhatsappConfigDto)(nil), // 0: whatsapp_config_proto.WhatsappConfigDto
 	(*CreateRequest)(nil),     // 1: whatsapp_config_proto.CreateRequest
 	(*CreateResponse)(nil),    // 2: whatsapp_config_proto.CreateResponse
 	(*GetRequest)(nil),        // 3: whatsapp_config_proto.GetRequest
 	(*GetResponse)(nil),       // 4: whatsapp_config_proto.GetResponse
+	(*DeleteRequest)(nil),     // 5: whatsapp_config_proto.DeleteRequest
+	(*DeleteResponse)(nil),    // 6: whatsapp_config_proto.DeleteResponse
 }
 var file_transactions_notifier_service_protos_whatsapp_config_proto_depIdxs = []int32{
 	0, // 0: whatsapp_config_proto.CreateRequest.config:type_name -> whatsapp_config_proto.WhatsappConfigDto
@@ -314,10 +409,12 @@ var file_transactions_notifier_service_protos_whatsapp_config_proto_depIdxs = []
 	0, // 2: whatsapp_config_proto.GetResponse.config:type_name -> whatsapp_config_proto.WhatsappConfigDto
 	1, // 3: whatsapp_config_proto.WhatsappConfigService.Create:input_type -> whatsapp_config_proto.CreateRequest
 	3, // 4: whatsapp_config_proto.WhatsappConfigService.Get:input_type -> whatsapp_config_proto.GetRequest
-	2, // 5: whatsapp_config_proto.WhatsappConfigService.Create:output_type -> whatsapp_config_proto.CreateResponse
-	4, // 6: whatsapp_config_proto.WhatsappConfigService.Get:output_type -> whatsapp_config_proto.GetResponse
-	5, // [5:7] is the sub-list for method output_type
-	3, // [3:5] is the sub-list for method input_type
+	5, // 5: whatsapp_config_proto.WhatsappConfigService.Delete:input_type -> whatsapp_config_proto.DeleteRequest
+	2, // 6: whatsapp_config_proto.WhatsappConfigService.Create:output_type -> whatsapp_config_proto.CreateResponse
+	4, // 7: whatsapp_config_proto.WhatsappConfigService.Get:output_type -> whatsapp_config_proto.GetResponse
+	6, // 8: whatsapp_config_proto.WhatsappConfigService.Delete:output_type -> whatsapp_config_proto.DeleteResponse
+	6, // [6:9] is the sub-list for method output_type
+	3, // [3:6] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
 	3, // [3:3] is the sub-list for extension extendee
 	0, // [0:3] is the sub-list for field type_name
@@ -334,7 +431,7 @@ func file_transactions_notifier_service_protos_whatsapp_config_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_transactions_notifier_service_protos_whatsapp_config_proto_rawDesc), len(file_transactions_notifier_service_protos_whatsapp_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

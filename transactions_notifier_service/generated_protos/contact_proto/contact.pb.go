@@ -503,7 +503,8 @@ func (x *ListRequest) GetOffset() int32 {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Contacts      []*ContactDto          `protobuf:"bytes,1,rep,name=contacts,proto3" json:"contacts,omitempty"`
+	Rows          []*ContactDto          `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
+	Count         int32                  `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -538,11 +539,18 @@ func (*ListResponse) Descriptor() ([]byte, []int) {
 	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *ListResponse) GetContacts() []*ContactDto {
+func (x *ListResponse) GetRows() []*ContactDto {
 	if x != nil {
-		return x.Contacts
+		return x.Rows
 	}
 	return nil
+}
+
+func (x *ListResponse) GetCount() int32 {
+	if x != nil {
+		return x.Count
+	}
+	return 0
 }
 
 var File_transactions_notifier_service_protos_contact_proto protoreflect.FileDescriptor
@@ -576,9 +584,10 @@ const file_transactions_notifier_service_protos_contact_proto_rawDesc = "" +
 	"\x0eDeleteResponse\";\n" +
 	"\vListRequest\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
-	"\x06offset\x18\x02 \x01(\x05R\x06offset\"E\n" +
-	"\fListResponse\x125\n" +
-	"\bcontacts\x18\x01 \x03(\v2\x19.contact_proto.ContactDtoR\bcontacts2\xee\x02\n" +
+	"\x06offset\x18\x02 \x01(\x05R\x06offset\"S\n" +
+	"\fListResponse\x12-\n" +
+	"\x04rows\x18\x01 \x03(\v2\x19.contact_proto.ContactDtoR\x04rows\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\x05R\x05count2\xee\x02\n" +
 	"\x0eContactService\x12G\n" +
 	"\x06Create\x12\x1c.contact_proto.CreateRequest\x1a\x1d.contact_proto.CreateResponse\"\x00\x12>\n" +
 	"\x03Get\x12\x19.contact_proto.GetRequest\x1a\x1a.contact_proto.GetResponse\"\x00\x12G\n" +
@@ -618,7 +627,7 @@ var file_transactions_notifier_service_protos_contact_proto_depIdxs = []int32{
 	0,  // 2: contact_proto.GetResponse.contact:type_name -> contact_proto.ContactDto
 	0,  // 3: contact_proto.UpdateRequest.contact:type_name -> contact_proto.ContactDto
 	0,  // 4: contact_proto.UpdateResponse.contact:type_name -> contact_proto.ContactDto
-	0,  // 5: contact_proto.ListResponse.contacts:type_name -> contact_proto.ContactDto
+	0,  // 5: contact_proto.ListResponse.rows:type_name -> contact_proto.ContactDto
 	1,  // 6: contact_proto.ContactService.Create:input_type -> contact_proto.CreateRequest
 	3,  // 7: contact_proto.ContactService.Get:input_type -> contact_proto.GetRequest
 	5,  // 8: contact_proto.ContactService.Update:input_type -> contact_proto.UpdateRequest

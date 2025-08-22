@@ -471,7 +471,8 @@ func (x *ListRequest) GetOffset() int32 {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Templates     []*MessageTemplateDto  `protobuf:"bytes,1,rep,name=templates,proto3" json:"templates,omitempty"`
+	Rows          []*MessageTemplateDto  `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
+	Count         int32                  `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -506,11 +507,18 @@ func (*ListResponse) Descriptor() ([]byte, []int) {
 	return file_transactions_notifier_service_protos_message_template_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *ListResponse) GetTemplates() []*MessageTemplateDto {
+func (x *ListResponse) GetRows() []*MessageTemplateDto {
 	if x != nil {
-		return x.Templates
+		return x.Rows
 	}
 	return nil
+}
+
+func (x *ListResponse) GetCount() int32 {
+	if x != nil {
+		return x.Count
+	}
+	return 0
 }
 
 var File_transactions_notifier_service_protos_message_template_proto protoreflect.FileDescriptor
@@ -539,9 +547,10 @@ const file_transactions_notifier_service_protos_message_template_proto_rawDesc =
 	"\x0eDeleteResponse\";\n" +
 	"\vListRequest\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
-	"\x06offset\x18\x02 \x01(\x05R\x06offset\"X\n" +
-	"\fListResponse\x12H\n" +
-	"\ttemplates\x18\x01 \x03(\v2*.message_template_proto.MessageTemplateDtoR\ttemplates2\xd0\x03\n" +
+	"\x06offset\x18\x02 \x01(\x05R\x06offset\"d\n" +
+	"\fListResponse\x12>\n" +
+	"\x04rows\x18\x01 \x03(\v2*.message_template_proto.MessageTemplateDtoR\x04rows\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\x05R\x05count2\xd0\x03\n" +
 	"\x16MessageTemplateService\x12Y\n" +
 	"\x06Create\x12%.message_template_proto.CreateRequest\x1a&.message_template_proto.CreateResponse\"\x00\x12P\n" +
 	"\x03Get\x12\".message_template_proto.GetRequest\x1a#.message_template_proto.GetResponse\"\x00\x12Y\n" +
@@ -581,7 +590,7 @@ var file_transactions_notifier_service_protos_message_template_proto_depIdxs = [
 	0,  // 2: message_template_proto.GetResponse.template:type_name -> message_template_proto.MessageTemplateDto
 	0,  // 3: message_template_proto.UpdateRequest.template:type_name -> message_template_proto.MessageTemplateDto
 	0,  // 4: message_template_proto.UpdateResponse.template:type_name -> message_template_proto.MessageTemplateDto
-	0,  // 5: message_template_proto.ListResponse.templates:type_name -> message_template_proto.MessageTemplateDto
+	0,  // 5: message_template_proto.ListResponse.rows:type_name -> message_template_proto.MessageTemplateDto
 	1,  // 6: message_template_proto.MessageTemplateService.Create:input_type -> message_template_proto.CreateRequest
 	3,  // 7: message_template_proto.MessageTemplateService.Get:input_type -> message_template_proto.GetRequest
 	5,  // 8: message_template_proto.MessageTemplateService.Update:input_type -> message_template_proto.UpdateRequest

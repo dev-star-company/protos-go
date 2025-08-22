@@ -56,5 +56,6 @@ message ListRequest {
 }
 
 message ListResponse {
-    repeated RateCategoryDto categories = 1;
+    repeated RateCategoryDto rows = 1;
+    int32 count = 2;
 }

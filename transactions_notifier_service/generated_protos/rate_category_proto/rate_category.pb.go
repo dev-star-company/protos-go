@@ -480,7 +480,8 @@ func (x *ListRequest) GetOffset() int32 {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Categories    []*RateCategoryDto     `protobuf:"bytes,1,rep,name=categories,proto3" json:"categories,omitempty"`
+	Rows          []*RateCategoryDto     `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
+	Count         int32                  `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -515,11 +516,18 @@ func (*ListResponse) Descriptor() ([]byte, []int) {
 	return file_transactions_notifier_service_protos_rate_category_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *ListResponse) GetCategories() []*RateCategoryDto {
+func (x *ListResponse) GetRows() []*RateCategoryDto {
 	if x != nil {
-		return x.Categories
+		return x.Rows
 	}
 	return nil
+}
+
+func (x *ListResponse) GetCount() int32 {
+	if x != nil {
+		return x.Count
+	}
+	return 0
 }
 
 var File_transactions_notifier_service_protos_rate_category_proto protoreflect.FileDescriptor
@@ -549,11 +557,10 @@ const file_transactions_notifier_service_protos_rate_category_proto_rawDesc = ""
 	"\x0eDeleteResponse\";\n" +
 	"\vListRequest\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
-	"\x06offset\x18\x02 \x01(\x05R\x06offset\"T\n" +
-	"\fListResponse\x12D\n" +
-	"\n" +
-	"categories\x18\x01 \x03(\v2$.rate_category_proto.RateCategoryDtoR\n" +
-	"categories2\xaf\x03\n" +
+	"\x06offset\x18\x02 \x01(\x05R\x06offset\"^\n" +
+	"\fListResponse\x128\n" +
+	"\x04rows\x18\x01 \x03(\v2$.rate_category_proto.RateCategoryDtoR\x04rows\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\x05R\x05count2\xaf\x03\n" +
 	"\x13RateCategoryService\x12S\n" +
 	"\x06Create\x12\".rate_category_proto.CreateRequest\x1a#.rate_category_proto.CreateResponse\"\x00\x12J\n" +
 	"\x03Get\x12\x1f.rate_category_proto.GetRequest\x1a .rate_category_proto.GetResponse\"\x00\x12S\n" +
@@ -593,7 +600,7 @@ var file_transactions_notifier_service_protos_rate_category_proto_depIdxs = []in
 	0,  // 2: rate_category_proto.GetResponse.category:type_name -> rate_category_proto.RateCategoryDto
 	0,  // 3: rate_category_proto.UpdateRequest.category:type_name -> rate_category_proto.RateCategoryDto
 	0,  // 4: rate_category_proto.UpdateResponse.category:type_name -> rate_category_proto.RateCategoryDto
-	0,  // 5: rate_category_proto.ListResponse.categories:type_name -> rate_category_proto.RateCategoryDto
+	0,  // 5: rate_category_proto.ListResponse.rows:type_name -> rate_category_proto.RateCategoryDto
 	1,  // 6: rate_category_proto.RateCategoryService.Create:input_type -> rate_category_proto.CreateRequest
 	3,  // 7: rate_category_proto.RateCategoryService.Get:input_type -> rate_category_proto.GetRequest
 	5,  // 8: rate_category_proto.RateCategoryService.Update:input_type -> rate_category_proto.UpdateRequest
