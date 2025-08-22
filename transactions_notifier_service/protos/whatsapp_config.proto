@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package whatsapp_config_proto;
+
+option go_package = "./generated_protos/whatsapp_config_proto";
+
+service WhatsappConfigService {
+    rpc Create (CreateRequest) returns (CreateResponse) {}
+    rpc Get (GetRequest) returns (GetResponse) {}
+    rpc Delete (DeleteRequest) returns (DeleteResponse) {}
+}
+
+message WhatsappConfigDto {
+    int32 user_id = 1;
+    string phone_number = 2;
+    string status = 3;
+    string store_id = 4;
+}
+
+message CreateRequest {
+    WhatsappConfigDto config = 1;
+}
+
+message CreateResponse {
+    WhatsappConfigDto config = 1;
+}
+
+message GetRequest {
+    int32 user_id = 1;
+}
+
+message GetResponse {
+    WhatsappConfigDto config = 1;
+}
+
+message DeleteRequest {
+    int32 user_id = 1;
+}
+
+message DeleteResponse {
+    bool success = 1;
+}

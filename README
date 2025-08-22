@@ -4,6 +4,7 @@ protoc --go_out=. --go-grpc_out=. images_service/protos/*
 protoc --go_out=. --go-grpc_out=. permissions_service/protos/*
 protoc --go_out=. --go-grpc_out=. products_service/protos/*
 protoc --go_out=. --go-grpc_out=. transactions_service/protos/*
+protoc --go_out=. --go-grpc_out=. transactions_notifier_service/protos/*
 
 Be sure to install the protoc-gen-go and protoc-gen-go-grpc plugins
   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest

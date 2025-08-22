@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package group_proto;
+
+option go_package = "./generated_protos/group_proto";
+
+service GroupService {
+    // Group CRUD
+    rpc Create (CreateRequest) returns (CreateResponse) {}
+    rpc Get (GetRequest) returns (GetResponse) {}
+    rpc Update (UpdateRequest) returns (UpdateResponse) {}
+    rpc Delete (DeleteRequest) returns (DeleteResponse) {}
+    rpc List (ListRequest) returns (ListResponse) {}
+}
+
+message GroupDto {
+    int32 id = 1;
+    string name = 2;
+    string chat_id = 3;
+    string client_id = 4;
+    int32 rate_category_id = 5;
+    int32 whatsapp_config_id = 6;
+}
+
+message CreateRequest {
+    GroupDto group = 1;
+}
+
+message CreateResponse {
+    GroupDto group = 1;
+}
+
+message GetRequest {
+    int32 id = 1;
+}
+
+message GetResponse {
+    GroupDto group = 1;
+}
+
+message UpdateRequest {
+    GroupDto group = 1;
+}
+
+message UpdateResponse {
+    GroupDto group = 1;
+}
+
+message DeleteRequest {
+    int32 id = 1;
+}
+
+message DeleteResponse {}
+
+message ListRequest {
+    int32 limit = 1;
+    int32 offset = 2;
+}
+
+message ListResponse {
+    repeated GroupDto groups = 1;
+}
