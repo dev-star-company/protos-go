@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.7
 // 	protoc        v6.30.2
-// source: transactions_notifier_service/protos/contact.proto
+// source: veyron_wpp_bot/protos/group.proto
 
-package contact_proto
+package group_proto
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -21,33 +21,33 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type ContactDto struct {
+type GroupDto struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	Id               int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name             string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	ChatId           string                 `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	ClientId         string                 `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	PhoneNumber      string                 `protobuf:"bytes,5,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
+	RateCategoryId   int32                  `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
 	WhatsappConfigId int32                  `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
 
-func (x *ContactDto) Reset() {
-	*x = ContactDto{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[0]
+func (x *GroupDto) Reset() {
+	*x = GroupDto{}
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ContactDto) String() string {
+func (x *GroupDto) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ContactDto) ProtoMessage() {}
+func (*GroupDto) ProtoMessage() {}
 
-func (x *ContactDto) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[0]
+func (x *GroupDto) ProtoReflect() protoreflect.Message {
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,47 +58,47 @@ func (x *ContactDto) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ContactDto.ProtoReflect.Descriptor instead.
-func (*ContactDto) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{0}
+// Deprecated: Use GroupDto.ProtoReflect.Descriptor instead.
+func (*GroupDto) Descriptor() ([]byte, []int) {
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ContactDto) GetId() int32 {
+func (x *GroupDto) GetId() int32 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *ContactDto) GetName() string {
+func (x *GroupDto) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *ContactDto) GetChatId() string {
+func (x *GroupDto) GetChatId() string {
 	if x != nil {
 		return x.ChatId
 	}
 	return ""
 }
 
-func (x *ContactDto) GetClientId() string {
+func (x *GroupDto) GetClientId() string {
 	if x != nil {
 		return x.ClientId
 	}
 	return ""
 }
 
-func (x *ContactDto) GetPhoneNumber() string {
+func (x *GroupDto) GetRateCategoryId() int32 {
 	if x != nil {
-		return x.PhoneNumber
+		return x.RateCategoryId
 	}
-	return ""
+	return 0
 }
 
-func (x *ContactDto) GetWhatsappConfigId() int32 {
+func (x *GroupDto) GetWhatsappConfigId() int32 {
 	if x != nil {
 		return x.WhatsappConfigId
 	}
@@ -107,14 +107,14 @@ func (x *ContactDto) GetWhatsappConfigId() int32 {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Contact       *ContactDto            `protobuf:"bytes,1,opt,name=contact,proto3" json:"contact,omitempty"`
+	Group         *GroupDto              `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[1]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -126,7 +126,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[1]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -139,26 +139,26 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{1}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetContact() *ContactDto {
+func (x *CreateRequest) GetGroup() *GroupDto {
 	if x != nil {
-		return x.Contact
+		return x.Group
 	}
 	return nil
 }
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Contact       *ContactDto            `protobuf:"bytes,1,opt,name=contact,proto3" json:"contact,omitempty"`
+	Group         *GroupDto              `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateResponse) Reset() {
 	*x = CreateResponse{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[2]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -170,7 +170,7 @@ func (x *CreateResponse) String() string {
 func (*CreateResponse) ProtoMessage() {}
 
 func (x *CreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[2]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -183,12 +183,12 @@ func (x *CreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{2}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetContact() *ContactDto {
+func (x *CreateResponse) GetGroup() *GroupDto {
 	if x != nil {
-		return x.Contact
+		return x.Group
 	}
 	return nil
 }
@@ -202,7 +202,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[3]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -214,7 +214,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[3]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -227,7 +227,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{3}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetRequest) GetId() int32 {
@@ -239,14 +239,14 @@ func (x *GetRequest) GetId() int32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Contact       *ContactDto            `protobuf:"bytes,1,opt,name=contact,proto3" json:"contact,omitempty"`
+	Group         *GroupDto              `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[4]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -258,7 +258,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[4]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -271,26 +271,26 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{4}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetContact() *ContactDto {
+func (x *GetResponse) GetGroup() *GroupDto {
 	if x != nil {
-		return x.Contact
+		return x.Group
 	}
 	return nil
 }
 
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Contact       *ContactDto            `protobuf:"bytes,1,opt,name=contact,proto3" json:"contact,omitempty"`
+	Group         *GroupDto              `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateRequest) Reset() {
 	*x = UpdateRequest{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[5]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -302,7 +302,7 @@ func (x *UpdateRequest) String() string {
 func (*UpdateRequest) ProtoMessage() {}
 
 func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[5]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -315,26 +315,26 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{5}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UpdateRequest) GetContact() *ContactDto {
+func (x *UpdateRequest) GetGroup() *GroupDto {
 	if x != nil {
-		return x.Contact
+		return x.Group
 	}
 	return nil
 }
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Contact       *ContactDto            `protobuf:"bytes,1,opt,name=contact,proto3" json:"contact,omitempty"`
+	Group         *GroupDto              `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateResponse) Reset() {
 	*x = UpdateResponse{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[6]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -346,7 +346,7 @@ func (x *UpdateResponse) String() string {
 func (*UpdateResponse) ProtoMessage() {}
 
 func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[6]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -359,12 +359,12 @@ func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
 func (*UpdateResponse) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{6}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetContact() *ContactDto {
+func (x *UpdateResponse) GetGroup() *GroupDto {
 	if x != nil {
-		return x.Contact
+		return x.Group
 	}
 	return nil
 }
@@ -378,7 +378,7 @@ type DeleteRequest struct {
 
 func (x *DeleteRequest) Reset() {
 	*x = DeleteRequest{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[7]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -390,7 +390,7 @@ func (x *DeleteRequest) String() string {
 func (*DeleteRequest) ProtoMessage() {}
 
 func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[7]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -403,7 +403,7 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{7}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DeleteRequest) GetId() int32 {
@@ -421,7 +421,7 @@ type DeleteResponse struct {
 
 func (x *DeleteResponse) Reset() {
 	*x = DeleteResponse{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[8]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -433,7 +433,7 @@ func (x *DeleteResponse) String() string {
 func (*DeleteResponse) ProtoMessage() {}
 
 func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[8]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -446,7 +446,7 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{8}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{8}
 }
 
 type ListRequest struct {
@@ -459,7 +459,7 @@ type ListRequest struct {
 
 func (x *ListRequest) Reset() {
 	*x = ListRequest{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[9]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -471,7 +471,7 @@ func (x *ListRequest) String() string {
 func (*ListRequest) ProtoMessage() {}
 
 func (x *ListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[9]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -484,7 +484,7 @@ func (x *ListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
 func (*ListRequest) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{9}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ListRequest) GetLimit() int32 {
@@ -503,7 +503,7 @@ func (x *ListRequest) GetOffset() int32 {
 
 type ListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Rows          []*ContactDto          `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
+	Rows          []*GroupDto            `protobuf:"bytes,1,rep,name=rows,proto3" json:"rows,omitempty"`
 	Count         int32                  `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -511,7 +511,7 @@ type ListResponse struct {
 
 func (x *ListResponse) Reset() {
 	*x = ListResponse{}
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[10]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -523,7 +523,7 @@ func (x *ListResponse) String() string {
 func (*ListResponse) ProtoMessage() {}
 
 func (x *ListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_transactions_notifier_service_protos_contact_proto_msgTypes[10]
+	mi := &file_veyron_wpp_bot_protos_group_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -536,10 +536,10 @@ func (x *ListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
 func (*ListResponse) Descriptor() ([]byte, []int) {
-	return file_transactions_notifier_service_protos_contact_proto_rawDescGZIP(), []int{10}
+	return file_veyron_wpp_bot_protos_group_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *ListResponse) GetRows() []*ContactDto {
+func (x *ListResponse) GetRows() []*GroupDto {
 	if x != nil {
 		return x.Rows
 	}
@@ -553,91 +553,90 @@ func (x *ListResponse) GetCount() int32 {
 	return 0
 }
 
-var File_transactions_notifier_service_protos_contact_proto protoreflect.FileDescriptor
+var File_veyron_wpp_bot_protos_group_proto protoreflect.FileDescriptor
 
-const file_transactions_notifier_service_protos_contact_proto_rawDesc = "" +
+const file_veyron_wpp_bot_protos_group_proto_rawDesc = "" +
 	"\n" +
-	"2transactions_notifier_service/protos/contact.proto\x12\rcontact_proto\"\xb7\x01\n" +
-	"\n" +
-	"ContactDto\x12\x0e\n" +
+	"!veyron_wpp_bot/protos/group.proto\x12\vgroup_proto\"\xbc\x01\n" +
+	"\bGroupDto\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x17\n" +
 	"\achat_id\x18\x03 \x01(\tR\x06chatId\x12\x1b\n" +
-	"\tclient_id\x18\x04 \x01(\tR\bclientId\x12!\n" +
-	"\fphone_number\x18\x05 \x01(\tR\vphoneNumber\x12,\n" +
-	"\x12whatsapp_config_id\x18\x06 \x01(\x05R\x10whatsappConfigId\"D\n" +
-	"\rCreateRequest\x123\n" +
-	"\acontact\x18\x01 \x01(\v2\x19.contact_proto.ContactDtoR\acontact\"E\n" +
-	"\x0eCreateResponse\x123\n" +
-	"\acontact\x18\x01 \x01(\v2\x19.contact_proto.ContactDtoR\acontact\"\x1c\n" +
+	"\tclient_id\x18\x04 \x01(\tR\bclientId\x12(\n" +
+	"\x10rate_category_id\x18\x05 \x01(\x05R\x0erateCategoryId\x12,\n" +
+	"\x12whatsapp_config_id\x18\x06 \x01(\x05R\x10whatsappConfigId\"<\n" +
+	"\rCreateRequest\x12+\n" +
+	"\x05group\x18\x01 \x01(\v2\x15.group_proto.GroupDtoR\x05group\"=\n" +
+	"\x0eCreateResponse\x12+\n" +
+	"\x05group\x18\x01 \x01(\v2\x15.group_proto.GroupDtoR\x05group\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"B\n" +
-	"\vGetResponse\x123\n" +
-	"\acontact\x18\x01 \x01(\v2\x19.contact_proto.ContactDtoR\acontact\"D\n" +
-	"\rUpdateRequest\x123\n" +
-	"\acontact\x18\x01 \x01(\v2\x19.contact_proto.ContactDtoR\acontact\"E\n" +
-	"\x0eUpdateResponse\x123\n" +
-	"\acontact\x18\x01 \x01(\v2\x19.contact_proto.ContactDtoR\acontact\"\x1f\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\":\n" +
+	"\vGetResponse\x12+\n" +
+	"\x05group\x18\x01 \x01(\v2\x15.group_proto.GroupDtoR\x05group\"<\n" +
+	"\rUpdateRequest\x12+\n" +
+	"\x05group\x18\x01 \x01(\v2\x15.group_proto.GroupDtoR\x05group\"=\n" +
+	"\x0eUpdateResponse\x12+\n" +
+	"\x05group\x18\x01 \x01(\v2\x15.group_proto.GroupDtoR\x05group\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"\x10\n" +
 	"\x0eDeleteResponse\";\n" +
 	"\vListRequest\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
-	"\x06offset\x18\x02 \x01(\x05R\x06offset\"S\n" +
-	"\fListResponse\x12-\n" +
-	"\x04rows\x18\x01 \x03(\v2\x19.contact_proto.ContactDtoR\x04rows\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\x05R\x05count2\xee\x02\n" +
-	"\x0eContactService\x12G\n" +
-	"\x06Create\x12\x1c.contact_proto.CreateRequest\x1a\x1d.contact_proto.CreateResponse\"\x00\x12>\n" +
-	"\x03Get\x12\x19.contact_proto.GetRequest\x1a\x1a.contact_proto.GetResponse\"\x00\x12G\n" +
-	"\x06Update\x12\x1c.contact_proto.UpdateRequest\x1a\x1d.contact_proto.UpdateResponse\"\x00\x12G\n" +
-	"\x06Delete\x12\x1c.contact_proto.DeleteRequest\x1a\x1d.contact_proto.DeleteResponse\"\x00\x12A\n" +
-	"\x04List\x12\x1a.contact_proto.ListRequest\x1a\x1b.contact_proto.ListResponse\"\x00B\"Z ./generated_protos/contact_protob\x06proto3"
+	"\x06offset\x18\x02 \x01(\x05R\x06offset\"O\n" +
+	"\fListResponse\x12)\n" +
+	"\x04rows\x18\x01 \x03(\v2\x15.group_proto.GroupDtoR\x04rows\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\x05R\x05count2\xd8\x02\n" +
+	"\fGroupService\x12C\n" +
+	"\x06Create\x12\x1a.group_proto.CreateRequest\x1a\x1b.group_proto.CreateResponse\"\x00\x12:\n" +
+	"\x03Get\x12\x17.group_proto.GetRequest\x1a\x18.group_proto.GetResponse\"\x00\x12C\n" +
+	"\x06Update\x12\x1a.group_proto.UpdateRequest\x1a\x1b.group_proto.UpdateResponse\"\x00\x12C\n" +
+	"\x06Delete\x12\x1a.group_proto.DeleteRequest\x1a\x1b.group_proto.DeleteResponse\"\x00\x12=\n" +
+	"\x04List\x12\x18.group_proto.ListRequest\x1a\x19.group_proto.ListResponse\"\x00B Z\x1e./generated_protos/group_protob\x06proto3"
 
 var (
-	file_transactions_notifier_service_protos_contact_proto_rawDescOnce sync.Once
-	file_transactions_notifier_service_protos_contact_proto_rawDescData []byte
+	file_veyron_wpp_bot_protos_group_proto_rawDescOnce sync.Once
+	file_veyron_wpp_bot_protos_group_proto_rawDescData []byte
 )
 
-func file_transactions_notifier_service_protos_contact_proto_rawDescGZIP() []byte {
-	file_transactions_notifier_service_protos_contact_proto_rawDescOnce.Do(func() {
-		file_transactions_notifier_service_protos_contact_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_transactions_notifier_service_protos_contact_proto_rawDesc), len(file_transactions_notifier_service_protos_contact_proto_rawDesc)))
+func file_veyron_wpp_bot_protos_group_proto_rawDescGZIP() []byte {
+	file_veyron_wpp_bot_protos_group_proto_rawDescOnce.Do(func() {
+		file_veyron_wpp_bot_protos_group_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_veyron_wpp_bot_protos_group_proto_rawDesc), len(file_veyron_wpp_bot_protos_group_proto_rawDesc)))
 	})
-	return file_transactions_notifier_service_protos_contact_proto_rawDescData
+	return file_veyron_wpp_bot_protos_group_proto_rawDescData
 }
 
-var file_transactions_notifier_service_protos_contact_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
-var file_transactions_notifier_service_protos_contact_proto_goTypes = []any{
-	(*ContactDto)(nil),     // 0: contact_proto.ContactDto
-	(*CreateRequest)(nil),  // 1: contact_proto.CreateRequest
-	(*CreateResponse)(nil), // 2: contact_proto.CreateResponse
-	(*GetRequest)(nil),     // 3: contact_proto.GetRequest
-	(*GetResponse)(nil),    // 4: contact_proto.GetResponse
-	(*UpdateRequest)(nil),  // 5: contact_proto.UpdateRequest
-	(*UpdateResponse)(nil), // 6: contact_proto.UpdateResponse
-	(*DeleteRequest)(nil),  // 7: contact_proto.DeleteRequest
-	(*DeleteResponse)(nil), // 8: contact_proto.DeleteResponse
-	(*ListRequest)(nil),    // 9: contact_proto.ListRequest
-	(*ListResponse)(nil),   // 10: contact_proto.ListResponse
+var file_veyron_wpp_bot_protos_group_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_veyron_wpp_bot_protos_group_proto_goTypes = []any{
+	(*GroupDto)(nil),       // 0: group_proto.GroupDto
+	(*CreateRequest)(nil),  // 1: group_proto.CreateRequest
+	(*CreateResponse)(nil), // 2: group_proto.CreateResponse
+	(*GetRequest)(nil),     // 3: group_proto.GetRequest
+	(*GetResponse)(nil),    // 4: group_proto.GetResponse
+	(*UpdateRequest)(nil),  // 5: group_proto.UpdateRequest
+	(*UpdateResponse)(nil), // 6: group_proto.UpdateResponse
+	(*DeleteRequest)(nil),  // 7: group_proto.DeleteRequest
+	(*DeleteResponse)(nil), // 8: group_proto.DeleteResponse
+	(*ListRequest)(nil),    // 9: group_proto.ListRequest
+	(*ListResponse)(nil),   // 10: group_proto.ListResponse
 }
-var file_transactions_notifier_service_protos_contact_proto_depIdxs = []int32{
-	0,  // 0: contact_proto.CreateRequest.contact:type_name -> contact_proto.ContactDto
-	0,  // 1: contact_proto.CreateResponse.contact:type_name -> contact_proto.ContactDto
-	0,  // 2: contact_proto.GetResponse.contact:type_name -> contact_proto.ContactDto
-	0,  // 3: contact_proto.UpdateRequest.contact:type_name -> contact_proto.ContactDto
-	0,  // 4: contact_proto.UpdateResponse.contact:type_name -> contact_proto.ContactDto
-	0,  // 5: contact_proto.ListResponse.rows:type_name -> contact_proto.ContactDto
-	1,  // 6: contact_proto.ContactService.Create:input_type -> contact_proto.CreateRequest
-	3,  // 7: contact_proto.ContactService.Get:input_type -> contact_proto.GetRequest
-	5,  // 8: contact_proto.ContactService.Update:input_type -> contact_proto.UpdateRequest
-	7,  // 9: contact_proto.ContactService.Delete:input_type -> contact_proto.DeleteRequest
-	9,  // 10: contact_proto.ContactService.List:input_type -> contact_proto.ListRequest
-	2,  // 11: contact_proto.ContactService.Create:output_type -> contact_proto.CreateResponse
-	4,  // 12: contact_proto.ContactService.Get:output_type -> contact_proto.GetResponse
-	6,  // 13: contact_proto.ContactService.Update:output_type -> contact_proto.UpdateResponse
-	8,  // 14: contact_proto.ContactService.Delete:output_type -> contact_proto.DeleteResponse
-	10, // 15: contact_proto.ContactService.List:output_type -> contact_proto.ListResponse
+var file_veyron_wpp_bot_protos_group_proto_depIdxs = []int32{
+	0,  // 0: group_proto.CreateRequest.group:type_name -> group_proto.GroupDto
+	0,  // 1: group_proto.CreateResponse.group:type_name -> group_proto.GroupDto
+	0,  // 2: group_proto.GetResponse.group:type_name -> group_proto.GroupDto
+	0,  // 3: group_proto.UpdateRequest.group:type_name -> group_proto.GroupDto
+	0,  // 4: group_proto.UpdateResponse.group:type_name -> group_proto.GroupDto
+	0,  // 5: group_proto.ListResponse.rows:type_name -> group_proto.GroupDto
+	1,  // 6: group_proto.GroupService.Create:input_type -> group_proto.CreateRequest
+	3,  // 7: group_proto.GroupService.Get:input_type -> group_proto.GetRequest
+	5,  // 8: group_proto.GroupService.Update:input_type -> group_proto.UpdateRequest
+	7,  // 9: group_proto.GroupService.Delete:input_type -> group_proto.DeleteRequest
+	9,  // 10: group_proto.GroupService.List:input_type -> group_proto.ListRequest
+	2,  // 11: group_proto.GroupService.Create:output_type -> group_proto.CreateResponse
+	4,  // 12: group_proto.GroupService.Get:output_type -> group_proto.GetResponse
+	6,  // 13: group_proto.GroupService.Update:output_type -> group_proto.UpdateResponse
+	8,  // 14: group_proto.GroupService.Delete:output_type -> group_proto.DeleteResponse
+	10, // 15: group_proto.GroupService.List:output_type -> group_proto.ListResponse
 	11, // [11:16] is the sub-list for method output_type
 	6,  // [6:11] is the sub-list for method input_type
 	6,  // [6:6] is the sub-list for extension type_name
@@ -645,26 +644,26 @@ var file_transactions_notifier_service_protos_contact_proto_depIdxs = []int32{
 	0,  // [0:6] is the sub-list for field type_name
 }
 
-func init() { file_transactions_notifier_service_protos_contact_proto_init() }
-func file_transactions_notifier_service_protos_contact_proto_init() {
-	if File_transactions_notifier_service_protos_contact_proto != nil {
+func init() { file_veyron_wpp_bot_protos_group_proto_init() }
+func file_veyron_wpp_bot_protos_group_proto_init() {
+	if File_veyron_wpp_bot_protos_group_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_transactions_notifier_service_protos_contact_proto_rawDesc), len(file_transactions_notifier_service_protos_contact_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_veyron_wpp_bot_protos_group_proto_rawDesc), len(file_veyron_wpp_bot_protos_group_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_transactions_notifier_service_protos_contact_proto_goTypes,
-		DependencyIndexes: file_transactions_notifier_service_protos_contact_proto_depIdxs,
-		MessageInfos:      file_transactions_notifier_service_protos_contact_proto_msgTypes,
+		GoTypes:           file_veyron_wpp_bot_protos_group_proto_goTypes,
+		DependencyIndexes: file_veyron_wpp_bot_protos_group_proto_depIdxs,
+		MessageInfos:      file_veyron_wpp_bot_protos_group_proto_msgTypes,
 	}.Build()
-	File_transactions_notifier_service_protos_contact_proto = out.File
-	file_transactions_notifier_service_protos_contact_proto_goTypes = nil
-	file_transactions_notifier_service_protos_contact_proto_depIdxs = nil
+	File_veyron_wpp_bot_protos_group_proto = out.File
+	file_veyron_wpp_bot_protos_group_proto_goTypes = nil
+	file_veyron_wpp_bot_protos_group_proto_depIdxs = nil
 }

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: transactions_notifier_service/protos/contact.proto
+// source: veyron_wpp_bot/protos/contact.proto
 
 package contact_proto
 
@@ -271,5 +271,5 @@ var ContactService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "transactions_notifier_service/protos/contact.proto",
+	Metadata: "veyron_wpp_bot/protos/contact.proto",
 }

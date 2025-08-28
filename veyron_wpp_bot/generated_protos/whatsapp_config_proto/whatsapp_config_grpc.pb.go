@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: transactions_notifier_service/protos/whatsapp_config.proto
+// source: veyron_wpp_bot/protos/whatsapp_config.proto
 
 package whatsapp_config_proto
 
@@ -193,5 +193,5 @@ var WhatsappConfigService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "transactions_notifier_service/protos/whatsapp_config.proto",
+	Metadata: "veyron_wpp_bot/protos/whatsapp_config.proto",
 }

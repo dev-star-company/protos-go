@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: transactions_notifier_service/protos/group.proto
+// source: veyron_wpp_bot/protos/group.proto
 
 package group_proto
 
@@ -271,5 +271,5 @@ var GroupService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "transactions_notifier_service/protos/group.proto",
+	Metadata: "veyron_wpp_bot/protos/group.proto",
 }
