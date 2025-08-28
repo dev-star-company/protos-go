@@ -6,10 +6,10 @@ option go_package = "./generated_protos/whatsapp_proto";
 
 service WhatsappService {
     rpc Connect (stream ConnectRequest) returns (stream ConnectResponse) {};
+    rpc Reconnect (ReconnectRequest) returns (ReconnectResponse) {};
     rpc Disconnect (DisconnectRequest) returns (DisconnectResponse) {};
     rpc WatchConnectionStatus (WatchConnectionStatusRequest) returns (stream WatchConnectionStatusResponse) {};
     rpc SendMessage (SendMessageRequest) returns (SendMessageResponse) {};
-    rpc SendMessageToGroup (SendMessageToGroupRequest) returns (SendMessageToGroupResponse) {};
     rpc SendMediaMessage (SendMediaMessageRequest) returns (SendMediaMessageResponse) {};
     rpc DownloadMedia (DownloadMediaRequest) returns (DownloadMediaResponse) {};
     rpc GetContacts (GetContactsRequest) returns (GetContactsResponse) {};
@@ -51,6 +51,14 @@ message ConnectResponse {
     optional string error_message = 7;
 }
 
+message ReconnectRequest {
+    string phone_number = 1;
+}
+
+message ReconnectResponse {
+    optional string error_message = 1;
+}
+
 message DisconnectRequest {
     string phone_number = 1;
 }
@@ -83,14 +91,6 @@ message SendMessageRequest {
 }
 
 message SendMessageResponse {}
-
-message SendMessageToGroupRequest {
-    string from = 1;
-    string group_jid = 2;
-    string message = 3;
-}
-
-message SendMessageToGroupResponse {}
 
 message GetContactsRequest {
     string phone_number = 1;

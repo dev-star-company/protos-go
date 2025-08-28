@@ -20,10 +20,10 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	WhatsappService_Connect_FullMethodName               = "/whatsapp_proto.WhatsappService/Connect"
+	WhatsappService_Reconnect_FullMethodName             = "/whatsapp_proto.WhatsappService/Reconnect"
 	WhatsappService_Disconnect_FullMethodName            = "/whatsapp_proto.WhatsappService/Disconnect"
 	WhatsappService_WatchConnectionStatus_FullMethodName = "/whatsapp_proto.WhatsappService/WatchConnectionStatus"
 	WhatsappService_SendMessage_FullMethodName           = "/whatsapp_proto.WhatsappService/SendMessage"
-	WhatsappService_SendMessageToGroup_FullMethodName    = "/whatsapp_proto.WhatsappService/SendMessageToGroup"
 	WhatsappService_SendMediaMessage_FullMethodName      = "/whatsapp_proto.WhatsappService/SendMediaMessage"
 	WhatsappService_DownloadMedia_FullMethodName         = "/whatsapp_proto.WhatsappService/DownloadMedia"
 	WhatsappService_GetContacts_FullMethodName           = "/whatsapp_proto.WhatsappService/GetContacts"
@@ -39,10 +39,10 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WhatsappServiceClient interface {
 	Connect(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[ConnectRequest, ConnectResponse], error)
+	Reconnect(ctx context.Context, in *ReconnectRequest, opts ...grpc.CallOption) (*ReconnectResponse, error)
 	Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error)
 	WatchConnectionStatus(ctx context.Context, in *WatchConnectionStatusRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchConnectionStatusResponse], error)
 	SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error)
-	SendMessageToGroup(ctx context.Context, in *SendMessageToGroupRequest, opts ...grpc.CallOption) (*SendMessageToGroupResponse, error)
 	SendMediaMessage(ctx context.Context, in *SendMediaMessageRequest, opts ...grpc.CallOption) (*SendMediaMessageResponse, error)
 	DownloadMedia(ctx context.Context, in *DownloadMediaRequest, opts ...grpc.CallOption) (*DownloadMediaResponse, error)
 	GetContacts(ctx context.Context, in *GetContactsRequest, opts ...grpc.CallOption) (*GetContactsResponse, error)
@@ -73,6 +73,16 @@ func (c *whatsappServiceClient) Connect(ctx context.Context, opts ...grpc.CallOp
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type WhatsappService_ConnectClient = grpc.BidiStreamingClient[ConnectRequest, ConnectResponse]
+
+func (c *whatsappServiceClient) Reconnect(ctx context.Context, in *ReconnectRequest, opts ...grpc.CallOption) (*ReconnectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReconnectResponse)
+	err := c.cc.Invoke(ctx, WhatsappService_Reconnect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
 
 func (c *whatsappServiceClient) Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
@@ -107,16 +117,6 @@ func (c *whatsappServiceClient) SendMessage(ctx context.Context, in *SendMessage
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SendMessageResponse)
 	err := c.cc.Invoke(ctx, WhatsappService_SendMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *whatsappServiceClient) SendMessageToGroup(ctx context.Context, in *SendMessageToGroupRequest, opts ...grpc.CallOption) (*SendMessageToGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendMessageToGroupResponse)
-	err := c.cc.Invoke(ctx, WhatsappService_SendMessageToGroup_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -217,10 +217,10 @@ func (c *whatsappServiceClient) PostToBroadcastList(ctx context.Context, in *Pos
 // for forward compatibility.
 type WhatsappServiceServer interface {
 	Connect(grpc.BidiStreamingServer[ConnectRequest, ConnectResponse]) error
+	Reconnect(context.Context, *ReconnectRequest) (*ReconnectResponse, error)
 	Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error)
 	WatchConnectionStatus(*WatchConnectionStatusRequest, grpc.ServerStreamingServer[WatchConnectionStatusResponse]) error
 	SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error)
-	SendMessageToGroup(context.Context, *SendMessageToGroupRequest) (*SendMessageToGroupResponse, error)
 	SendMediaMessage(context.Context, *SendMediaMessageRequest) (*SendMediaMessageResponse, error)
 	DownloadMedia(context.Context, *DownloadMediaRequest) (*DownloadMediaResponse, error)
 	GetContacts(context.Context, *GetContactsRequest) (*GetContactsResponse, error)
@@ -242,6 +242,9 @@ type UnimplementedWhatsappServiceServer struct{}
 func (UnimplementedWhatsappServiceServer) Connect(grpc.BidiStreamingServer[ConnectRequest, ConnectResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method Connect not implemented")
 }
+func (UnimplementedWhatsappServiceServer) Reconnect(context.Context, *ReconnectRequest) (*ReconnectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Reconnect not implemented")
+}
 func (UnimplementedWhatsappServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Disconnect not implemented")
 }
@@ -250,9 +253,6 @@ func (UnimplementedWhatsappServiceServer) WatchConnectionStatus(*WatchConnection
 }
 func (UnimplementedWhatsappServiceServer) SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendMessage not implemented")
-}
-func (UnimplementedWhatsappServiceServer) SendMessageToGroup(context.Context, *SendMessageToGroupRequest) (*SendMessageToGroupResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SendMessageToGroup not implemented")
 }
 func (UnimplementedWhatsappServiceServer) SendMediaMessage(context.Context, *SendMediaMessageRequest) (*SendMediaMessageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendMediaMessage not implemented")
@@ -306,6 +306,24 @@ func _WhatsappService_Connect_Handler(srv interface{}, stream grpc.ServerStream)
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type WhatsappService_ConnectServer = grpc.BidiStreamingServer[ConnectRequest, ConnectResponse]
 
+func _WhatsappService_Reconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReconnectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WhatsappServiceServer).Reconnect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WhatsappService_Reconnect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WhatsappServiceServer).Reconnect(ctx, req.(*ReconnectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _WhatsappService_Disconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DisconnectRequest)
 	if err := dec(in); err != nil {
@@ -349,24 +367,6 @@ func _WhatsappService_SendMessage_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WhatsappServiceServer).SendMessage(ctx, req.(*SendMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WhatsappService_SendMessageToGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendMessageToGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WhatsappServiceServer).SendMessageToGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WhatsappService_SendMessageToGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WhatsappServiceServer).SendMessageToGroup(ctx, req.(*SendMessageToGroupRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -516,16 +516,16 @@ var WhatsappService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*WhatsappServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "Reconnect",
+			Handler:    _WhatsappService_Reconnect_Handler,
+		},
+		{
 			MethodName: "Disconnect",
 			Handler:    _WhatsappService_Disconnect_Handler,
 		},
 		{
 			MethodName: "SendMessage",
 			Handler:    _WhatsappService_SendMessage_Handler,
-		},
-		{
-			MethodName: "SendMessageToGroup",
-			Handler:    _WhatsappService_SendMessageToGroup_Handler,
 		},
 		{
 			MethodName: "SendMediaMessage",
