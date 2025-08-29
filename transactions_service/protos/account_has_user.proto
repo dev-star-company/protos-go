@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package accounts_has_user_proto;
+
+option go_package = "./generated_protos/accounts_has_user_proto";
+
+service AccountHasUserService {
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Get(GetRequest) returns (GetResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
+    rpc List(ListRequest) returns (ListResponse);
+}
+
+message AccountHasUser {
+    uint32 account_id = 1;
+    uint32 user_id = 2;
+}
+
+message CreateRequest {
+    uint32 account_id = 1;
+    uint32 user_id = 2;
+}
+
+message CreateResponse {
+    uint32 account_id = 1;
+    uint32 user_id = 2;
+    uint32 id = 3;
+}
+
+message GetRequest {
+    uint32 id = 3;
+}
+
+message GetResponse {
+    uint32 account_id = 1;
+    uint32 user_id = 2;
+    uint32 id = 3;
+}
+
+message UpdateRequest {
+    uint32 account_id = 1;
+    uint32 user_id = 2;
+}
+
+message UpdateResponse {
+    uint32 account_id = 1;
+    uint32 user_id = 2;
+}
+
+message DeleteRequest {
+    uint32 id = 1;
+}
+
+message DeleteResponse {
+    uint32 account_id = 1;
+    uint32 user_id = 2;
+}
+
+message ListRequest {
+    optional uint32 account_id = 1;
+    optional uint32 user_id = 2;
+}
+
+message OrderBy {
+    uint32 account_id = 1;
+    uint32 user_id = 2;
+}
+
+message ListResponse {
+    repeated AccountHasUser rows = 1;
+    uint32 count = 2;
+}

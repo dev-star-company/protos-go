@@ -23,10 +23,11 @@ const (
 
 type WhatsappConfigDto struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        *int32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	PhoneNumber   string                 `protobuf:"bytes,2,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	StoreId       string                 `protobuf:"bytes,4,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
+	Id            uint32                 `protobuf:"varint,5,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -62,8 +63,8 @@ func (*WhatsappConfigDto) Descriptor() ([]byte, []int) {
 }
 
 func (x *WhatsappConfigDto) GetUserId() int32 {
-	if x != nil {
-		return x.UserId
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return 0
 }
@@ -89,9 +90,19 @@ func (x *WhatsappConfigDto) GetStoreId() string {
 	return ""
 }
 
+func (x *WhatsappConfigDto) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Config        *WhatsappConfigDto     `protobuf:"bytes,1,opt,name=config,proto3" json:"config,omitempty"`
+	UserId        *int32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	PhoneNumber   string                 `protobuf:"bytes,2,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
+	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	StoreId       string                 `protobuf:"bytes,4,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -126,11 +137,32 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_veyron_wpp_bot_protos_whatsapp_config_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetConfig() *WhatsappConfigDto {
-	if x != nil {
-		return x.Config
+func (x *CreateRequest) GetUserId() int32 {
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
-	return nil
+	return 0
+}
+
+func (x *CreateRequest) GetPhoneNumber() string {
+	if x != nil {
+		return x.PhoneNumber
+	}
+	return ""
+}
+
+func (x *CreateRequest) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *CreateRequest) GetStoreId() string {
+	if x != nil {
+		return x.StoreId
+	}
+	return ""
 }
 
 type CreateResponse struct {
@@ -357,14 +389,22 @@ var File_veyron_wpp_bot_protos_whatsapp_config_proto protoreflect.FileDescriptor
 
 const file_veyron_wpp_bot_protos_whatsapp_config_proto_rawDesc = "" +
 	"\n" +
-	"+veyron_wpp_bot/protos/whatsapp_config.proto\x12\x15whatsapp_config_proto\"\x82\x01\n" +
-	"\x11WhatsappConfigDto\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12!\n" +
+	"+veyron_wpp_bot/protos/whatsapp_config.proto\x12\x15whatsapp_config_proto\"\xa3\x01\n" +
+	"\x11WhatsappConfigDto\x12\x1c\n" +
+	"\auser_id\x18\x01 \x01(\x05H\x00R\x06userId\x88\x01\x01\x12!\n" +
 	"\fphone_number\x18\x02 \x01(\tR\vphoneNumber\x12\x16\n" +
 	"\x06status\x18\x03 \x01(\tR\x06status\x12\x19\n" +
-	"\bstore_id\x18\x04 \x01(\tR\astoreId\"Q\n" +
-	"\rCreateRequest\x12@\n" +
-	"\x06config\x18\x01 \x01(\v2(.whatsapp_config_proto.WhatsappConfigDtoR\x06config\"R\n" +
+	"\bstore_id\x18\x04 \x01(\tR\astoreId\x12\x0e\n" +
+	"\x02id\x18\x05 \x01(\rR\x02idB\n" +
+	"\n" +
+	"\b_user_id\"\x8f\x01\n" +
+	"\rCreateRequest\x12\x1c\n" +
+	"\auser_id\x18\x01 \x01(\x05H\x00R\x06userId\x88\x01\x01\x12!\n" +
+	"\fphone_number\x18\x02 \x01(\tR\vphoneNumber\x12\x16\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\x12\x19\n" +
+	"\bstore_id\x18\x04 \x01(\tR\astoreIdB\n" +
+	"\n" +
+	"\b_user_id\"R\n" +
 	"\x0eCreateResponse\x12@\n" +
 	"\x06config\x18\x01 \x01(\v2(.whatsapp_config_proto.WhatsappConfigDtoR\x06config\"%\n" +
 	"\n" +
@@ -404,20 +444,19 @@ var file_veyron_wpp_bot_protos_whatsapp_config_proto_goTypes = []any{
 	(*DeleteResponse)(nil),    // 6: whatsapp_config_proto.DeleteResponse
 }
 var file_veyron_wpp_bot_protos_whatsapp_config_proto_depIdxs = []int32{
-	0, // 0: whatsapp_config_proto.CreateRequest.config:type_name -> whatsapp_config_proto.WhatsappConfigDto
-	0, // 1: whatsapp_config_proto.CreateResponse.config:type_name -> whatsapp_config_proto.WhatsappConfigDto
-	0, // 2: whatsapp_config_proto.GetResponse.config:type_name -> whatsapp_config_proto.WhatsappConfigDto
-	1, // 3: whatsapp_config_proto.WhatsappConfigService.Create:input_type -> whatsapp_config_proto.CreateRequest
-	3, // 4: whatsapp_config_proto.WhatsappConfigService.Get:input_type -> whatsapp_config_proto.GetRequest
-	5, // 5: whatsapp_config_proto.WhatsappConfigService.Delete:input_type -> whatsapp_config_proto.DeleteRequest
-	2, // 6: whatsapp_config_proto.WhatsappConfigService.Create:output_type -> whatsapp_config_proto.CreateResponse
-	4, // 7: whatsapp_config_proto.WhatsappConfigService.Get:output_type -> whatsapp_config_proto.GetResponse
-	6, // 8: whatsapp_config_proto.WhatsappConfigService.Delete:output_type -> whatsapp_config_proto.DeleteResponse
-	6, // [6:9] is the sub-list for method output_type
-	3, // [3:6] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	0, // 0: whatsapp_config_proto.CreateResponse.config:type_name -> whatsapp_config_proto.WhatsappConfigDto
+	0, // 1: whatsapp_config_proto.GetResponse.config:type_name -> whatsapp_config_proto.WhatsappConfigDto
+	1, // 2: whatsapp_config_proto.WhatsappConfigService.Create:input_type -> whatsapp_config_proto.CreateRequest
+	3, // 3: whatsapp_config_proto.WhatsappConfigService.Get:input_type -> whatsapp_config_proto.GetRequest
+	5, // 4: whatsapp_config_proto.WhatsappConfigService.Delete:input_type -> whatsapp_config_proto.DeleteRequest
+	2, // 5: whatsapp_config_proto.WhatsappConfigService.Create:output_type -> whatsapp_config_proto.CreateResponse
+	4, // 6: whatsapp_config_proto.WhatsappConfigService.Get:output_type -> whatsapp_config_proto.GetResponse
+	6, // 7: whatsapp_config_proto.WhatsappConfigService.Delete:output_type -> whatsapp_config_proto.DeleteResponse
+	5, // [5:8] is the sub-list for method output_type
+	2, // [2:5] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_veyron_wpp_bot_protos_whatsapp_config_proto_init() }
@@ -425,6 +464,8 @@ func file_veyron_wpp_bot_protos_whatsapp_config_proto_init() {
 	if File_veyron_wpp_bot_protos_whatsapp_config_proto != nil {
 		return
 	}
+	file_veyron_wpp_bot_protos_whatsapp_config_proto_msgTypes[0].OneofWrappers = []any{}
+	file_veyron_wpp_bot_protos_whatsapp_config_proto_msgTypes[1].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
