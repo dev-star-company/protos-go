@@ -21,11 +21,13 @@ message RateCategoryDto {
 }
 
 message CreateRequest {
-    RateCategoryDto category = 1;
+    string name  = 2;
+    double value = 3;
 }
 
 message CreateResponse {
-    RateCategoryDto category = 1;
+    string name  = 1;
+    double value = 2;
 }
 
 message GetRequest {
@@ -33,15 +35,21 @@ message GetRequest {
 }
 
 message GetResponse {
-    RateCategoryDto category = 1;
+      int32  id    = 1;
+    string name  = 2;
+    double value = 3;
 }
 
 message UpdateRequest {
-    RateCategoryDto category = 1;
+    int32  id    = 1;
+    optional string name  = 2;
+    optional double value = 3;
 }
 
 message UpdateResponse {
-    RateCategoryDto category = 1;
+      int32  id    = 1;
+    string name  = 2;
+    double value = 3;
 }
 
 message DeleteRequest {
@@ -51,8 +59,8 @@ message DeleteRequest {
 message DeleteResponse {}
 
 message ListRequest {
-    int32 limit  = 1;
-    int32 offset = 2;
+    optional int32 limit  = 1;
+    optional int32 offset = 2;
 }
 
 message ListResponse {

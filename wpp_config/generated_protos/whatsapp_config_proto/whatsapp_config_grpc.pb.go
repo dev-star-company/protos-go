@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: veyron_wpp_bot/protos/whatsapp_config.proto
+// source: wpp_config/protos/whatsapp_config.proto
 
 package whatsapp_config_proto
 
@@ -22,6 +22,7 @@ const (
 	WhatsappConfigService_Create_FullMethodName = "/whatsapp_config_proto.WhatsappConfigService/Create"
 	WhatsappConfigService_Get_FullMethodName    = "/whatsapp_config_proto.WhatsappConfigService/Get"
 	WhatsappConfigService_Delete_FullMethodName = "/whatsapp_config_proto.WhatsappConfigService/Delete"
+	WhatsappConfigService_List_FullMethodName   = "/whatsapp_config_proto.WhatsappConfigService/List"
 )
 
 // WhatsappConfigServiceClient is the client API for WhatsappConfigService service.
@@ -31,6 +32,7 @@ type WhatsappConfigServiceClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
+	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 }
 
 type whatsappConfigServiceClient struct {
@@ -71,6 +73,16 @@ func (c *whatsappConfigServiceClient) Delete(ctx context.Context, in *DeleteRequ
 	return out, nil
 }
 
+func (c *whatsappConfigServiceClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListResponse)
+	err := c.cc.Invoke(ctx, WhatsappConfigService_List_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // WhatsappConfigServiceServer is the server API for WhatsappConfigService service.
 // All implementations must embed UnimplementedWhatsappConfigServiceServer
 // for forward compatibility.
@@ -78,6 +90,7 @@ type WhatsappConfigServiceServer interface {
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
+	List(context.Context, *ListRequest) (*ListResponse, error)
 	mustEmbedUnimplementedWhatsappConfigServiceServer()
 }
 
@@ -96,6 +109,9 @@ func (UnimplementedWhatsappConfigServiceServer) Get(context.Context, *GetRequest
 }
 func (UnimplementedWhatsappConfigServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (UnimplementedWhatsappConfigServiceServer) List(context.Context, *ListRequest) (*ListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
 func (UnimplementedWhatsappConfigServiceServer) mustEmbedUnimplementedWhatsappConfigServiceServer() {}
 func (UnimplementedWhatsappConfigServiceServer) testEmbeddedByValue()                               {}
@@ -172,6 +188,24 @@ func _WhatsappConfigService_Delete_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WhatsappConfigService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WhatsappConfigServiceServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WhatsappConfigService_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WhatsappConfigServiceServer).List(ctx, req.(*ListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // WhatsappConfigService_ServiceDesc is the grpc.ServiceDesc for WhatsappConfigService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -191,7 +225,11 @@ var WhatsappConfigService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "Delete",
 			Handler:    _WhatsappConfigService_Delete_Handler,
 		},
+		{
+			MethodName: "List",
+			Handler:    _WhatsappConfigService_List_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "veyron_wpp_bot/protos/whatsapp_config.proto",
+	Metadata: "wpp_config/protos/whatsapp_config.proto",
 }

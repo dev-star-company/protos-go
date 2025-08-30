@@ -8,6 +8,7 @@ service WhatsappConfigService {
     rpc Create (CreateRequest) returns (CreateResponse) {}
     rpc Get (GetRequest) returns (GetResponse) {}
     rpc Delete (DeleteRequest) returns (DeleteResponse) {}
+    rpc List (ListRequest) returns (ListResponse) {}
 }
 
 message WhatsappConfigDto {
@@ -26,7 +27,10 @@ message CreateRequest {
 }
 
 message CreateResponse {
-    WhatsappConfigDto config = 1;
+    optional int32 user_id = 1;
+    string phone_number = 2;
+    string status = 3;
+    string store_id = 4;
 }
 
 message GetRequest {
@@ -34,13 +38,25 @@ message GetRequest {
 }
 
 message GetResponse {
-    WhatsappConfigDto config = 1;
+    optional int32 user_id = 1;
+    string phone_number = 2;
+    string status = 3;
+    string store_id = 4;
+    uint32 id = 5;
 }
 
 message DeleteRequest {
     int32 user_id = 1;
 }
 
-message DeleteResponse {
-    bool success = 1;
+message DeleteResponse {}
+
+message ListRequest {
+    optional int32 limit  = 1;
+    optional int32 offset = 2;
+}
+
+message ListResponse {
+    repeated WhatsappConfigDto rows = 1;
+    int32 count = 2;
 }

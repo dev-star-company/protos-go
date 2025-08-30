@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.7
 // 	protoc        v6.30.2
-// source: veyron_wpp_bot/protos/message_template.proto
+// source: wpp_config/protos/message_template.proto
 
 package message_template_proto
 
@@ -31,7 +31,7 @@ type MessageTemplateDto struct {
 
 func (x *MessageTemplateDto) Reset() {
 	*x = MessageTemplateDto{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[0]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *MessageTemplateDto) String() string {
 func (*MessageTemplateDto) ProtoMessage() {}
 
 func (x *MessageTemplateDto) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[0]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *MessageTemplateDto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageTemplateDto.ProtoReflect.Descriptor instead.
 func (*MessageTemplateDto) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{0}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *MessageTemplateDto) GetId() int32 {
@@ -75,14 +75,14 @@ func (x *MessageTemplateDto) GetMessage() string {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Template      *MessageTemplateDto    `protobuf:"bytes,1,opt,name=template,proto3" json:"template,omitempty"`
+	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[1]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -94,7 +94,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[1]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -107,26 +107,26 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{1}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetTemplate() *MessageTemplateDto {
+func (x *CreateRequest) GetMessage() string {
 	if x != nil {
-		return x.Template
+		return x.Message
 	}
-	return nil
+	return ""
 }
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Template      *MessageTemplateDto    `protobuf:"bytes,1,opt,name=template,proto3" json:"template,omitempty"`
+	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateResponse) Reset() {
 	*x = CreateResponse{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[2]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -138,7 +138,7 @@ func (x *CreateResponse) String() string {
 func (*CreateResponse) ProtoMessage() {}
 
 func (x *CreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[2]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -151,14 +151,14 @@ func (x *CreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{2}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetTemplate() *MessageTemplateDto {
+func (x *CreateResponse) GetMessage() string {
 	if x != nil {
-		return x.Template
+		return x.Message
 	}
-	return nil
+	return ""
 }
 
 type GetRequest struct {
@@ -170,7 +170,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[3]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -182,7 +182,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[3]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -195,7 +195,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{3}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetRequest) GetId() int32 {
@@ -207,14 +207,15 @@ func (x *GetRequest) GetId() int32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Template      *MessageTemplateDto    `protobuf:"bytes,1,opt,name=template,proto3" json:"template,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[4]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -226,7 +227,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[4]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -239,26 +240,34 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{4}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetTemplate() *MessageTemplateDto {
+func (x *GetResponse) GetId() int32 {
 	if x != nil {
-		return x.Template
+		return x.Id
 	}
-	return nil
+	return 0
+}
+
+func (x *GetResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
 }
 
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Template      *MessageTemplateDto    `protobuf:"bytes,1,opt,name=template,proto3" json:"template,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Message       *string                `protobuf:"bytes,2,opt,name=message,proto3,oneof" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateRequest) Reset() {
 	*x = UpdateRequest{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[5]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -270,7 +279,7 @@ func (x *UpdateRequest) String() string {
 func (*UpdateRequest) ProtoMessage() {}
 
 func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[5]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -283,26 +292,34 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{5}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UpdateRequest) GetTemplate() *MessageTemplateDto {
+func (x *UpdateRequest) GetId() int32 {
 	if x != nil {
-		return x.Template
+		return x.Id
 	}
-	return nil
+	return 0
+}
+
+func (x *UpdateRequest) GetMessage() string {
+	if x != nil && x.Message != nil {
+		return *x.Message
+	}
+	return ""
 }
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Template      *MessageTemplateDto    `protobuf:"bytes,1,opt,name=template,proto3" json:"template,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateResponse) Reset() {
 	*x = UpdateResponse{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[6]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -314,7 +331,7 @@ func (x *UpdateResponse) String() string {
 func (*UpdateResponse) ProtoMessage() {}
 
 func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[6]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -327,14 +344,21 @@ func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
 func (*UpdateResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{6}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetTemplate() *MessageTemplateDto {
+func (x *UpdateResponse) GetId() int32 {
 	if x != nil {
-		return x.Template
+		return x.Id
 	}
-	return nil
+	return 0
+}
+
+func (x *UpdateResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
 }
 
 type DeleteRequest struct {
@@ -346,7 +370,7 @@ type DeleteRequest struct {
 
 func (x *DeleteRequest) Reset() {
 	*x = DeleteRequest{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[7]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -358,7 +382,7 @@ func (x *DeleteRequest) String() string {
 func (*DeleteRequest) ProtoMessage() {}
 
 func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[7]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -371,7 +395,7 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{7}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DeleteRequest) GetId() int32 {
@@ -389,7 +413,7 @@ type DeleteResponse struct {
 
 func (x *DeleteResponse) Reset() {
 	*x = DeleteResponse{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[8]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -401,7 +425,7 @@ func (x *DeleteResponse) String() string {
 func (*DeleteResponse) ProtoMessage() {}
 
 func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[8]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -414,20 +438,20 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{8}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{8}
 }
 
 type ListRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Limit         int32                  `protobuf:"varint,1,opt,name=limit,proto3" json:"limit,omitempty"`
-	Offset        int32                  `protobuf:"varint,2,opt,name=offset,proto3" json:"offset,omitempty"`
+	Limit         *int32                 `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset        *int32                 `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ListRequest) Reset() {
 	*x = ListRequest{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[9]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -439,7 +463,7 @@ func (x *ListRequest) String() string {
 func (*ListRequest) ProtoMessage() {}
 
 func (x *ListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[9]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -452,19 +476,19 @@ func (x *ListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
 func (*ListRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{9}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ListRequest) GetLimit() int32 {
-	if x != nil {
-		return x.Limit
+	if x != nil && x.Limit != nil {
+		return *x.Limit
 	}
 	return 0
 }
 
 func (x *ListRequest) GetOffset() int32 {
-	if x != nil {
-		return x.Offset
+	if x != nil && x.Offset != nil {
+		return *x.Offset
 	}
 	return 0
 }
@@ -479,7 +503,7 @@ type ListResponse struct {
 
 func (x *ListResponse) Reset() {
 	*x = ListResponse{}
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[10]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -491,7 +515,7 @@ func (x *ListResponse) String() string {
 func (*ListResponse) ProtoMessage() {}
 
 func (x *ListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_message_template_proto_msgTypes[10]
+	mi := &file_wpp_config_protos_message_template_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -504,7 +528,7 @@ func (x *ListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
 func (*ListResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP(), []int{10}
+	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ListResponse) GetRows() []*MessageTemplateDto {
@@ -521,33 +545,40 @@ func (x *ListResponse) GetCount() int32 {
 	return 0
 }
 
-var File_veyron_wpp_bot_protos_message_template_proto protoreflect.FileDescriptor
+var File_wpp_config_protos_message_template_proto protoreflect.FileDescriptor
 
-const file_veyron_wpp_bot_protos_message_template_proto_rawDesc = "" +
+const file_wpp_config_protos_message_template_proto_rawDesc = "" +
 	"\n" +
-	",veyron_wpp_bot/protos/message_template.proto\x12\x16message_template_proto\">\n" +
+	"(wpp_config/protos/message_template.proto\x12\x16message_template_proto\">\n" +
 	"\x12MessageTemplateDto\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"W\n" +
-	"\rCreateRequest\x12F\n" +
-	"\btemplate\x18\x01 \x01(\v2*.message_template_proto.MessageTemplateDtoR\btemplate\"X\n" +
-	"\x0eCreateResponse\x12F\n" +
-	"\btemplate\x18\x01 \x01(\v2*.message_template_proto.MessageTemplateDtoR\btemplate\"\x1c\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\")\n" +
+	"\rCreateRequest\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"*\n" +
+	"\x0eCreateResponse\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"U\n" +
-	"\vGetResponse\x12F\n" +
-	"\btemplate\x18\x01 \x01(\v2*.message_template_proto.MessageTemplateDtoR\btemplate\"W\n" +
-	"\rUpdateRequest\x12F\n" +
-	"\btemplate\x18\x01 \x01(\v2*.message_template_proto.MessageTemplateDtoR\btemplate\"X\n" +
-	"\x0eUpdateResponse\x12F\n" +
-	"\btemplate\x18\x01 \x01(\v2*.message_template_proto.MessageTemplateDtoR\btemplate\"\x1f\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"7\n" +
+	"\vGetResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"J\n" +
+	"\rUpdateRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x1d\n" +
+	"\amessage\x18\x02 \x01(\tH\x00R\amessage\x88\x01\x01B\n" +
+	"\n" +
+	"\b_message\":\n" +
+	"\x0eUpdateResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"\x10\n" +
-	"\x0eDeleteResponse\";\n" +
-	"\vListRequest\x12\x14\n" +
-	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
-	"\x06offset\x18\x02 \x01(\x05R\x06offset\"d\n" +
+	"\x0eDeleteResponse\"Z\n" +
+	"\vListRequest\x12\x19\n" +
+	"\x05limit\x18\x01 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x02 \x01(\x05H\x01R\x06offset\x88\x01\x01B\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_offset\"d\n" +
 	"\fListResponse\x12>\n" +
 	"\x04rows\x18\x01 \x03(\v2*.message_template_proto.MessageTemplateDtoR\x04rows\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\x05R\x05count2\xd0\x03\n" +
@@ -559,19 +590,19 @@ const file_veyron_wpp_bot_protos_message_template_proto_rawDesc = "" +
 	"\x04List\x12#.message_template_proto.ListRequest\x1a$.message_template_proto.ListResponse\"\x00B+Z)./generated_protos/message_template_protob\x06proto3"
 
 var (
-	file_veyron_wpp_bot_protos_message_template_proto_rawDescOnce sync.Once
-	file_veyron_wpp_bot_protos_message_template_proto_rawDescData []byte
+	file_wpp_config_protos_message_template_proto_rawDescOnce sync.Once
+	file_wpp_config_protos_message_template_proto_rawDescData []byte
 )
 
-func file_veyron_wpp_bot_protos_message_template_proto_rawDescGZIP() []byte {
-	file_veyron_wpp_bot_protos_message_template_proto_rawDescOnce.Do(func() {
-		file_veyron_wpp_bot_protos_message_template_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_veyron_wpp_bot_protos_message_template_proto_rawDesc), len(file_veyron_wpp_bot_protos_message_template_proto_rawDesc)))
+func file_wpp_config_protos_message_template_proto_rawDescGZIP() []byte {
+	file_wpp_config_protos_message_template_proto_rawDescOnce.Do(func() {
+		file_wpp_config_protos_message_template_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wpp_config_protos_message_template_proto_rawDesc), len(file_wpp_config_protos_message_template_proto_rawDesc)))
 	})
-	return file_veyron_wpp_bot_protos_message_template_proto_rawDescData
+	return file_wpp_config_protos_message_template_proto_rawDescData
 }
 
-var file_veyron_wpp_bot_protos_message_template_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
-var file_veyron_wpp_bot_protos_message_template_proto_goTypes = []any{
+var file_wpp_config_protos_message_template_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_wpp_config_protos_message_template_proto_goTypes = []any{
 	(*MessageTemplateDto)(nil), // 0: message_template_proto.MessageTemplateDto
 	(*CreateRequest)(nil),      // 1: message_template_proto.CreateRequest
 	(*CreateResponse)(nil),     // 2: message_template_proto.CreateResponse
@@ -584,50 +615,47 @@ var file_veyron_wpp_bot_protos_message_template_proto_goTypes = []any{
 	(*ListRequest)(nil),        // 9: message_template_proto.ListRequest
 	(*ListResponse)(nil),       // 10: message_template_proto.ListResponse
 }
-var file_veyron_wpp_bot_protos_message_template_proto_depIdxs = []int32{
-	0,  // 0: message_template_proto.CreateRequest.template:type_name -> message_template_proto.MessageTemplateDto
-	0,  // 1: message_template_proto.CreateResponse.template:type_name -> message_template_proto.MessageTemplateDto
-	0,  // 2: message_template_proto.GetResponse.template:type_name -> message_template_proto.MessageTemplateDto
-	0,  // 3: message_template_proto.UpdateRequest.template:type_name -> message_template_proto.MessageTemplateDto
-	0,  // 4: message_template_proto.UpdateResponse.template:type_name -> message_template_proto.MessageTemplateDto
-	0,  // 5: message_template_proto.ListResponse.rows:type_name -> message_template_proto.MessageTemplateDto
-	1,  // 6: message_template_proto.MessageTemplateService.Create:input_type -> message_template_proto.CreateRequest
-	3,  // 7: message_template_proto.MessageTemplateService.Get:input_type -> message_template_proto.GetRequest
-	5,  // 8: message_template_proto.MessageTemplateService.Update:input_type -> message_template_proto.UpdateRequest
-	7,  // 9: message_template_proto.MessageTemplateService.Delete:input_type -> message_template_proto.DeleteRequest
-	9,  // 10: message_template_proto.MessageTemplateService.List:input_type -> message_template_proto.ListRequest
-	2,  // 11: message_template_proto.MessageTemplateService.Create:output_type -> message_template_proto.CreateResponse
-	4,  // 12: message_template_proto.MessageTemplateService.Get:output_type -> message_template_proto.GetResponse
-	6,  // 13: message_template_proto.MessageTemplateService.Update:output_type -> message_template_proto.UpdateResponse
-	8,  // 14: message_template_proto.MessageTemplateService.Delete:output_type -> message_template_proto.DeleteResponse
-	10, // 15: message_template_proto.MessageTemplateService.List:output_type -> message_template_proto.ListResponse
-	11, // [11:16] is the sub-list for method output_type
-	6,  // [6:11] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+var file_wpp_config_protos_message_template_proto_depIdxs = []int32{
+	0,  // 0: message_template_proto.ListResponse.rows:type_name -> message_template_proto.MessageTemplateDto
+	1,  // 1: message_template_proto.MessageTemplateService.Create:input_type -> message_template_proto.CreateRequest
+	3,  // 2: message_template_proto.MessageTemplateService.Get:input_type -> message_template_proto.GetRequest
+	5,  // 3: message_template_proto.MessageTemplateService.Update:input_type -> message_template_proto.UpdateRequest
+	7,  // 4: message_template_proto.MessageTemplateService.Delete:input_type -> message_template_proto.DeleteRequest
+	9,  // 5: message_template_proto.MessageTemplateService.List:input_type -> message_template_proto.ListRequest
+	2,  // 6: message_template_proto.MessageTemplateService.Create:output_type -> message_template_proto.CreateResponse
+	4,  // 7: message_template_proto.MessageTemplateService.Get:output_type -> message_template_proto.GetResponse
+	6,  // 8: message_template_proto.MessageTemplateService.Update:output_type -> message_template_proto.UpdateResponse
+	8,  // 9: message_template_proto.MessageTemplateService.Delete:output_type -> message_template_proto.DeleteResponse
+	10, // 10: message_template_proto.MessageTemplateService.List:output_type -> message_template_proto.ListResponse
+	6,  // [6:11] is the sub-list for method output_type
+	1,  // [1:6] is the sub-list for method input_type
+	1,  // [1:1] is the sub-list for extension type_name
+	1,  // [1:1] is the sub-list for extension extendee
+	0,  // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_veyron_wpp_bot_protos_message_template_proto_init() }
-func file_veyron_wpp_bot_protos_message_template_proto_init() {
-	if File_veyron_wpp_bot_protos_message_template_proto != nil {
+func init() { file_wpp_config_protos_message_template_proto_init() }
+func file_wpp_config_protos_message_template_proto_init() {
+	if File_wpp_config_protos_message_template_proto != nil {
 		return
 	}
+	file_wpp_config_protos_message_template_proto_msgTypes[5].OneofWrappers = []any{}
+	file_wpp_config_protos_message_template_proto_msgTypes[9].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_veyron_wpp_bot_protos_message_template_proto_rawDesc), len(file_veyron_wpp_bot_protos_message_template_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wpp_config_protos_message_template_proto_rawDesc), len(file_wpp_config_protos_message_template_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_veyron_wpp_bot_protos_message_template_proto_goTypes,
-		DependencyIndexes: file_veyron_wpp_bot_protos_message_template_proto_depIdxs,
-		MessageInfos:      file_veyron_wpp_bot_protos_message_template_proto_msgTypes,
+		GoTypes:           file_wpp_config_protos_message_template_proto_goTypes,
+		DependencyIndexes: file_wpp_config_protos_message_template_proto_depIdxs,
+		MessageInfos:      file_wpp_config_protos_message_template_proto_msgTypes,
 	}.Build()
-	File_veyron_wpp_bot_protos_message_template_proto = out.File
-	file_veyron_wpp_bot_protos_message_template_proto_goTypes = nil
-	file_veyron_wpp_bot_protos_message_template_proto_depIdxs = nil
+	File_wpp_config_protos_message_template_proto = out.File
+	file_wpp_config_protos_message_template_proto_goTypes = nil
+	file_wpp_config_protos_message_template_proto_depIdxs = nil
 }

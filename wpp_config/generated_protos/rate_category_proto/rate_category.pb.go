@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.7
 // 	protoc        v6.30.2
-// source: veyron_wpp_bot/protos/rate_category.proto
+// source: wpp_config/protos/rate_category.proto
 
 package rate_category_proto
 
@@ -33,7 +33,7 @@ type RateCategoryDto struct {
 
 func (x *RateCategoryDto) Reset() {
 	*x = RateCategoryDto{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[0]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +45,7 @@ func (x *RateCategoryDto) String() string {
 func (*RateCategoryDto) ProtoMessage() {}
 
 func (x *RateCategoryDto) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[0]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +58,7 @@ func (x *RateCategoryDto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RateCategoryDto.ProtoReflect.Descriptor instead.
 func (*RateCategoryDto) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{0}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *RateCategoryDto) GetId() int32 {
@@ -84,14 +84,15 @@ func (x *RateCategoryDto) GetValue() float64 {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Category      *RateCategoryDto       `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Value         float64                `protobuf:"fixed64,3,opt,name=value,proto3" json:"value,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[1]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -103,7 +104,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[1]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -116,26 +117,34 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{1}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetCategory() *RateCategoryDto {
+func (x *CreateRequest) GetName() string {
 	if x != nil {
-		return x.Category
+		return x.Name
 	}
-	return nil
+	return ""
+}
+
+func (x *CreateRequest) GetValue() float64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
 }
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Category      *RateCategoryDto       `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Value         float64                `protobuf:"fixed64,2,opt,name=value,proto3" json:"value,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateResponse) Reset() {
 	*x = CreateResponse{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[2]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -147,7 +156,7 @@ func (x *CreateResponse) String() string {
 func (*CreateResponse) ProtoMessage() {}
 
 func (x *CreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[2]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -160,14 +169,21 @@ func (x *CreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{2}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetCategory() *RateCategoryDto {
+func (x *CreateResponse) GetName() string {
 	if x != nil {
-		return x.Category
+		return x.Name
 	}
-	return nil
+	return ""
+}
+
+func (x *CreateResponse) GetValue() float64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
 }
 
 type GetRequest struct {
@@ -179,7 +195,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[3]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -191,7 +207,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[3]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -204,7 +220,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{3}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetRequest) GetId() int32 {
@@ -216,14 +232,16 @@ func (x *GetRequest) GetId() int32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Category      *RateCategoryDto       `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Value         float64                `protobuf:"fixed64,3,opt,name=value,proto3" json:"value,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[4]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -235,7 +253,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[4]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -248,26 +266,42 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{4}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetCategory() *RateCategoryDto {
+func (x *GetResponse) GetId() int32 {
 	if x != nil {
-		return x.Category
+		return x.Id
 	}
-	return nil
+	return 0
+}
+
+func (x *GetResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *GetResponse) GetValue() float64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
 }
 
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Category      *RateCategoryDto       `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	Value         *float64               `protobuf:"fixed64,3,opt,name=value,proto3,oneof" json:"value,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateRequest) Reset() {
 	*x = UpdateRequest{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[5]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -279,7 +313,7 @@ func (x *UpdateRequest) String() string {
 func (*UpdateRequest) ProtoMessage() {}
 
 func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[5]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -292,26 +326,42 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{5}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UpdateRequest) GetCategory() *RateCategoryDto {
+func (x *UpdateRequest) GetId() int32 {
 	if x != nil {
-		return x.Category
+		return x.Id
 	}
-	return nil
+	return 0
+}
+
+func (x *UpdateRequest) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *UpdateRequest) GetValue() float64 {
+	if x != nil && x.Value != nil {
+		return *x.Value
+	}
+	return 0
 }
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Category      *RateCategoryDto       `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Value         float64                `protobuf:"fixed64,3,opt,name=value,proto3" json:"value,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateResponse) Reset() {
 	*x = UpdateResponse{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[6]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -323,7 +373,7 @@ func (x *UpdateResponse) String() string {
 func (*UpdateResponse) ProtoMessage() {}
 
 func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[6]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -336,14 +386,28 @@ func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
 func (*UpdateResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{6}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetCategory() *RateCategoryDto {
+func (x *UpdateResponse) GetId() int32 {
 	if x != nil {
-		return x.Category
+		return x.Id
 	}
-	return nil
+	return 0
+}
+
+func (x *UpdateResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UpdateResponse) GetValue() float64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
 }
 
 type DeleteRequest struct {
@@ -355,7 +419,7 @@ type DeleteRequest struct {
 
 func (x *DeleteRequest) Reset() {
 	*x = DeleteRequest{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[7]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -367,7 +431,7 @@ func (x *DeleteRequest) String() string {
 func (*DeleteRequest) ProtoMessage() {}
 
 func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[7]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -380,7 +444,7 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{7}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DeleteRequest) GetId() int32 {
@@ -398,7 +462,7 @@ type DeleteResponse struct {
 
 func (x *DeleteResponse) Reset() {
 	*x = DeleteResponse{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[8]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -410,7 +474,7 @@ func (x *DeleteResponse) String() string {
 func (*DeleteResponse) ProtoMessage() {}
 
 func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[8]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -423,20 +487,20 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{8}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{8}
 }
 
 type ListRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Limit         int32                  `protobuf:"varint,1,opt,name=limit,proto3" json:"limit,omitempty"`
-	Offset        int32                  `protobuf:"varint,2,opt,name=offset,proto3" json:"offset,omitempty"`
+	Limit         *int32                 `protobuf:"varint,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset        *int32                 `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ListRequest) Reset() {
 	*x = ListRequest{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[9]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -448,7 +512,7 @@ func (x *ListRequest) String() string {
 func (*ListRequest) ProtoMessage() {}
 
 func (x *ListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[9]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -461,19 +525,19 @@ func (x *ListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
 func (*ListRequest) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{9}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ListRequest) GetLimit() int32 {
-	if x != nil {
-		return x.Limit
+	if x != nil && x.Limit != nil {
+		return *x.Limit
 	}
 	return 0
 }
 
 func (x *ListRequest) GetOffset() int32 {
-	if x != nil {
-		return x.Offset
+	if x != nil && x.Offset != nil {
+		return *x.Offset
 	}
 	return 0
 }
@@ -488,7 +552,7 @@ type ListResponse struct {
 
 func (x *ListResponse) Reset() {
 	*x = ListResponse{}
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[10]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -500,7 +564,7 @@ func (x *ListResponse) String() string {
 func (*ListResponse) ProtoMessage() {}
 
 func (x *ListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_veyron_wpp_bot_protos_rate_category_proto_msgTypes[10]
+	mi := &file_wpp_config_protos_rate_category_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -513,7 +577,7 @@ func (x *ListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
 func (*ListResponse) Descriptor() ([]byte, []int) {
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP(), []int{10}
+	return file_wpp_config_protos_rate_category_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ListResponse) GetRows() []*RateCategoryDto {
@@ -530,34 +594,46 @@ func (x *ListResponse) GetCount() int32 {
 	return 0
 }
 
-var File_veyron_wpp_bot_protos_rate_category_proto protoreflect.FileDescriptor
+var File_wpp_config_protos_rate_category_proto protoreflect.FileDescriptor
 
-const file_veyron_wpp_bot_protos_rate_category_proto_rawDesc = "" +
+const file_wpp_config_protos_rate_category_proto_rawDesc = "" +
 	"\n" +
-	")veyron_wpp_bot/protos/rate_category.proto\x12\x13rate_category_proto\"K\n" +
+	"%wpp_config/protos/rate_category.proto\x12\x13rate_category_proto\"K\n" +
 	"\x0fRateCategoryDto\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
-	"\x05value\x18\x03 \x01(\x01R\x05value\"Q\n" +
-	"\rCreateRequest\x12@\n" +
-	"\bcategory\x18\x01 \x01(\v2$.rate_category_proto.RateCategoryDtoR\bcategory\"R\n" +
-	"\x0eCreateResponse\x12@\n" +
-	"\bcategory\x18\x01 \x01(\v2$.rate_category_proto.RateCategoryDtoR\bcategory\"\x1c\n" +
+	"\x05value\x18\x03 \x01(\x01R\x05value\"9\n" +
+	"\rCreateRequest\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
+	"\x05value\x18\x03 \x01(\x01R\x05value\":\n" +
+	"\x0eCreateResponse\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\x01R\x05value\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"O\n" +
-	"\vGetResponse\x12@\n" +
-	"\bcategory\x18\x01 \x01(\v2$.rate_category_proto.RateCategoryDtoR\bcategory\"Q\n" +
-	"\rUpdateRequest\x12@\n" +
-	"\bcategory\x18\x01 \x01(\v2$.rate_category_proto.RateCategoryDtoR\bcategory\"R\n" +
-	"\x0eUpdateResponse\x12@\n" +
-	"\bcategory\x18\x01 \x01(\v2$.rate_category_proto.RateCategoryDtoR\bcategory\"\x1f\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"G\n" +
+	"\vGetResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
+	"\x05value\x18\x03 \x01(\x01R\x05value\"f\n" +
+	"\rUpdateRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x17\n" +
+	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12\x19\n" +
+	"\x05value\x18\x03 \x01(\x01H\x01R\x05value\x88\x01\x01B\a\n" +
+	"\x05_nameB\b\n" +
+	"\x06_value\"J\n" +
+	"\x0eUpdateResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
+	"\x05value\x18\x03 \x01(\x01R\x05value\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"\x10\n" +
-	"\x0eDeleteResponse\";\n" +
-	"\vListRequest\x12\x14\n" +
-	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
-	"\x06offset\x18\x02 \x01(\x05R\x06offset\"^\n" +
+	"\x0eDeleteResponse\"Z\n" +
+	"\vListRequest\x12\x19\n" +
+	"\x05limit\x18\x01 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x02 \x01(\x05H\x01R\x06offset\x88\x01\x01B\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_offset\"^\n" +
 	"\fListResponse\x128\n" +
 	"\x04rows\x18\x01 \x03(\v2$.rate_category_proto.RateCategoryDtoR\x04rows\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\x05R\x05count2\xaf\x03\n" +
@@ -569,19 +645,19 @@ const file_veyron_wpp_bot_protos_rate_category_proto_rawDesc = "" +
 	"\x04List\x12 .rate_category_proto.ListRequest\x1a!.rate_category_proto.ListResponse\"\x00B(Z&./generated_protos/rate_category_protob\x06proto3"
 
 var (
-	file_veyron_wpp_bot_protos_rate_category_proto_rawDescOnce sync.Once
-	file_veyron_wpp_bot_protos_rate_category_proto_rawDescData []byte
+	file_wpp_config_protos_rate_category_proto_rawDescOnce sync.Once
+	file_wpp_config_protos_rate_category_proto_rawDescData []byte
 )
 
-func file_veyron_wpp_bot_protos_rate_category_proto_rawDescGZIP() []byte {
-	file_veyron_wpp_bot_protos_rate_category_proto_rawDescOnce.Do(func() {
-		file_veyron_wpp_bot_protos_rate_category_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_veyron_wpp_bot_protos_rate_category_proto_rawDesc), len(file_veyron_wpp_bot_protos_rate_category_proto_rawDesc)))
+func file_wpp_config_protos_rate_category_proto_rawDescGZIP() []byte {
+	file_wpp_config_protos_rate_category_proto_rawDescOnce.Do(func() {
+		file_wpp_config_protos_rate_category_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wpp_config_protos_rate_category_proto_rawDesc), len(file_wpp_config_protos_rate_category_proto_rawDesc)))
 	})
-	return file_veyron_wpp_bot_protos_rate_category_proto_rawDescData
+	return file_wpp_config_protos_rate_category_proto_rawDescData
 }
 
-var file_veyron_wpp_bot_protos_rate_category_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
-var file_veyron_wpp_bot_protos_rate_category_proto_goTypes = []any{
+var file_wpp_config_protos_rate_category_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_wpp_config_protos_rate_category_proto_goTypes = []any{
 	(*RateCategoryDto)(nil), // 0: rate_category_proto.RateCategoryDto
 	(*CreateRequest)(nil),   // 1: rate_category_proto.CreateRequest
 	(*CreateResponse)(nil),  // 2: rate_category_proto.CreateResponse
@@ -594,50 +670,47 @@ var file_veyron_wpp_bot_protos_rate_category_proto_goTypes = []any{
 	(*ListRequest)(nil),     // 9: rate_category_proto.ListRequest
 	(*ListResponse)(nil),    // 10: rate_category_proto.ListResponse
 }
-var file_veyron_wpp_bot_protos_rate_category_proto_depIdxs = []int32{
-	0,  // 0: rate_category_proto.CreateRequest.category:type_name -> rate_category_proto.RateCategoryDto
-	0,  // 1: rate_category_proto.CreateResponse.category:type_name -> rate_category_proto.RateCategoryDto
-	0,  // 2: rate_category_proto.GetResponse.category:type_name -> rate_category_proto.RateCategoryDto
-	0,  // 3: rate_category_proto.UpdateRequest.category:type_name -> rate_category_proto.RateCategoryDto
-	0,  // 4: rate_category_proto.UpdateResponse.category:type_name -> rate_category_proto.RateCategoryDto
-	0,  // 5: rate_category_proto.ListResponse.rows:type_name -> rate_category_proto.RateCategoryDto
-	1,  // 6: rate_category_proto.RateCategoryService.Create:input_type -> rate_category_proto.CreateRequest
-	3,  // 7: rate_category_proto.RateCategoryService.Get:input_type -> rate_category_proto.GetRequest
-	5,  // 8: rate_category_proto.RateCategoryService.Update:input_type -> rate_category_proto.UpdateRequest
-	7,  // 9: rate_category_proto.RateCategoryService.Delete:input_type -> rate_category_proto.DeleteRequest
-	9,  // 10: rate_category_proto.RateCategoryService.List:input_type -> rate_category_proto.ListRequest
-	2,  // 11: rate_category_proto.RateCategoryService.Create:output_type -> rate_category_proto.CreateResponse
-	4,  // 12: rate_category_proto.RateCategoryService.Get:output_type -> rate_category_proto.GetResponse
-	6,  // 13: rate_category_proto.RateCategoryService.Update:output_type -> rate_category_proto.UpdateResponse
-	8,  // 14: rate_category_proto.RateCategoryService.Delete:output_type -> rate_category_proto.DeleteResponse
-	10, // 15: rate_category_proto.RateCategoryService.List:output_type -> rate_category_proto.ListResponse
-	11, // [11:16] is the sub-list for method output_type
-	6,  // [6:11] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+var file_wpp_config_protos_rate_category_proto_depIdxs = []int32{
+	0,  // 0: rate_category_proto.ListResponse.rows:type_name -> rate_category_proto.RateCategoryDto
+	1,  // 1: rate_category_proto.RateCategoryService.Create:input_type -> rate_category_proto.CreateRequest
+	3,  // 2: rate_category_proto.RateCategoryService.Get:input_type -> rate_category_proto.GetRequest
+	5,  // 3: rate_category_proto.RateCategoryService.Update:input_type -> rate_category_proto.UpdateRequest
+	7,  // 4: rate_category_proto.RateCategoryService.Delete:input_type -> rate_category_proto.DeleteRequest
+	9,  // 5: rate_category_proto.RateCategoryService.List:input_type -> rate_category_proto.ListRequest
+	2,  // 6: rate_category_proto.RateCategoryService.Create:output_type -> rate_category_proto.CreateResponse
+	4,  // 7: rate_category_proto.RateCategoryService.Get:output_type -> rate_category_proto.GetResponse
+	6,  // 8: rate_category_proto.RateCategoryService.Update:output_type -> rate_category_proto.UpdateResponse
+	8,  // 9: rate_category_proto.RateCategoryService.Delete:output_type -> rate_category_proto.DeleteResponse
+	10, // 10: rate_category_proto.RateCategoryService.List:output_type -> rate_category_proto.ListResponse
+	6,  // [6:11] is the sub-list for method output_type
+	1,  // [1:6] is the sub-list for method input_type
+	1,  // [1:1] is the sub-list for extension type_name
+	1,  // [1:1] is the sub-list for extension extendee
+	0,  // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_veyron_wpp_bot_protos_rate_category_proto_init() }
-func file_veyron_wpp_bot_protos_rate_category_proto_init() {
-	if File_veyron_wpp_bot_protos_rate_category_proto != nil {
+func init() { file_wpp_config_protos_rate_category_proto_init() }
+func file_wpp_config_protos_rate_category_proto_init() {
+	if File_wpp_config_protos_rate_category_proto != nil {
 		return
 	}
+	file_wpp_config_protos_rate_category_proto_msgTypes[5].OneofWrappers = []any{}
+	file_wpp_config_protos_rate_category_proto_msgTypes[9].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_veyron_wpp_bot_protos_rate_category_proto_rawDesc), len(file_veyron_wpp_bot_protos_rate_category_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wpp_config_protos_rate_category_proto_rawDesc), len(file_wpp_config_protos_rate_category_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_veyron_wpp_bot_protos_rate_category_proto_goTypes,
-		DependencyIndexes: file_veyron_wpp_bot_protos_rate_category_proto_depIdxs,
-		MessageInfos:      file_veyron_wpp_bot_protos_rate_category_proto_msgTypes,
+		GoTypes:           file_wpp_config_protos_rate_category_proto_goTypes,
+		DependencyIndexes: file_wpp_config_protos_rate_category_proto_depIdxs,
+		MessageInfos:      file_wpp_config_protos_rate_category_proto_msgTypes,
 	}.Build()
-	File_veyron_wpp_bot_protos_rate_category_proto = out.File
-	file_veyron_wpp_bot_protos_rate_category_proto_goTypes = nil
-	file_veyron_wpp_bot_protos_rate_category_proto_depIdxs = nil
+	File_wpp_config_protos_rate_category_proto = out.File
+	file_wpp_config_protos_rate_category_proto_goTypes = nil
+	file_wpp_config_protos_rate_category_proto_depIdxs = nil
 }

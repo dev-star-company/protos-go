@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: veyron_wpp_bot/protos/message_template.proto
+// source: wpp_config/protos/message_template.proto
 
 package message_template_proto
 
@@ -272,5 +272,5 @@ var MessageTemplateService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "veyron_wpp_bot/protos/message_template.proto",
+	Metadata: "wpp_config/protos/message_template.proto",
 }

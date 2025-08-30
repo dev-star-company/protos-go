@@ -23,11 +23,19 @@ message ContactDto {
 }
 
 message CreateRequest {
-    ContactDto contact = 1;
+    string name = 1;
+    string chat_id = 2;
+    string client_id = 3;
+    string phone_number = 4;
+    int32 whatsapp_config_id = 5;
 }
 
 message CreateResponse {
-    ContactDto contact = 1;
+    string name = 1;
+    string chat_id = 2;
+    string client_id = 3;
+    string phone_number = 4;
+    int32 whatsapp_config_id = 5;
 }
 
 message GetRequest {
@@ -35,15 +43,30 @@ message GetRequest {
 }
 
 message GetResponse {
-    ContactDto contact = 1;
+    int32 id = 1;
+    string name = 2;
+    string chat_id = 3;
+    string client_id = 4;
+    string phone_number = 5;
+    int32 whatsapp_config_id = 6;
 }
 
 message UpdateRequest {
-    ContactDto contact = 1;
+    int32 id = 1;
+    optional string name = 2;
+    optional string chat_id = 3;
+    optional string client_id = 4;
+    optional string phone_number = 5;
+    optional int32 whatsapp_config_id = 6;
 }
 
 message UpdateResponse {
-    ContactDto contact = 1;
+    int32 id = 1;
+    string name = 2;
+    string chat_id = 3;
+    string client_id = 4;
+    string phone_number = 5;
+    int32 whatsapp_config_id = 6;
 }
 
 message DeleteRequest {
@@ -53,8 +76,9 @@ message DeleteRequest {
 message DeleteResponse {}
 
 message ListRequest {
-    int32 limit = 1;
-    int32 offset = 2;
+    optional int32 limit = 1;
+    optional int32 offset = 2;
+    optional int32 chat_id = 3;
 }
 
 message ListResponse {

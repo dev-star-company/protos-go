@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package listener_proto;
+
+option go_package = "./generated_protos/listener_proto";
+
+service ListenerService {
+  rpc AddPhoneToListener (AddRequest) returns (AddResponse);
+  rpc RemovePhoneFromListener (RemoveRequest) returns (RemoveResponse);
+}
+
+message AddRequest {
+  string phone_number = 1;
+}
+
+message AddResponse {}
+
+message RemoveRequest {
+  string phone_number = 1;
+}
+
+message RemoveResponse {}

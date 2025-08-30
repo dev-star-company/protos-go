@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: veyron_wpp_bot/protos/rate_category.proto
+// source: wpp_config/protos/rate_category.proto
 
 package rate_category_proto
 
@@ -271,5 +271,5 @@ var RateCategoryService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "veyron_wpp_bot/protos/rate_category.proto",
+	Metadata: "wpp_config/protos/rate_category.proto",
 }

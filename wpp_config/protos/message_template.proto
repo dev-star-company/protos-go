@@ -19,11 +19,11 @@ message MessageTemplateDto {
 }
 
 message CreateRequest {
-    MessageTemplateDto template = 1;
+    string message = 1;
 }
 
 message CreateResponse {
-    MessageTemplateDto template = 1;
+    string message = 1;
 }
 
 message GetRequest {
@@ -31,15 +31,18 @@ message GetRequest {
 }
 
 message GetResponse {
-    MessageTemplateDto template = 1;
+    int32  id      = 1;
+    string message = 2;
 }
 
 message UpdateRequest {
-    MessageTemplateDto template = 1;
+    int32 id = 1;
+    optional string message = 2;
 }
 
 message UpdateResponse {
-    MessageTemplateDto template = 1;
+    int32  id      = 1;
+    string message = 2;
 }
 
 message DeleteRequest {
@@ -49,8 +52,8 @@ message DeleteRequest {
 message DeleteResponse {}
 
 message ListRequest {
-    int32 limit  = 1;
-    int32 offset = 2;
+    optional int32 limit  = 1;
+    optional int32 offset = 2;
 }
 
 message ListResponse {
