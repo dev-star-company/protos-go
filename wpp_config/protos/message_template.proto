@@ -14,7 +14,7 @@ service MessageTemplateService {
 }
 
 message MessageTemplateDto {
-    int32  id      = 1;
+    uint32  id      = 1;
     string message = 2;
 }
 
@@ -23,30 +23,31 @@ message CreateRequest {
 }
 
 message CreateResponse {
-    string message = 1;
+    uint32  id      = 1;
+    string message = 2;
 }
 
 message GetRequest {
-    int32 id = 1;
+    uint32 id = 1;
 }
 
 message GetResponse {
-    int32  id      = 1;
+    uint32  id      = 1;
     string message = 2;
 }
 
 message UpdateRequest {
-    int32 id = 1;
+    uint32 id = 1;
     optional string message = 2;
 }
 
 message UpdateResponse {
-    int32  id      = 1;
+    uint32  id      = 1;
     string message = 2;
 }
 
 message DeleteRequest {
-    int32 id = 1;
+    uint32 id = 1;
 }
 
 message DeleteResponse {}

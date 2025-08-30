@@ -14,12 +14,12 @@ service ContactService {
 }
 
 message ContactDto {
-    int32 id = 1;
+    uint32 id = 1;
     string name = 2;
     string chat_id = 3;
     string client_id = 4;
     string phone_number = 5;
-    int32 whatsapp_config_id = 6;
+    uint32 whatsapp_config_id = 6;
 }
 
 message CreateRequest {
@@ -27,50 +27,51 @@ message CreateRequest {
     string chat_id = 2;
     string client_id = 3;
     string phone_number = 4;
-    int32 whatsapp_config_id = 5;
+    uint32 whatsapp_config_id = 5;
 }
 
 message CreateResponse {
-    string name = 1;
-    string chat_id = 2;
-    string client_id = 3;
-    string phone_number = 4;
-    int32 whatsapp_config_id = 5;
-}
-
-message GetRequest {
-    int32 id = 1;
-}
-
-message GetResponse {
-    int32 id = 1;
+    uint32 id = 1;
     string name = 2;
     string chat_id = 3;
     string client_id = 4;
     string phone_number = 5;
-    int32 whatsapp_config_id = 6;
+    uint32 whatsapp_config_id = 6;
+}
+
+message GetRequest {
+    uint32 id = 1;
+}
+
+message GetResponse {
+    uint32 id = 1;
+    string name = 2;
+    string chat_id = 3;
+    string client_id = 4;
+    string phone_number = 5;
+    uint32 whatsapp_config_id = 6;
 }
 
 message UpdateRequest {
-    int32 id = 1;
+    uint32 id = 1;
     optional string name = 2;
     optional string chat_id = 3;
     optional string client_id = 4;
     optional string phone_number = 5;
-    optional int32 whatsapp_config_id = 6;
+    optional uint32 whatsapp_config_id = 6;
 }
 
 message UpdateResponse {
-    int32 id = 1;
+    uint32 id = 1;
     string name = 2;
     string chat_id = 3;
     string client_id = 4;
     string phone_number = 5;
-    int32 whatsapp_config_id = 6;
+    uint32 whatsapp_config_id = 6;
 }
 
 message DeleteRequest {
-    int32 id = 1;
+    uint32 id = 1;
 }
 
 message DeleteResponse {}

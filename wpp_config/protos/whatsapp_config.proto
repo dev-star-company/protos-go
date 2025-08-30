@@ -12,7 +12,7 @@ service WhatsappConfigService {
 }
 
 message WhatsappConfigDto {
-    optional int32 user_id = 1;
+    optional uint32 user_id = 1;
     string phone_number = 2;
     string status = 3;
     string store_id = 4;
@@ -20,25 +20,26 @@ message WhatsappConfigDto {
 }
 
 message CreateRequest {
-    optional int32 user_id = 1;
+    optional uint32 user_id = 1;
     string phone_number = 2;
     string status = 3;
     string store_id = 4;
 }
 
 message CreateResponse {
-    optional int32 user_id = 1;
+    uint32 id = 5;
+    optional uint32 user_id = 1;
     string phone_number = 2;
     string status = 3;
     string store_id = 4;
 }
 
 message GetRequest {
-    int32 user_id = 1;
+    uint32 user_id = 1;
 }
 
 message GetResponse {
-    optional int32 user_id = 1;
+    optional uint32 user_id = 1;
     string phone_number = 2;
     string status = 3;
     string store_id = 4;
@@ -46,7 +47,7 @@ message GetResponse {
 }
 
 message DeleteRequest {
-    int32 user_id = 1;
+    uint32 user_id = 1;
 }
 
 message DeleteResponse {}

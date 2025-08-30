@@ -23,7 +23,7 @@ const (
 
 type WhatsappConfigDto struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        *int32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserId        *uint32                `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	PhoneNumber   string                 `protobuf:"bytes,2,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	StoreId       string                 `protobuf:"bytes,4,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
@@ -62,7 +62,7 @@ func (*WhatsappConfigDto) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_whatsapp_config_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *WhatsappConfigDto) GetUserId() int32 {
+func (x *WhatsappConfigDto) GetUserId() uint32 {
 	if x != nil && x.UserId != nil {
 		return *x.UserId
 	}
@@ -99,7 +99,7 @@ func (x *WhatsappConfigDto) GetId() uint32 {
 
 type CreateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        *int32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserId        *uint32                `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	PhoneNumber   string                 `protobuf:"bytes,2,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	StoreId       string                 `protobuf:"bytes,4,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
@@ -137,7 +137,7 @@ func (*CreateRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_whatsapp_config_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateRequest) GetUserId() int32 {
+func (x *CreateRequest) GetUserId() uint32 {
 	if x != nil && x.UserId != nil {
 		return *x.UserId
 	}
@@ -167,7 +167,8 @@ func (x *CreateRequest) GetStoreId() string {
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        *int32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	Id            uint32                 `protobuf:"varint,5,opt,name=id,proto3" json:"id,omitempty"`
+	UserId        *uint32                `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	PhoneNumber   string                 `protobuf:"bytes,2,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	StoreId       string                 `protobuf:"bytes,4,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
@@ -205,7 +206,14 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_whatsapp_config_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateResponse) GetUserId() int32 {
+func (x *CreateResponse) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *CreateResponse) GetUserId() uint32 {
 	if x != nil && x.UserId != nil {
 		return *x.UserId
 	}
@@ -235,7 +243,7 @@ func (x *CreateResponse) GetStoreId() string {
 
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -270,7 +278,7 @@ func (*GetRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_whatsapp_config_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetRequest) GetUserId() int32 {
+func (x *GetRequest) GetUserId() uint32 {
 	if x != nil {
 		return x.UserId
 	}
@@ -279,7 +287,7 @@ func (x *GetRequest) GetUserId() int32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        *int32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
+	UserId        *uint32                `protobuf:"varint,1,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	PhoneNumber   string                 `protobuf:"bytes,2,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	StoreId       string                 `protobuf:"bytes,4,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
@@ -318,7 +326,7 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_whatsapp_config_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetUserId() int32 {
+func (x *GetResponse) GetUserId() uint32 {
 	if x != nil && x.UserId != nil {
 		return *x.UserId
 	}
@@ -355,7 +363,7 @@ func (x *GetResponse) GetId() uint32 {
 
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -390,7 +398,7 @@ func (*DeleteRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_whatsapp_config_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *DeleteRequest) GetUserId() int32 {
+func (x *DeleteRequest) GetUserId() uint32 {
 	if x != nil {
 		return x.UserId
 	}
@@ -543,7 +551,7 @@ const file_wpp_config_protos_whatsapp_config_proto_rawDesc = "" +
 	"\n" +
 	"'wpp_config/protos/whatsapp_config.proto\x12\x15whatsapp_config_proto\"\xa3\x01\n" +
 	"\x11WhatsappConfigDto\x12\x1c\n" +
-	"\auser_id\x18\x01 \x01(\x05H\x00R\x06userId\x88\x01\x01\x12!\n" +
+	"\auser_id\x18\x01 \x01(\rH\x00R\x06userId\x88\x01\x01\x12!\n" +
 	"\fphone_number\x18\x02 \x01(\tR\vphoneNumber\x12\x16\n" +
 	"\x06status\x18\x03 \x01(\tR\x06status\x12\x19\n" +
 	"\bstore_id\x18\x04 \x01(\tR\astoreId\x12\x0e\n" +
@@ -551,14 +559,15 @@ const file_wpp_config_protos_whatsapp_config_proto_rawDesc = "" +
 	"\n" +
 	"\b_user_id\"\x8f\x01\n" +
 	"\rCreateRequest\x12\x1c\n" +
-	"\auser_id\x18\x01 \x01(\x05H\x00R\x06userId\x88\x01\x01\x12!\n" +
+	"\auser_id\x18\x01 \x01(\rH\x00R\x06userId\x88\x01\x01\x12!\n" +
 	"\fphone_number\x18\x02 \x01(\tR\vphoneNumber\x12\x16\n" +
 	"\x06status\x18\x03 \x01(\tR\x06status\x12\x19\n" +
 	"\bstore_id\x18\x04 \x01(\tR\astoreIdB\n" +
 	"\n" +
-	"\b_user_id\"\x90\x01\n" +
-	"\x0eCreateResponse\x12\x1c\n" +
-	"\auser_id\x18\x01 \x01(\x05H\x00R\x06userId\x88\x01\x01\x12!\n" +
+	"\b_user_id\"\xa0\x01\n" +
+	"\x0eCreateResponse\x12\x0e\n" +
+	"\x02id\x18\x05 \x01(\rR\x02id\x12\x1c\n" +
+	"\auser_id\x18\x01 \x01(\rH\x00R\x06userId\x88\x01\x01\x12!\n" +
 	"\fphone_number\x18\x02 \x01(\tR\vphoneNumber\x12\x16\n" +
 	"\x06status\x18\x03 \x01(\tR\x06status\x12\x19\n" +
 	"\bstore_id\x18\x04 \x01(\tR\astoreIdB\n" +
@@ -566,9 +575,9 @@ const file_wpp_config_protos_whatsapp_config_proto_rawDesc = "" +
 	"\b_user_id\"%\n" +
 	"\n" +
 	"GetRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x05R\x06userId\"\x9d\x01\n" +
+	"\auser_id\x18\x01 \x01(\rR\x06userId\"\x9d\x01\n" +
 	"\vGetResponse\x12\x1c\n" +
-	"\auser_id\x18\x01 \x01(\x05H\x00R\x06userId\x88\x01\x01\x12!\n" +
+	"\auser_id\x18\x01 \x01(\rH\x00R\x06userId\x88\x01\x01\x12!\n" +
 	"\fphone_number\x18\x02 \x01(\tR\vphoneNumber\x12\x16\n" +
 	"\x06status\x18\x03 \x01(\tR\x06status\x12\x19\n" +
 	"\bstore_id\x18\x04 \x01(\tR\astoreId\x12\x0e\n" +
@@ -576,7 +585,7 @@ const file_wpp_config_protos_whatsapp_config_proto_rawDesc = "" +
 	"\n" +
 	"\b_user_id\"(\n" +
 	"\rDeleteRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x05R\x06userId\"\x10\n" +
+	"\auser_id\x18\x01 \x01(\rR\x06userId\"\x10\n" +
 	"\x0eDeleteResponse\"Z\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +

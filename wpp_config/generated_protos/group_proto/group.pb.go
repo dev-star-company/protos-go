@@ -23,12 +23,12 @@ const (
 
 type GroupDto struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
-	Id               int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id               uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name             string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	ChatId           string                 `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	ClientId         string                 `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	RateCategoryId   int32                  `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
-	WhatsappConfigId int32                  `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
+	RateCategoryId   uint32                 `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
+	WhatsappConfigId uint32                 `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -63,7 +63,7 @@ func (*GroupDto) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_group_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GroupDto) GetId() int32 {
+func (x *GroupDto) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -91,14 +91,14 @@ func (x *GroupDto) GetClientId() string {
 	return ""
 }
 
-func (x *GroupDto) GetRateCategoryId() int32 {
+func (x *GroupDto) GetRateCategoryId() uint32 {
 	if x != nil {
 		return x.RateCategoryId
 	}
 	return 0
 }
 
-func (x *GroupDto) GetWhatsappConfigId() int32 {
+func (x *GroupDto) GetWhatsappConfigId() uint32 {
 	if x != nil {
 		return x.WhatsappConfigId
 	}
@@ -110,8 +110,8 @@ type CreateRequest struct {
 	Name             string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	ChatId           string                 `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	ClientId         string                 `protobuf:"bytes,3,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	RateCategoryId   int32                  `protobuf:"varint,4,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
-	WhatsappConfigId int32                  `protobuf:"varint,5,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
+	RateCategoryId   uint32                 `protobuf:"varint,4,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
+	WhatsappConfigId uint32                 `protobuf:"varint,5,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -167,14 +167,14 @@ func (x *CreateRequest) GetClientId() string {
 	return ""
 }
 
-func (x *CreateRequest) GetRateCategoryId() int32 {
+func (x *CreateRequest) GetRateCategoryId() uint32 {
 	if x != nil {
 		return x.RateCategoryId
 	}
 	return 0
 }
 
-func (x *CreateRequest) GetWhatsappConfigId() int32 {
+func (x *CreateRequest) GetWhatsappConfigId() uint32 {
 	if x != nil {
 		return x.WhatsappConfigId
 	}
@@ -183,11 +183,12 @@ func (x *CreateRequest) GetWhatsappConfigId() int32 {
 
 type CreateResponse struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
-	Name             string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	ChatId           string                 `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	ClientId         string                 `protobuf:"bytes,3,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	RateCategoryId   int32                  `protobuf:"varint,4,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
-	WhatsappConfigId int32                  `protobuf:"varint,5,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
+	Id               uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name             string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	ChatId           string                 `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	ClientId         string                 `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
+	RateCategoryId   uint32                 `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
+	WhatsappConfigId uint32                 `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -222,6 +223,13 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_group_proto_rawDescGZIP(), []int{2}
 }
 
+func (x *CreateResponse) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 func (x *CreateResponse) GetName() string {
 	if x != nil {
 		return x.Name
@@ -243,14 +251,14 @@ func (x *CreateResponse) GetClientId() string {
 	return ""
 }
 
-func (x *CreateResponse) GetRateCategoryId() int32 {
+func (x *CreateResponse) GetRateCategoryId() uint32 {
 	if x != nil {
 		return x.RateCategoryId
 	}
 	return 0
 }
 
-func (x *CreateResponse) GetWhatsappConfigId() int32 {
+func (x *CreateResponse) GetWhatsappConfigId() uint32 {
 	if x != nil {
 		return x.WhatsappConfigId
 	}
@@ -259,7 +267,7 @@ func (x *CreateResponse) GetWhatsappConfigId() int32 {
 
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -294,7 +302,7 @@ func (*GetRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_group_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetRequest) GetId() int32 {
+func (x *GetRequest) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -303,12 +311,12 @@ func (x *GetRequest) GetId() int32 {
 
 type GetResponse struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
-	Id               int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id               uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name             string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	ChatId           string                 `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	ClientId         string                 `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	RateCategoryId   int32                  `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
-	WhatsappConfigId int32                  `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
+	RateCategoryId   uint32                 `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
+	WhatsappConfigId uint32                 `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -343,7 +351,7 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_group_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetId() int32 {
+func (x *GetResponse) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -371,14 +379,14 @@ func (x *GetResponse) GetClientId() string {
 	return ""
 }
 
-func (x *GetResponse) GetRateCategoryId() int32 {
+func (x *GetResponse) GetRateCategoryId() uint32 {
 	if x != nil {
 		return x.RateCategoryId
 	}
 	return 0
 }
 
-func (x *GetResponse) GetWhatsappConfigId() int32 {
+func (x *GetResponse) GetWhatsappConfigId() uint32 {
 	if x != nil {
 		return x.WhatsappConfigId
 	}
@@ -387,12 +395,12 @@ func (x *GetResponse) GetWhatsappConfigId() int32 {
 
 type UpdateRequest struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
-	Id               int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id               uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name             *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	ChatId           *string                `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3,oneof" json:"chat_id,omitempty"`
 	ClientId         *string                `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3,oneof" json:"client_id,omitempty"`
-	RateCategoryId   *int32                 `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3,oneof" json:"rate_category_id,omitempty"`
-	WhatsappConfigId *int32                 `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3,oneof" json:"whatsapp_config_id,omitempty"`
+	RateCategoryId   *uint32                `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3,oneof" json:"rate_category_id,omitempty"`
+	WhatsappConfigId *uint32                `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3,oneof" json:"whatsapp_config_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -427,7 +435,7 @@ func (*UpdateRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_group_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UpdateRequest) GetId() int32 {
+func (x *UpdateRequest) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -455,14 +463,14 @@ func (x *UpdateRequest) GetClientId() string {
 	return ""
 }
 
-func (x *UpdateRequest) GetRateCategoryId() int32 {
+func (x *UpdateRequest) GetRateCategoryId() uint32 {
 	if x != nil && x.RateCategoryId != nil {
 		return *x.RateCategoryId
 	}
 	return 0
 }
 
-func (x *UpdateRequest) GetWhatsappConfigId() int32 {
+func (x *UpdateRequest) GetWhatsappConfigId() uint32 {
 	if x != nil && x.WhatsappConfigId != nil {
 		return *x.WhatsappConfigId
 	}
@@ -471,12 +479,12 @@ func (x *UpdateRequest) GetWhatsappConfigId() int32 {
 
 type UpdateResponse struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
-	Id               int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id               uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name             string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	ChatId           string                 `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	ClientId         string                 `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	RateCategoryId   int32                  `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
-	WhatsappConfigId int32                  `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
+	RateCategoryId   uint32                 `protobuf:"varint,5,opt,name=rate_category_id,json=rateCategoryId,proto3" json:"rate_category_id,omitempty"`
+	WhatsappConfigId uint32                 `protobuf:"varint,6,opt,name=whatsapp_config_id,json=whatsappConfigId,proto3" json:"whatsapp_config_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -511,7 +519,7 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_group_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetId() int32 {
+func (x *UpdateResponse) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -539,14 +547,14 @@ func (x *UpdateResponse) GetClientId() string {
 	return ""
 }
 
-func (x *UpdateResponse) GetRateCategoryId() int32 {
+func (x *UpdateResponse) GetRateCategoryId() uint32 {
 	if x != nil {
 		return x.RateCategoryId
 	}
 	return 0
 }
 
-func (x *UpdateResponse) GetWhatsappConfigId() int32 {
+func (x *UpdateResponse) GetWhatsappConfigId() uint32 {
 	if x != nil {
 		return x.WhatsappConfigId
 	}
@@ -555,7 +563,7 @@ func (x *UpdateResponse) GetWhatsappConfigId() int32 {
 
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -590,7 +598,7 @@ func (*DeleteRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_group_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *DeleteRequest) GetId() int32 {
+func (x *DeleteRequest) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -751,41 +759,42 @@ const file_wpp_config_protos_group_proto_rawDesc = "" +
 	"\n" +
 	"\x1dwpp_config/protos/group.proto\x12\vgroup_proto\"\xbc\x01\n" +
 	"\bGroupDto\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x17\n" +
 	"\achat_id\x18\x03 \x01(\tR\x06chatId\x12\x1b\n" +
 	"\tclient_id\x18\x04 \x01(\tR\bclientId\x12(\n" +
-	"\x10rate_category_id\x18\x05 \x01(\x05R\x0erateCategoryId\x12,\n" +
-	"\x12whatsapp_config_id\x18\x06 \x01(\x05R\x10whatsappConfigId\"\xb1\x01\n" +
+	"\x10rate_category_id\x18\x05 \x01(\rR\x0erateCategoryId\x12,\n" +
+	"\x12whatsapp_config_id\x18\x06 \x01(\rR\x10whatsappConfigId\"\xb1\x01\n" +
 	"\rCreateRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x17\n" +
 	"\achat_id\x18\x02 \x01(\tR\x06chatId\x12\x1b\n" +
 	"\tclient_id\x18\x03 \x01(\tR\bclientId\x12(\n" +
-	"\x10rate_category_id\x18\x04 \x01(\x05R\x0erateCategoryId\x12,\n" +
-	"\x12whatsapp_config_id\x18\x05 \x01(\x05R\x10whatsappConfigId\"\xb2\x01\n" +
-	"\x0eCreateResponse\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12\x17\n" +
-	"\achat_id\x18\x02 \x01(\tR\x06chatId\x12\x1b\n" +
-	"\tclient_id\x18\x03 \x01(\tR\bclientId\x12(\n" +
-	"\x10rate_category_id\x18\x04 \x01(\x05R\x0erateCategoryId\x12,\n" +
-	"\x12whatsapp_config_id\x18\x05 \x01(\x05R\x10whatsappConfigId\"\x1c\n" +
-	"\n" +
-	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"\xbf\x01\n" +
-	"\vGetResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x10rate_category_id\x18\x04 \x01(\rR\x0erateCategoryId\x12,\n" +
+	"\x12whatsapp_config_id\x18\x05 \x01(\rR\x10whatsappConfigId\"\xc2\x01\n" +
+	"\x0eCreateResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x17\n" +
 	"\achat_id\x18\x03 \x01(\tR\x06chatId\x12\x1b\n" +
 	"\tclient_id\x18\x04 \x01(\tR\bclientId\x12(\n" +
-	"\x10rate_category_id\x18\x05 \x01(\x05R\x0erateCategoryId\x12,\n" +
-	"\x12whatsapp_config_id\x18\x06 \x01(\x05R\x10whatsappConfigId\"\xa9\x02\n" +
+	"\x10rate_category_id\x18\x05 \x01(\rR\x0erateCategoryId\x12,\n" +
+	"\x12whatsapp_config_id\x18\x06 \x01(\rR\x10whatsappConfigId\"\x1c\n" +
+	"\n" +
+	"GetRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\xbf\x01\n" +
+	"\vGetResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x17\n" +
+	"\achat_id\x18\x03 \x01(\tR\x06chatId\x12\x1b\n" +
+	"\tclient_id\x18\x04 \x01(\tR\bclientId\x12(\n" +
+	"\x10rate_category_id\x18\x05 \x01(\rR\x0erateCategoryId\x12,\n" +
+	"\x12whatsapp_config_id\x18\x06 \x01(\rR\x10whatsappConfigId\"\xa9\x02\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x17\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x17\n" +
 	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12\x1c\n" +
 	"\achat_id\x18\x03 \x01(\tH\x01R\x06chatId\x88\x01\x01\x12 \n" +
 	"\tclient_id\x18\x04 \x01(\tH\x02R\bclientId\x88\x01\x01\x12-\n" +
-	"\x10rate_category_id\x18\x05 \x01(\x05H\x03R\x0erateCategoryId\x88\x01\x01\x121\n" +
-	"\x12whatsapp_config_id\x18\x06 \x01(\x05H\x04R\x10whatsappConfigId\x88\x01\x01B\a\n" +
+	"\x10rate_category_id\x18\x05 \x01(\rH\x03R\x0erateCategoryId\x88\x01\x01\x121\n" +
+	"\x12whatsapp_config_id\x18\x06 \x01(\rH\x04R\x10whatsappConfigId\x88\x01\x01B\a\n" +
 	"\x05_nameB\n" +
 	"\n" +
 	"\b_chat_idB\f\n" +
@@ -794,14 +803,14 @@ const file_wpp_config_protos_group_proto_rawDesc = "" +
 	"\x11_rate_category_idB\x15\n" +
 	"\x13_whatsapp_config_id\"\xc2\x01\n" +
 	"\x0eUpdateResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x17\n" +
 	"\achat_id\x18\x03 \x01(\tR\x06chatId\x12\x1b\n" +
 	"\tclient_id\x18\x04 \x01(\tR\bclientId\x12(\n" +
-	"\x10rate_category_id\x18\x05 \x01(\x05R\x0erateCategoryId\x12,\n" +
-	"\x12whatsapp_config_id\x18\x06 \x01(\x05R\x10whatsappConfigId\"\x1f\n" +
+	"\x10rate_category_id\x18\x05 \x01(\rR\x0erateCategoryId\x12,\n" +
+	"\x12whatsapp_config_id\x18\x06 \x01(\rR\x10whatsappConfigId\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"\x10\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\x10\n" +
 	"\x0eDeleteResponse\"\x84\x01\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +

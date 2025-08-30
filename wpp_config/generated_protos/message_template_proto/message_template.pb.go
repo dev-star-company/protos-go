@@ -23,7 +23,7 @@ const (
 
 type MessageTemplateDto struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -59,7 +59,7 @@ func (*MessageTemplateDto) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MessageTemplateDto) GetId() int32 {
+func (x *MessageTemplateDto) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -119,7 +119,8 @@ func (x *CreateRequest) GetMessage() string {
 
 type CreateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -154,6 +155,13 @@ func (*CreateResponse) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{2}
 }
 
+func (x *CreateResponse) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 func (x *CreateResponse) GetMessage() string {
 	if x != nil {
 		return x.Message
@@ -163,7 +171,7 @@ func (x *CreateResponse) GetMessage() string {
 
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -198,7 +206,7 @@ func (*GetRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetRequest) GetId() int32 {
+func (x *GetRequest) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -207,7 +215,7 @@ func (x *GetRequest) GetId() int32 {
 
 type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -243,7 +251,7 @@ func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetResponse) GetId() int32 {
+func (x *GetResponse) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -259,7 +267,7 @@ func (x *GetResponse) GetMessage() string {
 
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Message       *string                `protobuf:"bytes,2,opt,name=message,proto3,oneof" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -295,7 +303,7 @@ func (*UpdateRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UpdateRequest) GetId() int32 {
+func (x *UpdateRequest) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -311,7 +319,7 @@ func (x *UpdateRequest) GetMessage() string {
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -347,7 +355,7 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateResponse) GetId() int32 {
+func (x *UpdateResponse) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -363,7 +371,7 @@ func (x *UpdateResponse) GetMessage() string {
 
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -398,7 +406,7 @@ func (*DeleteRequest) Descriptor() ([]byte, []int) {
 	return file_wpp_config_protos_message_template_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *DeleteRequest) GetId() int32 {
+func (x *DeleteRequest) GetId() uint32 {
 	if x != nil {
 		return x.Id
 	}
@@ -551,28 +559,29 @@ const file_wpp_config_protos_message_template_proto_rawDesc = "" +
 	"\n" +
 	"(wpp_config/protos/message_template.proto\x12\x16message_template_proto\">\n" +
 	"\x12MessageTemplateDto\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\")\n" +
 	"\rCreateRequest\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"*\n" +
-	"\x0eCreateResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"\x1c\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\":\n" +
+	"\x0eCreateResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\x1c\n" +
 	"\n" +
 	"GetRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"7\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"7\n" +
 	"\vGetResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"J\n" +
 	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x1d\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
 	"\amessage\x18\x02 \x01(\tH\x00R\amessage\x88\x01\x01B\n" +
 	"\n" +
 	"\b_message\":\n" +
 	"\x0eUpdateResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"\x1f\n" +
 	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"\x10\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"\x10\n" +
 	"\x0eDeleteResponse\"Z\n" +
 	"\vListRequest\x12\x19\n" +
 	"\x05limit\x18\x01 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
