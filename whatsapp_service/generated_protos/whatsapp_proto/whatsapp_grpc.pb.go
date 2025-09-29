@@ -32,6 +32,7 @@ const (
 	WhatsappService_WatchMessages_FullMethodName         = "/whatsapp_proto.WhatsappService/WatchMessages"
 	WhatsappService_GetConnectionStatus_FullMethodName   = "/whatsapp_proto.WhatsappService/GetConnectionStatus"
 	WhatsappService_PostToBroadcastList_FullMethodName   = "/whatsapp_proto.WhatsappService/PostToBroadcastList"
+	WhatsappService_ListWppClients_FullMethodName        = "/whatsapp_proto.WhatsappService/ListWppClients"
 )
 
 // WhatsappServiceClient is the client API for WhatsappService service.
@@ -51,6 +52,7 @@ type WhatsappServiceClient interface {
 	WatchMessages(ctx context.Context, in *WatchMessagesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchMessagesResponse], error)
 	GetConnectionStatus(ctx context.Context, in *GetConnectionStatusRequest, opts ...grpc.CallOption) (*GetConnectionStatusResponse, error)
 	PostToBroadcastList(ctx context.Context, in *PostToBroadcastListRequest, opts ...grpc.CallOption) (*PostToBroadcastListResponse, error)
+	ListWppClients(ctx context.Context, in *ListWppClientsRequest, opts ...grpc.CallOption) (*ListWppClientsResponse, error)
 }
 
 type whatsappServiceClient struct {
@@ -212,6 +214,16 @@ func (c *whatsappServiceClient) PostToBroadcastList(ctx context.Context, in *Pos
 	return out, nil
 }
 
+func (c *whatsappServiceClient) ListWppClients(ctx context.Context, in *ListWppClientsRequest, opts ...grpc.CallOption) (*ListWppClientsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListWppClientsResponse)
+	err := c.cc.Invoke(ctx, WhatsappService_ListWppClients_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // WhatsappServiceServer is the server API for WhatsappService service.
 // All implementations must embed UnimplementedWhatsappServiceServer
 // for forward compatibility.
@@ -229,6 +241,7 @@ type WhatsappServiceServer interface {
 	WatchMessages(*WatchMessagesRequest, grpc.ServerStreamingServer[WatchMessagesResponse]) error
 	GetConnectionStatus(context.Context, *GetConnectionStatusRequest) (*GetConnectionStatusResponse, error)
 	PostToBroadcastList(context.Context, *PostToBroadcastListRequest) (*PostToBroadcastListResponse, error)
+	ListWppClients(context.Context, *ListWppClientsRequest) (*ListWppClientsResponse, error)
 	mustEmbedUnimplementedWhatsappServiceServer()
 }
 
@@ -277,6 +290,9 @@ func (UnimplementedWhatsappServiceServer) GetConnectionStatus(context.Context, *
 }
 func (UnimplementedWhatsappServiceServer) PostToBroadcastList(context.Context, *PostToBroadcastListRequest) (*PostToBroadcastListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PostToBroadcastList not implemented")
+}
+func (UnimplementedWhatsappServiceServer) ListWppClients(context.Context, *ListWppClientsRequest) (*ListWppClientsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWppClients not implemented")
 }
 func (UnimplementedWhatsappServiceServer) mustEmbedUnimplementedWhatsappServiceServer() {}
 func (UnimplementedWhatsappServiceServer) testEmbeddedByValue()                         {}
@@ -508,6 +524,24 @@ func _WhatsappService_PostToBroadcastList_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WhatsappService_ListWppClients_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListWppClientsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WhatsappServiceServer).ListWppClients(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WhatsappService_ListWppClients_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WhatsappServiceServer).ListWppClients(ctx, req.(*ListWppClientsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // WhatsappService_ServiceDesc is the grpc.ServiceDesc for WhatsappService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -554,6 +588,10 @@ var WhatsappService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PostToBroadcastList",
 			Handler:    _WhatsappService_PostToBroadcastList_Handler,
+		},
+		{
+			MethodName: "ListWppClients",
+			Handler:    _WhatsappService_ListWppClients_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

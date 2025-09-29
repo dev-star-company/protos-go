@@ -18,6 +18,7 @@ service WhatsappService {
     rpc WatchMessages (WatchMessagesRequest) returns (stream WatchMessagesResponse) {};
     rpc GetConnectionStatus (GetConnectionStatusRequest) returns (GetConnectionStatusResponse) {};
     rpc PostToBroadcastList (PostToBroadcastListRequest) returns (PostToBroadcastListResponse) {};
+    rpc ListWppClients (ListWppClientsRequest) returns (ListWppClientsResponse) {};
 }
 
 message ContactDto {
@@ -187,4 +188,14 @@ message PostToBroadcastListRequest {
 message PostToBroadcastListResponse {
     string message_id = 1;
     string status = 2;
+}
+
+message ListWppClientsRequest {
+    uint32 limit = 1;
+    uint32 offset = 2;
+}
+
+message ListWppClientsResponse {
+    repeated string clients = 1;
+    uint32 count = 2;
 }
