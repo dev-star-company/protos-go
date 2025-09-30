@@ -55,6 +55,7 @@ message ConnectResponse {
     optional string store_id = 5;
     optional string user_phone = 6;
     optional string error_message = 7;
+    optional string jid = 8;
 }
 
 message ReconnectRequest {

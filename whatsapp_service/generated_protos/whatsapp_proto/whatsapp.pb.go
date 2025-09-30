@@ -298,6 +298,7 @@ type ConnectResponse struct {
 	StoreId       *string                `protobuf:"bytes,5,opt,name=store_id,json=storeId,proto3,oneof" json:"store_id,omitempty"`
 	UserPhone     *string                `protobuf:"bytes,6,opt,name=user_phone,json=userPhone,proto3,oneof" json:"user_phone,omitempty"`
 	ErrorMessage  *string                `protobuf:"bytes,7,opt,name=error_message,json=errorMessage,proto3,oneof" json:"error_message,omitempty"`
+	Jid           *string                `protobuf:"bytes,8,opt,name=jid,proto3,oneof" json:"jid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -377,6 +378,13 @@ func (x *ConnectResponse) GetUserPhone() string {
 func (x *ConnectResponse) GetErrorMessage() string {
 	if x != nil && x.ErrorMessage != nil {
 		return *x.ErrorMessage
+	}
+	return ""
+}
+
+func (x *ConnectResponse) GetJid() string {
+	if x != nil && x.Jid != nil {
+		return *x.Jid
 	}
 	return ""
 }
@@ -1917,7 +1925,7 @@ const file_whatsapp_service_protos_whatsapp_proto_rawDesc = "" +
 	"\x06status\x18\x02 \x01(\tR\x06status\"I\n" +
 	"\x0eConnectRequest\x12&\n" +
 	"\fphone_number\x18\x01 \x01(\tH\x00R\vphoneNumber\x88\x01\x01B\x0f\n" +
-	"\r_phone_number\"\xc3\x02\n" +
+	"\r_phone_number\"\xe2\x02\n" +
 	"\x0fConnectResponse\x12\x19\n" +
 	"\bis_ended\x18\x01 \x01(\bR\aisEnded\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x12&\n" +
@@ -1926,13 +1934,15 @@ const file_whatsapp_service_protos_whatsapp_proto_rawDesc = "" +
 	"\bstore_id\x18\x05 \x01(\tH\x02R\astoreId\x88\x01\x01\x12\"\n" +
 	"\n" +
 	"user_phone\x18\x06 \x01(\tH\x03R\tuserPhone\x88\x01\x01\x12(\n" +
-	"\rerror_message\x18\a \x01(\tH\x04R\ferrorMessage\x88\x01\x01B\x0f\n" +
+	"\rerror_message\x18\a \x01(\tH\x04R\ferrorMessage\x88\x01\x01\x12\x15\n" +
+	"\x03jid\x18\b \x01(\tH\x05R\x03jid\x88\x01\x01B\x0f\n" +
 	"\r_pairing_codeB\n" +
 	"\n" +
 	"\b_qr_codeB\v\n" +
 	"\t_store_idB\r\n" +
 	"\v_user_phoneB\x10\n" +
-	"\x0e_error_message\"5\n" +
+	"\x0e_error_messageB\x06\n" +
+	"\x04_jid\"5\n" +
 	"\x10ReconnectRequest\x12!\n" +
 	"\fphone_number\x18\x01 \x01(\tR\vphoneNumber\"O\n" +
 	"\x11ReconnectResponse\x12(\n" +
