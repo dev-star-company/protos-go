@@ -38,6 +38,11 @@ message GroupMemberDto {
     bool is_super_admin = 4;
 }
 
+message WppClients {
+    string phone_number = 1;
+    string status = 2;
+}
+
 message ConnectRequest {
     optional string phone_number = 1;
 }
@@ -196,6 +201,6 @@ message ListWppClientsRequest {
 }
 
 message ListWppClientsResponse {
-    repeated string clients = 1;
+    repeated WppClients clients = 1;
     uint32 count = 2;
 }
